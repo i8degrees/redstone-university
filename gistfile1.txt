@@ -1,0 +1,127 @@
+This is a phenomenal amount of high-quality, actionable feedback. It's exactly what's needed to elevate the course from great to exceptional. The consensus is clear: strengthen the fundamentals, increase interactivity, and explicitly bridge the gap between hardware theory and software practice.
+
+Let's synthesize all this feedback and rebuild the curriculum with these improvements integrated from the ground up.
+
+---
+
+### **Redstone University: The Complete Curriculum (Version 3.0 - Enhanced Edition)**
+
+**Core Enhancements Based on Feedback:**
+*   **Pacing & Chunking:** Dense modules are broken down into smaller, more digestible lessons.
+*   **Visuals & Schematics:** ASCII art and explicit build guides are now a core part of the curriculum plan.
+*   **Practice & Assessment:** Each module now includes "Checkpoint Quizzes" and "Debugging Challenges."
+*   **Real-World & LeetCode Connections:** Every relevant concept is now explicitly tied to both hardware (CPU) and software (programming/LeetCode) applications.
+*   **Accessibility:** A "No-Minecraft Track" is now an official part of the course philosophy, supported by diagrams and links to online simulators.
+
+---
+
+### **`intro.md` (Revised Course Introduction)**
+
+*(The existing intro is strong, but we'll add an "Accessibility" section.)*
+
+**... (previous content) ...**
+
+### Who Is This For?
+*   ... (as before) ...
+
+### How to Get Started & Accessibility
+
+This course is designed to be followed along in **Minecraft: Java Edition**. However, Minecraft is not strictly required!
+
+**The "No-Minecraft Track":** If you don't have Minecraft or prefer a more theoretical approach, you can still complete this entire course. Every lesson will include text descriptions, diagrams, and schematics. We will also provide links to free online digital logic simulators (like [CircuitVerse](https://circuitverse.org/simulator)) where you can build and test these circuits without the game. The core learning is in the logic, not just the blocks.
+
+**... (rest of the intro) ...**
+
+---
+
+### **Part I: The Foundations - Speaking to the Machine**
+
+*(The introduction to Part I remains the same.)*
+
+#### **Module 1: Speaking in 1s and 0s (Expanded)**
+*   **Lesson 1.1: Why Binary?** (As before)
+*   **Lesson 1.2: Counting with Switches** (As before)
+*   **Lesson 1.3 (New): Binary Conversion Drills & Games.**
+    *   Interactive drills: "Convert 13 to binary." "What is `1011` in decimal?"
+    *   The "Binary Game": Start with all levers down. The goal is to reach a target number by only flipping levers up. Teaches the "greedy" algorithm for binary conversion.
+*   **Lesson 1.4: The Lab - Building Our 4-Bit Register.** (As before)
+*   **Module 1 Checkpoint:**
+    *   **Quiz:** "What is the largest number a 5-bit register can hold?" "What is `1001` in decimal?"
+    *   **Real-World Connection:** Explain that a 64-bit CPU has registers that are just like ours, but with 64 "levers" instead of 4.
+
+#### **Module 2: The Language of Logic (Restructured)**
+*   **Lesson 2.1: The Absolute Basics - NOT, AND, OR.**
+    *   Introduce NOT, AND, OR one at a time, each with its own truth table, formal symbols, and simple Minecraft build.
+    *   **NAND/NOR Intro:** Introduce NAND and NOR as negated versions, and explain that in real silicon, NAND is often the most fundamental gate.
+    *   **Real-World Connection (AND):** "The 'Enable' pin on a CPU component is an AND gate. The component only works if `DataIsInReady=True` AND `ComponentIsEnabled=True`."
+*   **Lesson 2.2: The "Difference Detector" - XOR.**
+    *   Dedicated lesson for XOR, explaining its "exclusive" nature.
+    *   **Provide a Standard Build:** Include a step-by-step guide and ASCII schematic for a compact, reliable XOR gate.
+    *   **Software Connection (LeetCode):**
+        > **LeetCode Bridge: The XOR Trick**
+        > XOR's property `x ^ x = 0` is a software superpower. In the "Single Number" problem, we need to find the one unique number in a list of pairs. By XORing everything together (`4^1^2^1^2`), the pairs cancel out, leaving just the answer (`4`). This is our hardware logic gate being used as a high-performance software tool!
+        > ```python
+        > nums = [4, 1, 2, 1, 2]
+        > result = 0
+        > for n in nums:
+        >   result ^= n # result becomes 4
+        > ```
+*   **Lesson 2.3: The Laws of Logic & Simplification.**
+    *   Introduce De Morgan's Law and others, framed as "how to use less Redstone."
+    *   **Challenge:** Show a complex circuit and a simplified one. "Prove with a truth table that these two different-looking circuits produce the exact same output."
+*   **Module 2 Checkpoint:**
+    *   **Quiz:** "What is the output of `(1 AND 0) OR (1 XOR 1)`?"
+    *   **Debug Challenge ("Module 2.5"):** Provide a world download or diagram of a "broken" multi-gate circuit. (e.g., an AND gate is accidentally wired as an OR). The student's task is to use their knowledge of truth tables to diagnose and fix the problem.
+
+#### **Module 3: Translators & Our First Display (The Two-Stage Design)**
+*   *(The two-stage structure is excellent. We'll add more visuals and explicit connections.)*
+*   **Lesson 3.1: Decoders - From Binary to a Single Idea.**
+    *   Build the 2-to-4 decoder. Include a clear ASCII schematic.
+    *   **Real-World Connection:** "This is a simplified **Instruction Decoder**. A CPU reads a binary instruction like `1011` and a decoder activates the single circuit path for the 'ADD' operation."
+*   **Lesson 3.2: The Main Event - Building Our Display.**
+    *   **Stage 1 (4-to-10 Decoder):** Provide clear build instructions.
+    *   **Stage 2 (10-to-7 Encoder):** Explain this as a **Read-Only Memory (ROM)**.
+        *   **Visual Aid:** Provide a diagram of the "diode matrix" grid.
+        *   **Real-World Connection:** "This 'matrix' is a form of ROM. The shape of the numbers is physically 'burned' into the circuit. Old video game cartridges worked on this exact principle!"
+*   **Module 3 Checkpoint:**
+    *   **Quiz:** "For the number 2 (`0010`), which segments of a 7-segment display should be active?"
+    *   **Challenge:** "The letter 'H' can be made on a 7-segment display. What is the Boolean logic for each of the 7 segments to produce an 'H'?"
+
+---
+
+### **Part II: The Processor Core - Giving Our Machine a Brain**
+
+*(The introduction to Part II remains the same.)*
+
+#### **Module 4: The Adder & The First "Bug"**
+*   *(The narrative of building the adder and discovering the >9 bug is perfect. We'll add the LeetCode connection.)*
+*   **Lesson 4.1: The Lab - Building the 4-Bit Adder.**
+*   **Lesson 4.2: The Integration Test & The Failure.**
+*   **Module 4 Checkpoint:**
+    *   **Real-World Connection:** "You have just built the core of the Arithmetic Logic Unit (ALU) in every CPU on the planet."
+    *   **Software Connection (LeetCode):**
+        > **LeetCode Bridge: The Software Adder**
+        > How would you add two numbers in a language that disabled the `+` key? You'd do exactly what our Redstone machine does! The "Sum of Two Integers" problem is solved by using XOR for the sum bits and AND with a bit-shift for the carry bits, repeating until the carry is zero. Your hardware knowledge directly translates to this clever algorithm.
+        > ```python
+        > def getSum(a, b):
+        >     # 32-bit mask in python
+        >     mask = 0xffffffff 
+        >     while (b & mask) > 0:
+        >         carry = (a & b) << 1
+        >         a = a ^ b
+        >         b = carry
+        >     return a & mask if b > 0 else a
+        > ```
+
+#### **Module 5: The Programmer's Solution - The Hexadecimal Upgrade**
+*   *(The modular upgrade narrative is excellent. We'll add the software connection.)*
+*   **Lesson 5.1: Why Hex is Easy for Computers.**
+*   **Lesson 5.2: The Upgrade - Expanding Our Design.**
+*   **Module 5 Checkpoint:**
+    *   **Software Connection (LeetCode):**
+        > **LeetCode Bridge: Bit Masking**
+        > Programmers use hexadecimal to make "bit masks" more readable. A mask like `0xF0` is much clearer than `240`. It instantly tells a programmer they are interested in the *upper 4 bits* of an 8-bit byte. This clarity is why hex is used in low-level programming. Problems like "Reverse Bits" and generating "Subsets" are often easier to think about using hex masks.
+
+#### **Module 6: The ALU - A Versatile Processor**
+*   *(This module is well-defined. We'll add the real-world connection.)*
+*   **Real-World Connection:** "Your MUX (multiplexer) is the 'steering wheel' of the ALU. The CPU's Control Unit sends signals (like your levers) to the MUX to tell the ALU whether to perform an addition, a logical AND, or another operation on the given data."

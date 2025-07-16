@@ -32,11 +32,13 @@ This course is for the curious. It's for:
 *   **University CS students** who want a physical way to visualize the concepts from their "Computer Architecture" class.
 *   **Self-taught programmers and professionals** who want to solidify their understanding of what's happening at the hardware level.
 
-### How to Get Started
+### How to Get Started & Accessibility
 
-This course is designed to be followed along. You will need a copy of **Minecraft: Java Edition**, as Redstone can behave slightly differently on other versions.
+This course is designed to be followed along in **Minecraft**. However, Minecraft is not strictly required!
 
 For each module, I will provide guidance, but I also provide a **World Download**—the "RU Campus"—with the completed circuits. You can use this to check your work, explore the final product, or use the pre-built components as "black boxes" if you want to focus more on the high-level concepts.
+
+**The "No-Minecraft Track":** If you don't have Minecraft or prefer a more theoretical approach, you can still complete this entire course. Every lesson will include text descriptions, diagrams, and schematics. We will also provide links to free online digital logic simulators (like [CircuitVerse](https://circuitverse.org/simulator)) where you can build and test these circuits without the game. The core learning is in the logic, not just the blocks.
 
 Thank you for enrolling. It's time to stop just *using* computers and start *understanding* them.
 
