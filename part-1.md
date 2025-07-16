@@ -1,4 +1,3 @@
----
 # Part I: The Foundations - Speaking to the Machine
 
 Welcome to the first official part of our Redstone University curriculum! The grand goal is to build a complete computer, but like any great construction project, we must begin by laying a solid foundation. The theme for this part is the **Human-Computer Interface**: we are going to build the essential components that allow us, as humans, to communicate with our digital machine.
