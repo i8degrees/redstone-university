@@ -20,13 +20,17 @@ Boolean algebra gives us a set of rules and operators to manipulate these True/F
 
 #### **Lesson 2.2: The Core Operators (The Verbs of Logic)**
 
-Each operator will be presented with a consistent structure: Formal Definition, Truth Table, Boolean Expression, Minecraft Gate build, and a Real-World Connection.
+Each operator in this lesson will be presented with a consistent structure to create a familiar learning rhythm:
+*   **Formal Definition:** The high-level concept and official terminology.
+*   **The Truth Table:** A complete chart defining the gate's behavior. This is the ultimate "source of truth."
+*   **The Boolean Expression:** The algebraic representation of the gate's output.
+*   **The Minecraft Gate:** An ASCII schematic and step-by-step guide to build a standard, compact version.
+*   **Lab & Experiment:** A hands-on test to verify the gate's function against its truth table.
+*   **Real-World Connection:** An example of where this logic is used in real technology.
 
 ##### **Operator 1: NOT (The Inverter)**
 
-*   **Formal Definition:** The NOT gate, or Inverter, performs **Negation**. It takes a single input and outputs its opposite value.
-*   **Symbols:** `¬A` (logic), `!A` (programming)
-*   **The Rule:** If the input is `True`, the output is `False`. If the input is `False`, the output is `True`.
+*   **Formal Definition:** The NOT gate, or Inverter, performs **Negation**. It takes a single input and outputs its opposite value. Its symbols are `¬A` (logic) or `!A` (programming).
 
 *   **The Truth Table:**
     | Input A | Output !A |
@@ -36,11 +40,17 @@ Each operator will be presented with a consistent structure: Formal Definition, 
 
 *   **The Boolean Expression:** The output is simply `!A`.
 
-*   **The Minecraft Gate & Lab:** The **Redstone Torch** is a purpose-built NOT gate.
-    1.  Place a lever on a block for input `A`.
-    2.  Place a Redstone Torch on the other side of the block.
-    3.  Run its output to a lamp.
-    4.  **Experiment:** Flip the lever and observe that the lamp always shows the opposite state.
+*   **The Minecraft Gate:** The **Redstone Torch** is a purpose-built NOT gate.
+*   **ASCII Schematic:**
+    ```
+    Input A --- [Block] --- [Torch] ---> Output !A
+    ```
+
+*   **Lab & Experiment:**
+    1.  Build the circuit as shown in the schematic, using a lever for Input A and a lamp for the Output.
+    2.  Set the lever to OFF (0). Observe that the lamp is ON (1).
+    3.  Set the lever to ON (1). Observe that the lamp is OFF (0).
+    4.  **Verification:** Confirm that your physical results perfectly match the truth table.
 
 *   **Real-World Connection:** NOT gates are used everywhere, from creating the oscillating signal in a computer's clock to flipping bits for negative number representation.
 
@@ -48,9 +58,7 @@ Each operator will be presented with a consistent structure: Formal Definition, 
 
 ##### **Operator 2: OR (The "At Least One" Gate)**
 
-*   **Formal Definition:** The OR gate performs **Disjunction**. It checks if *at least one* of its inputs is True.
-*   **Symbols:** `A V B` (logic), `A || B` (programming)
-*   **The Rule:** The output is `True` if `A` is True, OR `B` is True, or both are True.
+*   **Formal Definition:** The OR gate performs **Disjunction**. It checks if *at least one* of its inputs is True. Its symbols are `A V B` (logic) or `A || B` (programming).
 
 *   **The Truth Table:**
     | Input A | Input B | Output A OR B |
@@ -62,11 +70,18 @@ Each operator will be presented with a consistent structure: Formal Definition, 
 
 *   **The Boolean Expression:** The output is `A OR B`.
 
-*   **The Minecraft Gate & Lab:** The logic is inherent to **Redstone Dust**.
-    1.  Create two input levers, `A` and `B`.
-    2.  Run a dust line from each.
-    3.  Merge the two dust lines into a single output line connected to a lamp.
-    4.  **Experiment:** Test all four combinations and verify they match the truth table.
+*   **The Minecraft Gate:** The logic is inherent to **Redstone Dust**.
+*   **ASCII Schematic:**
+    ```
+    Input A ---.
+               '--> [Dust] --- > Output (A OR B)
+    Input B ---'
+    ```
+
+*   **Lab & Experiment:**
+    1.  Build the circuit, using two levers for Inputs A and B, merging their dust trails into one line connected to a lamp.
+    2.  Systematically test all four input combinations (`00`, `01`, `10`, `11`).
+    3.  **Verification:** Confirm that the lamp's state for each combination matches the output column of the truth table.
 
 *   **Real-World Connection:** An alarm system might trigger if `DoorSensor=True` OR `WindowSensor=True`.
 
@@ -74,9 +89,7 @@ Each operator will be presented with a consistent structure: Formal Definition, 
 
 ##### **Operator 3: AND (The "Strict" Gate)**
 
-*   **Formal Definition:** The AND gate performs **Conjunction**. It checks if *all* of its inputs are True.
-*   **Symbols:** `A ∧ B` (logic), `A && B` (programming)
-*   **The Rule:** The output is `True` only if `A` is True AND `B` is True.
+*   **Formal Definition:** The AND gate performs **Conjunction**. It checks if *all* of its inputs are True. Its symbols are `A ∧ B` (logic) or `A && B` (programming).
 
 *   **The Truth Table:**
     | Input A | Input B | Output A AND B |
@@ -86,22 +99,23 @@ Each operator will be presented with a consistent structure: Formal Definition, 
     |    1    |    0    |        0       |
     |    1    |    1    |        1       |
 
-*   **The Boolean Expression:** The output is `A AND B`. The circuit we will build implements `!(!A OR !B)`, which simplifies to `A AND B` via De Morgan's Law.
+*   **The Boolean Expression:** The output is `A AND B`. *(Note: The circuit we build physically implements `!(!A OR !B)`, which we will prove is equivalent to `A AND B` in the next lesson using a rule called De Morgan's Law).*
 
-*   **The Minecraft Gate & Lab: Our First Puzzle**
+*   **The Minecraft Gate: Our First Puzzle**
     Unlike NOT and OR, we must construct the AND gate. This classic, compact torch-based design is fundamental.
-    1.  **Layout:** Place a single block on the ground. Place a Redstone Torch on the *front face* of this block. This torch is our final output.
-    2.  **Inputs:** Place two more Redstone Torches, one on the *right side* of the block, and one on the *left side*.
-    3.  **Wiring:** Your two inputs, `A` and `B`, are the wires that lead to the single blocks that these two side torches are attached to.
-
 *   **ASCII Schematic (Top-Down View):**
     ```
       Input A --- [Block] --- [Torch] -----.
                                    |
-                                 [Block] ---- [Output Torch] ---> To Lamp
+                                 [Block] ---- [Output Torch] ---> Output
                                    |
       Input B --- [Block] --- [Torch] -----'
     ```
+
+*   **Lab & Experiment:**
+    1.  Carefully build the circuit shown in the schematic with two input levers and one output lamp.
+    2.  Systematically test all four input combinations.
+    3.  **Verification:** You will find that the output lamp is ON only when both input levers are ON. This physically demonstrates the AND truth table.
 
 *   **Real-World Connection:** A bank vault might require `Key1=True` AND `Key2=True` to open. A CPU's "Enable" pin works this way.
 
@@ -109,14 +123,14 @@ Each operator will be presented with a consistent structure: Formal Definition, 
 
 #### **Lesson 2.3: The Laws of Logic & The Power of Simplification**
 
-Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let us rearrange and simplify expressions. For us, **a simpler expression means a smaller, faster, and more reliable Redstone circuit.**
+Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let us rearrange and simplify expressions. For us, **a simpler expression means a smaller, faster, and more reliable Redstone circuit.** This is a critical engineering concept.
 
 *   **Identity Law:** `A OR 0 = A` and `A AND 1 = A`. (Useful for control signals).
 *   **Annihilator Law:** `A OR 1 = 1` and `A AND 0 = 0`. (Useful for forcing an output state).
 *   **De Morgan's Law:** This is the superstar. It gives us a way to convert between ANDs and ORs by distributing a NOT operation and flipping the operator.
     *   `!(A AND B)` is the same as `!A OR !B`
     *   `!(A OR B)` is the same as `!A AND !B`
-    *   **The Proof:** This is why our AND gate build works! The two side torches are NOT gates on our inputs (`!A`, `!B`). Their outputs merge into the block, which is an OR (`!A OR !B`). The final output torch is another NOT. The full expression is `!(!A OR !B)`. Using De Morgan's Law, `!A OR !B` is equivalent to `!(A AND B)`. So our circuit is `!(!(A AND B))`. The two NOTs (`!!`) cancel out, leaving just `A AND B`. We used formal logic to prove our physical circuit is correct!
+    *   **The Proof:** Now we can understand our AND gate! The two side torches are NOT gates on our inputs (`!A`, `!B`). Their outputs merge into the block, which is an OR (`!A OR !B`). The final output torch is another NOT. The full expression is `!(!A OR !B)`. Using De Morgan's Law, `!A OR !B` is equivalent to `!(A AND B)`. So our circuit is `!(!(A AND B))`. The two NOTs (`!!`) cancel out, leaving just `A AND B`. We used formal logic to prove our physical circuit is correct!
 
 *   **Challenge: The NAND Gate**
     A **NAND** gate (`!(A AND B)`) is "functionally complete," meaning you can build every other logic gate using only NAND gates. Look at our AND gate schematic. Can you see how removing the final output torch creates a compact NAND gate? In real-world chip design, engineers often design everything with NANDs for consistency.
@@ -125,8 +139,7 @@ Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let u
 
 #### **Lesson 2.4: The Special Operator - XOR**
 
-*   **Formal Definition:** The **Exclusive OR (XOR)** gate is our "difference detector."
-*   **Symbols:** `A ⊕ B` (logic), `A ^ B` (programming)
+*   **Formal Definition:** The **Exclusive OR (XOR)** gate is our "difference detector." Its symbols are `A ⊕ B` (logic) or `A ^ B` (programming).
 *   **The Rule:** The output is `True` only if the inputs are different from each other.
 
 *   **The Truth Table:**
@@ -134,16 +147,30 @@ Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let u
     |:-------:|:-------:|:--------------:|
     |    0    |    0    |        0       |
     |    0    |    1    |        1       |
-|    1    |    0    |        1       |
-|    1    |    1    |        0       |
+    |    1    |    0    |        1       |
+    |    1    |    1    |        0       |
 
 *   **The Boolean Expression:** The most direct representation is `(A AND !B) OR (!A AND B)`.
 
-*   **The Minecraft Gate & Lab:** Building the expression directly is a great exercise. For our course, we will use a standard, reliable, and compact XOR design to ensure consistency when we build our adder later.
-    **(A clear ASCII schematic or diagram of a standard Minecraft XOR gate build would be provided here).**
+*   **The Minecraft Gate:** Building the expression above is a great exercise. For our course, we will use a standard, reliable, and compact XOR design to ensure consistency when we build our adder later.
+*   **ASCII Schematic (Common Compact Design):**
+    ```
+        Input A ---.---------------.----> [Repeater] ---.
+                   |               |                    |
+                   '--> [Torch on Block]                '--> [OR Gate] --> Output
+                   |               |                    |
+        Input B ---'               '-----> [Repeater] ---'
+    ```
+    *(Note: This is a simplified representation. A full build guide or world download link would accompany this).*
+
+*   **Lab & Experiment:**
+    1.  Build the standard XOR gate provided.
+    2.  Connect two levers for input and a lamp for output.
+    3.  Test all four input combinations.
+    4.  **Verification:** Confirm that the lamp is ON only when the levers are in different states (`01` or `10`).
 
 *   **Foreshadowing & Software Connection (LeetCode):**
-    The XOR gate is the magic ingredient in addition. It tells you the sum bit while ignoring the carry. In software, its property `x ^ x = 0` is a superpower. In the "Single Number" problem (find the one unique number in a list of pairs like `[4, 1, 2, 1, 2]`), XORing all numbers together (`4^1^2^1^2`) cancels the pairs, leaving only the answer (`4`). Your physical gate is the hardware version of this high-performance software trick.
+    The XOR gate is the magic ingredient in addition. In software, its property `x ^ x = 0` is a superpower. The "Single Number" problem on LeetCode (find the one unique number in a list of pairs) is solved by XORing all numbers together. The pairs cancel out, leaving the answer.
     ```python
     def singleNumber(nums):
       result = 0
