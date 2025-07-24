@@ -1,0 +1,34 @@
+name: Build and Publish Course
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Build the course files
+        run: python scripts/publish.py
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add course/ assets/
+          # The following command checks if there are any staged changes
+          if ! git diff --staged --quiet; then
+            git commit -m "docs: Rebuild course files from source"
+            git push
+          else
+            echo "No changes to commit."
+          fi
