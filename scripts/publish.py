@@ -30,6 +30,13 @@ def main():
                 shutil.copy2(src_path, dest_path)
         print(f"🎨 Copied static project assets from '{PROJECT_ASSETS_SRC_DIR}'.")
 
+    course_intro_src_path = os.path.join(SRC_DIR, "introduction.md")
+    course_intro_dest_path = os.path.join(COURSE_DIR, "README.md")
+
+    if os.path.exists(course_intro_src_path):
+        shutil.copy2(course_intro_src_path, course_intro_dest_path)
+        print("  - Published Course Introduction")
+
     for part_name in sorted(os.listdir(SRC_DIR)):
         part_src_path = os.path.join(SRC_DIR, part_name)
         part_dest_path = os.path.join(COURSE_DIR, part_name)
