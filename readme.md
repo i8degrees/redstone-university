@@ -62,7 +62,7 @@ Please see [contributing.md](.github/CONTRIBUTING.md) for more details.
 
 ---
 
-## 📜 License
+## License
 
 This project is dual-licensed to ensure it remains a free educational resource while protecting the creator's rights.
 
