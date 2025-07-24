@@ -10,16 +10,18 @@ That is the mission of Redstone University. We will make the abstract tangible. 
 
 ### The Journey Ahead
 
-This course is structured as a complete curriculum, taking you from zero knowledge to a fully functional, programmable 4-bit computer. We will follow a clear, logical path:
+This course is structured as a complete curriculum, taking you from zero knowledge to a fully functional, programmable 4-bit computer. We will follow a clear, logical path, broken into five distinct parts:
 
 *   **Part I: The Foundations - Speaking to the Machine.** We will begin by building the essential human-computer interface. We'll learn the language of binary, the grammar of Boolean logic, and construct our own "keyboard" and "monitor."
-*   **Part II: The Processor Core - Giving Our Machine a Brain.** With our interface built, we will engineer the processor. We'll build circuits that can perform mathematics, make logical decisions, and solve problems. We'll even encounter our first "bug" and learn how to upgrade our system like real engineers.
-*   **Part III: The Automated Computer - Bringing It to Life.** In the final core modules, we'll give our computer a memory to store information and a clock to act as its heartbeat. We will assemble all our components into a single, automated machine that can run a simple program on its own.
-*   **Post-Graduate Studies:** For those who want to go even further, we'll explore advanced topics like the complex algorithms used in real-world calculators.
+*   **Part II: Engineering a Robust Arithmetic Unit.** Here, we will build the mathematical core of our machine. We'll engineer an adder and subtractor, discover our machine's natural limitations through "bugs" like overflow, and upgrade our system to solve them, just like real engineers.
+*   **Part III: The Processor Core.** With our arithmetic unit perfected, we will forge the true brain of our computer: the Arithmetic Logic Unit (ALU). We will combine all our mathematical and logical circuits into one powerful, versatile, and controllable component.
+*   **Part IV: Creating an Automated Computer.** In the final core modules, we'll give our processor a memory to store its thoughts and a clock to act as its heartbeat. We will assemble everything into a single, automated machine that can run a simple program on its own.
+*   **Part V: Post-Graduate Studies.** For those who want to go even further, we'll explore advanced topics, tackling the complex challenge of making our computer display multi-digit decimal numbers, just like a real-world calculator.
 
 ### Who Is This For?
 
 This course is for the curious. It's for:
+*   **My daughter, Ada**, for whom this project was first imagined.
 *   **Students and kids** who want a fun, hands-on introduction to STEM and computer science.
 *   **University CS students** who want a physical way to visualize the concepts from their "Computer Architecture" class.
 *   **Self-taught programmers and professionals** who want to solidify their understanding of what's happening at the hardware level.
