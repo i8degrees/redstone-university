@@ -1,7 +1,7 @@
 <p align="center">
     <picture>
-      <source media="(prefers-color-scheme: light)" srcset="assets/img/logo.png">
-      <img alt="Redstone University Logo" src="assets/img/logo-dark.png">
+      <source media="(prefers-color-scheme: light)" srcset="assets/images/logo.png">
+      <img alt="Redstone University Logo" src="assets/images/logo-dark.png">
     </picture>
 </p>
 
@@ -13,9 +13,9 @@
   <br />
   <a href="#️-course-structure--curriculum">Course Structure</a>
   ·
-  <a href="https://github.com/your-username/redstone-university/issues">Report a Bug or Typo in the Course</a>
+  <a href="https://github.com/fielding/redstone-university/issues">Report a Bug or Typo in the Course</a>
   ·
-  <a href="https://github.com/your-username/redstone-university/issues">Request a Feature</a>
+  <a href="https://github.com/fielding/redstone-university/issues">Request a Feature</a>
 </p>
 
 <p align="center">
@@ -58,10 +58,20 @@ Contributions are what make the open-source community such an amazing place to l
 
 If you have a suggestion to improve a lesson, fix a typo, or correct a circuit diagram, please feel free to fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 
-Please see `contributing.md` for more details.
+Please see [contributing.md](.github/CONTRIBUTING.md) for more details.
 
 ---
 
-## License
+## 📜 License
 
-This project is distributed under the MIT License. See `LICENSE` for more information.
+This project is dual-licensed to ensure it remains a free educational resource while protecting the creator's rights.
+
+#### Course Content
+The educational content of this course, including all Markdown files (`.md`), images, diagrams, and assets, is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+
+This means you are free to share and adapt the material for **non-commercial** purposes, as long as you give appropriate credit and distribute your contributions under the same license.
+
+#### Software
+All source code in this repository, such as the build script, is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this code for any purpose.
