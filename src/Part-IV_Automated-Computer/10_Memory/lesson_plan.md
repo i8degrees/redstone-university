@@ -1,4 +1,4 @@
-### **Module 7: Memory - Giving Our Computer a Brain to Remember (Enhanced Edition)**
+### **Module 10: Memory - Giving Our Computer a Brain to Remember (Enhanced Edition)**
 
 **(Learning Goals:** Understand the concept of "state" in digital circuits. Learn how to build a basic memory cell (an RS Latch) and then upgrade it to a more useful, controllable Gated D-Latch. Combine these into a 4-bit register that can store and hold a number.)
 
@@ -6,7 +6,7 @@
 
 ---
 
-#### **Lesson 7.1: The Problem of "Stateless" Circuits**
+#### **Lesson 10.1: The Problem of "Stateless" Circuits**
 
 So far, all the circuits we've built are **combinational**. This means their output depends *only* on their current inputs. An AND gate's output is determined solely by what A and B are *right now*. Change the inputs, and the output instantly changes without any memory of what came before.
 
@@ -16,7 +16,7 @@ How can we do this? By creating a **feedback loop**. We will take the output of 
 
 ---
 
-#### **Lesson 7.2: The Lab - The Simplest Memory Cell (The RS Latch)**
+#### **Lesson 10.2: The Lab - The Simplest Memory Cell (The RS Latch)**
 
 **Goal:** To build the most basic memory circuit, the RS Latch (Reset-Set Latch), and understand its behavior.
 
@@ -55,7 +55,7 @@ Input R ---'   ^            |
 
 ---
 
-#### **Lesson 7.3: A More Useful Memory - The Gated D-Latch**
+#### **Lesson 10.3: A More Useful Memory - The Gated D-Latch**
 
 **Goal:** To upgrade our simple latch into a practical memory cell that we can use in our computer.
 
@@ -79,13 +79,13 @@ When `WE` is `0`, both the Set and Reset lines are forced to `0`, so the underly
 
 ---
 
-#### **Lesson 7.4: The Lab - Building the 4-Bit Memory Register**
+#### **Lesson 10.4: The Lab - Building the 4-Bit Memory Register**
 
 **Goal:** To combine four of our D-Latches to create a register that can store a 4-bit number from our ALU.
 
 **The Build:**
 1.  **Layout:** Place four of your Gated D-Latch modules side-by-side.
-2.  **The Data Bus:** The 4-bit output bus from your ALU (from Module 6) will connect to the `D` inputs of your four latches. Bit 0 of the ALU goes to the `D` input of Latch 0, and so on.
+2.  **The Data Bus:** The 4-bit output bus from your ALU (from Module 9) will connect to the `D` inputs of your four latches. Bit 0 of the ALU goes to the `D` input of Latch 0, and so on.
 3.  **The Control Line:** All four `WE` (Write Enable) inputs are connected together and controlled by a single new lever labeled **"STORE"** or **"WRITE TO MEMORY"**.
 4.  **The Output:** The four `Q` outputs from the latches form a new 4-bit bus: the Memory Bus. Connect this bus to your Hex Display system.
 
@@ -98,7 +98,7 @@ This is the moment it all comes together.
 
 ---
 
-#### **Module 7 Checkpoint**
+#### **Module 10 Checkpoint**
 
 *   **Quiz:**
     1.  What is the key difference between a combinational circuit and a sequential circuit? (Sequential circuits have memory/state).
@@ -108,5 +108,5 @@ This is the moment it all comes together.
 *   **Real-World Connection: RAM**
     > The D-Latch you built is the fundamental building block of **Static RAM (SRAM)**. SRAM is a very fast type of memory used for a CPU's cache because it holds its value as long as it has power. The main system memory in your computer (DRAM) works on a slightly different principle but is still based on the idea of storing a charge to represent a `1` or a `0`. Every time you save a file or a game, you are using millions of circuits just like the one you built.
 
-**Module 7 Conclusion:**
+**Module 10 Conclusion:**
 Our computer can now not only calculate but also remember. This is the last major hardware component we need. We have an input system, a processor (ALU), a memory (Register), and an output system (Display). All that's left is to make them work together automatically. In the next module, we'll give our machine its heartbeat and its conductor, turning it from a manually operated calculator into a true, self-running computer.

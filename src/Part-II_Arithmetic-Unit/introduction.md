@@ -17,3 +17,4 @@ This part of the course is a story of engineering, problem-solving, and upgradin
 By the end of this Part, our machine will have evolved from a simple display device into a genuine calculator. You've built the chassis and the dashboard; now it's time to build the engine.
 
 Let's dive into Module 4 and make our computer calculate.
+
