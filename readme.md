@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="assets/img/logo.png" alt="Redstone University Logo" width="200"/>
+    <picture>
+      <source media="(prefers-color-scheme: light)" srcset="assets/img/logo.png">
+      <img alt="Redstone University Logo" src="assets/img/logo-dark.png">
+    </picture>
 </p>
 
 <h1 align="center">Redstone University</h1>
