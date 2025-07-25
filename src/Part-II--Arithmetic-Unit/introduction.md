@@ -4,17 +4,17 @@ Congratulations on completing Part I! Take a moment to appreciate what you've bu
 
 But right now, our machine is just a fancy passthrough. It can display a number, but it can't *do* anything with it. It has a mouth and ears, but no brain.
 
-In Part II, we build the brain. The theme for this part is the **Processor Core**. We are going to engineer the circuits that allow our computer to perform calculations, make logical comparisons, and truly process information.
+In Part II, we begin to build that brain by focusing on its most critical capability: **arithmetic**.
 
 ### Our Mission for Part II
 
-This part of the course is a story of engineering, problem-solving, and upgrading. We will follow a narrative path that mirrors the real-world process of system design.
+This part of the course is a multi-stage story of engineering, debugging, and upgrading. We will not just build a component; we will discover its flaws and systematically improve it until it's powerful and reliable.
 
-*   **In Module 4 (The Adder & The First "Bug"),** we will give our computer its first mathematical ability: addition. In doing so, we will immediately run into a critical problem where our display fails, teaching us a valuable lesson about system limitations.
-*   **In Module 5 (The Hexadecimal Upgrade),** we will solve the bug we discovered. But instead of a clumsy patch, we will learn about the programmer's language of Hexadecimal and perform an elegant upgrade to our display system, demonstrating the power of the modular design we created in Part I.
-*   **In Module 6 (The ALU),** we will assemble all our logic and arithmetic circuits into a single, versatile component: the Arithmetic Logic Unit, or ALU. This is the true heart of any CPU, and we will build a control panel that allows us to command it to perform different functions on demand.
+*   **In Module 4 (The Adder & The "Decoder" Bug),** we'll build our first calculating circuit, the adder. We will immediately discover that our amazing display from Part I has a critical limitation.
+*   **In Module 5 (The Hexadecimal Upgrade),** we will solve our first bug by teaching our display to speak Hexadecimal, a far more powerful language for our computer.
+*   **In Module 6 (The "Overflow" Bug & The Carry Bit),** just when we think our system is perfect, we'll push it to its absolute limit and discover a new, more fundamental bug called "overflow," and learn to harness the carry bit to solve it.
+*   **In Module 7 (The Subtractor),** we'll complete our arithmetic toolkit. Using a brilliant trick called Two's Complement, we will teach our existing adder how to perform subtraction.
 
-By the end of this Part, our machine will have evolved from a simple display device into a genuine calculator. You've built the chassis and the dashboard; now it's time to build the engine.
+By the end of this Part, you will have built a complete, robust, and versatile **Arithmetic Unit**, capable of handling both addition and subtraction for any 4-bit numbers and displaying their results perfectly. This powerful component will become the cornerstone of our final processor.
 
-Let's dive into Module 4 and make our computer calculate.
-
+Let's get started!
