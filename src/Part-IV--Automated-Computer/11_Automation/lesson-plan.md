@@ -1,4 +1,4 @@
-### **Module 8: The Heartbeat & Conductor - Automating the Machine (Enhanced Edition)**
+### **Module 11: The Heartbeat & Conductor - Automating the Machine (Enhanced Edition)**
 
 **(Learning Goals:** Understand the role of a clock signal in synchronizing a computer's operations. Build a controllable clock. Learn how a Program Counter automatically steps through instructions. Combine all previous modules into a single, automated system that executes a simple, hard-coded program.)
 
@@ -6,7 +6,7 @@
 
 ---
 
-#### **Lesson 8.1: The Need for a Heartbeat - The Clock**
+#### **Lesson 11.1: The Need for a Heartbeat - The Clock**
 
 So far, our computer only does something when we change an input. A real computer works continuously. It executes one instruction, then the next, then the next, in a perfectly synchronized dance. What drives this rhythm? A **clock**.
 
@@ -24,7 +24,7 @@ A computer clock is not like a wall clock; it doesn't tell time. It's a circuit 
 
 ---
 
-#### **Lesson 8.2: The Conductor - The Program Counter**
+#### **Lesson 11.2: The Conductor - The Program Counter**
 
 If the clock is the heartbeat, who tells the orchestra which note to play on each beat? That's the job of the **Program Counter (PC)**.
 
@@ -46,7 +46,7 @@ A counter is just an adder whose output is fed back into one of its own inputs.
 
 ---
 
-#### **Lesson 8.3: The Program - Hard-Coding Our Instructions (ROM)**
+#### **Lesson 11.3: The Program - Hard-Coding Our Instructions (ROM)**
 
 Our computer needs a program to run. A program is just a sequence of instructions stored in memory. For our simple machine, we will "hard-code" the program into a ROM, just like our Display Encoder from Module 3.
 
@@ -62,7 +62,7 @@ The student will build a decoder matrix (like the display one) that translates t
 
 ---
 
-#### **Lesson 8.4: The Grand Assembly & The First Automated Run**
+#### **Lesson 11.4: The Grand Assembly & The First Automated Run**
 
 This is the final, exhilarating step. We are connecting everything together.
 1.  The **System Clock** connects to the Program Counter.
@@ -89,7 +89,7 @@ This is the final, exhilarating step. We are connecting everything together.
 
 ---
 
-#### **Module 8 Checkpoint**
+#### **Module 22 Checkpoint**
 
 *   **Quiz:**
     1.  What is the purpose of the system clock? (To synchronize operations).
@@ -99,5 +99,5 @@ This is the final, exhilarating step. We are connecting everything together.
 *   **Real-World Connection: The Fetch-Decode-Execute Cycle**
     > The four steps your computer just ran are a simplified version of the **Fetch-Decode-Execute cycle** that is the basis of all modern computing. A real CPU "fetches" an instruction from memory (using the Program Counter), "decodes" it to understand what to do (using its instruction decoder), and then "executes" the instruction (by activating the ALU, memory, etc.). Your machine does this in a very literal, physical way.
 
-**Module 8 Conclusion:**
+**Module 11 Conclusion:**
 This is the moment of triumph. You have taken a collection of disparate parts and breathed life into them with a clock and a program. You've built a system that can execute a sequence of commands without human intervention. While simple, it is a true computer. In our final "Post-Graduate" module, we'll return to a problem we left behind to see how we could make our machine's output even more human-friendly.

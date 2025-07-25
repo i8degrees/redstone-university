@@ -1,4 +1,4 @@
-### **Module 6: The ALU - A Versatile Processor**
+### **Module 9: The ALU - A Versatile Processor**
 
 **(Learning Goals:** Combine multiple arithmetic and logic functions into a single Arithmetic Logic Unit (ALU). Understand and build a Multiplexer (MUX) to select which function's output to use. Appreciate the ALU as the core computational unit of a CPU.)
 
@@ -6,7 +6,7 @@
 
 ---
 
-#### **Lesson 6.1: What is an ALU?**
+#### **Lesson 9.1: What is an ALU?**
 
 The **Arithmetic Logic Unit (ALU)** is the component inside a Central Processing Unit (CPU) that performs arithmetic operations (like addition, subtraction) and bitwise logic operations (like AND, OR, XOR).
 
@@ -21,7 +21,7 @@ We could have three separate output displays, one for each calculation. But that
 
 ---
 
-#### **Lesson 6.2: The Lab - Building the Parallel Calculation Lanes**
+#### **Lesson 9.2: The Lab - Building the Parallel Calculation Lanes**
 
 **Goal:** To have three separate circuits all calculating at the same time.
 
@@ -37,7 +37,7 @@ We could have three separate output displays, one for each calculation. But that
 
 ---
 
-#### **Lesson 6.3: The Theory & Lab - Building the Multiplexer (MUX)**
+#### **Lesson 9.3: The Theory & Lab - Building the Multiplexer (MUX)**
 
 **Goal:** To understand and build a circuit that can select one of several inputs to pass to a single output.
 
@@ -79,7 +79,7 @@ If we turn `S_AND` ON, the expression becomes `(R_AND AND 1) OR (R_OR AND 0) OR 
 
 ---
 
-#### **Lesson 6.4: The Final Integration & Test**
+#### **Lesson 9.4: The Final Integration & Test**
 
 Connect the final 4-bit output bus from your MUX to the 4-bit input of your Hex Display system from Module 5.
 
@@ -91,7 +91,7 @@ Connect the final 4-bit output bus from your MUX to the 4-bit input of your Hex 
 
 ---
 
-#### **Module 6 Checkpoint**
+#### **Module 9 Checkpoint**
 
 *   **Quiz:**
     1.  What is the purpose of a Multiplexer (MUX)?
@@ -101,5 +101,5 @@ Connect the final 4-bit output bus from your MUX to the 4-bit input of your Hex 
 *   **Real-World Connection: The Control Unit**
     > Your MUX is the "steering wheel" of the ALU, and your control levers are a simplified version of the CPU's **Control Unit**. In a real CPU, the Control Unit reads a program's instructions (like "ADD" or "AND") and automatically sends the correct electrical signals to the ALU's multiplexer to select the right operation, thousands of times per second.
 
-**Module 6 Conclusion:**
+**Module 9 Conclusion:**
 You have now built the single most important component of a processor. Your ALU combines arithmetic and logic into one controllable unit. Our machine can now do more than just calculate; it can be *told* what kind of calculation to perform. This is a massive leap towards creating a truly programmable computer. In the next Part, we'll give this powerful new processor a memory to store its results and a heartbeat to let it run on its own.
