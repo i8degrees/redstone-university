@@ -1,4 +1,4 @@
-### **Module 6: The "Overflow" Bug & The Carry Bit (Enhanced Edition)**
+### **Module 6: The "Overflow" Bug & The Carry Bit**
 
 **(Learning Goals:** Discover and understand the concept of arithmetic **overflow**. Engineer a solution using the adder's **carry-out** bit to create a two-digit display. Appreciate the physical limits of a fixed-size computer.)
 
