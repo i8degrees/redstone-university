@@ -28,6 +28,6 @@ If you'd like to directly fix a typo or make an improvement yourself, that's fan
 *   **Minecraft Builds:** When adding or modifying circuits, try to keep them well-organized and labeled with signs where appropriate.
 
 ## Code of Conduct
-To ensure this is a welcoming and inclusive space for everyone, this project adheres to a Code of Conduct. Please read it [here](.github/CODE_OF_CONDUCT.md). *(Note: You can easily add a standard Contributor Covenant by creating a CODE_OF_CONDUCT.md file in your repo).*
+To ensure this is a welcoming and inclusive space for everyone, this project adheres to a Code of Conduct. Please read it [here](CODE_OF_CONDUCT.md).
 
 Thank you again for your help!
