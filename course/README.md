@@ -1,10 +1,10 @@
 # Welcome to Redstone University!
 
-Have you ever used a computer or a smartphone and wondered what’s *really* happening inside? Not just the software, but the deep, physical magic of a machine that seems to "think"?
+Have you ever used a computer and wondered what’s *really* happening inside? Not just the software, but the deep, physical magic behind it all?
 
-This isn't just another Minecraft course. This is a journey into the heart of the machine.
+**Redstone University** is a journey into the heart of the machine. This project provides a complete, university-level curriculum for learning computer architecture from first principles. But instead of abstract Hardware Description Languages and simulators, our campus is the world of Minecraft. We will make the abstract tangible, turning theory into a physical, working machine that you can walk around inside of.
 
-As a non-traditional, self-taught software engineer, I found myself wanting to explore the foundational principles of computer science. I realized that the abstract concepts of binary, logic gates, and computer architecture were difficult to grasp from books and theory alone. At the same time, I saw the incredibly complex and logical machines being built in Minecraft with Redstone. The idea was born: **what if we could learn how a computer works by building one from scratch, using tools we already love?**
+As a self-taught computer engineer, I found myself wanting to explore the foundational principles of computer science. The initial spark for this project, however, came from wanting to build something that could share these incredible ideas with my daughter, Ada. Ada introduced me to minecraft when she was 2 years old, and we've been building together ever since. I realized that the abstract concepts of binary, bitwise operations, logic gates, and computer architecture are sometimes introduced in ways that make them feel very intangible. At the same time, I saw the incredibly complex and logical machines being built in Minecraft with Redstone. The idea was born: **what if we could learn these concepts in a tangible way, by building a computer from scratch, using tools we already love?**
 
 That is the mission of Redstone University. We will make the abstract tangible. We will turn theory into a physical, working machine that you can walk around inside of.
 
@@ -36,4 +36,4 @@ For each module, I will provide guidance, but I also provide a **World Download*
 
 Thank you for enrolling. It's time to stop just *using* computers and start *understanding* them.
 
-Let's build a machine that thinks.
+Let's build!
