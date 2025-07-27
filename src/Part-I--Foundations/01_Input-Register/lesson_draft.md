@@ -25,11 +25,11 @@ That's it! Every single thing your computer does—from displaying this text, to
 
 So, how can we possibly represent a big number like `13` with just 1s and 0s? We use the same trick as our decimal system: we use columns with different values. But instead of ones, tens, and hundreds, our binary columns simply double each time.
 
-*   The rightmost column is the **1s** place.
-*   The next column to the left is the **2s** place.
-*   Then the **4s** place.
-*   Then the **8s** place.
-*   And so on (16, 32, 64...).
+*   The rightmost column is the **1s** place (2⁰).
+*   The next column to the left is the **2s** place (2¹).
+*   Then the **4s** place (2²).
+*   Then the **8s** place (2³).
+*   ...and so on (16, 32, 64...).
 
 To figure out the value of a binary number, you just add up the values of the columns where there is a `1` (or an "ON" switch).
 
@@ -43,7 +43,7 @@ So, the value is `8 + 4 + 1 = 13`. We've just translated from the computer's lan
 
 ---
 
-#### **Lesson 1.2: The Lab - Building Our 4-Bit Register**
+#### **Lesson 1.2: The Lab - Building and Using Our 4-Bit Register**
 
 It's time to stop talking and start building. A "register" is a fundamental piece of computer hardware that holds a single piece of data. Our 4-bit register will be our simple keyboard, allowing us to manually input any number from 0 to 15.
 
@@ -67,18 +67,11 @@ It's time to stop talking and start building. A "register" is a fundamental piec
              |                          |                           |                           |
          <Wire 3>                   <Wire 2>                    <Wire 1>                    <Wire 0>  (Your 4-Bit Bus)
 ```
-
-**Congratulations!** You have just built a real, functional computer component. This register can hold a 4-bit number, which programmers often call a "nibble" (a fun pun on a "byte," which is 8 bits).
-
----
-
-#### **Lesson 1.3: The Experiment - Strengthening Your Binary Intuition**
-
-Let's get a feel for our new device. Binary feels weird at first, but it will become second nature with just a little practice.
+**Experiment & Drills:** Let's get a feel for our new device. Binary feels weird at first, but it will become second nature with just a little practice.
 
 *   **Drill 1: Binary to Decimal.**
     *   **Goal:** What decimal number is `1011`?
-    *   **Action:** Go to your register and set the levers. The '8' lever is ON, the '4' is OFF, the '2' is ON, and the '1' is ON.
+    *   **Action:** Go to your register and set the levers: `ON, OFF, ON, ON`.
     *   **Calculation:** `8 + 0 + 2 + 1 = 11`. So, `1011` is 11.
 
 *   **Drill 2: Decimal to Binary (The "Greedy" Method).**
@@ -94,22 +87,42 @@ Let's get a feel for our new device. Binary feels weird at first, but it will be
 
 ---
 
-#### **Module 1 Checkpoint**
+#### **Lesson 1.3: Module 1 Checkpoint**
 
-Let's check our understanding before we move on. Try to answer these without looking!
+Let's check our understanding before moving on. Try to answer these without looking!
 
 *   **Quiz:**
-    1.  What is the largest number our 4-bit register can hold?
+    1.  What is the largest number a 5-bit register could hold? (Hint: The next bit would be the 16s place).
     2.  What is the decimal value of the binary number `1100`?
     3.  How would you represent the number `10` in binary?
 
 *   **Real-World Connection: CPU Registers**
-    > The 4-bit register you just built is a real, albeit simplified, computer component. When you see a computer advertised as having a "64-bit processor," it means its internal registers—the spaces inside the chip where it does its most immediate work—are 64 bits wide. They are just like your device, but with 64 "levers" instead of just 4. This is why they can work with incredibly large numbers in a single step! A 64-bit register can hold a number larger than 18 quintillion (18 followed by 18 zeros).
+    > The 4-bit register you just built is a real, albeit simplified, computer component. When you see a computer advertised as having a "64-bit processor," it means its internal registers—the spaces inside the chip where it does its most immediate work—are 64 bits wide. They are just like your device, but with 64 "levers" instead of just 4. This is why they can work with incredibly large numbers in a single step! A 64-bit register can hold a number larger than 18 quintillion.
+
+*   **Software Connection (LeetCode): Counting Bits**
+    > How does a programmer "look at" the individual bits you just set with your levers? They use bitwise operations! This is a sneak peek of what we'll learn in Module 2, but it's too cool not to share.
+    >
+    > A classic LeetCode problem is **"Number of 1 Bits"**: count how many `1`s are in a number's binary representation. Programmers solve this by checking each "wire" of the number one by one.
+    > ```python
+    > def countSetBits(n):
+    >   count = 0
+    >   while n > 0:
+    >     # The '& 1' checks if the last bit is a 1
+    >     if (n & 1) == 1:
+    >       count += 1
+    >     # The '>>= 1' shifts all bits one place to the right
+    >     n >>= 1
+    >   return count
+    >
+    > # The binary for 13 is 1101
+    > print(countSetBits(13)) # Output: 3
+    > ```
+    > The ability to think of numbers as a collection of bits, just like your register, is a programming superpower.
 
 ---
 
 **Module 1 Conclusion:**
 
-Fantastic work. You've now mastered the most fundamental concept in all of computing: how information is physically stored in a binary system. You have a working input device and have started to think in the computer's native language.
+Fantastic work. You've now mastered the most fundamental concept in all of computing: how information is physically stored in a binary system. You have a working input device, and you've seen how this physical concept directly connects to both real-world hardware and clever software algorithms.
 
-But right now, these are just dumb switches connected to wires. They don't *do* anything intelligent. In the next module, we will learn the rules of logic that will allow us to start manipulating these signals and make our machine think.
+But right now, these are just dumb switches connected to wires. In the next module, we will learn the rules of logic that will allow us to start manipulating these signals and make our machine think.
