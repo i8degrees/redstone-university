@@ -5,7 +5,7 @@ SRC_DIR = "src"
 COURSE_DIR = "course"
 ASSETS_DIR = "assets/images"
 PROJECT_ASSETS_SRC_DIR = os.path.join(SRC_DIR, "project_assets")
-LESSON_DRAFT_FILENAME = "lesson_draft.md"
+LESSON_DRAFT_FILENAME = "draft.md"
 
 
 def main():
