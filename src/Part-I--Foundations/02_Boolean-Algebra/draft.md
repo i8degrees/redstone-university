@@ -28,7 +28,7 @@
 
 Welcome back to Redstone University!
 
-In our last module, we built a physical way to speak to our computer in binary. We have our keyboard—a set of four simple levers. But right now, those levers are connected to nothing. Our machine can't yet *understand* or *do* anything with the numbers we give it. It can hear us, but it doesn't know the language.
+In our last module, we built a physical way to speak to our computer in binary. We have our keyboard, a set of four simple levers. But right now, those levers are connected to nothing. Our machine can't yet *understand* or *do* anything with the numbers we give it. It can hear us, but it doesn't know the language.
 
 In this module, we're going to give our computer a mind. We're going to take a crucial journey into theory to learn the fundamental grammar of all digital logic. This isn't just a Minecraft lesson; this is the language that powers every computer chip ever made.
 
@@ -41,7 +41,7 @@ In this module, we're going to give our computer a mind. We're going to take a c
 > -   While some engineers use **NAND** as their base primitive (because it is physically smaller and more efficient in real hardware), we use the classic set for clarity and to match both human logic and Minecraft's natural mechanics.
 >
 > **Functional Completeness:**
-> Our chosen set of base gates (AND, OR, NOT) is *functionally complete*—meaning any possible logic function can be built from just these gates. We'll also introduce NAND and discuss how it alone is functionally complete, which is why it's so popular in real-world chip design.
+> Our chosen set of base gates (AND, OR, NOT) is *functionally complete*. This means any possible logic function can be built from just these gates. We'll also introduce NAND and discuss how it alone is functionally complete, which is why it's so popular in real-world chip design.
 
 Welcome to Boolean Algebra.
 
@@ -51,7 +51,7 @@ Welcome to Boolean Algebra.
 
 > **Key Takeaway:** Boolean algebra gives us a precise language for describing and manipulating logical statements, which is the foundation of all digital circuits.
 
-In the mid-1800s, a mathematician named George Boole developed a new kind of algebra. Unlike the algebra you might know from school—where variables like `x` and `y` can be any number—Boole's variables were much simpler. They could only have two possible values: **True** or **False**.
+In the mid-1800s, a mathematician named George Boole developed a new kind of algebra. Unlike the algebra you might know from school, where variables like `x` and `y` can be any number, Boole's variables were much simpler. They could only have two possible values: **True** or **False**.
 
 This system, now called **Boolean Algebra**, was initially a mathematical curiosity. But a century later, when engineers started building the first electronic computers with on/off switches, they realized Boole had already invented the perfect mathematical system to describe them.
 
@@ -81,7 +81,7 @@ For each logic gate, you'll see:
 
 ##### Operator 1: NOT (The Inverter)
 
-> **Key Takeaway:** The NOT gate flips a signal—turning ON to OFF, or 1 to 0. It’s the simplest way to create “opposite” logic in a circuit.
+> **Key Takeaway:** The NOT gate flips a signal, turning ON to OFF, or 1 to 0. It’s the simplest way to create “opposite” logic in a circuit.
 
 > **NOTE:** Insert Minecraft screenshot and CircuitVerse diagram for NOT gate here.
 
@@ -215,7 +215,7 @@ Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let u
 
 #### Lesson 2.4: The Negated Gates – NAND, NOR, and XNOR
 
-> **Key Takeaway:** Negated gates combine basic operations with NOT, giving us powerful new building blocks. NAND and NOR are “functionally complete”—you can build any logic circuit using just one of them!
+> **Key Takeaway:** Negated gates combine basic operations with NOT, giving us powerful new building blocks. NAND and NOR are “functionally complete.” You can build any logic circuit using just one of them!
 
 > **NOTE:** Insert Minecraft screenshot and CircuitVerse diagram for NAND, NOR, and XNOR gates here.
 
