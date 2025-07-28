@@ -32,7 +32,7 @@ Let's get started.
 
 #### Lesson 1.1: The Theory – Why Computers Use Binary
 
-Think about how you count. You probably use ten symbols: 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. This is the **decimal**, or base-10, system. It feels natural to us, likely because humans evolved with ten fingers. When we get past 9, we don't invent a new symbol; we just add a new column to the left—the "tens" column—and start over. The number `12` is really just our way of saying "one ten, plus two ones."
+Think about how you count. You probably use ten symbols: 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. This is the **decimal**, or base-10, system. It feels natural to us, likely because humans evolved with ten fingers. When we get past 9, we don't invent a new symbol; we just add a new column to the left, the "tens" column, and start over. The number `12` is really just our way of saying "one ten, plus two ones."
 
 Computers are different. They don't have fingers. Deep down, they are made of billions of microscopic electronic switches called transistors. A switch is a very simple device. It can only ever be in one of two states: **ON** or **OFF**. There is no "halfway on."
 
@@ -41,7 +41,7 @@ This simple, two-state system is the foundation of all modern computing. We call
 *   **OFF = 0**
 *   **ON = 1**
 
-That's it! Every single thing your computer does—from displaying this text, to playing a song, to running a complex game—is ultimately just a massive, coordinated manipulation of these simple 1s and 0s. Each individual `1` or `0` is called a **bit**, which is short for "binary digit."
+That's it! Every single thing your computer does, from displaying this text, to playing a song, to running a complex game, is ultimately just a massive, coordinated manipulation of these simple 1s and 0s. Each individual `1` or `0` is called a **bit**, which is short for "binary digit."
 
 So, how can we possibly represent a big number like `13` with just 1s and 0s? We use the same trick as our decimal system: we use columns with different values. But instead of ones, tens, and hundreds, our binary columns simply double each time.
 
@@ -121,7 +121,7 @@ Let's get a feel for our new device. Binary feels weird at first, but it will be
 
 Let's check our understanding before moving on.
 
-**Takeaway:** If you can answer these questions, you’re ready to move on to the next big idea—logic!
+**Takeaway:** If you can answer these questions, you’re ready to move on to the next big idea: logic!
 
 - **Quiz:**
     1. What is the largest number a 5-bit register could hold? (Hint: The next bit would be the 16s place).
@@ -129,7 +129,7 @@ Let's check our understanding before moving on.
     3. How would you represent the number `10` in binary?
 
 - **Real-World Connection: CPU Registers**
-    > The 4-bit register you just built is a real, albeit simplified, computer component. When you see a computer advertised as having a "64-bit processor," it means its internal registers—the spaces inside the chip where it does its most immediate work—are 64 bits wide. They are just like your device, but with 64 "levers" instead of just 4. This allows them to work with incredibly large numbers in a single step! A 64-bit register can hold a number larger than 18 quintillion.
+    > The 4-bit register you just built is a real, albeit simplified, computer component. When you see a computer advertised as having a "64-bit processor," it means its internal registers, the spaces inside the chip where it does its most immediate work, are 64 bits wide. They are just like your device, but with 64 "levers" instead of just 4. This allows them to work with incredibly large numbers in a single step! A 64-bit register can hold a number larger than 18 quintillion.
 
 - **Software Connection (LeetCode): Counting Bits**
     > How does a programmer "look at" the individual bits you just set with your levers? They use bitwise operations! This is a sneak peek of what we'll learn in Module 2, but it's too cool not to share.
