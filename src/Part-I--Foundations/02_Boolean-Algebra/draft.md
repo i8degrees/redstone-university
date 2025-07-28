@@ -106,6 +106,14 @@ For each logic gate, you'll see:
     4.  **Verification:** The physical results perfectly match the truth table. You've built a working inverter!
 -   **Real-World Connection:** NOT gates are used everywhere, from creating the oscillating signal in a computer's clock (a "heartbeat") to flipping bits for representing negative numbers, which we'll do in a later module!
 
+-   **Software Connection:** The NOT operation is used in programming to invert a condition or toggle a flag. For example, in Python:
+    ```python
+    is_on = False
+    if not is_on:
+        print("The device is off.")
+    ```
+    Here, `not` is the software equivalent of a NOT gate.
+
 ---
 
 ##### Operator 2: OR (The "At Least One" Gate)
@@ -140,6 +148,13 @@ For each logic gate, you'll see:
     3.  **Verification:** Confirm that the lamp's state matches the output column of the truth table for every test.
 -   **Real-World Connection:** A simple security system in your house might sound an alarm if the `FrontDoorSensor=True` OR the `BackDoorSensor=True`.
 
+-   **Software Connection:** The OR operation is used in code to check if at least one condition is true. For example:
+    ```python
+    if front_door_open or back_door_open:
+        print("Alarm triggered!")
+    ```
+    This mirrors the logic of the OR gate in hardware.
+
 ---
 
 ##### Operator 3: AND (The "Strict" Gate)
@@ -173,6 +188,13 @@ For each logic gate, you'll see:
     2.  Test all four combinations from the truth table.
     3.  **Verification:** The output lamp should only light up when both input levers are ON.
 -   **Real-World Connection:** A missile launch system might require `TurnKey1=True` AND `PressButton=True` to activate. Your computer's CPU uses an AND gate as an "Enable" signal, allowing a component to run only when it's told to *and* the data is ready.
+
+-   **Software Connection:** The AND operation is used in code to require multiple conditions to be true. For example:
+    ```python
+    if user_logged_in and has_permission:
+        print("Access granted.")
+    ```
+    This is a direct software analogy to the AND gate.
 
 ---
 
@@ -278,7 +300,22 @@ There are three other gates that are simply the negated versions of the ones we'
 **Why is XOR so useful in programming?**  
 Because it’s reversible and “cancels itself out.” For example, `a ^ a = 0` and `a ^ 0 = a`. This property lets you do things like swap two variables without a temporary variable, or find the one unique number in a list where every other number appears twice.
 
-> **NOTE:** Insert code block screenshot or highlight for LeetCode XOR trick.
+> **LeetCode Connection:** XOR is a favorite in programming interviews. Here’s a classic LeetCode problem and its solution using XOR:
+> 
+> **The "Single Number" Problem:**
+> 
+> -   **The Challenge:** You are given a list of numbers where every number appears exactly twice, except for one number that appears only once. Find that unique number.
+> -   **Example List:** `[4, 1, 2, 1, 2]`
+> -   **The XOR Solution:** If you XOR all the numbers together, the pairs cancel themselves into nothing, leaving only the unique number! `4 ^ (1 ^ 1) ^ (2 ^ 2)` becomes `4 ^ 0 ^ 0`, which is `4`.
+> 
+> ```python
+> def singleNumber(nums):
+>     result = 0
+>     for num in nums:
+>         result ^= num
+>     return result
+> # singleNumber([4, 1, 2, 1, 2]) returns 4
+> ```
 
 This is where our hardware knowledge directly translates into writing brilliant, efficient software. The XOR gate has two magical properties that programmers exploit constantly:
 
@@ -287,22 +324,8 @@ This is where our hardware knowledge directly translates into writing brilliant,
 
 These two rules allow for an incredibly elegant solution to a whole class of programming interview problems on sites like LeetCode.
 
-**The "Single Number" Problem:**
-
--   **The Challenge:** You are given a list of numbers where every number appears exactly twice, except for one number that appears only once. Find that unique number.
--   **Example List:** `[4, 1, 2, 1, 2]`
--   **The XOR Solution:** If you XOR all the numbers together, the pairs cancel themselves into nothing, leaving only the unique number! `4 ^ (1 ^ 1) ^ (2 ^ 2)` becomes `4 ^ 0 ^ 0`, which is `4`.
-
-**The Code:**
-```python
-def findSingleNumber(nums):
-  # Start with 0, the identity for XOR
-  unique_number = 0
-  # XOR every number in the list
-  for n in nums:
-    unique_number ^= n
-  return unique_number
-```
+-   **Real-World Connection:** XOR gates are used in digital circuits for error detection (parity checks), cryptography, and even in RAID storage systems to recover lost data.
+-   **Software Connection:** XOR is used in programming for toggling bits, finding unique elements, and implementing simple encryption.
 
 **The "Missing Number" Problem:**
 
