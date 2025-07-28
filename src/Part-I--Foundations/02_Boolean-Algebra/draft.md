@@ -22,7 +22,7 @@
 
 #### Module Introduction
 
-*For our build philosophy and the story behind this course, see the [main course introduction](../../introduction.md).*
+*For our build philosophy and the story behind this course, see the [main course introduction](../README.md).*
 
 ---
 
@@ -36,7 +36,7 @@ In this module, we're going to give our computer a mind. We're going to take a c
 >
 > **Why do we use AND, OR, and NOT as our base gates?**
 >
-> -   These gates are fundamental to human logic and are the most intuitive for learning and reasoning about digital circuits. They are the building blocks that made sense to me personally as a learner, and I hope they will for you too. (See the [course introduction](../../introduction.md) for more on my learning journey.)
+> -   These gates are fundamental to human logic and are the most intuitive for learning and reasoning about digital circuits. They are the building blocks that made sense to me personally as a learner, and I hope they will for you too. (See the [course introduction](../README.md) for more on my learning journey.)
 > -   The universe of Minecraft gives us two of these primitives out of the box: inversion or the **NOT** gate (Redstone Torch) and disjunction or the **OR** gate (Redstone Dust naturally merging).
 > -   While some engineers use **NAND** as their base primitive (because it is physically smaller and more efficient in real hardware), we use the classic set for clarity and to match both human logic and Minecraft's natural mechanics.
 >
@@ -297,17 +297,17 @@ There are three other gates that are simply the negated versions of the ones we'
 
 > **Key Takeaway:** XOR is a “secret weapon” in programming. Its reversible, self-canceling property allows for incredibly efficient solutions to common algorithmic problems.
 
-**Why is XOR so useful in programming?**  
+**Why is XOR so useful in programming?**
 Because it’s reversible and “cancels itself out.” For example, `a ^ a = 0` and `a ^ 0 = a`. This property lets you do things like swap two variables without a temporary variable, or find the one unique number in a list where every other number appears twice.
 
 > **LeetCode Connection:** XOR is a favorite in programming interviews. Here’s a classic LeetCode problem and its solution using XOR:
-> 
+>
 > **The "Single Number" Problem:**
-> 
+>
 > -   **The Challenge:** You are given a list of numbers where every number appears exactly twice, except for one number that appears only once. Find that unique number.
 > -   **Example List:** `[4, 1, 2, 1, 2]`
 > -   **The XOR Solution:** If you XOR all the numbers together, the pairs cancel themselves into nothing, leaving only the unique number! `4 ^ (1 ^ 1) ^ (2 ^ 2)` becomes `4 ^ 0 ^ 0`, which is `4`.
-> 
+>
 > ```python
 > def singleNumber(nums):
 >     result = 0
