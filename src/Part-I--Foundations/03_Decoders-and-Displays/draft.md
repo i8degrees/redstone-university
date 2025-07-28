@@ -21,7 +21,7 @@
 
 #### Module Introduction
 
-In the previous modules, you learned how to speak to your computer in binary and how to manipulate those signals with logic gates. But a computer that can only listen isn't very satisfying—we want it to talk back! In this module, you'll build a translator that lets your computer display numbers in a way that humans can instantly recognize.
+In the previous modules, you learned how to speak to your computer in binary and how to manipulate those signals with logic gates. But a computer that can only listen isn't very satisfying. We want it to talk back! In this module, you'll build a translator that lets your computer display numbers in a way that humans can instantly recognize.
 
 We'll break this challenge into two manageable stages: first, decoding binary numbers into a single, recognizable idea (a digit), and then encoding that idea into a pattern of lights on a 7-segment display. This modular approach mirrors how real computers handle complex translations and will give you a powerful new tool for your engineering toolkit.
 
@@ -79,7 +79,7 @@ This modular design is a core principle of good engineering. It lets us build, t
 > **PLACEHOLDER:** Insert Minecraft screenshot and CircuitVerse diagram of the 4-to-10 decoder build.
 
 **Lesson Summary:**  
-You’ve just built a circuit that can recognize any single digit from 0 to 9 in binary—an essential skill for translating between human and machine language.
+You’ve just built a circuit that can recognize any single digit from 0 to 9 in binary. This is an essential skill for translating between human and machine language.
 
 **Real-World Connection: The Instruction Decoder**
 >
@@ -121,11 +121,11 @@ L2 --------+--------+------(No)--- ...
 - Use temporary Redstone lamps to test each segment output individually.
 
 **Lesson Summary:**  
-You’ve created a programmable display driver using a physical “ROM”—a powerful concept that bridges hardware and software.
+You’ve created a programmable display driver using a physical “ROM.” This is a powerful concept that bridges hardware and software.
 
 **Real-World Connection: Read-Only Memory (ROM)**
 >
-> This "diode matrix" you've built is a simple form of **Read-Only Memory**. The "program"—the shape of the numbers—is physically burned into the circuit's layout. Old video game cartridges and a computer's BIOS chip worked on this exact principle, with data permanently stored in the hardware's structure.
+> This "diode matrix" you've built is a simple form of **Read-Only Memory**. The "program," which is the shape of the numbers, is physically burned into the circuit's layout. Old video game cartridges and a computer's BIOS chip worked on this exact principle, with data permanently stored in the hardware's structure.
 
 ---
 
@@ -141,7 +141,7 @@ Now, connect the two stages together. The 10 output lines from your Stage 1 Deco
 5. Those five segment lines light up, and your 7-segment display shows a perfect, glowing **3**.
 
 **Lesson Summary:**  
-By connecting your decoder and encoder, you’ve built a complete translation pipeline from binary input to human-readable output—a huge leap in making your computer interactive!
+By connecting your decoder and encoder, you’ve built a complete translation pipeline from binary input to human-readable output. This is a huge leap in making your computer interactive!
 
 > **PLACEHOLDER:** Insert photo or diagram of the final connected system, showing a number displayed.**
 
@@ -167,7 +167,7 @@ By connecting your decoder and encoder, you’ve built a complete translation pi
 By breaking the problem down into two distinct, logical stages, you've built a highly complex circuit in a way that is easy to understand, build, and debug. You've created a pure **Decoder** and a pure **Encoder/ROM**, two of the most fundamental building blocks in all of digital electronics. This is a massive milestone.
 
 **What’s Next?**  
-In the next module, you’ll discover a critical flaw in our simple BCD translator—and learn how real engineers solve it!
+In the next module, you’ll discover a critical flaw in our simple BCD translator. You’ll also learn how real engineers solve it!
 
 ---
 
