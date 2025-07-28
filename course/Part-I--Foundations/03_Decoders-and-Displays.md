@@ -71,9 +71,17 @@ This modular design is a core principle of good engineering. It lets us build, t
 
 **Test your work!** Cycle through the inputs 0–9 and make sure the correct single output line (`L0`–`L9`) activates each time.
 
+**Troubleshooting Tips:**
+- If more than one output line is active, double-check your NOT gates and AND gate wiring.
+- If no output line is active, make sure all four input bits are connected and that your AND gates are receiving the correct signals.
+- Use colored wool or signs to label each line for easier debugging.
+
 > **PLACEHOLDER:** Insert Minecraft screenshot and CircuitVerse diagram of the 4-to-10 decoder build.
 
-> **Real-World Connection: The Instruction Decoder**
+**Lesson Summary:**  
+You’ve just built a circuit that can recognize any single digit from 0 to 9 in binary—an essential skill for translating between human and machine language.
+
+**Real-World Connection: The Instruction Decoder**
 >
 > The circuit you just built is a simplified version of an **Instruction Decoder** in a real CPU. A CPU reads a binary instruction from memory (like `1011` for "ADD"). It feeds this binary code into a decoder just like this one, which activates a single wire that turns on all the circuitry responsible for performing addition.
 
@@ -107,7 +115,15 @@ L2 --------+--------+------(No)--- ...
 
 > **PLACEHOLDER:** Insert Minecraft screenshot and CircuitVerse diagram of the diode matrix/ROM display encoder.
 
-> **Real-World Connection: Read-Only Memory (ROM)**
+**Troubleshooting Tips:**
+- If a segment doesn’t light up for a certain digit, check that the repeater (diode) is placed at the correct intersection.
+- If multiple digits light up segments incorrectly, verify that each input line only powers its intended segments.
+- Use temporary Redstone lamps to test each segment output individually.
+
+**Lesson Summary:**  
+You’ve created a programmable display driver using a physical “ROM”—a powerful concept that bridges hardware and software.
+
+**Real-World Connection: Read-Only Memory (ROM)**
 >
 > This "diode matrix" you've built is a simple form of **Read-Only Memory**. The "program"—the shape of the numbers—is physically burned into the circuit's layout. Old video game cartridges and a computer's BIOS chip worked on this exact principle, with data permanently stored in the hardware's structure.
 
@@ -118,13 +134,16 @@ L2 --------+--------+------(No)--- ...
 Now, connect the two stages together. The 10 output lines from your Stage 1 Decoder become the 10 input lines for your Stage 2 Encoder.
 
 **Let's Trace the Signal:**
-1.  You set your input levers to `0011` (3).
-2.  **Stage 1** activates. The AND gate for `(!B3) AND (!B2) AND B1 AND B0` fires. A signal is sent down the single `L3` line. All other 9 lines are off.
-3.  The `L3` line enters **Stage 2**.
-4.  The signal on the `L3` line powers the repeaters at the intersections for segments 'a', 'b', 'c', 'd', and 'g'.
-5.  Those five segment lines light up, and your 7-segment display shows a perfect, glowing **3**.
+1. You set your input levers to `0011` (3).
+2. **Stage 1** activates. The AND gate for `(!B3) AND (!B2) AND B1 AND B0` fires. A signal is sent down the single `L3` line. All other 9 lines are off.
+3. The `L3` line enters **Stage 2**.
+4. The signal on the `L3` line powers the repeaters at the intersections for segments 'a', 'b', 'c', 'd', and 'g'.
+5. Those five segment lines light up, and your 7-segment display shows a perfect, glowing **3**.
 
-> **PLACEHOLDER:** Insert photo or diagram of the final connected system, showing a number displayed.
+**Lesson Summary:**  
+By connecting your decoder and encoder, you’ve built a complete translation pipeline from binary input to human-readable output—a huge leap in making your computer interactive!
+
+> **PLACEHOLDER:** Insert photo or diagram of the final connected system, showing a number displayed.**
 
 ---
 
@@ -135,11 +154,27 @@ Now, connect the two stages together. The 10 output lines from your Stage 1 Deco
     2.  For the number 2 (`0010`), which segments of a 7-segment display should be active? (A, B, G, E, D)
     3.  In our two-stage design, which stage is responsible for recognizing the binary pattern `1001`? (Stage 1).
 
--   **Challenge:**
+- **Challenge:**
     > The letter 'H' can be made on a 7-segment display (segments b, c, e, f, g). If we wanted to add an 11th input line (`LH`) to our Stage 2 Encoder, what would we need to do to make it display 'H'? Describe where you would place the repeaters.
+    >
+    > **Hint:** Think about which horizontal and vertical lines need to connect for the 'H' shape. Try sketching the 7-segment display and marking the segments!
 
 ---
 
+
 ### Module 3 Conclusion
 
-By breaking the problem down into two distinct, logical stages, you've built a highly complex circuit in a way that is easy to understand, build, and debug. You've created a pure **Decoder** and a pure **Encoder/ROM**, two of the most fundamental building blocks in all of digital electronics. This is a massive milestone. But, as you'll discover in the next module, our simple BCD translator has a critical flaw that we'll need to overcome.
+By breaking the problem down into two distinct, logical stages, you've built a highly complex circuit in a way that is easy to understand, build, and debug. You've created a pure **Decoder** and a pure **Encoder/ROM**, two of the most fundamental building blocks in all of digital electronics. This is a massive milestone.
+
+**What’s Next?**  
+In the next module, you’ll discover a critical flaw in our simple BCD translator—and learn how real engineers solve it!
+
+---
+
+**Key Terms (Module 3):**
+- **Decoder:** A circuit that activates one output line based on a unique binary input.
+- **Encoder:** A circuit that translates a single input into a coded output (here, segment patterns).
+- **ROM (Read-Only Memory):** Hardware that stores fixed data, often used for lookup tables.
+- **BCD (Binary-Coded Decimal):** A way of representing decimal digits in binary.
+- **7-Segment Display:** An arrangement of LEDs or lamps used to display digits and some letters.
+

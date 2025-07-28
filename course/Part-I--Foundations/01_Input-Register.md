@@ -88,11 +88,16 @@ It's time to stop talking and start building. A "register" is a fundamental piec
          <Wire 3>                   <Wire 2>                    <Wire 1>                    <Wire 0>  (Your 4-Bit Bus)
 ```
 
+> **PLACEHOLDER: Insert Minecraft screenshot of the 4-bit input register build here.**
+> **PLACEHOLDER: Insert CircuitVerse diagram of the 4-bit register circuit here.**
+
 ---
 
 #### Lesson 1.3: Drills & Games – Strengthening Your Binary Intuition
 
 Let's get a feel for our new device. Binary feels weird at first, but it will become second nature with just a little practice.
+
+**Takeaway:** Practicing with your register will make binary numbers feel as natural as decimal. The more you play, the faster you'll get!
 
 *   **Drill 1: Binary to Decimal.**
     *   **Goal:** What decimal number is `1011`?
@@ -115,6 +120,8 @@ Let's get a feel for our new device. Binary feels weird at first, but it will be
 #### Lesson 1.4: Module 1 Checkpoint
 
 Let's check our understanding before moving on.
+
+**Takeaway:** If you can answer these questions, you’re ready to move on to the next big idea—logic!
 
 - **Quiz:**
     1. What is the largest number a 5-bit register could hold? (Hint: The next bit would be the 16s place).
@@ -150,4 +157,4 @@ Let's check our understanding before moving on.
 
 Fantastic work. You've now mastered the most fundamental concept in all of computing: how information is physically stored in a binary system. You have a working input device, and you've seen how this physical concept directly connects to both real-world hardware and clever software algorithms.
 
-But right now, these are just dumb switches connected to wires. In the next module, we will learn the rules of logic that will allow us to start manipulating these signals and make our machine think.
+**What's next:** Right now, these are just dumb switches connected to wires. In the next module, we will learn the rules of logic that will allow us to start manipulating these signals and make our machine think.
