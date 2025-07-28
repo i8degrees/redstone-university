@@ -63,3 +63,15 @@ For each module, I will provide guidance, but I also provide a **World Download*
 **The "No-Minecraft Track":** If you don't have Minecraft or prefer a more theoretical approach, you can still complete this entire course. Every lesson will include text descriptions, diagrams, and schematics. I will also provide links to free online digital logic simulators (like [CircuitVerse](https://circuitverse.org/simulator)) where you can build and test these circuits without the game. The core learning is in the logic, not just the blocks.
 
 I am excited for you to join me on this journey. It's time to stop just *using* computers and start *understanding* them.
+
+---
+
+## How to Use This Course
+
+- **Follow the modules in order:** Each module builds on the last, so start at the beginning and work your way through.
+- **Try the builds yourself:** The hands-on experience is where the real learning happens. Use Minecraft or CircuitVerse as you prefer.
+- **Use the world download or diagrams:** If you get stuck or want to check your work, explore the provided world or reference the diagrams.
+- **Read the real-world and software connections:** These sections help you see why each concept matters beyond Minecraft.
+- **Go at your own pace:** Take your time with each lesson, and revisit earlier modules whenever you need a refresher.
+
+Ready? Let’s get building!
