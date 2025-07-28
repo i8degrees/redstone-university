@@ -1,4 +1,24 @@
-### **Redstone University - Module 1: Speaking in 1s and 0s**
+### Module 1: Speaking in 1s and 0s – The Input Register
+
+---
+
+#### Module Summary
+
+- **Narrative Beat:** Before we can build a computer, we need a way to talk to it. Our language will be binary, and our keyboard will be a set of simple levers.
+- **Learning Goals:**
+  - Understand binary as a system of on/off switches.
+  - Build a physical interface to input binary numbers.
+  - Strengthen binary intuition through practice.
+- **Lesson Overview:**
+  - Lesson 1.1: The Theory – Why Computers Use Binary
+  - Lesson 1.2: The Lab – Building and Using Our 4-Bit Register
+  - Lesson 1.3: Drills & Games – Strengthening Your Binary Intuition
+  - Lesson 1.4: Module 1 Checkpoint
+- **Minecraft Artifact:** A working 4-bit input register (keyboard) for binary numbers.
+
+---
+
+#### Module Introduction
 
 Welcome to your first day at Redstone University!
 
@@ -10,7 +30,7 @@ Let's get started.
 
 ---
 
-#### **Lesson 1.1: The Theory - Why Computers Use Binary**
+#### Lesson 1.1: The Theory – Why Computers Use Binary
 
 Think about how you count. You probably use ten symbols: 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. This is the **decimal**, or base-10, system. It feels natural to us, likely because humans evolved with ten fingers. When we get past 9, we don't invent a new symbol; we just add a new column to the left—the "tens" column—and start over. The number `12` is really just our way of saying "one ten, plus two ones."
 
@@ -43,15 +63,15 @@ So, the value is `8 + 4 + 1 = 13`. We've just translated from the computer's lan
 
 ---
 
-#### **Lesson 1.2: The Lab - Building and Using Our 4-Bit Register**
+#### Lesson 1.2: The Lab – Building and Using Our 4-Bit Register
 
 It's time to stop talking and start building. A "register" is a fundamental piece of computer hardware that holds a single piece of data. Our 4-bit register will be our simple keyboard, allowing us to manually input any number from 0 to 15.
 
-**Your Materials:**
-*   4 standard building blocks (Stone, Iron, etc.)
-*   4 Levers
-*   4 Signs
-*   A few pieces of Redstone Dust
+**Materials Needed:**
+- 4 standard building blocks (Stone, Iron, etc.)
+- 4 Levers
+- 4 Signs
+- A few pieces of Redstone Dust
 
 **The Build Guide:**
 1.  First, find a nice open, flat area on our campus. This is your personal workbench.
@@ -67,7 +87,12 @@ It's time to stop talking and start building. A "register" is a fundamental piec
              |                          |                           |                           |
          <Wire 3>                   <Wire 2>                    <Wire 1>                    <Wire 0>  (Your 4-Bit Bus)
 ```
-**Experiment & Drills:** Let's get a feel for our new device. Binary feels weird at first, but it will become second nature with just a little practice.
+
+---
+
+#### Lesson 1.3: Drills & Games – Strengthening Your Binary Intuition
+
+Let's get a feel for our new device. Binary feels weird at first, but it will become second nature with just a little practice.
 
 *   **Drill 1: Binary to Decimal.**
     *   **Goal:** What decimal number is `1011`?
@@ -87,19 +112,19 @@ It's time to stop talking and start building. A "register" is a fundamental piec
 
 ---
 
-#### **Lesson 1.3: Module 1 Checkpoint**
+#### Lesson 1.4: Module 1 Checkpoint
 
-Let's check our understanding before moving on. Try to answer these without looking!
+Let's check our understanding before moving on.
 
-*   **Quiz:**
-    1.  What is the largest number a 5-bit register could hold? (Hint: The next bit would be the 16s place).
-    2.  What is the decimal value of the binary number `1100`?
-    3.  How would you represent the number `10` in binary?
+- **Quiz:**
+    1. What is the largest number a 5-bit register could hold? (Hint: The next bit would be the 16s place).
+    2. What is the decimal value of the binary number `1100`?
+    3. How would you represent the number `10` in binary?
 
-*   **Real-World Connection: CPU Registers**
-    > The 4-bit register you just built is a real, albeit simplified, computer component. When you see a computer advertised as having a "64-bit processor," it means its internal registers—the spaces inside the chip where it does its most immediate work—are 64 bits wide. They are just like your device, but with 64 "levers" instead of just 4. This is why they can work with incredibly large numbers in a single step! A 64-bit register can hold a number larger than 18 quintillion.
+- **Real-World Connection: CPU Registers**
+    > The 4-bit register you just built is a real, albeit simplified, computer component. When you see a computer advertised as having a "64-bit processor," it means its internal registers—the spaces inside the chip where it does its most immediate work—are 64 bits wide. They are just like your device, but with 64 "levers" instead of just 4. This allows them to work with incredibly large numbers in a single step! A 64-bit register can hold a number larger than 18 quintillion.
 
-*   **Software Connection (LeetCode): Counting Bits**
+- **Software Connection (LeetCode): Counting Bits**
     > How does a programmer "look at" the individual bits you just set with your levers? They use bitwise operations! This is a sneak peek of what we'll learn in Module 2, but it's too cool not to share.
     >
     > A classic LeetCode problem is **"Number of 1 Bits"**: count how many `1`s are in a number's binary representation. Programmers solve this by checking each "wire" of the number one by one.
@@ -121,7 +146,7 @@ Let's check our understanding before moving on. Try to answer these without look
 
 ---
 
-**Module 1 Conclusion:**
+### Module 1 Conclusion
 
 Fantastic work. You've now mastered the most fundamental concept in all of computing: how information is physically stored in a binary system. You have a working input device, and you've seen how this physical concept directly connects to both real-world hardware and clever software algorithms.
 
