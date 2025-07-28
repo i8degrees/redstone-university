@@ -130,6 +130,8 @@ Let's check our understanding before moving on.
 
 - **Real-World Connection: CPU Registers**
     > The 4-bit register you just built is a real, albeit simplified, computer component. When you see a computer advertised as having a "64-bit processor," it means its internal registers, the spaces inside the chip where it does its most immediate work, are 64 bits wide. They are just like your device, but with 64 "levers" instead of just 4. This allows them to work with incredibly large numbers in a single step! A 64-bit register can hold a number larger than 18 quintillion.
+    >
+    > In real CPUs, these registers are used to store numbers, addresses, and even instructions. When you write code in assembly language, you are often moving values directly in and out of these registers. Each bit in a register is like a physical wire or lever that can be ON or OFF, just like your Minecraft build.
 
 - **Software Connection (LeetCode): Counting Bits**
     > How does a programmer "look at" the individual bits you just set with your levers? They use bitwise operations! This is a sneak peek of what we'll learn in Module 2, but it's too cool not to share.
@@ -149,8 +151,10 @@ Let's check our understanding before moving on.
     > # The binary for 13 is 1101
     > print(countSetBits(13)) # Output: 3
     > ```
-    > The ability to think of numbers as a collection of bits, just like your register, is a programming superpower.
-
+    >
+    > **Software Analogy:** In most programming languages, you can use bitwise operators to manipulate numbers at the binary level. For example, in Python, `n & 1` checks the lowest bit, and `n >>= 1` shifts all bits to the right. This is just like flipping levers and reading wires in your register!
+    >
+    > **Extra:** Registers are the foundation for fast calculations in CPUs, and bitwise tricks are used everywhere in high-performance code, cryptography, and even graphics.
 ---
 
 ### Module 1 Conclusion
