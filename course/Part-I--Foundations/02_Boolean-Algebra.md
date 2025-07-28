@@ -22,7 +22,6 @@
 
 #### Module Introduction
 
-
 *For our build philosophy and the story behind this course, see the [main course introduction](../../introduction.md).*
 
 ---
@@ -50,6 +49,8 @@ Welcome to Boolean Algebra.
 
 #### Lesson 2.1: The Rules of Thought
 
+> **Key Takeaway:** Boolean algebra gives us a precise language for describing and manipulating logical statements, which is the foundation of all digital circuits.
+
 In the mid-1800s, a mathematician named George Boole developed a new kind of algebra. Unlike the algebra you might know from school—where variables like `x` and `y` can be any number—Boole's variables were much simpler. They could only have two possible values: **True** or **False**.
 
 This system, now called **Boolean Algebra**, was initially a mathematical curiosity. But a century later, when engineers started building the first electronic computers with on/off switches, they realized Boole had already invented the perfect mathematical system to describe them.
@@ -67,18 +68,20 @@ Boolean algebra gives us a set of rules and operators to manipulate these True/F
 **How We Describe Each Gate**
 
 For each logic gate, you'll see:
-- **Formal Definition:** The high-level concept and official terminology.
-- **Symbols:** The common ways this operator is written in logic and programming.
-- **The Rule:** A plain-English sentence describing what the gate does.
-- **Truth Table:** A complete chart defining the gate's behavior. This is the ultimate "source of truth."
-- **Boolean Expression:** The algebraic/logical representation of the gate's output.
-- **Circuit Diagram:** ASCII schematic and step-by-step guide to build a standard, compact version (plus visuals).
-- **Lab & Experiment:** A hands-on test to verify the gate's function against its truth table.
-- **Real-World Connection:** An example of where this logic is used in real technology.
+-   **Formal Definition:** The high-level concept and official terminology.
+-   **Symbols:** The common ways this operator is written in logic and programming.
+-   **The Rule:** A plain-English sentence describing what the gate does.
+-   **Truth Table:** A complete chart defining the gate's behavior. This is the ultimate "source of truth."
+-   **Boolean Expression:** The algebraic/logical representation of the gate's output.
+-   **Circuit Diagram:** ASCII schematic and step-by-step guide to build a standard, compact version (plus visuals).
+-   **Lab & Experiment:** A hands-on test to verify the gate's function against its truth table.
+-   **Real-World Connection:** An example of where this logic is used in real technology.
 
 ---
 
 ##### Operator 1: NOT (The Inverter)
+
+> **Key Takeaway:** The NOT gate flips a signal—turning ON to OFF, or 1 to 0. It’s the simplest way to create “opposite” logic in a circuit.
 
 > **NOTE:** Insert Minecraft screenshot and CircuitVerse diagram for NOT gate here.
 
@@ -106,6 +109,8 @@ For each logic gate, you'll see:
 ---
 
 ##### Operator 2: OR (The "At Least One" Gate)
+
+> **Key Takeaway:** The OR gate outputs 1 if at least one input is 1. It’s how we express “either/or” logic in hardware and software.
 
 > **NOTE:** Insert Minecraft screenshot and CircuitVerse diagram for OR gate here.
 
@@ -139,6 +144,8 @@ For each logic gate, you'll see:
 
 ##### Operator 3: AND (The "Strict" Gate)
 
+> **Key Takeaway:** The AND gate only outputs 1 if all its inputs are 1. It’s how we require multiple conditions to be true at once.
+
 > **NOTE:** Insert Minecraft screenshot and CircuitVerse diagram for AND gate here.
 
 -   **Formal Definition:** The AND gate performs **Conjunction**. Think of it as the strict gate. It checks if *all* of its inputs are True.
@@ -171,10 +178,12 @@ For each logic gate, you'll see:
 
 #### Lesson 2.3: The Laws of Logic & The Power of Simplification
 
-Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let us rearrange and simplify expressions. For us, **a simpler expression means a smaller, faster, and more reliable Redstone circuit.** This is a critical engineering skill.
+> **Key Takeaway:** Boolean laws let us simplify complex circuits and expressions, making our designs more efficient and easier to understand.
 
 > ***Visual needed:***
 > *Show a side-by-side diagram of an AND gate and its equivalent using only OR and NOT gates (and vice versa), both as a circuit diagram and as a truth table. Also, show a “before and after” circuit: a more complex circuit and its simplified version using De Morgan’s Law. Highlight how the outputs match for both forms.*
+
+Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let us rearrange and simplify expressions. For us, **a simpler expression means a smaller, faster, and more reliable Redstone circuit.** This is a critical engineering skill.
 
 > **Boolean Notation: Logical vs. Arithmetic**
 >
@@ -189,7 +198,7 @@ Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let u
 
 -   **Identity Law:** `A OR 0 = A` and `A AND 1 = A`.
 -   **Annihilator Law:** `A OR 1 = 1` and `A AND 0 = 0`.
--   **De Morgan's Law:** This is the superstar. It gives us a way to convert between ANDs and ORs by distributing a NOT operation and flipping the operator.
+-   **De Morgan's Law:** This is the superstar. It gives us a way to convert between ANDs and ORs.
     -   `!(A AND B)` is the same as `!A OR !B`
     -   `!(A OR B)` is the same as `!A AND !B`
 -   **Lab: The Proof in Practice**
@@ -205,6 +214,8 @@ Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let u
 ---
 
 #### Lesson 2.4: The Negated Gates – NAND, NOR, and XNOR
+
+> **Key Takeaway:** Negated gates combine basic operations with NOT, giving us powerful new building blocks. NAND and NOR are “functionally complete”—you can build any logic circuit using just one of them!
 
 > **NOTE:** Insert Minecraft screenshot and CircuitVerse diagram for NAND, NOR, and XNOR gates here.
 
@@ -225,6 +236,8 @@ There are three other gates that are simply the negated versions of the ones we'
 ---
 
 #### Lesson 2.5: The Special Operator – XOR
+
+> **Key Takeaway:** XOR outputs 1 only when its inputs are different. It’s essential for circuits like adders, parity checks, and many programming tricks.
 
 > **NOTE:** Insert Minecraft screenshot and CircuitVerse diagram for XOR gate here.
 
@@ -259,6 +272,11 @@ There are three other gates that are simply the negated versions of the ones we'
 ---
 
 #### Lesson 2.6: Software Superpowers – The XOR Trick for Programmers
+
+> **Key Takeaway:** XOR is a “secret weapon” in programming. Its reversible, self-canceling property allows for incredibly efficient solutions to common algorithmic problems.
+
+**Why is XOR so useful in programming?**  
+Because it’s reversible and “cancels itself out.” For example, `a ^ a = 0` and `a ^ 0 = a`. This property lets you do things like swap two variables without a temporary variable, or find the one unique number in a list where every other number appears twice.
 
 > **NOTE:** Insert code block screenshot or highlight for LeetCode XOR trick.
 
@@ -297,7 +315,9 @@ This is a powerful bridge between hardware and software. The simple "difference 
 
 #### Lesson 2.7: Module 2 Checkpoint
 
-> **NOTE:** Insert summary visual or concept map for all gates
+> **Mini-Summary:** You’ve learned the core logic gates, their symbols, and how to combine them. You’ve also seen how Boolean algebra powers both hardware and software problem-solving!
+
+> **NOTE:** Insert summary visual or concept map for all gates.
 
 -   **Quiz:**
     1.  What is the output of `(1 AND 0) OR (1 XOR 1)`? (Answer: 0)
@@ -311,4 +331,17 @@ This is a powerful bridge between hardware and software. The simple "difference 
 
 ### Module 2 Conclusion
 
-This was a huge module! But you now have the most powerful tool an engineer can possess: a formal language to describe, design, and simplify complex systems. You know the "verbs" of logic, have built them, and seen how that physical logic directly empowers elegant software solutions. In the next module, we'll use this newfound language to build our first truly complex and useful machine: a translator that will let our computer speak to us.
+This was a huge module! But you now have the most powerful tool an engineer can possess: a formal language to describe, design, and simplify complex systems. You know the "verbs" of logic, have built them, and seen how that physical logic directly empowers elegant software solutions.
+
+**What’s Next:** Now that you can “think in logic,” you’re ready to build circuits that translate, display, and process information. In the next module, we'll use this newfound language to build our first truly complex and useful machine: a translator that will let our computer speak to us.
+
+---
+
+### Key Terms (Module 2)
+
+-   **Boolean Algebra:** A branch of mathematics for working with true/false values (1/0), using operators like AND, OR, and NOT.
+-   **Logic Gate:** A physical or virtual device that implements a Boolean operation.
+-   **Truth Table:** A chart showing all possible input/output combinations for a logic gate or circuit.
+-   **Functionally Complete:** A set of gates from which any Boolean function can be built (e.g., just NAND or just NOR).
+-   **Bitwise Operation:** A software operation that manipulates individual bits of a number.
+-   **XOR (Exclusive OR):** Outputs 1 if inputs are different; used in both hardware and software for unique logic tricks.
