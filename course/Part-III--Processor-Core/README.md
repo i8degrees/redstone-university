@@ -9,7 +9,7 @@ But a processor is more than just a math machine; it's also a *logic* machine. W
 This part is focused on the grand assembly of our processor's core. We will build the final control systems and then forge everything into our most complex component yet.
 
 *   **In Module 8 (The Multiplexer),** before we can build the ALU, we must first build its "steering wheel." We'll learn about and construct a Multiplexer, a crucial digital switch that allows us to choose between multiple different inputs.
-*   **In Module 9 (The ALU),** this is the capstone project for our processor. We will bring all our previous work—the adder/subtractor, the logic gates—into one place and use our new Multiplexer to build a complete, multi-function ALU that can be commanded to perform a wide variety of operations.
+*   **In Module 9 (The ALU),** this is the capstone project for our processor. We will bring all our previous work, the adder/subtractor and the logic gates, into one place and use our new Multiplexer to build a complete, multi-function ALU that can be commanded to perform a wide variety of operations.
 
 By the end of this Part, the brain of our computer will be complete. We will have built the single most important component in any CPU, setting the stage for the final act: bringing it to life.
 
