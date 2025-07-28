@@ -8,9 +8,37 @@ As a non-traditional, self-taught software engineer, I found myself wanting to e
 
 That is the mission of Redstone University. We will make the abstract tangible. We will turn theory into a physical, working machine that you can walk around inside of.
 
-### The Journey Ahead
+## My Personal Journey & Course Philosophy
 
-This course is structured as a complete curriculum, taking you from zero knowledge to a fully functional, programmable 4-bit computer. We will follow a clear, logical path, broken into five distinct parts:
+Redstone University is the product of my own adventure learning digital logic and computer architecture—an adventure that started with curiosity and grew into a passion for building, experimenting, and teaching. Every lesson, every build, and every design choice in this course is shaped by what felt intuitive and exciting to me as a learner. I’ve structured the curriculum to follow the path that made the most sense to me: building what I wanted to see next, solving the problems that naturally arose, and always striving to make each concept click in a hands-on, visual way.
+
+**What sets this course apart?**
+- It’s grounded in *real experience*: you’ll follow the same journey I did, learning not just the “what” but the “why” and “how” behind each step.
+- We use **Minecraft** as our laboratory, making abstract concepts tangible and fun.
+- We focus on clarity and intuition, not just efficiency or speed.
+
+---
+
+## Course Build Philosophy
+
+> **Disclaimer:** The builds and circuits in this course are intentionally designed for clarity and educational value, not for performance or compactness. We lay out circuits horizontally and in a “paper-like” fashion to make the logic easy to follow, just as you would draw them on paper. Our goal is to illustrate the underlying principles of computer engineering, not to create the most efficient or smallest circuits.
+
+---
+
+
+### How the Course is Structured
+
+This course is organized as a complete curriculum, taking you from zero knowledge to a fully functional, programmable 4-bit computer. It is divided into Parts (major phases), Modules (specific projects), and Lessons (step-by-step instructions). Each module builds a piece of our computer, and each lesson guides you through that process.
+
+You’ll find:
+- **Personal motivation and narrative:** Each module is introduced with a story or challenge that mirrors my own learning process.
+- **Hands-on builds:** Every concept is brought to life with a Minecraft circuit and, where helpful, a CircuitVerse diagram.
+- **Theory and practice:** The modules balance foundational theory with immediate, practical application.
+- **Real-world and software connections:** You’ll see how each idea relates to real computers and even to programming challenges (like those on LeetCode).
+
+---
+
+### The Journey Ahead
 
 *   **Part I: The Foundations - Speaking to the Machine.** We will begin by building the essential human-computer interface. We'll learn the language of binary, the grammar of Boolean logic, and construct our own "keyboard" and "monitor."
 *   **Part II: Engineering a Robust Arithmetic Unit.** Here, we will build the mathematical core of our machine. We'll engineer an adder and subtractor, discover our machine's natural limitations through "bugs" like overflow, and upgrade our system to solve them, just like real engineers.
@@ -32,8 +60,6 @@ This course is designed to be followed along in **Minecraft**. However, Minecraf
 
 For each module, I will provide guidance, but I also provide a **World Download**—the "RU Campus"—with the completed circuits. You can use this to check your work, explore the final product, or use the pre-built components as "black boxes" if you want to focus more on the high-level concepts.
 
-**The "No-Minecraft Track":** If you don't have Minecraft or prefer a more theoretical approach, you can still complete this entire course. Every lesson will include text descriptions, diagrams, and schematics. We will also provide links to free online digital logic simulators (like [CircuitVerse](https://circuitverse.org/simulator)) where you can build and test these circuits without the game. The core learning is in the logic, not just the blocks.
+**The "No-Minecraft Track":** If you don't have Minecraft or prefer a more theoretical approach, you can still complete this entire course. Every lesson will include text descriptions, diagrams, and schematics. I will also provide links to free online digital logic simulators (like [CircuitVerse](https://circuitverse.org/simulator)) where you can build and test these circuits without the game. The core learning is in the logic, not just the blocks.
 
-Thank you for enrolling. It's time to stop just *using* computers and start *understanding* them.
-
-Let's build a machine that thinks.
+I am excited for you to join me on this journey. It's time to stop just *using* computers and start *understanding* them.
