@@ -1,4 +1,26 @@
-### **Redstone University - Module 2: The Language of Logic**
+### Module 2: The Language of Logic – A Deep Dive into Boolean Algebra
+
+---
+
+#### Module Summary
+
+- **Narrative Beat:** We've built our keyboard, but to make the computer *think*, we need to learn its grammar. This isn't a Minecraft lesson; this is the fundamental language of all digital electronics. Welcome to Boolean Algebra.
+- **Learning Goals:**
+  - Move beyond physical blocks to understand the formal, abstract language that governs all digital circuits.
+  - Understand *why* circuits work the way they do, and how to design and simplify them on paper before ever placing a block.
+- **Lesson Overview:**
+  - Lesson 2.1: The Rules of Thought
+  - Lesson 2.2: The Core Operators (The Verbs of Logic)
+  - Lesson 2.3: The Laws of Logic & The Power of Simplification
+  - Lesson 2.4: The Negated Gates – NAND, NOR, and XNOR
+  - Lesson 2.5: The Special Operator – XOR
+  - Lesson 2.6: Software Superpowers – The XOR Trick for Programmers
+  - Lesson 2.7: Module 2 Checkpoint
+- **Minecraft Artifact:** A set of working Redstone logic gates (NOT, AND, OR, XOR, NAND, NOR, XNOR).
+
+---
+
+#### Module Introduction
 
 Welcome back to Redstone University!
 
@@ -10,7 +32,7 @@ Welcome to Boolean Algebra.
 
 ---
 
-#### **Lesson 2.1: The Rules of Thought**
+#### Lesson 2.1: The Rules of Thought
 
 In the mid-1800s, a mathematician named George Boole developed a new kind of algebra. Unlike the algebra you might know from school—where variables like `x` and `y` can be any number—Boole's variables were much simpler. They could only have two possible values: **True** or **False**.
 
@@ -20,11 +42,11 @@ This system, now called **Boolean Algebra**, was initially a mathematical curios
 *   A powered Redstone line is **True**. We'll also call this `1`.
 *   An unpowered Redstone line is **False**. We'll also call this `0`.
 
-Boolean algebra gives us a set of rules and operators to manipulate these True/False values. These physical operators are called **logic gates**, and they are the bedrock of all computation.
+Boolean algebra gives us a set of rules and operators to manipulate these True/False values. These physical operators are called **logic gates**, and they are the bedrock (pun intended) of all computation.
 
 ---
 
-#### **Lesson 2.2: The Core Operators (The Verbs of Logic)**
+#### Lesson 2.2: The Core Operators (The Verbs of Logic)
 
 For each operator, we'll follow a consistent structure to build our knowledge from theory to practice:
 *   **Formal Definition:** The high-level concept and official terminology.
@@ -36,7 +58,7 @@ For each operator, we'll follow a consistent structure to build our knowledge fr
 *   **Lab & Experiment:** A hands-on test to verify the gate's function against its truth table.
 *   **Real-World Connection:** An example of where this logic is used in real technology.
 
-##### **Operator 1: NOT (The Inverter)**
+##### Operator 1: NOT (The Inverter)
 
 *   **Formal Definition:** The NOT gate, or Inverter, performs **Negation**. It's the simplest possible operation: it takes a single input and outputs its exact opposite.
 *   **Symbols:** `¬A` (logic), `!A` (programming).
@@ -61,7 +83,7 @@ For each operator, we'll follow a consistent structure to build our knowledge fr
 
 ---
 
-##### **Operator 2: OR (The "At Least One" Gate)**
+##### Operator 2: OR (The "At Least One" Gate)
 
 *   **Formal Definition:** The OR gate performs **Disjunction**. Think of it as the optimistic gate. It checks if *at least one* of its inputs is True.
 *   **Symbols:** `A V B` (logic), `A || B` (programming).
@@ -91,7 +113,7 @@ For each operator, we'll follow a consistent structure to build our knowledge fr
 
 ---
 
-##### **Operator 3: AND (The "Strict" Gate)**
+##### Operator 3: AND (The "Strict" Gate)
 
 *   **Formal Definition:** The AND gate performs **Conjunction**. Think of it as the strict gate. It checks if *all* of its inputs are True.
 *   **Symbols:** `A ∧ B` (logic), `A && B` (programming).
@@ -121,7 +143,7 @@ For each operator, we'll follow a consistent structure to build our knowledge fr
 
 ---
 
-#### **Lesson 2.3: The Laws of Logic & The Power of Simplification**
+#### Lesson 2.3: The Laws of Logic & The Power of Simplification
 
 Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let us rearrange and simplify expressions. For us, **a simpler expression means a smaller, faster, and more reliable Redstone circuit.** This is a critical engineering skill.
 
@@ -142,7 +164,7 @@ Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let u
 
 ---
 
-#### **Lesson 2.4: The Negated Gates - NAND, NOR, and XNOR**
+#### Lesson 2.4: The Negated Gates – NAND, NOR, and XNOR
 
 There are three other gates that are simply the negated versions of the ones we've learned. They are incredibly important in real-world chip design.
 
@@ -156,7 +178,7 @@ There are three other gates that are simply the negated versions of the ones we'
 
 ---
 
-#### **Lesson 2.5: The Special Operator - XOR**
+#### Lesson 2.5: The Special Operator – XOR
 
 *   **Formal Definition:** The **Exclusive OR (XOR)** gate is our "difference detector." It's fundamental to computer arithmetic.
 *   **Symbols:** `A ⊕ B` (logic), `A ^ B` (programming).
@@ -188,7 +210,7 @@ There are three other gates that are simply the negated versions of the ones we'
 
 ---
 
-#### **Lesson 2.6: Software Superpowers - The XOR Trick for Programmers**
+#### Lesson 2.6: Software Superpowers – The XOR Trick for Programmers
 
 This is where our hardware knowledge directly translates into writing brilliant, efficient software. The XOR gate has two magical properties that programmers exploit constantly:
 1.  Any number XORed with itself is zero: `x ^ x = 0`.
@@ -219,17 +241,18 @@ This is a powerful bridge between hardware and software. The simple "difference 
 
 ---
 
-#### **Module 2 Checkpoint**
+#### Lesson 2.7: Module 2 Checkpoint
 
-*   **Quiz:**
-    1.  What is the output of `(1 AND 0) OR (1 XOR 1)`? (Answer: 0)
-    2.  If `A=0` and `B=1`, what is `!(A OR B)`? (This is a NOR gate. Answer: 0)
-    3.  Which logic gate acts as an "Equality Detector"? (XNOR).
+- **Quiz:**
+    1. What is the output of `(1 AND 0) OR (1 XOR 1)`? (Answer: 0)
+    2. If `A=0` and `B=1`, what is `!(A OR B)`? (This is a NOR gate. Answer: 0)
+    3. Which logic gate acts as an "Equality Detector"? (XNOR).
 
-*   **Debug Challenge ("Module 2.5"):**
+- **Debug Challenge ("Module 2.5"):**
     > In the world download, you'll find a section labeled "Module 2 Debug Challenge." I've built a circuit that is *supposed* to implement the logic `(A AND B) OR C`, but it's giving the wrong output for some inputs! Your mission is to use your knowledge of truth tables to diagnose the mistake in the wiring and fix it.
 
 ---
 
-**Module 2 Conclusion:**
+### Module 2 Conclusion
+
 This was a huge module! But you now have the most powerful tool an engineer can possess: a formal language to describe, design, and simplify complex systems. You know the "verbs" of logic, have built them, and seen how that physical logic directly empowers elegant software solutions. In the next module, we'll use this newfound language to build our first truly complex and useful machine: a translator that will let our computer speak to us.
