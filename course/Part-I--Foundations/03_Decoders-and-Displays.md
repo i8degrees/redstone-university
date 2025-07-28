@@ -127,6 +127,9 @@ You’ve created a programmable display driver using a physical “ROM.” This 
 >
 > This "diode matrix" you've built is a simple form of **Read-Only Memory**. The "program," which is the shape of the numbers, is physically burned into the circuit's layout. Old video game cartridges and a computer's BIOS chip worked on this exact principle, with data permanently stored in the hardware's structure.
 
+**Software Connection:** 
+> I'll keep this brief, because if you've done any programming, you've used a **lookup table** or hash map. If you find yourself stuck on an interview question, it is worth remembering that the majority of those types problems can be solved naively using a lookup table. 
+
 ---
 
 #### Lesson 3.4: The Final Connection and The Grand Payoff
