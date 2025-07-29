@@ -88,11 +88,11 @@ For each logic gate, you'll see:
 -   **Formal Definition:** The NOT gate, or Inverter, performs **Negation**. It's the simplest possible operation: it takes a single input and outputs its exact opposite.
 -   **Symbols:** `¬A` (logic), `!A` (programming).
 -   **The Rule:** If the input is `True`, the output is `False`. If the input is `False`, the output is `True`.
--   **The Truth Table:**
-    | Input A | Output !A |
-    |:-------:|:---------:|
-    |    0    |     1     |
-    |    1    |     0     |
+-   **Truth Table: NOT Gate**
+    | `A` | `NOT A` |
+    |:---:|:-------:|
+    |  0  |   1     |
+    |  1  |   0     |
 -   **The Boolean Expression:** The output `Y` is simply `Y = !A`.
 -   **The Minecraft Gate:** The **Redstone Torch** is a purpose-built NOT gate.
 -   **ASCII Schematic:**
@@ -125,13 +125,13 @@ For each logic gate, you'll see:
 -   **Formal Definition:** The OR gate performs **Disjunction**. Think of it as the optimistic gate. It checks if *at least one* of its inputs is True.
 -   **Symbols:** `A V B` (logic), `A || B` (programming).
 -   **The Rule:** The output is `True` if `A` is True, OR `B` is True, or if both are True.
--   **The Truth Table:**
-    | Input A | Input B | Output A OR B |
-    |:-------:|:-------:|:-------------:|
-    |    0    |    0    |       0       |
-    |    0    |    1    |       1       |
-    |    1    |    0    |       1       |
-    |    1    |    1    |       1       |
+-   **Truth Table: OR Gate**
+    | `A` | `B` | `A OR B` |
+    |:---:|:---:|:--------:|
+    |  0  |  0  |    0     |
+    |  0  |  1  |    1     |
+    |  1  |  0  |    1     |
+    |  1  |  1  |    1     |
 -   **The Boolean Expression:** The output `Y` is `Y = A OR B`.
 -   **The Minecraft Gate:** The logic is inherent to how **Redstone Dust** works.
 -   **ASCII Schematic:**
@@ -166,13 +166,13 @@ For each logic gate, you'll see:
 -   **Formal Definition:** The AND gate performs **Conjunction**. Think of it as the strict gate. It checks if *all* of its inputs are True.
 -   **Symbols:** `A ∧ B` (logic), `A && B` (programming).
 -   **The Rule:** The output is `True` *only if* `A` is True AND `B` is True.
--   **The Truth Table:**
-    | Input A | Input B | Output A AND B |
-    |:-------:|:-------:|:--------------:|
-    |    0    |    0    |        0       |
-    |    0    |    1    |        0       |
-    |    1    |    0    |        0       |
-    |    1    |    1    |        1       |
+-   **Truth Table: AND Gate**
+    | `A` | `B` | `A AND B` |
+    |:---:|:---:|:---------:|
+    |  0  |  0  |     0     |
+    |  0  |  1  |     0     |
+    |  1  |  0  |     0     |
+    |  1  |  1  |     1     |
 -   **The Boolean Expression:** The output `Y` is `Y = A AND B`. As we will prove in the next lesson, the circuit we're building implements `!(!A OR !B)`, which is logically equivalent.
 -   **The Minecraft Gate: Our First Puzzle.** Unlike NOT and OR, we must construct the AND gate. This classic, compact torch-based design is a fundamental Redstone circuit.
 -   **ASCII Schematic (Top-Down View):**
@@ -235,6 +235,32 @@ Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let u
 
 ---
 
+**Summary Table: Boolean Laws**
+
+| Law Name           | Example(s)                                                                 | Description                                      |
+|--------------------|----------------------------------------------------------------------------|--------------------------------------------------|
+| Identity           | `A OR 0 = A`<br>`A AND 1 = A`                        | Leaves value unchanged                           |
+| Annihilator        | `A OR 1 = 1`<br>`A AND 0 = 0`                        | Output is always 1 (OR) or 0 (AND)               |
+| Idempotent         | `A OR A = A`<br>`A AND A = A`                        | Repeating input doesn't change output            |
+| Inverse            | `A OR NOT A = 1`<br>`A AND NOT A = 0`                | Input and its NOT always produce 1 (OR) or 0 (AND)|
+| Commutative        | `A OR B = B OR A`<br>`A AND B = B AND A`             | Order doesn't matter                             |
+| Associative        | `(A OR B) OR C = A OR (B OR C)`<br>`(A AND B) AND C = A AND (B AND C)` | Grouping doesn't matter |
+| Distributive       | `A AND (B OR C) = (A AND B) OR (A AND C)`                       | AND distributes over OR                          |
+| De Morgan's Laws   | `NOT (A AND B) = NOT A OR NOT B`<br>`NOT (A OR B) = NOT A AND NOT B` | Converts between AND/OR with NOT         |
+
+---
+
+**Functional Completeness Table**
+
+| Gate Used Alone | Can Build...         | Example Construction                |
+|-----------------|---------------------|-------------------------------------|
+| NAND            | NOT, AND, OR, XOR   | `NOT A = A NAND A`<br>`AND = (A NAND B) NAND (A NAND B)`<br>`OR = (NOT A) NAND (NOT B)` |
+| NOR             | NOT, AND, OR, XOR   | `NOT A = A NOR A`<br>`AND = (NOT A) NOR (NOT B)`<br>`OR = (A NOR B) NOR (A NOR B)`     |
+
+*Any logic circuit can be built using just NAND or just NOR gates!*
+
+---
+
 #### Lesson 2.4: The Negated Gates – NAND, NOR, and XNOR
 
 > **Key Takeaway:** Negated gates combine basic operations with NOT, giving us powerful new building blocks. NAND and NOR are “functionally complete.” You can build any logic circuit using just one of them!
@@ -255,6 +281,34 @@ There are three other gates that are simply the negated versions of the ones we'
     -   **The Rule:** The output is `True` only when A and B are the **same**. This makes it a very useful **"Equality Detector."**
     -   **Foreshadowing:** We will use this powerful gate in our final ALU to check if two numbers are equal!
 
+**Truth Table: NAND Gate**
+| `A` | `B` | `A AND B` | `A NAND B` |
+|:---:|:---:|:---------:|:----------:|
+|  0  |  0  |     0     |     1      |
+|  0  |  1  |     0     |     1      |
+|  1  |  0  |     0     |     1      |
+|  1  |  1  |     1     |     0      |
+
+---
+
+**Truth Table: NOR Gate**
+| `A` | `B` | `A OR B` | `A NOR B` |
+|:---:|:---:|:--------:|:---------:|
+|  0  |  0  |    0     |     1     |
+|  0  |  1  |    1     |     0     |
+|  1  |  0  |    1     |     0     |
+|  1  |  1  |    1     |     0     |
+
+---
+
+**Truth Table: XNOR Gate**
+| `A` | `B` | `A XOR B` | `A XNOR B` |
+|:---:|:---:|:---------:|:----------:|
+|  0  |  0  |     0     |     1      |
+|  0  |  1  |     1     |     0      |
+|  1  |  0  |     1     |     0      |
+|  1  |  1  |     0     |     1      |
+
 ---
 
 #### Lesson 2.5: The Special Operator – XOR
@@ -266,13 +320,13 @@ There are three other gates that are simply the negated versions of the ones we'
 -   **Formal Definition:** The **Exclusive OR (XOR)** gate is our "difference detector." It's fundamental to computer arithmetic.
 -   **Symbols:** `A ⊕ B` (logic), `A ^ B` (programming).
 -   **The Rule:** The output is `True` *only if* the inputs are different from each other.
--   **The Truth Table:**
-    | Input A | Input B | Output A XOR B |
-    |:-------:|:-------:|:--------------:|
-    |    0    |    0    |        0       |
-    |    0    |    1    |        1       |
-    |    1    |    0    |        1       |
-    |    1    |    1    |        0       |
+-   **Truth Table: XOR Gate**
+    | `A` | `B` | `A XOR B` |
+    |:---:|:---:|:---------:|
+    |  0  |  0  |     0     |
+    |  0  |  1  |     1     |
+    |  1  |  0  |     1     |
+    |  1  |  1  |     0     |
 -   **The Boolean Expression:** The most direct representation is `(A AND !B) OR (!A AND B)`.
 -   **The Minecraft Gate:** For our course, we will use the standard, compact design below to ensure consistency.
 -   **ASCII Schematic (Side View):**
