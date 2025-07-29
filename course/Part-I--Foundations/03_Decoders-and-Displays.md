@@ -40,7 +40,23 @@ We'll build a machine that mimics this exact two-stage process:
 
 This modular design is a core principle of good engineering. It lets us build, test, and understand each part separately before combining them.
 
-> **PLACEHOLDER:** Insert conceptual diagram showing the two-stage translation process (binary input → decoder → encoder → 7-segment display).
+**Conceptual Diagram: Two-Stage Translation**
+
+```
+[4-bit Binary Input]
+         |
+         v
+   [Decoder: 4-to-10]
+         |
+         v
+[One-hot Output (0–9)]
+         |
+         v
+   [Encoder/ROM: 7-segment]
+         |
+         v
+ [7-Segment Display Output]
+```
 
 ---
 
@@ -63,11 +79,26 @@ This modular design is a core principle of good engineering. It lets us build, t
 ```
       B3  !B3   B2  !B2   B1  !B1   B0  !B0   (8-line Bus)
       |    |    |    |    |    |    |    |
- L0<--+----*----|----*----|----*----|----*---- [4-input AND for '0000']
- L1<--+----*----|----*----|----*----*----|---- [4-input AND for '0001']
- L2<--+----*----|----*----*----|----|----*---- [4-input AND for '0010']
+ L0<--+----*----|----*----|----*----|----*---- [4-input AND for `0000`]
+ L1<--+----*----|----*----|----*----*----|---- [4-input AND for `0001`]
+ L2<--+----*----|----*----*----|----|----*---- [4-input AND for `0010`]
 ...and so on for L3 through L9.
 ```
+
+**4-to-10 Decoder Mapping Table**
+
+| Output | Binary Input | Logic Expression                  |
+|--------|--------------|-----------------------------------|
+| L0   | `0000`         | `!B3 AND !B2 AND !B1 AND !B0`     |
+| L1   | `0001`         | `!B3 AND !B2 AND !B1 AND B0`      |
+| L2   | `0010`         | `!B3 AND !B2 AND B1 AND !B0`      |
+| L3   | `0011`         | `!B3 AND !B2 AND B1 AND B0`       |
+| L4   | `0100`         | `!B3 AND B2 AND !B1 AND !B0`      |
+| L5   | `0101`         | `!B3 AND B2 AND !B1 AND B0`       |
+| L6   | `0110`         | `!B3 AND B2 AND B1 AND !B0`       |
+| L7   | `0111`         | `!B3 AND B2 AND B1 AND B0`        |
+| L8   | `1000`         | `B3 AND !B2 AND !B1 AND !B0`      |
+| L9   | `1001`         | `B3 AND !B2 AND !B1 AND B0`       |
 
 **Test your work!** Cycle through the inputs 0–9 and make sure the correct single output line (`L0`–`L9`) activates each time.
 
@@ -98,15 +129,31 @@ You’ve just built a circuit that can recognize any single digit from 0 to 9 in
 
 **Visual Aid (Conceptual Grid):**
 ```
-          Seg 'a'  Seg 'b'  Seg 'c' ... (7 Vertical Output Lines)
-           |        |        |
-L0 --------+--------+--------+---- ... (10 Horizontal Input Lines)
-           |        |        |
-L1 ------(No)------+--------+---- ...
-           |        |        |
-L2 --------+--------+------(No)--- ...
-...
+          Seg `a`  Seg `b`  Seg `c`  Seg `d`  Seg `e`  Seg `f`  Seg `g`
+           |        |        |        |        |        |        |
+L0 --------+--------+--------+--------+--------+--------+--------+ (`0`)
+L1 --------+--------+--------+--------+--------+--------+--------+ (`1`)
+L2 --------+--------+--------+--------+--------+--------+--------+ (`2`)
+...and so on for L3 through L9.
 ```
+
+**7-Segment Display Segment Table**
+
+| Digit | `a` | `b` | `c` | `d` | `e` | `f` | `g` |
+|-------|-----|-----|-----|-----|-----|-----|-----|
+| `0`   |  X  |  X  |  X  |  X  |  X  |  X  |     |
+| `1`   |     |  X  |  X  |     |     |     |     |
+| `2`   |  X  |  X  |     |  X  |  X  |     |  X  |
+| `3`   |  X  |  X  |  X  |  X  |     |     |  X  |
+| `4`   |     |  X  |  X  |     |     |  X  |  X  |
+| `5`   |  X  |     |  X  |  X  |     |  X  |  X  |
+| `6`   |  X  |     |  X  |  X  |  X  |  X  |  X  |
+| `7`   |  X  |  X  |  X  |     |     |     |     |
+| `8`   |  X  |  X  |  X  |  X  |  X  |  X  |  X  |
+| `9`   |  X  |  X  |  X  |  X  |     |  X  |  X  |
+
+(X = segment on)
+
 
 **The Minecraft Build:**
 1.  **Layout:** Run your 10 input lines (`L0`–`L9`) horizontally. Run your 7 output lines (`a`–`g`) vertically.
@@ -154,13 +201,27 @@ By connecting your decoder and encoder, you’ve built a complete translation pi
 
 -   **Quiz:**
     1.  What is the main difference between a decoder and an encoder?
-    2.  For the number 2 (`0010`), which segments of a 7-segment display should be active? (A, B, G, E, D)
-    3.  In our two-stage design, which stage is responsible for recognizing the binary pattern `1001`? (Stage 1).
+    2.  For the number 2 (`0010`), which segments of a 7-segment display should be active?
+    3.  In our two-stage design, which stage is responsible for recognizing the binary pattern `1001`?
 
 - **Challenge:**
-    > The letter 'H' can be made on a 7-segment display (segments b, c, e, f, g). If we wanted to add an 11th input line (`LH`) to our Stage 2 Encoder, what would we need to do to make it display 'H'? Describe where you would place the repeaters.
+    > The letter 'H' can be made on a 7-segment display (segments `b`, `c`, `e`, `f`, `g`). If we wanted to add an 11th input line (`LH`) to our Stage 2 Encoder, what would we need to do to make it display 'H'? Describe where you would place the repeaters.
     >
     > **Hint:** Think about which horizontal and vertical lines need to connect for the 'H' shape. Try sketching the 7-segment display and marking the segments!
+    >
+    > **Table for 'H' on 7-Segment Display:**
+    >
+    > | Segment | Should be ON for 'H'? |
+    > |---------|----------------------|
+    > |   `a`   |                      |
+    > |   `b`   |         X            |
+    > |   `c    |         X            |
+    > |   `d`   |                      |
+    > |   `e`   |         X            |
+    > |   `f`   |         X            |
+    > |   `g`   |         X            |
+    >
+    > Place repeaters at the intersections of the LH line and segments `b`, `c`, `e`, `f`, and `g`.
 
 ---
 
