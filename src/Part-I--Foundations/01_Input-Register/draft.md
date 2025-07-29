@@ -94,7 +94,7 @@ It's time to stop talking and start building. A **register** is a fundamental pi
 
 ##### Minecraft Register Example
 
-![Minecraft Register](./images/register_minecraft.png)  
+![Minecraft Register](./images/register_minecraft.png)
 *Figure: The register in Minecraft, set to `0110` (binary for 6). The levers are flipped to represent the bits, and the dust is connected to the back. Using redstone lamps makes it easy to see the current state of each bit.*
 
 ---
@@ -103,7 +103,7 @@ It's time to stop talking and start building. A **register** is a fundamental pi
 
 [View on CircuitVerse](https://circuitverse.org/simulator/edit/redstone-university)
 
-![CircuitVerse Register](./images/register_circuitverse.png)  
+![CircuitVerse Register](./images/register_circuitverse.png)
 *Figure: The same 4-bit register, built in CircuitVerse. It is also set to `0110` (6 in decimal).*
 
 While it has a few stylistic differences, the concept is exactly the same as our Minecraft build. It's a register that holds a 4-bit binary number.
@@ -138,7 +138,7 @@ Let's get a feel for our new device. Binary feels weird at first, but it will be
 
 ##### The Binary Game
 
-This is a great way to build speed. Pick a random number between `0` and `15` and see how quickly you can represent it on your register. Challenge a friend! This will burn the powers of two (`1`, `2`, `4`, `8`) into your memory.
+This is a great way to build speed. Pick a random number between `0` and `15` and see how quickly you can represent it on your register. This will burn the powers of two (`1`, `2`, `4`, `8`) into your memory.
 
 ---
 
