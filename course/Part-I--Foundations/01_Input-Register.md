@@ -84,7 +84,7 @@ It's time to stop talking and start building. A "register" is a fundamental piec
 
 > **PLACEHOLDER: Insert Minecraft screenshot of the 4-bit input register build here.**
 
-![CircuitVerse Register](./images/register_circuitverse.png)
+![CircuitVerse Register](../../assets/images/01_register_circuitverse.png)
 
 ---
 
