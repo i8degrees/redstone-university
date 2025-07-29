@@ -81,10 +81,20 @@ It's time to stop talking and start building. A "register" is a fundamental piec
 4.  Now, let's label our work so we don't get confused. Place a **Sign** on the very top of the block. From **right to left**, label them `1`, `2`, `4`, and `8`. We go right-to-left because, just like in the number `12`, the least valuable digit (the `2`) is on the right. See the schematic, screenshot, or diagram for clarity if needed.
 5.  Finally, let's wire it up. Go around to the back of your four blocks to the opposite side that you placed the lever. Place a piece or two of **Redstone Dust** on the ground directly behind each one. When you flip a lever, its block becomes powered, which sends a signal to the dust. These four parallel lines of dust are now your official **4-bit input bus**. A "bus" is just the fancy engineering term for a bundle of wires that carry a complete piece of information.
 
+Let's take a look at what our register looks like in Minecraft:
 
-> **PLACEHOLDER: Insert Minecraft screenshot of the 4-bit input register build here.**
+![Minecraft Register](./images/register_minecraft.png)
+
+The register in the screenshot has `0110` set, which is the binary representation of `6`. The levers are flipped to represent the bits, and the dust is connected to the back. You can see now how the use of the redstone lamps as our solid block makes it easy to see the current state of each bit.
+
+
+Now let's look at an alternative representation from the course [CircuitVerse project](https://circuitverse.org/simulator/edit/redstone-university):
 
 ![CircuitVerse Register](./images/register_circuitverse.png)
+
+While it has a few stylistic differences, the concept is exactly the same as our Minecraft build. It's a register that holds a 4-bit binary number and is currently set to `0110` (6 in decimal).
+
+Don't worry, we will be building more interesting circuits very soon. We will be using this register to input numbers into our computer throughout the entire course, so while it might not be impressive looking, it is a crucial part of our computer's architecture.
 
 ---
 
