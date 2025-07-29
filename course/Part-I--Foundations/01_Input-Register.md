@@ -68,28 +68,23 @@ So, the value is `8 + 4 + 1 = 13`. We've just translated from the computer's lan
 It's time to stop talking and start building. A "register" is a fundamental piece of computer hardware that holds a single piece of data. Our 4-bit register will be our simple keyboard, allowing us to manually input any number from 0 to 15.
 
 **Materials Needed:**
-- 4 standard building blocks (Stone, Iron, etc.)
+- 4 standard building blocks*
 - 4 Levers
 - 4 Signs
 - A few pieces of Redstone Dust
+> *note*: You can use any solid block, but in the case of the input register, I recommend a redstone lamp. It doubles as a visual indicator of the current state of each bit.
 
 **The Build Guide:**
 1.  First, find a nice open, flat area on our campus. This is your personal workbench.
-2.  Place **four Stone Blocks** in a horizontal line. I recommend leaving one empty space between each block just so it's easy to see what's going on.
+2.  Place **four Redstone Lamps** or **four solid blocks** in a horizontal line with one space between to prevent their redstone dust from merging.
 3.  On the front face of each block, place one **Lever**. A lever is the perfect physical bit! When it's flipped down, it's `0`. When it's flipped up, it's `1`.
-4.  Now, let's label our work so we don't get confused. Place a **Sign** on the face of each block, just above the lever. From **right to left**, label them `1`, `2`, `4`, and `8`. We go right-to-left because, just like in the number `12`, the least valuable digit (the `2`) is on the right.
-5.  Finally, let's wire it up. Go around to the back of your four blocks. Place a single piece of **Redstone Dust** on the ground directly behind each one. When you flip a lever, its block becomes powered, which sends a signal to the dust. These four parallel lines of dust are now your official **4-bit input bus**. A "bus" is just the fancy engineering term for a bundle of wires that carry a complete piece of information.
+4.  Now, let's label our work so we don't get confused. Place a **Sign** on the very top of the block. From **right to left**, label them `1`, `2`, `4`, and `8`. We go right-to-left because, just like in the number `12`, the least valuable digit (the `2`) is on the right. See the schematic, screenshot, or diagram for clarity if needed.
+5.  Finally, let's wire it up. Go around to the back of your four blocks to the opposite side that you placed the lever. Place a piece or two of **Redstone Dust** on the ground directly behind each one. When you flip a lever, its block becomes powered, which sends a signal to the dust. These four parallel lines of dust are now your official **4-bit input bus**. A "bus" is just the fancy engineering term for a bundle of wires that carry a complete piece of information.
 
-**ASCII Schematic (Side View):**
-```
-   [Sign: "8"]                [Sign: "4"]                 [Sign: "2"]                 [Sign: "1"]
- [Lever]--[Block]             [Lever]--[Block]              [Lever]--[Block]              [Lever]--[Block]
-             |                          |                           |                           |
-         <Wire 3>                   <Wire 2>                    <Wire 1>                    <Wire 0>  (Your 4-Bit Bus)
-```
 
 > **PLACEHOLDER: Insert Minecraft screenshot of the 4-bit input register build here.**
-> **PLACEHOLDER: Insert CircuitVerse diagram of the 4-bit register circuit here.**
+
+![CircuitVerse Register](./images/register_circuitverse.png)
 
 ---
 
