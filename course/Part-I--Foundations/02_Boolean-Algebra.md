@@ -12,9 +12,9 @@
     -   Lesson 2.1: The Rules of Thought
     -   Lesson 2.2: The Core Operators (The Verbs of Logic)
     -   Lesson 2.3: The Laws of Logic & The Power of Simplification
-    -   Lesson 2.4: The Negated Gates – NAND, NOR, and XNOR
-    -   Lesson 2.5: The Special Operator – XOR
-    -   Lesson 2.6: Software Superpowers – The XOR Trick for Programmers
+    -   Lesson 2.4: The Special Operator – XOR
+    -   Lesson 2.5: Software Superpowers – The XOR Trick for Programmers
+    -   Lesson 2.6: The Negated Gates – NAND, NOR, and XNOR
     -   Lesson 2.7: Module 2 Checkpoint
 -   **Minecraft Artifact:** A set of working Redstone logic gates (NOT, AND, OR, XOR, NAND, NOR, XNOR).
 
@@ -122,55 +122,36 @@ For each logic gate, we will start out with visuals and the formal definitions, 
 
 > **Key Takeaway:** The OR gate outputs 1 if at least one input is 1. It’s how we express “either/or” logic in hardware and software.
 
--   **Minecraft Gate:**
+- **Minecraft Gate:**
+  ![OR Gate in Minecraft](../../assets/images/02_OR_gate_minecraft.png)
+  *Figure: The classic Minecraft OR gate using Redstone Dust merging.*
 
-![OR Gate in Minecraft](../../assets/images/02_OR_gate_minecraft.png)
-*Figure: The classic Minecraft OR gate using Redstone Dust merging.*
+- **Circuit Diagram:**
+  ![OR Gate in CircuitVerse](../../assets/images/02_OR-gate_circuitverse.png)
+  *Figure: The OR gate as shown in CircuitVerse.*
 
--   **Circuit Diagram:**
-
-![OR Gate in CircuitVerse](../../assets/images/02_OR-gate_circuitverse.png)
-*Figure: The OR gate as shown in CircuitVerse.*
-
----
-
-##### Engineering Note: OR Gate Inputs and Back-Powering
-
-When building an OR gate in Minecraft, you might want to use Redstone Lamps as your input blocks so you can see when each input is active. However, if you simply merge the dust lines from two lamps, powering one lamp can "back-power" the other, causing both lamps to light up even if only one lever is on. This is called back-powering.
-
-To prevent this, use a **Repeater** after each input block before merging the dust lines. The repeater acts as a diode, allowing the signal to flow out but not back in.
-
----
-
--   **Formal Definition:** The OR gate performs **Disjunction**. Think of it as the optimistic gate. It checks if *at least one* of its inputs is True.
--   **Symbols:** `A V B` (logic), `A || B` (programming).
--   **The Rule:** The output is `True` if `A` is True, OR `B` is True, or if both are True.
--   **Truth Table: OR Gate**
-    | `A` | `B` | `A OR B` |
-    |:---:|:---:|:--------:|
-    |  0  |  0  |    0     |
-    |  0  |  1  |    1     |
-    |  1  |  0  |    1     |
-    |  1  |  1  |    1     |
--   **The Boolean Expression:** The output `Y` is `Y = A OR B`.
--   **Lab & Experiment:**
-    1.  Build the circuit, as shown in the Minecraft screenshot:
-      a. Place two redstone lamps with at least one space between them.
-      b. Place a lever on each of the redstone lamps. These now represent input `A` and `B`.
-      c. On the other side of each lamp place a redstone repeaters facing away from the lamp that will serve as a diode.
-      d. Run dust lines from each repeater and merge them into a single output line.
-      e. Connect this final line to another redstone lamp representing output `Y`.
-
-    2.  Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
-    3.  **Verification:** Confirm that the lamp's state matches the output column of the truth table for every test.
--   **Real-World Connection:** A simple security system in your house might sound an alarm if the `FrontDoorSensor=True` OR the `BackDoorSensor=True`.
-
--   **Software Connection:** The OR operation is used in code to check if at least one condition is true. For example:
-    ```python
-    if front_door_open or back_door_open:
-        print("Alarm triggered!")
-    ```
-    This mirrors the logic of the OR gate in hardware.
+- **Formal Definition:** The OR gate performs **Disjunction**. Think of it as the optimistic gate—it checks if *at least one* of its inputs is True.
+- **Symbols:** `A ∨ B` (logic), `A || B` (programming).
+- **The Rule:** The output is `True` if `A` is True, OR `B` is True, or if both are True.
+- **Truth Table: OR Gate**
+  | `A` | `B` | `A OR B` |
+  |:---:|:---:|:--------:|
+  |  0  |  0  |    0     |
+  |  0  |  1  |    1     |
+  |  1  |  0  |    1     |
+  |  1  |  1  |    1     |
+- **The Boolean Expression:** The output `Y` is `Y = A OR B`.
+- **Lab & Experiment:**
+  1. Build the circuit as shown in the Minecraft screenshot:
+     a. Place two redstone lamps with at least one space between them.
+     b. Place a lever on each lamp—these represent inputs `A` and `B`.
+     c. On the other side of each lamp, place a redstone repeater facing away to act as a diode.
+     d. Run dust lines from each repeater and merge them into a single output line.
+     e. Connect this line to another redstone lamp for output `Y`.
+  2. **Engineering Note:** When building this OR gate, you might notice that merging dust lines directly from the lamps without repeaters can cause "back-powering"—powering one lamp might light the other, even if its lever is off. The repeaters prevent this by acting as diodes, letting signals flow out but not back in.
+  3. Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
+  4. **Verification:** Confirm the output lamp matches the truth table for each test.
+- **Real-World Connection:** A security system might sound an alarm if `FrontDoorSensor=True` OR `BackDoorSensor=True`.
 
 ---
 
@@ -178,71 +159,50 @@ To prevent this, use a **Repeater** after each input block before merging the du
 
 > **Key Takeaway:** The AND gate only outputs 1 if all its inputs are 1. It’s how we require multiple conditions to be true at once.
 
--   **Minecraft Gate: Our First Composite Gate**
+- **Minecraft Gate: Our First Composite Gate**
+  *Verbose Version:*
+  ![AND Gate Composite in Minecraft](../../assets/images/02_AND-gate_minecraft.png)
+  *Figure: The verbose AND gate in Minecraft, built as `!(!A OR !B)`.*
+  *Compact Version:*
+  ![AND Gate Compact in Minecraft](../../assets/images/02_AND-gate-compact_minecraft.png)
+  *Figure: The compact AND gate in Minecraft, using a more efficient layout.*
 
-We must construct the AND gate from our primitives. We'll do this in two ways: a verbose, didactic version using De Morgan's Law, and a compact version commonly used in Minecraft.
+- **Circuit Diagram:**
+  *Verbose:*
+  ![AND Gate Composite in CircuitVerse](../../assets/images/02_AND-gate-composite_circuitverse.png)
+  *Figure: The AND gate built from NOT and OR gates in CircuitVerse.*
+  *Compact:*
+  ![AND Gate Abstract in CircuitVerse](../../assets/images/02_AND-gate-abstract_circuitverse.png)
+  *Figure: The standard AND gate symbol in CircuitVerse.*
 
-###### Verbose/Composite Version (De Morgan's Law)
+- **Formal Definition:** The AND gate performs **Conjunction**. It’s the strict gate—output is True only if *all* inputs are True.
+- **Symbols:** `A ∧ B` (logic), `A && B` (programming).
+- **The Rule:** The output is `True` only if `A` is True AND `B` is True.
+- **Truth Table: AND Gate**
+  | `A` | `B` | `A AND B` |
+  |:---:|:---:|:---------:|
+  |  0  |  0  |     0     |
+  |  0  |  1  |     0     |
+  |  1  |  0  |     0     |
+  |  1  |  1  |     1     |
+- **The Boolean Expression:** The output `Y` is `Y = A AND B`. (Our build uses `!(!A OR !B)`, which we’ll prove equivalent in Lesson 2.3.)
+- **Lab & Experiment:**
+  1. Build the verbose version as shown:
+     a. Place two levers for inputs `A` and `B`.
+     b. Attach a redstone torch to each input block to create `!A` and `!B`.
+     c. Merge these signals into a central block with redstone dust (an OR gate: `!A OR !B`).
+     d. Place a torch on the central block to invert the signal, giving `!(!A OR !B)`.
+     e. Connect the output to a lamp for `Y`.
+  2. Build the compact version:
+     a. Place two levers for `A` and `B`.
+     b. Use a similar layout but minimize space (see screenshot).
+     c. Connect to an output lamp.
+  3. Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
+  4. **Verification:** The output lamp lights only when both levers are ON.
+- **Real-World Connection:** A missile launch might need `TurnKey1=True` AND `PressButton=True`.
 
-![AND Gate Composite in Minecraft](../../assets/images/02_AND-gate_minecraft.png)
-*Figure: The verbose AND gate in Minecraft, built as `!(!A OR !B)`.*
-
-![AND Gate Composite in CircuitVerse](../../assets/images/02_AND-gate-composite_circuitverse.png)
-*Figure: The AND gate constructed from NOT and OR gates in CircuitVerse.*
-
-###### Compact Version
-
-![AND Gate Compact in Minecraft](../../assets/images/02_AND-gate-compact_minecraft.png)
-*Figure: The compact AND gate in Minecraft, using the same logical principle but a more efficient layout.*
-
-![AND Gate Abstract in CircuitVerse](../../assets/images/02_AND-gate-abstract_circuitverse.png)
-*Figure: The standard AND gate symbol in CircuitVerse.*
-
----
-
-
--   **Formal Definition:** The AND gate performs **Conjunction**. Think of it as the strict gate. It checks if *all* of its inputs are True.
--   **Symbols:** `A ∧ B` (logic), `A && B` (programming).
--   **The Rule:** The output is `True` *only if* `A` is True AND `B` is True.
--   **Truth Table: AND Gate**
-    | `A` | `B` | `A AND B` |
-    |:---:|:---:|:---------:|
-    |  0  |  0  |     0     |
-    |  0  |  1  |     0     |
-    |  1  |  0  |     0     |
-    |  1  |  1  |     1     |
--   **The Boolean Expression:** The output `Y` is `Y = A AND B`. As we will prove in the next lesson, the circuit we're building implements `!(!A OR !B)`, which is logically equivalent.
-
--   **Lab & Experiment:**
-    *note*: I'd like to update this to cover both builds since we show both screenshots and also to be consistent with the NOT and OR gates as far as how it lists the steps using sub bullet items in the list
-    1.  Build the circuit as shown in the screenshot. The inputs `A` and `B` power the blocks that the two "Side Torches" are attached to. The "Output Torch" is attached to the "Central Block". The output `Y` is the signal from this final torch.
-    2.  Test all four combinations from the truth table.
-    3.  **Verification:** The output lamp should only light up when both input levers are ON.
--   **Real-World Connection:** A missile launch system might require `TurnKey1=True` AND `PressButton=True` to activate. Your computer's CPU uses an AND gate as an "Enable" signal, allowing a component to run only when it's told to *and* the data is ready.
-
--   **Software Connection:** The AND operation is used in code to require multiple conditions to be true. For example:
-    ```python
-    if user_logged_in and has_permission:
-        print("Access granted.")
-    ```
-    This is a direct software analogy to the AND gate.
-
----
-##### Why These Three? A Note on Primitive Gates
-
-Now that you’ve built NOT, OR, and AND, let’s talk about why we chose these as our “primitives.” These gates are fundamental to human logic and are the most intuitive for learning and reasoning about digital circuits. They’re the building blocks that made sense to me personally as a learner, and I hope they will for you too.
-
-Minecraft gives us two of these primitives out of the box: inversion (the NOT gate, using a Redstone Torch) and disjunction (the OR gate, using Redstone Dust merging). While some engineers use NAND as their base primitive (because it’s physically smaller and more efficient in real hardware), we use the classic set for clarity and to match both human logic and Minecraft’s natural mechanics.
-
-**Functional Completeness:**  
-Our chosen set of base gates (AND, OR, NOT) is *functionally complete*. This means any possible logic function can be built from just these gates. We’ll also introduce NAND and discuss how it alone is functionally complete, which is why it’s so popular in real-world chip design.
-
----
-
-**Teaching Note:**
-We treat AND as a conceptual primitive, but in Minecraft, we physically construct it from NOT and OR gates. This reinforces the idea that all gates can be built from a small set of primitives, and helps students see the power of composition.
-
-Encourage students to build both the verbose and compact versions to deepen their understanding before moving forward with the more efficient design.
+**Why are we building the AND gate this way?**
+In this course, we’re treating AND as a key concept, but in Minecraft, we’re making it from NOT and OR gates. This shows you how all logic gates can come from a few basic parts. Try building both the detailed (verbose) and compact versions to see how they work!
 
 ---
 
@@ -267,7 +227,7 @@ For this course, I’ll stick with `AND`, `OR`, and `NOT` for clarity, but you�
     - `!(A AND B)` is the same as `!A OR !B`
     - `!(A OR B)` is the same as `!A AND !B`
 
-**Lab: The Proof in Practice**  
+**Lab: The Proof in Practice**
 Let’s use De Morgan’s Law to prove our AND gate design is correct.
 1. The two side torches are NOT gates on our inputs, giving us `!A` and `!B`.
 2. Their signals merge into the central block, which is an OR gate (`!A OR !B`).
@@ -307,35 +267,33 @@ Let’s use De Morgan’s Law to prove our AND gate design is correct.
 
 #### Lesson 2.4: The Special Operator – XOR
 
-> **Key Takeaway:** XOR outputs 1 only when its inputs are different. It’s essential for circuits like adders, parity checks, and many programming tricks.
+> **Key Takeaway:** XOR outputs 1 only when its inputs are different. It’s essential for circuits like adders and programming tricks.
 
-**Minecraft Gate:**  
-*(Insert Minecraft screenshot for XOR gate here when available)*
+- **Minecraft Gate:**
+  *(Insert Minecraft screenshot for XOR gate here when available)*
 
-**Circuit Diagram:**  
-*(Insert CircuitVerse diagram for XOR gate here when available)*
+- **Circuit Diagram:**
+  *(Insert CircuitVerse diagram for XOR gate here when available)*
 
-**Formal Definition:** The **Exclusive OR (XOR)** gate is our "difference detector." It's fundamental to computer arithmetic.
-
-**Symbols:** `A ⊕ B` (logic), `A ^ B` (programming).
-
-**The Rule:** The output is `True` *only if* the inputs are different from each other.
-
-**Truth Table: XOR Gate**
-| `A` | `B` | `A XOR B` |
-|:---:|:---:|:---------:|
-|  0  |  0  |     0     |
-|  0  |  1  |     1     |
-|  1  |  0  |     1     |
-|  1  |  1  |     0     |
-
-**The Boolean Expression:** The most direct representation is `(A AND !B) OR (!A AND B)`.
-
-**Lab: Build and Test**
-1. Build the provided XOR gate and test all four truth table combinations to verify its behavior.
-
-**Real-World Connection:**  
-XOR gates are used in digital circuits for things like error checking (parity bits), addition (in adders), and cryptography. For example, when you flip a light switch in a hallway with two switches, XOR logic is at play: the light changes state only if one switch is flipped.
+- **Formal Definition:** The **Exclusive OR (XOR)** gate outputs True only when inputs differ.
+- **Symbols:** `A ⊕ B` (logic), `A ^ B` (programming).
+- **The Rule:** The output is `True` if `A` is True and `B` is False, or vice versa; it’s `False` if inputs are the same.
+- **Truth Table: XOR Gate**
+  | `A` | `B` | `A XOR B` |
+  |:---:|:---:|:---------:|
+  |  0  |  0  |     0     |
+  |  0  |  1  |     1     |
+  |  1  |  0  |     1     |
+  |  1  |  1  |     0     |
+- **The Boolean Expression:** The output `Y` is `Y = (A AND NOT B) OR (NOT A AND B)`.
+- **Lab & Experiment:**
+  1. Build the XOR gate as shown in the screenshot:
+     a. Set up two levers for inputs `A` and `B`.
+     b. Construct the gate (details TBD with screenshot).
+     c. Connect to an output lamp for `Y`.
+  2. Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
+  3. **Verification:** The output is `1` only when inputs differ.
+- **Real-World Connection:** XOR is used in adders, error detection, and two-switch light systems (light toggles if one switch changes).
 
 ---
 
@@ -384,56 +342,91 @@ This is a powerful bridge between hardware and software. The simple "difference 
 
 #### Lesson 2.6: The Negated Gates – NAND, NOR, and XNOR
 
-> **Key Takeaway:** Negated gates combine basic operations with NOT, giving us powerful new building blocks. NAND and NOR are “functionally complete.” You can build any logic circuit using just one of them!
+> **Key Takeaway:** Negated gates combine basic operations with NOT. NAND and NOR are “functionally complete”—you can build anything with just one of them!
 
-**Minecraft Gates:**  
-*(Insert Minecraft screenshots for NAND, NOR, and XNOR gates here when available)*
+##### Operator 4: NAND (The "Not Both" Gate)
 
-**Circuit Diagrams:**  
-*(Insert CircuitVerse diagrams for NAND, NOR, and XNOR gates here when available)*
+- **Minecraft Gate:**
+  *(Insert Minecraft screenshot for NAND gate here when available)*
 
-There are three other gates that are simply the negated versions of the ones we've learned. They are incredibly important in real-world chip design.
+- **Circuit Diagram:**
+  *(Insert CircuitVerse diagram for NAND gate here when available)*
 
-**Functional Completeness (Revisited):**  
-NAND and NOR are each functionally complete by themselves. This means you can build any logic circuit using *only* NAND gates or *only* NOR gates. In real-world hardware, this is why NAND is so popular: it's easy to manufacture and can do everything! We'll show you how to build all the basic gates from NAND later in the course.
+- **Formal Definition:** The NAND gate performs a **NOT-AND** operation—negation of AND.
+- **Symbols:** `A NAND B` or `¬(A ∧ B)`.
+- **The Rule:** The output is `True` unless both inputs are `True`.
+- **Truth Table: NAND Gate**
+  | `A` | `B` | `A NAND B` |
+  |:---:|:---:|:----------:|
+  |  0  |  0  |     1      |
+  |  0  |  1  |     1      |
+  |  1  |  0  |     1      |
+  |  1  |  1  |     0      |
+- **The Boolean Expression:** The output `Y` is `Y = NOT (A AND B)`.
+- **Lab & Experiment:**
+  1. Build the NAND gate:
+     a. Start with your AND gate setup.
+     b. Remove the final output torch to invert the signal.
+     c. Connect to an output lamp for `Y`.
+  2. Test all four combinations from the truth table.
+  3. **Verification:** The output is `0` only when both inputs are `1`.
+- **Real-World Connection:** NAND gates are key in hardware (e.g., memory circuits) due to their functional completeness.
 
-- **NAND (NOT-AND):** The output is `!(A AND B)`. It's `True` in all cases *except* when A and B are both True.
-    - Try removing the final output torch from your AND gate build to create a compact NAND gate!
-- **NOR (NOT-OR):** The output is `!(A OR B)`. It's `True` only when A and B are both False.
-    - Try building a NOR gate in Minecraft by following an OR gate with a NOT gate.
-- **XNOR (Exclusive-NOR):** The output is `!(A XOR B)`.
-    - The output is `True` only when A and B are the **same**. This makes it a very useful **"Equality Detector."** We’ll use this powerful gate in our final ALU to check if two numbers are equal!
+##### Operator 5: NOR (The "Neither" Gate)
 
-**Truth Table: NAND Gate**
-| `A` | `B` | `A AND B` | `A NAND B` |
-|:---:|:---:|:---------:|:----------:|
-|  0  |  0  |     0     |     1      |
-|  0  |  1  |     0     |     1      |
-|  1  |  0  |     0     |     1      |
-|  1  |  1  |     1     |     0      |
+- **Minecraft Gate:**
+  *(Insert Minecraft screenshot for NOR gate here when available)*
 
----
+- **Circuit Diagram:**
+  *(Insert CircuitVerse diagram for NOR gate here when available)*
 
-**Truth Table: NOR Gate**
-| `A` | `B` | `A OR B` | `A NOR B` |
-|:---:|:---:|:--------:|:---------:|
-|  0  |  0  |    0     |     1     |
-|  0  |  1  |    1     |     0     |
-|  1  |  0  |    1     |     0     |
-|  1  |  1  |    1     |     0     |
+- **Formal Definition:** The NOR gate performs a **NOT-OR** operation—negation of OR.
+- **Symbols:** `A NOR B` or `¬(A ∨ B)`.
+- **The Rule:** The output is `True` only when both inputs are `False`.
+- **Truth Table: NOR Gate**
+  | `A` | `B` | `A NOR B` |
+  |:---:|:---:|:---------:|
+  |  0  |  0  |     1     |
+  |  0  |  1  |     0     |
+  |  1  |  0  |     0     |
+  |  1  |  1  |     0     |
+- **The Boolean Expression:** The output `Y` is `Y = NOT (A OR B)`.
+- **Lab & Experiment:**
+  1. Build the NOR gate:
+     a. Build an OR gate as before.
+     b. Add a torch after the merged dust to invert the signal.
+     c. Connect to an output lamp for `Y`.
+  2. Test all four combinations from the truth table.
+  3. **Verification:** The output is `1` only when both inputs are `0`.
+- **Real-World Connection:** NOR gates are used in logic circuits needing a “neither” condition and are also functionally complete.
 
----
+##### Operator 6: XNOR (The "Equality Detector")
 
-**Truth Table: XNOR Gate**
-| `A` | `B` | `A XOR B` | `A XNOR B` |
-|:---:|:---:|:---------:|:----------:|
-|  0  |  0  |     0     |     1      |
-|  0  |  1  |     1     |     0      |
-|  1  |  0  |     1     |     0      |
-|  1  |  1  |     0     |     1      |
+- **Minecraft Gate:**
+  *(Insert Minecraft screenshot for XNOR gate here when available)*
 
----
+- **Circuit Diagram:**
+  *(Insert CircuitVerse diagram for XNOR gate here when available)*
 
+- **Formal Definition:** The XNOR gate performs a **NOT-XOR** operation—negation of XOR.
+- **Symbols:** `A XNOR B` or `¬(A ⊕ B)`.
+- **The Rule:** The output is `True` when inputs are the same (both `True` or both `False`).
+- **Truth Table: XNOR Gate**
+  | `A` | `B` | `A XNOR B` |
+  |:---:|:---:|:----------:|
+  |  0  |  0  |     1      |
+  |  0  |  1  |     0      |
+  |  1  |  0  |     0      |
+  |  1  |  1  |     1      |
+- **The Boolean Expression:** The output `Y` is `Y = NOT (A XOR B)`.
+- **Lab & Experiment:**
+  1. Build the XNOR gate:
+     a. Build an XOR gate as in Lesson 2.4.
+     b. Add a torch after the output to invert it.
+     c. Connect to an output lamp for `Y`.
+  2. Test all four combinations from the truth table.
+  3. **Verification:** The output is `1` when inputs match.
+- **Real-World Connection:** XNOR gates are used in equality checks, like comparators in computing.
 
 ---
 
