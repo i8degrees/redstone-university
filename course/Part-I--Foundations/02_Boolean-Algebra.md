@@ -32,16 +32,18 @@ In our last module, we built a physical way to speak to our computer in binary. 
 
 In this module, we're going to give our computer a mind. We're going to take a crucial journey into theory to learn the fundamental grammar of all digital logic. This isn't just a Minecraft lesson; this is the language that powers every computer chip ever made.
 
-> **About Our Base Primitive Gates**
->
-> **Why do we use AND, OR, and NOT as our base gates?**
->
-> -   These gates are fundamental to human logic and are the most intuitive for learning and reasoning about digital circuits. They are the building blocks that made sense to me personally as a learner, and I hope they will for you too. (See the [course introduction](../README.md) for more on my learning journey.)
-> -   The universe of Minecraft gives us two of these primitives out of the box: inversion or the **NOT** gate (Redstone Torch) and disjunction or the **OR** gate (Redstone Dust naturally merging).
-> -   While some engineers use **NAND** as their base primitive (because it is physically smaller and more efficient in real hardware), we use the classic set for clarity and to match both human logic and Minecraft's natural mechanics.
->
-> **Functional Completeness:**
-> Our chosen set of base gates (AND, OR, NOT) is *functionally complete*. This means any possible logic function can be built from just these gates. We'll also introduce NAND and discuss how it alone is functionally complete, which is why it's so popular in real-world chip design.
+##### About Our Base Primitive Gates
+
+**Why do we use AND, OR, and NOT as our base gates?**
+
+These gates are fundamental to human logic and are the most intuitive for learning and reasoning about digital circuits. They are the building blocks that made sense to me personally as a learner, and I hope they will for you too. (See the [course introduction](../README.md) for more on my learning journey.)
+
+The universe of Minecraft gives us two of these primitives out of the box: inversion or the **NOT** gate (Redstone Torch) and disjunction or the **OR** gate (Redstone Dust naturally merging).
+
+While some engineers use **NAND** as their base primitive (because it is physically smaller and more efficient in real hardware), we use the classic set for clarity and to match both human logic and Minecraft's natural mechanics.
+
+**Functional Completeness:**  
+Our chosen set of base gates (AND, OR, NOT) is *functionally complete*. This means any possible logic function can be built from just these gates. We'll also introduce NAND and discuss how it alone is functionally complete, which is why it's so popular in real-world chip design.
 
 Welcome to Boolean Algebra.
 
@@ -67,13 +69,16 @@ Boolean algebra gives us a set of rules and operators to manipulate these True/F
 
 **How We Describe Each Gate**
 
-For each logic gate, you'll see:
+For each logic gate, we will start out with visuals and the formal definitions, then move to the truth table and Boolean expression. This will give us a complete understanding of the gate's function.
+
+-   **Minecraft Gate:** A screenshot of the gate implemented in Minecraft.
+-   **Circuit Diagram:** CircuitVerse diagram of the gate. Note for primitive gates, this will be a single gate with inputs and outputs. For composite gates, we will compose them from the primitive gates.
 -   **Formal Definition:** The high-level concept and official terminology.
 -   **Symbols:** The common ways this operator is written in logic and programming.
 -   **The Rule:** A plain-English sentence describing what the gate does.
 -   **Truth Table:** A complete chart defining the gate's behavior. This is the ultimate "source of truth."
 -   **Boolean Expression:** The algebraic/logical representation of the gate's output.
--   **Circuit Diagram:** ASCII schematic and step-by-step guide to build a standard, compact version (plus visuals).
+
 -   **Lab & Experiment:** A hands-on test to verify the gate's function against its truth table.
 -   **Real-World Connection:** An example of where this logic is used in real technology.
 
@@ -83,7 +88,15 @@ For each logic gate, you'll see:
 
 > **Key Takeaway:** The NOT gate flips a signal, turning ON to OFF, or 1 to 0. It’s the simplest way to create “opposite” logic in a circuit.
 
-> **NOTE:** Insert Minecraft screenshot and CircuitVerse diagram for NOT gate here.
+-   **Minecraft Gate:**
+
+![NOT Gate in Minecraft](../../assets/images/02_NOT-gate_minecraft.png)  
+*Figure: The **Redstone Torch** is a purpose-built NOT gate in Minecraft.*
+
+-   **Circuit Diagram:**
+
+![NOT Gate in CircuitVerse](../../assets/images/02_NOT-gate_circuitverse.png)  
+*Figure: A single NOT gate with one input and one output, as shown in CircuitVerse.*
 
 -   **Formal Definition:** The NOT gate, or Inverter, performs **Negation**. It's the simplest possible operation: it takes a single input and outputs its exact opposite.
 -   **Symbols:** `¬A` (logic), `!A` (programming).
@@ -94,13 +107,9 @@ For each logic gate, you'll see:
     |  0  |   1     |
     |  1  |   0     |
 -   **The Boolean Expression:** The output `Y` is simply `Y = !A`.
--   **The Minecraft Gate:** The **Redstone Torch** is a purpose-built NOT gate.
--   **ASCII Schematic:**
-    ```
-    Input A --- [Block] --- [Torch] ---> Output Y
-    ```
+
 -   **Lab & Experiment:**
-    1.  Build the circuit as shown in the schematic, using a lever for Input A and a lamp for Output Y.
+    1.  Build the circuit as shown in the Minecraft screenshot, using a lever for Input A and a lamp for Output Y.
     2.  Set lever A to OFF (0). Observe that the lamp is ON (1).
     3.  Set lever A to ON (1). Observe that the lamp is OFF (0).
     4.  **Verification:** The physical results perfectly match the truth table. You've built a working inverter!
@@ -120,7 +129,28 @@ For each logic gate, you'll see:
 
 > **Key Takeaway:** The OR gate outputs 1 if at least one input is 1. It’s how we express “either/or” logic in hardware and software.
 
-> **NOTE:** Insert Minecraft screenshot and CircuitVerse diagram for OR gate here.
+-   **Minecraft Gate:**
+
+![OR Gate in Minecraft](../../assets/images/02_OR_gate_minecraft.png)  
+*Figure: The classic Minecraft OR gate using Redstone Dust merging.*
+
+-   **Circuit Diagram:**
+
+![OR Gate in CircuitVerse](../../assets/images/02_OR-gate_circuitverse.png)  
+*Figure: The OR gate as shown in CircuitVerse.*
+
+---
+
+##### Engineering Note: OR Gate Inputs and Back-Powering
+
+When building an OR gate in Minecraft, you might want to use Redstone Lamps as your input blocks so you can see when each input is active. However, if you simply merge the dust lines from two lamps, powering one lamp can "back-power" the other, causing both lamps to light up even if only one lever is on. This is called back-powering.
+
+To prevent this, use a **Repeater** after each input block before merging the dust lines. The repeater acts as a diode, allowing the signal to flow out but not back in.
+
+*If you want students to experiment, you can show both versions:*
+- First, build the OR gate with plain blocks and let them try adding lamps to see the back-powering effect.
+- Then, show the correct build with repeaters and lamps.
+
 
 -   **Formal Definition:** The OR gate performs **Disjunction**. Think of it as the optimistic gate. It checks if *at least one* of its inputs is True.
 -   **Symbols:** `A V B` (logic), `A || B` (programming).
@@ -161,7 +191,32 @@ For each logic gate, you'll see:
 
 > **Key Takeaway:** The AND gate only outputs 1 if all its inputs are 1. It’s how we require multiple conditions to be true at once.
 
-> **NOTE:** Insert Minecraft screenshot and CircuitVerse diagram for AND gate here.
+-   **Minecraft Gate: Our First Composite Gate**
+
+We must construct the AND gate from our primitives. We'll do this in two ways: a verbose, didactic version using De Morgan's Law, and a compact version commonly used in Minecraft.
+
+###### Verbose/Composite Version (De Morgan's Law)
+
+![AND Gate Composite in Minecraft](../../assets/images/02_AND-gate_minecraft.png)  
+*Figure: The verbose AND gate in Minecraft, built as `!(!A OR !B)`.*
+
+![AND Gate Composite in CircuitVerse](../../assets/images/02_AND-gate-composite_circuitverse.png)  
+*Figure: The AND gate constructed from NOT and OR gates in CircuitVerse.*
+
+###### Compact Version
+
+![AND Gate Compact in Minecraft](../../assets/images/02_AND-gate-compact_minecraft.png)  
+*Figure: The compact AND gate in Minecraft, using the same logical principle but a more efficient layout.*
+
+![AND Gate Abstract in CircuitVerse](../../assets/images/02_AND-gate-abstract_circuitverse.png)  
+*Figure: The standard AND gate symbol in CircuitVerse.*
+
+---
+
+**Teaching Note:**  
+We treat AND as a conceptual primitive, but in Minecraft, we physically construct it from NOT and OR gates. This reinforces the idea that all gates can be built from a small set of primitives, and helps students see the power of composition.
+
+Encourage students to build both the verbose and compact versions to deepen their understanding before moving forward with the more efficient design.
 
 -   **Formal Definition:** The AND gate performs **Conjunction**. Think of it as the strict gate. It checks if *all* of its inputs are True.
 -   **Symbols:** `A ∧ B` (logic), `A && B` (programming).
