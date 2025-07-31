@@ -121,7 +121,7 @@ def main():
                                     f'<div align="center">'
                                     f'<img src="{src}" alt="{alt}" width="512px"/><br/>'
                                     f"<em>{caption}</em>"
-                                    f"</div>"
+                                    f"</div></br></br>"
                                 )
                                 return html
 
