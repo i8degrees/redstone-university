@@ -42,8 +42,8 @@ def main():
         logo_html = (
             '<p align="center">\n'
             "    <picture>\n"
-            '      <source media="(prefers-color-scheme: light)" srcset="assets/images/logo.png">\n'
-            '      <img alt="Redstone University Logo" src="assets/images/logo-dark.png">\n'
+            '      <source media="(prefers-color-scheme: light)" srcset="../assets/images/logo.png">\n'
+            '      <img alt="Redstone University Logo" src="../assets/images/logo-dark.png">\n'
             "    </picture>\n"
             "</p>"
         )
