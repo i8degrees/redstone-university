@@ -37,7 +37,9 @@ jobs:
           output_dir: course/
           output_file: Redstone-University.pdf
           build_html: false
-          style: assets/css/pdf-style.css
+          theme: assets/css/pdf-style.css
+          highlight_theme: assets/css/darcula.css
+          
 
       - name: Commit and push if changed
         run: |
