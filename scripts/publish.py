@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 
 SRC_DIR = "src"
@@ -78,6 +79,38 @@ def main():
 
                                 content = content.replace(old_image_path_in_md, new_image_path_in_md)
                                 print(f"    - Migrated image '{image_filename}' and updated path.")
+
+                        # Special case: Replace logo image with custom <picture> HTML
+                        logo_md_pattern = r"!\[Redstone University Logo\]\([^)]+\)"
+                        logo_html = (
+                            '<p align="center">\n'
+                            "    <picture>\n"
+                            '      <source media="(prefers-color-scheme: light)" srcset="assets/images/logo.png">\n'
+                            '      <img alt="Redstone University Logo" src="assets/images/logo-dark.png">\n'
+                            "    </picture>\n"
+                            "</p>"
+                        )
+                        content = re.sub(logo_md_pattern, logo_html, content)
+
+                        # Transform Markdown image syntax to centered HTML image blocks with captions
+                        def md_img_to_centered_html(md_content):
+                            def replacer(match):
+                                alt = match.group(1)
+                                src = match.group(2)
+                                # Try to extract a figure caption from the alt text
+                                caption = f"Figure: {alt}" if alt else ""
+                                # Centered HTML block for GitHub
+                                html = f'<div align="center">' f'<img src="{src}" width="512px"/>'
+                                if caption:
+                                    html += f"<br/>{caption}"
+                                html += "</div>"
+                                return html
+
+                            # Replace all Markdown image syntaxes
+                            pattern = r"!\[([^\]]*)\]\(([^)]+)\)"
+                            return re.sub(pattern, replacer, md_content)
+
+                        content = md_img_to_centered_html(content)
 
                         final_lesson_name = f"{module_name}.md"
                         final_lesson_path = os.path.join(part_dest_path, final_lesson_name)
