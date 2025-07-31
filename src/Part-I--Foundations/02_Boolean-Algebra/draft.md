@@ -164,7 +164,7 @@ For each logic gate, we will start out with visuals and the formal definitions, 
   ![AND Gate Composite in Minecraft](./images/AND-gate-composite_minecraft.png)
   *Figure: The verbose AND gate in Minecraft, built as `!(!A OR !B)`.*
 
-  ![AND Gate Compact in Minecraft](./images/AND-gate-compact_minecraft.png)
+  ![AND Gate Compact in Minecraft](./images/AND-gate_minecraft.png)
   *Figure: The compact AND gate in Minecraft, using a more efficient layout.*
 
 - **Circuit Diagrams:**
@@ -271,12 +271,12 @@ Let’s use De Morgan’s Law to prove our AND gate design is correct.
 
 - **Minecraft Gate:**
 
-  ![XOR Gate (Compact) in Minecraft](./images/XOR-gate-compact_minecraft.png)  
+  ![XOR Gate (Compact) in Minecraft](./images/XOR-gate_minecraft.png)
   *Figure: A compact XOR gate built in Minecraft. The output is on only when the two inputs are different.*
 
 - **Circuit Diagram:**
 
-  ![XOR Gate (Composite) in Minecraft](./images/XOR-gate-composite_minecraft.png)  
+  ![XOR Gate (Composite) in Minecraft](./images/XOR-gate-composite_minecraft.png)
   *Figure: A composite XOR gate in Minecraft, showing the logic as a combination of AND, OR, and NOT.*
 
   *(If you have a CircuitVerse diagram, you can add it here as well.)*
@@ -354,15 +354,15 @@ This is a powerful bridge between hardware and software. The simple "difference 
 
 - **Minecraft Gate:**
 
-  ![NAND Gate in Minecraft](./images/NAND-gate_minecraft.png)  
+  ![NAND Gate in Minecraft](./images/NAND-gate_minecraft.png)
   *Figure: A NAND gate built in Minecraft. The output is off only when both inputs are on.*
 
 - **Circuit Diagrams:**
 
-  ![NAND Gate (Composite) in CircuitVerse](./images/NAND-gate-composite_circuitverse.png)  
+  ![NAND Gate (Composite) in CircuitVerse](./images/NAND-gate-composite_circuitverse.png)
   *Figure: A composite NAND gate in CircuitVerse, constructed from AND and NOT gates.*
 
-  ![NAND Gate in CircuitVerse](./images/NAND-gate_circuitverse.png)  
+  ![NAND Gate in CircuitVerse](./images/NAND-gate_circuitverse.png)
   *Figure: A NAND gate as shown in CircuitVerse (standard symbol).*
 
 - **Formal Definition:** The NAND gate performs a **NOT-AND** operation—negation of AND.
@@ -389,15 +389,15 @@ This is a powerful bridge between hardware and software. The simple "difference 
 
 - **Minecraft Gate:**
 
-  ![NOR Gate in Minecraft](./images/NOR-gate_minecraft.png)  
+  ![NOR Gate in Minecraft](./images/NOR-gate_minecraft.png)
   *Figure: A NOR gate built in Minecraft. The output is on only when both inputs are off.*
 
 - **Circuit Diagrams:**
 
-  ![NOR Gate (Composite) in CircuitVerse](./images/NOR-gate-composite_circuitverse.png)  
+  ![NOR Gate (Composite) in CircuitVerse](./images/NOR-gate-composite_circuitverse.png)
   *Figure: A composite NOR gate in CircuitVerse, constructed from OR and NOT gates.*
 
-  ![NOR Gate in CircuitVerse](./images/NOR-gate_circuitverse.png)  
+  ![NOR Gate in CircuitVerse](./images/NOR-gate_circuitverse.png)
   *Figure: A NOR gate as shown in CircuitVerse (standard symbol).*
 
 - **Formal Definition:** The NOR gate performs a **NOT-OR** operation—negation of OR.
@@ -423,19 +423,19 @@ This is a powerful bridge between hardware and software. The simple "difference 
 ##### Operator 6: XNOR (The "Equality Detector")
 
 - **Minecraft Gate (Composite, Inverted Input Trick):**
-  ![XNOR Gate (Composite) in Minecraft](./images/XOR-gate-composite_minecraft.png)  
+  ![XNOR Gate (Composite) in Minecraft](./images/XOR-gate-composite_minecraft.png)
   *Figure: Composite XNOR gate in Minecraft, created by inverting one input to an XOR gate. This matches the XNOR truth table: the output is on when both inputs are the same.*
 
 - **Minecraft Gate (Compact):**
-  ![XNOR Gate (Compact) in Minecraft](./images/XNOR-gate-compact_minecraft.png)  
+  ![XNOR Gate (Compact) in Minecraft](./images/XNOR-gate_minecraft.png)
   *Figure: A compact XNOR gate in Minecraft. The output is on when both inputs are the same.*
 
 - **Circuit Diagram (Composite, Inverted Input Trick):**
-  ![XNOR Gate (Composite) in CircuitVerse](./images/XNOR-gate-composite_circuitverse.png)  
+  ![XNOR Gate (Composite) in CircuitVerse](./images/XNOR-gate-composite_circuitverse.png)
   *Figure: Composite XNOR gate in CircuitVerse, built by inverting one input to an XOR gate. This demonstrates that XOR(A, NOT B) is equivalent to XNOR(A, B).*
 
 - **Circuit Diagram (Standard Symbol):**
-  ![XNOR Gate in CircuitVerse](./images/XNOR-gate_circuitverse.png)  
+  ![XNOR Gate in CircuitVerse](./images/XNOR-gate_circuitverse.png)
   *Figure: The standard XNOR gate symbol in CircuitVerse.*
 
 - **Formal Definition:** The XNOR gate performs a **NOT-XOR** operation—negation of XOR.
