@@ -94,7 +94,7 @@ It's time to stop talking and start building. A **register** is a fundamental pi
 
 ##### Minecraft Register Example
 
-<div align="center"><img src="../../assets/images/01_register_minecraft.png" alt="Minecraft Register" width="512px"/><br/><em>Figure: The register in Minecraft, set to `0110` (binary for 6). The levers are flipped to represent the bits, and the dust is connected to the back. Using redstone lamps makes it easy to see the current state of each bit.</em></div></br></br>
+<div align="center"><img src="assets/images/01_register_minecraft.png" alt="Minecraft Register" width="512px"/><br/><em>Figure: The register in Minecraft, set to `0110` (binary for 6). The levers are flipped to represent the bits, and the dust is connected to the back. Using redstone lamps makes it easy to see the current state of each bit.</em></div></br></br>
 
 ---
 
@@ -102,7 +102,7 @@ It's time to stop talking and start building. A **register** is a fundamental pi
 
 [View on CircuitVerse](https://circuitverse.org/simulator/edit/redstone-university)
 
-<div align="center"><img src="../../assets/images/01_register_circuitverse.png" alt="CircuitVerse Register" width="512px"/><br/><em>Figure: The same 4-bit register, built in CircuitVerse. It is also set to `0110` (6 in decimal).</em></div></br></br>
+<div align="center"><img src="assets/images/01_register_circuitverse.png" alt="CircuitVerse Register" width="512px"/><br/><em>Figure: The same 4-bit register, built in CircuitVerse. It is also set to `0110` (6 in decimal).</em></div></br></br>
 
 While it has a few stylistic differences, the concept is exactly the same as our Minecraft build. It's a register that holds a 4-bit binary number.
 
