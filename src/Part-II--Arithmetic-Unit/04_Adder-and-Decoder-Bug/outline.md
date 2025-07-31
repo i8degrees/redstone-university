@@ -42,11 +42,11 @@ Notice that for each column, we need to know two things: the **Sum** bit and the
 3.  Test this single module thoroughly.
 
 **The Full 4-Bit Adder:**
-1.  **Layout:** Create two 4-bit input registers, Register A and Register B.
+1.  **Layout:** Create two 4-bit input interfaces, Input `A` and Input `B`.
 2.  **Chaining:** Place four of your Full Adder modules in a line.
 3.  **Wiring:**
-    *   The `A` and `B` inputs of the first Full Adder connect to the first bit of Register A and Register B. Its `Cin` is tied to 0 (grounded).
-    *   The `A` and `B` inputs of the second Full Adder connect to the second bit of the registers. Its `Cin` connects to the `Cout` of the first adder.
+    *   The `A` and `B` inputs of the first Full Adder connect to the first bit of Input A and Input B. Its `Cin` is tied to 0 (grounded).
+    *   The `A` and `B` inputs of the second Full Adder connect to the second bit of the input interfaces. Its `Cin` connects to the `Cout` of the first adder.
     *   Continue this chain for all four bits.
 4.  **Output:** The four `Sum` outputs from your adders form the 4-bit result of the addition.
 
@@ -57,18 +57,18 @@ Notice that for each column, we need to know two things: the **Sum** bit and the
 **Goal:** To connect our new "Processor" (the Adder) to our "Display" (the BCD system) and test its functionality.
 
 **The Setup:**
-1.  Disconnect the main Input Register from your Stage 1 Decoder (from Module 3).
+1.  Disconnect the main input interface from your Stage 1 Decoder (from Module 3).
 2.  Instead, connect the **4-bit `Sum` output bus from the Adder** to the 4-bit input of the Stage 1 Decoder.
-3.  The inputs to the Adder remain Register A and Register B.
+3.  The inputs to the Adder remain Input A and Input B.
 
 **The Test:**
-*   **Drill 1 (Success):** Set Register A to `0100` (4) and Register B to `0011` (3).
+*   **Drill 1 (Success):** Set Input A to `0100` (4) and Input B to `0011` (3).
     *   **Trace the signal:** The Adder calculates `4+3` and outputs the binary `0111`.
     *   The binary `0111` enters your Stage 1 Decoder. The `L7` line activates.
     *   The `L7` line enters your Stage 2 Encoder. The segments for "7" light up.
     *   **Result:** The display shows a perfect `7`. The student feels like a genius.
 
-*   **Drill 2 (The "Aha!" Moment - The Problem):** Now, set Register A to `1000` (8) and Register B to `0100` (4).
+*   **Drill 2 (The "Aha!" Moment - The Problem):** Now, set Input A to `1000` (8) and Input B to `0100` (4).
     *   **Trace the signal:** The Adder calculates `8+4` and outputs the binary `1100` (12).
     *   The binary `1100` enters your Stage 1 Decoder.
     *   **...What happens?** Nothing. The student looks at their Stage 1 build. There is no AND gate designed to detect `1100`. None of the 10 output lines (`L0`-`L9`) activate.

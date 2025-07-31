@@ -62,7 +62,7 @@ This is where our two-stage design proves its genius. We don't have to rebuild e
 
 Now, let's rerun the test that "failed" in Module 4.
 
-*   **The Test:** Set Register A to `1000` (8) and Register B to `0100` (4).
+*   **The Test:** Set Input A to `1000` (8) and Input B to `0100` (4).
     1.  The Adder correctly outputs `1100` (12).
     2.  The binary `1100` enters your **upgraded** Stage 1 Decoder. The `LC` AND gate fires, activating the `LC` line.
     3.  The `LC` line enters your **upgraded** Stage 2 Encoder. The repeaters on that line for segments `a, d, e, f` all activate.

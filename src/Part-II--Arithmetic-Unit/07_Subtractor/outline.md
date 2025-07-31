@@ -72,12 +72,12 @@ When `Subtract = 1`: The XOR gates invert B (`B XOR 1`), and the Carry-In is 1. 
 
 #### **Lesson 7.3: The Integration & Test**
 
-Connect your new Adder/Subtractor unit to your input registers and your two-digit display system.
+Connect your new Adder/Subtractor unit to your input interfaces and your two-digit display system.
 
 **The Experiment:**
 *   **Test 1 (Addition):**
     1.  Set the **`Subtract`** lever to **OFF (0)**.
-    2.  Set Register A to `0111` (7) and Register B to `0010` (2).
+    2.  Set Input A to `0111` (7) and Input B to `0010` (2).
     3.  **Result:** The display correctly shows `09`.
 
 *   **Test 2 (Subtraction):**
