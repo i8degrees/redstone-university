@@ -100,15 +100,17 @@ For each logic gate, we will start out with visuals and the formal definitions, 
   > **Note:** The Redstone Torch itself is a physical NOT gate, but we will add some lamps and dust just to help visualize the gate better. Feel free to use a simple torch moving forward if you prefer.
 
   1.  Build the circuit as shown in the Minecraft screenshot:
-    a. Place a redstone lamp with a lever on one side to represent input `A`.
-    b. On the backside of the lamp, place a redstone torch. This is the core component of the NOT gate.
-    c. From the torch, run a line of redstone dust to another redstone lamp representing output `Y`.
+
+      a. Place a redstone lamp with a lever on one side to represent input `A`.
+      b. On the backside of the lamp, place a redstone torch. This is the core component of the NOT gate.
+      c. From the torch, run a line of redstone dust to another redstone lamp representing output `Y`.
 
     > **Note:** The torch itself is the critical component of the NOT gate. The extra lamps and dust are just for visualization.
 
   2.  Test the circuit:
-    a. Set lever A to ON (1). Observe that the lamp is OFF (0).
-    b. Set lever A to OFF (0). Observe that the lamp is ON (1).
+
+      a. Set lever A to ON (1). Observe that the lamp is OFF (0).
+      b. Set lever A to OFF (0). Observe that the lamp is ON (1).
 
   3.  **Verification:** The physical results perfectly match the truth table. You've built a working inverter! The extra lamps and dust we added should help visualize the NOT gate's function, but remember that the torch itself is the core component.
 
@@ -149,11 +151,13 @@ For each logic gate, we will start out with visuals and the formal definitions, 
 - **The Boolean Expression:** The output `Y` is `Y = A OR B`.
 - **Lab & Experiment:**
   1. Build the circuit as shown in the Minecraft screenshot:
-     a. Place two redstone lamps with at least one space between them.
-     b. Place a lever on each lamp—these represent inputs `A` and `B`.
-     c. On the other side of each lamp, place a redstone repeater facing away to act as a diode.
-     d. Run dust lines from each repeater and merge them into a single output line.
-     e. Connect this line to another redstone lamp for output `Y`.
+
+      a. Place two redstone lamps with at least one space between them.
+      b. Place a lever on each lamp—these represent inputs `A` and `B`.
+      c. On the other side of each lamp, place a redstone repeater facing away to act as a diode.
+      d. Run dust lines from each repeater and merge them into a single output line.
+      e. Connect this line to another redstone lamp for output `Y`.
+
   2. **Engineering Note:** When building this OR gate, you might notice that merging dust lines directly from the lamps without repeaters can cause "back-powering"—powering one lamp might light the other, even if its lever is off. The repeaters prevent this by acting as diodes, letting signals flow out but not back in.
   3. Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
   4. **Verification:** Confirm the output lamp matches the truth table for each test.
@@ -195,15 +199,19 @@ For each logic gate, we will start out with visuals and the formal definitions, 
 - **Lab & Experiment:**
 
   1. Build the verbose version as shown:
-     a. Place two levers for inputs `A` and `B`.
-     b. Attach a redstone torch to each input block to create `!A` and `!B`.
-     c. Merge these signals into a central block with redstone dust (an OR gate: `!A OR !B`).
-     d. Place a torch on the central block to invert the signal, giving `!(!A OR !B)`.
-     e. Connect the output to a lamp for `Y`.
+
+      a. Place two levers for inputs `A` and `B`.
+      b. Attach a redstone torch to each input block to create `!A` and `!B`.
+      c. Merge these signals into a central block with redstone dust (an OR gate: `!A OR !B`).
+      d. Place a torch on the central block to invert the signal, giving `!(!A OR !B)`.
+      e. Connect the output to a lamp for `Y`.
+
   2. Build the compact version:
-     a. Place two levers for `A` and `B`.
-     b. Use a similar layout but minimize space (see screenshot).
-     c. Connect to an output lamp.
+
+      a. Place two levers for `A` and `B`.
+      b. Use a similar layout but minimize space (see screenshot).
+      c. Connect to an output lamp.
+
   3. Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
   4. **Verification:** The output lamp lights only when both levers are ON.
 - **Real-World Connection:** A missile launch might need `TurnKey1=True` AND `PressButton=True`.
