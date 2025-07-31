@@ -1,5 +1,4 @@
 import os
-import re
 import shutil
 
 SRC_DIR = "src"
@@ -35,7 +34,25 @@ def main():
     course_intro_dest_path = os.path.join(COURSE_DIR, "README.md")
 
     if os.path.exists(course_intro_src_path):
-        shutil.copy2(course_intro_src_path, course_intro_dest_path)
+        with open(course_intro_src_path, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        # Special case: Replace logo image with custom <picture> HTML
+        logo_md_pattern = r"!\[Redstone University Logo\]\([^)]+\)"
+        logo_html = (
+            '<p align="center">\n'
+            "    <picture>\n"
+            '      <source media="(prefers-color-scheme: light)" srcset="assets/images/logo.png">\n'
+            '      <img alt="Redstone University Logo" src="assets/images/logo-dark.png">\n'
+            "    </picture>\n"
+            "</p>"
+        )
+        import re
+
+        content = re.sub(logo_md_pattern, logo_html, content)
+
+        with open(course_intro_dest_path, "w", encoding="utf-8") as f:
+            f.write(content)
         print("  - Published Course Introduction")
 
     for part_name in sorted(os.listdir(SRC_DIR)):
