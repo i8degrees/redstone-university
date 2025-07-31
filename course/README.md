@@ -1,4 +1,9 @@
-![Redstone University Logo](project_assets/logo.png)
+<p align="center">
+    <picture>
+      <source media="(prefers-color-scheme: light)" srcset="assets/images/logo.png">
+      <img alt="Redstone University Logo" src="assets/images/logo-dark.png">
+    </picture>
+</p>
 
 # Welcome to Redstone University!
 
