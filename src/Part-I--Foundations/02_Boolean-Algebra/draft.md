@@ -338,22 +338,22 @@ For this course, I’ll stick with `AND`, `OR`, and `NOT` for clarity, but you�
 **Why is XOR so useful in programming?**
 Because it’s reversible and “cancels itself out.” For example, `a ^ a = 0` and `a ^ 0 = a`. This property lets you do things like swap two variables without a temporary variable, or find the one unique number in a list where every other number appears twice.
 
-> **LeetCode Connection:** XOR is a favorite in programming interviews. Here’s a classic LeetCode problem and its solution using XOR:
->
+**LeetCode Connection:** XOR is a favorite in programming interviews. Here’s a classic LeetCode problem and its solution using XOR:
+
 > **The "Single Number" Problem:**
 >
 > -   **The Challenge:** You are given a list of numbers where every number appears exactly twice, except for one number that appears only once. Find that unique number.
 > -   **Example List:** `[4, 1, 2, 1, 2]`
 > -   **The XOR Solution:** If you XOR all the numbers together, the pairs cancel themselves into nothing, leaving only the unique number! `4 ^ (1 ^ 1) ^ (2 ^ 2)` becomes `4 ^ 0 ^ 0`, which is `4`.
->
-> ```python
-> def singleNumber(nums):
->     result = 0
->     for num in nums:
->         result ^= num
->     return result
-> # singleNumber([4, 1, 2, 1, 2]) returns 4
-> ```
+
+```python
+    def singleNumber(nums):
+        result = 0
+        for num in nums:
+            result ^= num
+        return result
+    # singleNumber([4, 1, 2, 1, 2]) returns 4
+```
 
 This is where our hardware knowledge directly translates into writing brilliant, efficient software. The XOR gate has two magical properties that programmers exploit constantly:
 
