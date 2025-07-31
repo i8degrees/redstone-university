@@ -295,7 +295,7 @@ Let’s use De Morgan’s Law to prove our AND gate design is correct.
 - **Lab & Experiment:**
   1. Build the XOR gate as shown in the screenshot:
      a. Set up two levers for inputs `A` and `B`.
-     b. Construct the gate (details TBD with screenshot).
+     b. Construct the gate as shown in the screenshot. (*updated this*)
      c. Connect to an output lamp for `Y`.
   2. Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
   3. **Verification:** The output is `1` only when inputs differ.
