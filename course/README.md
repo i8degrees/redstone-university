@@ -1,3 +1,5 @@
+![Redstone University Logo](project_assets/logo.png)
+
 # Welcome to Redstone University!
 
 Have you ever used a computer or a smartphone and wondered what’s *really* happening inside? Not just the software, but the deep, physical magic of a machine that seems to "think"?
