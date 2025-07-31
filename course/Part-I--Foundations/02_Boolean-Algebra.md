@@ -189,10 +189,14 @@ For each logic gate, we will start out with visuals and the formal definitions, 
   |  1  |  1  |     1     |
 - **The Boolean Expression:** The output `Y` is `Y = A AND B`. (Our build uses `!(!A OR !B)`, which we’ll prove equivalent in Lesson 2.3.)
 - **Lab & Experiment:**
+    > **Note on Screenshots and Color Coding:**
+    > Our Minecraft circuit screenshots use a pseudo-isometric view to show as much of the build as possible. However, it can sometimes be hard to tell if a redstone torch is attached to the backside of a block. To make this clear, any block with a torch on its backside is colored red in the screenshot. Blocks with torches only on top are easy to see, so they use the build’s default color unless they also have a backside torch, in which case they’re red. For redstone lamps used as inputs (with a lever on one side and a torch or repeater on the other), we can't color code them obviously, but the instructions clearly indicate when a torch is on the backside of one of these input blocks.
+
+
 
     1. Build the verbose version as shown:
 
-        1. Place two levers for inputs `A` and `B`.
+        1. Place two redstone lamps with a lever on the front of each for inputs `A` and `B`.
         2. Attach a redstone torch to each input block to create `!A` and `!B`.
         3. Merge these signals into a central block with redstone dust (an OR gate: `!A OR !B`).
         4. Place a torch on the central block to invert the signal, giving `!(!A OR !B)`.
