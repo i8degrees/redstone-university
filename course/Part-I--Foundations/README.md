@@ -1,28 +1,22 @@
-# Part I: The Foundations, Speaking to the Machine
+# Part I: The Foundations - Speaking to the Machine
 
-Welcome to Part I of Redstone University’s epic journey to build a working computer from scratch! Our grand ambition is to create a fully functional machine, but every masterpiece starts with a strong foundation. In this part, we’re diving into the Human-Computer Interface, the critical components that let us (as humans) communicate with our digital creation.
+Welcome to the first official part of our Redstone University curriculum! The grand goal is to build a complete computer, but like any great project, we must begin by laying a solid foundation. The theme for this part is the **Human-Computer Interface**: we are going to build the essential components that allow us, as humans, to communicate with our digital machine.
 
-By the end of Part I, our computer won’t be thinking on its own yet, but it will have a complete input and output system. You’ll be able to send it numbers and see those numbers displayed in a way that’s instantly clear to you. This is where the magic begins!
 
-## Our Mission for Part I
+By the end of Part I, our computer won't be able to think for itself yet, but we will have a fully functional input and output system. We'll have a way to give it numbers and a way for it to show us numbers back in a format we can instantly recognize.
 
-We’ll conquer this foundation in three exciting modules, blending hands-on building with powerful theory and culminating in a show-stopping application:
+### Our Mission for Part I
 
-- Module 1: The Input Register
-  Build the computer’s keyboard, a simple set of levers to input numbers in binary (the machine’s native language).
+We will tackle this in three distinct modules, moving from the physical to the theoretical, and back to a large-scale physical application.
 
-- Module 2: Boolean Algebra
-  Take a crucial dive into the theory that powers all digital logic. This is the course’s most important lecture, where you’ll master the grammar of NOT, AND, OR, and XOR, the rules behind every circuit you’ll design.
+*   **In Module 1 (The Input Register),** we will build our "keyboard." It's a simple set of levers that will allow us to input numbers into our machine using the computer's native language: binary.
+*   **In Module 2 (Boolean Algebra),** we will take a crucial detour into theory. This is the most important "lecture" in the entire course. We will learn the fundamental grammar of all digital logic—the rules of NOT, AND, OR, and XOR that govern every circuit we will ever build.
+*   **In Module 3 (Decoders & Displays),** we will take our new theoretical knowledge and immediately apply it to our biggest challenge yet: building a way to display our input and output. We'll engineer a sophisticated two-stage translator that converts the computer's binary into a human-readable number on a beautiful 7-segment display.
 
-- Module 3: Decoders and Displays
-  Apply your new theoretical skills to a major challenge: creating a two-stage translator that converts binary into human-readable numbers on a stunning 7-segment display.
+This first part of the course is designed to give you an incredibly satisfying payoff. You will start with nothing but switches and end with a device that feels intelligent. The concepts you learn here are the bedrock (pun intended) upon which everything else will be built.
 
-This part is crafted to deliver a thrilling payoff. You’ll start with basic switches and end with a device that feels alive. These concepts are the bedrock (pun intended) for everything to come.
+> **Note about the chosen course progression:** I personally found myself wanting to build a 7-segment display to verify that everything past this point in the course was working correctly. I wanted to see the numbers I was entering, and I wanted to see the results of my calculations. This is why we start with the input register and then immediately build the display. It gives us a tangible goal to work towards, and it makes the abstract concepts of binary and logic feel real and rewarding.
+>
+> This also follows a personal belief about learning to program: The quicker you can get something moving on screen, the more motivated you will be to keep going. I want you to have that immediate sense of progress and accomplishment.
 
-## Why This Progression?
-
-I’ve designed this course to spark your motivation early. Personally, I wanted to see my inputs and outputs light up on a 7-segment display to confirm my work was correct. It made the abstract ideas of binary and logic feel real and rewarding. That’s why we begin with the input register and quickly move to the display. It’s a tangible goal that keeps you hooked.
-
-This approach mirrors a core belief about learning to code or build: the faster you see something working, the more driven you’ll be to push forward. Part I is all about giving you that instant sense of progress and accomplishment.
-
-Ready to start? Let's build our first component: the Input Register!
+Let's get started with Module 1.
