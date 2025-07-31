@@ -423,12 +423,8 @@ This is a powerful bridge between hardware and software. The simple "difference 
 ##### Operator 6: XNOR (The "Equality Detector")
 
 - **Minecraft Gate (Composite, Inverted Input Trick):**
-  ![XNOR Gate (Composite) in Minecraft](./images/XOR-gate-composite_minecraft.png)
-  *Figure: Composite XNOR gate in Minecraft, created by inverting one input to an XOR gate. This matches the XNOR truth table: the output is on when both inputs are the same.*
-
-- **Minecraft Gate (Compact):**
-  ![XNOR Gate (Compact) in Minecraft](./images/XNOR-gate_minecraft.png)
-  *Figure: A compact XNOR gate in Minecraft. The output is on when both inputs are the same.*
+  ![XNOR Gate (Composite) in Minecraft](./images/XNOR-gate_minecraft.png)
+  *Figure: XNOR gate in Minecraft, created by inverting one input to an XOR gate. This matches the XNOR truth table: the output is on when both inputs are the same.*
 
 - **Circuit Diagram (Composite, Inverted Input Trick):**
   ![XNOR Gate (Composite) in CircuitVerse](./images/XNOR-gate-composite_circuitverse.png)
