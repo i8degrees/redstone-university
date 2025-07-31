@@ -199,17 +199,17 @@ For each logic gate, we will start out with visuals and the formal definitions, 
 
   1. Build the verbose version as shown:
 
-    1. Place two levers for inputs `A` and `B`.
-    2. Attach a redstone torch to each input block to create `!A` and `!B`.
-    3. Merge these signals into a central block with redstone dust (an OR gate: `!A OR !B`).
-    4. Place a torch on the central block to invert the signal, giving `!(!A OR !B)`.
-    5. Connect the output to a lamp for `Y`.
+      1. Place two levers for inputs `A` and `B`.
+      2. Attach a redstone torch to each input block to create `!A` and `!B`.
+      3. Merge these signals into a central block with redstone dust (an OR gate: `!A OR !B`).
+      4. Place a torch on the central block to invert the signal, giving `!(!A OR !B)`.
+      5. Connect the output to a lamp for `Y`.
 
   2. Build the compact version:
 
-    1. Place two levers for `A` and `B`.
-    2. Use a similar layout but minimize space (see screenshot).
-    3. Connect to an output lamp.
+      1. Place two levers for `A` and `B`.
+      2. Use a similar layout but minimize space (see screenshot).
+      3. Connect to an output lamp.
 
   3. Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
   4. **Verification:** The output lamp lights only when both levers are ON.
