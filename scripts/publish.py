@@ -8,8 +8,48 @@ ASSETS_DIR = "assets/images"
 PROJECT_ASSETS_SRC_DIR = os.path.join(SRC_DIR, "project_assets")
 LESSON_DRAFT_FILENAME = "draft.md"
 
-
+# Controls whether to transform images to HTML blocks (for GitHub)
 TRANSFORM_IMAGES_FOR_GITHUB = True
+
+
+def md_img_with_caption_to_centered_html(md_content):
+    """
+    Transform Markdown image + caption pairs to centered HTML blocks for GitHub.
+    - If an image is followed by a *Figure: ...* line, combine them into a single centered HTML block.
+    - If not, fallback to using the alt text as the caption.
+    """
+
+    # First, handle image + caption pairs
+    def img_caption_replacer(match):
+        alt = match.group(1)
+        src = match.group(2)
+        caption = match.group(3)
+        html = (
+            f'<div align="center">'
+            f'<img src="{src}" alt="{alt}" width="512px"/><br/>'
+            f"<em>{caption}</em>"
+            f"</div></br></br>"
+        )
+        return html
+
+    # Replace image + caption pairs
+    pattern_pair = r"!\[([^\]]*)\]\(([^)]+)\)\s*\n\s*\*(Figure:[^\n]*)\*"
+    md_content = re.sub(pattern_pair, img_caption_replacer, md_content)
+
+    # Now, handle images without captions (fallback to alt text as caption)
+    def img_fallback_replacer(match):
+        alt = match.group(1)
+        src = match.group(2)
+        caption = f"Figure: {alt}" if alt else ""
+        html = f'<div align="center"><img src="{src}" alt="{alt}" width="512px"/>'
+        if caption:
+            html += f"<br/>{caption}"
+        html += "</div>"
+        return html
+
+    pattern_img = r"!\[([^\]]*)\]\(([^)]+)\)"
+    md_content = re.sub(pattern_img, img_fallback_replacer, md_content)
+    return md_content
 
 
 def main():
@@ -41,13 +81,13 @@ def main():
         with open(course_intro_src_path, "r", encoding="utf-8") as f:
             content = f.read()
 
-       
+        # Special case: Replace logo image with custom <picture> HTML
         logo_md_pattern = r"!\[Redstone University Logo\]\([^)]+\)"
         logo_html = (
             '<p align="center">\n'
             "    <picture>\n"
-            '      <source media="(prefers-color-scheme: light)" srcset="../assets/images/logo.png">\n'
-            '      <img alt="Redstone University Logo" src="../assets/images/logo-dark.png">\n'
+            '      <source media="(prefers-color-scheme: light)" srcset="assets/images/logo.png">\n'
+            '      <img alt="Redstone University Logo" src="assets/images/logo-dark.png">\n'
             "    </picture>\n"
             "</p>"
         )
@@ -55,39 +95,6 @@ def main():
 
         # Only transform images for GitHub output, not for PDF/concat
         if TRANSFORM_IMAGES_FOR_GITHUB:
-
-            def md_img_with_caption_to_centered_html(md_content):
-                
-                def img_caption_replacer(match):
-                    alt = match.group(1)
-                    src = match.group(2)
-                    caption = match.group(3)
-                    html = (
-                        f'<div align="center">'
-                        f'<img src="{src}" alt="{alt}" width="512px"/><br/>'
-                        f"<em>{caption}</em>"
-                        f"</div></br></br>"
-                    )
-                    return html
-
-              
-                pattern_pair = r"!\[([^\]]*)\]\(([^)]+)\)\s*\n\s*\*(Figure:[^\n]*)\*"
-                md_content = re.sub(pattern_pair, img_caption_replacer, md_content)
-
-                def img_fallback_replacer(match):
-                    alt = match.group(1)
-                    src = match.group(2)
-                    caption = f"Figure: {alt}" if alt else ""
-                    html = f'<div align="center"><img src="{src}" alt="{alt}" width="512px"/>'
-                    if caption:
-                        html += f"<br/>{caption}"
-                    html += "</div>"
-                    return html
-
-                pattern_img = r"!\[([^\]]*)\]\(([^)]+)\)"
-                md_content = re.sub(pattern_img, img_fallback_replacer, md_content)
-                return md_content
-
             content = md_img_with_caption_to_centered_html(content)
 
         with open(course_intro_dest_path, "w", encoding="utf-8") as f:
@@ -127,7 +134,8 @@ def main():
                                 new_image_name = f"{module_prefix}_{image_filename}"
 
                                 old_image_path_in_md = f"./images/{image_filename}"
-                                new_image_path_in_md = f"../../{ASSETS_DIR}/{new_image_name}"
+                                # For GitHub and PDF, use the same relative path from course/ to assets/images/
+                                new_image_path_in_md = f"assets/images/{new_image_name}"
 
                                 image_src_path = os.path.join(module_image_src_dir, image_filename)
                                 image_dest_path = os.path.join(ASSETS_DIR, new_image_name)
@@ -137,7 +145,6 @@ def main():
                                 print(f"    - Migrated image '{image_filename}' and updated path.")
 
                         # Special case: Replace logo image with custom <picture> HTML
-                        # Match the logo image in any path, as long as alt text matches
                         logo_md_pattern = r"!\[Redstone University Logo\]\([^)]+\)"
                         logo_html = (
                             '<p align="center">\n'
@@ -149,41 +156,8 @@ def main():
                         )
                         content = re.sub(logo_md_pattern, logo_html, content)
 
+                        # Only transform images for GitHub output, not for PDF/concat
                         if TRANSFORM_IMAGES_FOR_GITHUB:
-
-                            def md_img_with_caption_to_centered_html(md_content):
-                                
-                                def img_caption_replacer(match):
-                                    alt = match.group(1)
-                                    src = match.group(2)
-                                    caption = match.group(3)
-                                    html = (
-                                        f'<div align="center">'
-                                        f'<img src="{src}" alt="{alt}" width="512px"/><br/>'
-                                        f"<em>{caption}</em>"
-                                        f"</div></br></br>"
-                                    )
-                                    return html
-
-                             
-                                pattern_pair = r"!\[([^\]]*)\]\(([^)]+)\)\s*\n\s*\*(Figure:[^\n]*)\*"
-                                md_content = re.sub(pattern_pair, img_caption_replacer, md_content)
-
-                              
-                                def img_fallback_replacer(match):
-                                    alt = match.group(1)
-                                    src = match.group(2)
-                                    caption = f"Figure: {alt}" if alt else ""
-                                    html = f'<div align="center"><img src="{src}" alt="{alt}" width="512px"/>'
-                                    if caption:
-                                        html += f"<br/>{caption}"
-                                    html += "</div>"
-                                    return html
-
-                                pattern_img = r"!\[([^\]]*)\]\(([^)]+)\)"
-                                md_content = re.sub(pattern_img, img_fallback_replacer, md_content)
-                                return md_content
-
                             content = md_img_with_caption_to_centered_html(content)
 
                         final_lesson_name = f"{module_name}.md"
