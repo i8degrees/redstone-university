@@ -81,6 +81,7 @@ def main():
                                 print(f"    - Migrated image '{image_filename}' and updated path.")
 
                         # Special case: Replace logo image with custom <picture> HTML
+                        # Match the logo image in any path, as long as alt text matches
                         logo_md_pattern = r"!\[Redstone University Logo\]\([^)]+\)"
                         logo_html = (
                             '<p align="center">\n'
@@ -92,25 +93,41 @@ def main():
                         )
                         content = re.sub(logo_md_pattern, logo_html, content)
 
-                        # Transform Markdown image syntax to centered HTML image blocks with captions
-                        def md_img_to_centered_html(md_content):
-                            def replacer(match):
+                        # Transform Markdown image + caption pairs to centered HTML blocks
+                        def md_img_with_caption_to_centered_html(md_content):
+                            # First, handle image + caption pairs
+                            def img_caption_replacer(match):
                                 alt = match.group(1)
                                 src = match.group(2)
-                                # Try to extract a figure caption from the alt text
+                                caption = match.group(3)
+                                html = (
+                                    f'<div align="center">'
+                                    f'<img src="{src}" alt="{alt}" width="512px"/><br/>'
+                                    f"<em>{caption}</em>"
+                                    f"</div>"
+                                )
+                                return html
+
+                            # Replace image + caption pairs
+                            pattern_pair = r"!\[([^\]]*)\]\(([^)]+)\)\s*\n\s*\*(Figure:[^\n]*)\*"
+                            md_content = re.sub(pattern_pair, img_caption_replacer, md_content)
+
+                            # Now, handle images without captions (fallback to alt text as caption)
+                            def img_fallback_replacer(match):
+                                alt = match.group(1)
+                                src = match.group(2)
                                 caption = f"Figure: {alt}" if alt else ""
-                                # Centered HTML block for GitHub
-                                html = f'<div align="center">' f'<img src="{src}" width="512px"/>'
+                                html = f'<div align="center"><img src="{src}" alt="{alt}" width="512px"/>'
                                 if caption:
                                     html += f"<br/>{caption}"
                                 html += "</div>"
                                 return html
 
-                            # Replace all Markdown image syntaxes
-                            pattern = r"!\[([^\]]*)\]\(([^)]+)\)"
-                            return re.sub(pattern, replacer, md_content)
+                            pattern_img = r"!\[([^\]]*)\]\(([^)]+)\)"
+                            md_content = re.sub(pattern_img, img_fallback_replacer, md_content)
+                            return md_content
 
-                        content = md_img_to_centered_html(content)
+                        content = md_img_with_caption_to_centered_html(content)
 
                         final_lesson_name = f"{module_name}.md"
                         final_lesson_path = os.path.join(part_dest_path, final_lesson_name)
