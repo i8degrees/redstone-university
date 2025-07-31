@@ -96,16 +96,22 @@ For each logic gate, we will start out with visuals and the formal definitions, 
 -   **The Boolean Expression:** The output `Y` is simply `Y = !A`.
 
 -   **Lab & Experiment:**
-> **Note:** The Redstone Torch itself is a physical NOT gate, but we will add some lamps and dust just to help visualize the gate better. Feel free to use a simple torch moving forward if you prefer.
-    1.  Build the circuit as shown in the Minecraft screenshot:
-      a. Place a redstone lamp with a lever on one side to represent input `A`.
-      b. On the backside of the lamp, place a redstone torch. This is the core component of the NOT gate.
-      c. From the torch, run a line of redstone dust to another redstone lamp representing output `Y`.
+
+  > **Note:** The Redstone Torch itself is a physical NOT gate, but we will add some lamps and dust just to help visualize the gate better. Feel free to use a simple torch moving forward if you prefer.
+
+  1.  Build the circuit as shown in the Minecraft screenshot:
+    a. Place a redstone lamp with a lever on one side to represent input `A`.
+    b. On the backside of the lamp, place a redstone torch. This is the core component of the NOT gate.
+    c. From the torch, run a line of redstone dust to another redstone lamp representing output `Y`.
+
     > **Note:** The torch itself is the critical component of the NOT gate. The extra lamps and dust are just for visualization.
-    2.  Test the circuit:
-      a. Set lever A to ON (1). Observe that the lamp is OFF (0).
-      b. Set lever A to OFF (0). Observe that the lamp is ON (1).
-    3.  **Verification:** The physical results perfectly match the truth table. You've built a working inverter! The extra lamps and dust we added should help visualize the NOT gate's function, but remember that the torch itself is the core component.
+
+  2.  Test the circuit:
+    a. Set lever A to ON (1). Observe that the lamp is OFF (0).
+    b. Set lever A to OFF (0). Observe that the lamp is ON (1).
+
+  3.  **Verification:** The physical results perfectly match the truth table. You've built a working inverter! The extra lamps and dust we added should help visualize the NOT gate's function, but remember that the torch itself is the core component.
+
 -   **Real-World Connection:** NOT gates are used everywhere, from creating the oscillating signal in a computer's clock (a "heartbeat") to flipping bits for representing negative numbers, which we'll do in a later module!
 
 -   **Software Connection:** The NOT operation is used in programming to invert a condition or toggle a flag. For example, in Python:
@@ -187,6 +193,7 @@ For each logic gate, we will start out with visuals and the formal definitions, 
   |  1  |  1  |     1     |
 - **The Boolean Expression:** The output `Y` is `Y = A AND B`. (Our build uses `!(!A OR !B)`, which we’ll prove equivalent in Lesson 2.3.)
 - **Lab & Experiment:**
+
   1. Build the verbose version as shown:
      a. Place two levers for inputs `A` and `B`.
      b. Attach a redstone torch to each input block to create `!A` and `!B`.
