@@ -26,6 +26,10 @@ jobs:
       - name: Concatenate markdown files for PDF
         run: python scripts/course_concat.py
 
+      - name: Fix image paths in concatenated markdown
+        run: |
+          sed -i 's|\.\./\.\./assets/images/|assets/images/|g' course/Redstone-University.md
+
       - name: Generate PDF from concatenated markdown
         uses: baileyjm02/markdown-to-pdf@v1
         with:
@@ -39,6 +43,7 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add course/ assets/
+          git reset course/Redstone-University.md
           git add course/Redstone-University.pdf || true
           # The following command checks if there are any staged changes
           if ! git diff --staged --quiet; then
