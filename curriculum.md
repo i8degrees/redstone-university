@@ -6,10 +6,10 @@
 
 ### **Part I: The Foundations - Speaking to the Machine**
 
-#### **Module 1: Speaking in 1s and 0s - The Input Register**
+#### **Module 1: Speaking in 1s and 0s - The Input Interface**
 *   **Learning Goals:** Understand binary representation (bits, nibbles, place value). Build a physical interface to input binary numbers.
-*   **Narrative Beat:** "Let's build our keyboard. It won't have letters, just four switches that let us speak the computer's native language: binary."
-*   **Minecraft Artifact:** A 4-bit manual register (4 levers) with a 4-line output bus.
+*   **Narrative Beat:** "Before we can build a computer, we need a way to talk to it. Our language will be binary, and our input interface will be a set of simple levers."
+*   **Minecraft Artifact:** A 4-bit input interface (4 levers) with a 4-line output bus.
 
 #### **Module 2: The Language of Logic - A Deep Dive into Boolean Algebra**
 *   **Learning Goals:** Move beyond physical blocks to understand the formal language of logic (NOT, AND, OR, XOR, NAND, NOR, XNOR) and its rules (De Morgan's Law).
@@ -22,7 +22,7 @@
 *   **Minecraft Artifacts:**
     1.  **Stage 1 (Decoder):** A **4-to-10 BCD Decoder** that converts a 4-bit binary input (0-9) into one of ten active output lines.
     2.  **Stage 2 (Encoder/Driver):** A **10-to-7 Display Encoder** that takes one of the ten active lines and lights up the correct segments on a 7-segment display.
-*   **The Payoff:** A fully working display that shows the decimal numbers 0-9 based on the input from the Module 1 register.
+*   **The Payoff:** A fully working display that shows the decimal numbers 0-9 based on the input interface from Module 1.
 
 ---
 

@@ -1,20 +1,20 @@
-### Module 1: Speaking in 1s and 0s – The Input Register
+### Module 1: Speaking in 1s and 0s – The Input Interface
 
 ---
 
 #### Module Summary
 
-- **Narrative Beat:** Before we can build a computer, we need a way to talk to it. Our language will be binary, and our keyboard will be a set of simple levers.
+- **Narrative Beat:** Before we can build a computer, we need a way to talk to it. Our language will be binary, and our input interface will be a set of simple levers.
 - **Learning Goals:**
   - Understand binary as a system of on/off switches.
   - Build a physical interface to input binary numbers.
   - Strengthen binary intuition through practice.
 - **Lesson Overview:**
     - Lesson 1.1: The Theory – Why Computers Use Binary
-    - Lesson 1.2: The Lab – Building and Using Our 4-Bit Register
+    - Lesson 1.2: The Lab – Building and Using Our 4-Bit Input Interface
     - Lesson 1.3: Drills & Games – Strengthening Your Binary Intuition
     - Lesson 1.4: Module 1 Checkpoint
-- **Minecraft Artifact:** A working 4-bit input register (keyboard) for binary numbers.
+- **Minecraft Artifact:** A working 4-bit input interface for binary numbers.
 
 ---
 
@@ -22,11 +22,11 @@
 
 Welcome to your first day at Redstone University!
 
-Our grand adventure is to build a complete, working computer from scratch. But like any great construction project, we must begin by laying a solid foundation. The very first thing we need is a way to communicate with our machine. We need a way to give it information.
+Our grand adventure is to build a complete, working computer from scratch. But like any great journey, we need to start with the basics. The very first thing we need is a way to talk to our machine. We need a way to give it information.
 
-In this first module, we're going to build our computer's "keyboard." It won't have letters like a normal keyboard. Instead, it will have a set of simple switches that let us speak the computer's one and only native language: `binary`.
+In this module, we’re going to build a **4-bit input interface**, a simple set of switches that lets us speak the computer’s native language: **binary**. In Minecraft, levers hold their state, making them perfect for this job. By flipping them, we can set a 4-bit binary number (any value from 0 to 15) and see it in action. This isn’t a true register (a storage device we’ll build later), but it’s a hands-on way to input binary data and understand how computers start processing information. As we move forward, you’ll see how this simple setup connects to the bigger picture.
 
-Let's get started.
+Let’s get started!
 
 ---
 
@@ -69,9 +69,9 @@ So, the value is `8 + 4 + 1 = 13`. We've just translated from the computer's lan
 
 ---
 
-#### Lesson 1.2: The Lab – Building and Using Our 4-Bit Register
+#### Lesson 1.2: The Lab – Building and Using Our 4-Bit Input Interface
 
-It's time to stop talking and start building. A **register** is a fundamental piece of computer hardware that holds a single piece of data. Our 4-bit register will be our simple keyboard, allowing us to manually input any number from `0` to `15`.
+It’s time to stop talking and start building! Our **4-bit input interface** will act as a simple “keyboard,” letting us manually input any number from 0 to 15 in binary. Using levers, we will set the bits by flipping them up for `1` and down for `0`. A simple setup that will enable us to create binary numbers we can see and use.
 
 ##### Materials Needed
 
@@ -80,37 +80,35 @@ It's time to stop talking and start building. A **register** is a fundamental pi
 - 4 Signs
 - A few pieces of Redstone Dust
 
-<sup>*You can use any solid block, but for the input register, I recommend a redstone lamp. It doubles as a visual indicator of the current state of each bit.</sup>
+<sup>*You can use any solid block, but for the input interface, I recommend a redstone lamp. It doubles as a visual indicator of the current state of each bit.</sup>
 
 ##### The Build Guide
 
-1. Find a nice open, flat area on our campus. This is your personal workbench.
+![Minecraft Input Interface](./images/input_minecraft.png)
+*Figure: The input interface in Minecraft, set to `0110` (binary for 6). The levers are flipped to represent the bits, and the dust is connected to the back. Using redstone lamps makes it easy to see the current state of each bit.*
+
+1. I recommend creating a new world and under the advanced options, set the world type to "Flat". They even have a flat preset called "Redstone Ready" that is perfect for our needs.
 2. Place **four Redstone Lamps** or **four solid blocks** in a horizontal line with one space between to prevent their redstone dust from merging.
 3. On the front face of each block, place one **Lever**. A lever is the perfect physical bit! When it's flipped down, it's `0`. When it's flipped up, it's `1`.
 4. Now, let's label our work so we don't get confused. Place a **Sign** on the very top of the block. From **right to left**, label them `1`, `2`, `4`, and `8`. We go right-to-left because, just like in the number `12`, the least valuable digit (the `2`) is on the right. See the schematic, screenshot, or diagram for clarity if needed.
 5. Finally, let's wire it up. Go around to the back of your four blocks to the opposite side that you placed the lever. Place a piece or two of **Redstone Dust** on the ground directly behind each one. When you flip a lever, its block becomes powered, which sends a signal to the dust. These four parallel lines of dust are now your official **4-bit input bus**. A "bus" is just the fancy engineering term for a bundle of wires that carry a complete piece of information.
+6. Double-check that your build looks similar to the one in the figure above.
+
 
 ---
 
-##### Minecraft Register Example
+Before we test our new input interface, I want to introduce you to the same input interface represented in CircuitVerse, a free online digital logic circuit simulator. Moving forward, every circuit we build will be introduced in theory with the circuitverse version first, and then we will build it in Minecraft. This is primarily due to being able to easily represent the circuit in a clear and concise way, something that isn't always possible with Minecraft screenshots. Everything you build is included in the [circuitverse project for this course](https://circuitverse.org/users/323134/projects/redstone-university).
 
-![Minecraft Register](./images/register_minecraft.png)
-*Figure: The register in Minecraft, set to `0110` (binary for 6). The levers are flipped to represent the bits, and the dust is connected to the back. Using redstone lamps makes it easy to see the current state of each bit.*
 
----
 
-##### CircuitVerse Register Example
+##### CircuitVerse Version
 
-[View on CircuitVerse](https://circuitverse.org/simulator/edit/redstone-university)
+![CircuitVerse Input Interface](./images/input_circuitverse.png)
+*Figure: The same 4-bit input interface, built in CircuitVerse. It is also set to `0110` (6 in decimal).*
 
-![CircuitVerse Register](./images/register_circuitverse.png)
-*Figure: The same 4-bit register, built in CircuitVerse. It is also set to `0110` (6 in decimal).*
+While it has a few stylistic differences, the concept is exactly the same as our Minecraft build. It's an input interface that allows for input of a 4-bit binary number.
 
-While it has a few stylistic differences, the concept is exactly the same as our Minecraft build. It's a register that holds a 4-bit binary number.
-
----
-
-Don't worry, we will be building more interesting circuits very soon. We will be using this register to input numbers into our computer throughout the entire course, so while it might not be impressive looking, it is a crucial part of our computer's architecture.
+Don't worry, we will be building more interesting circuits very soon.
 
 ---
 
@@ -118,12 +116,12 @@ Don't worry, we will be building more interesting circuits very soon. We will be
 
 Let's get a feel for our new device. Binary feels weird at first, but it will become second nature with just a little practice.
 
-> **Takeaway:** Practicing with your register will make binary numbers feel as natural as decimal. The more you play, the faster you'll get!
+> **Takeaway:** Practicing will make binary numbers feel as natural as decimal. The more you practice, the faster you'll get!
 
 ##### Drill 1: Binary to Decimal
 
 - **Goal:** What decimal number is `1011`?
-- **Action:** Go to your register and set the levers: `ON, OFF, ON, ON`.
+- **Action:** Go to your input interface and set the levers: `ON, OFF, ON, ON`.
 - **Calculation:** `8 + 0 + 2 + 1 = 11`. So, `1011` is `11`.
 
 ##### Drill 2: Decimal to Binary (The "Greedy" Method)
@@ -136,9 +134,9 @@ Let's get a feel for our new device. Binary feels weird at first, but it will be
     4. Is `0` greater than or equal to `1`? **No.** Leave the `1` lever OFF.
 - **Result:** The levers are `OFF, ON, ON, OFF`, which is the binary number `0110`.
 
-##### The Binary Game
+##### The Binary "Game"
 
-This is a great way to build speed. Pick a random number between `0` and `15` and see how quickly you can represent it on your register. This will burn the powers of two (`1`, `2`, `4`, `8`) into your memory.
+While not the ideal version of a game, this is a great way to build speed. Pick a random number between `0` and `15` and see how quickly you can represent it on your input interface. This will burn the powers of two (`1`, `2`, `4`, `8`) into your memory.
 
 ---
 
@@ -150,21 +148,21 @@ Let's check our understanding before moving on.
 
 ##### Quiz
 
-1. What is the largest number a `5`-bit register could hold? (Hint: The next bit would be the `16`s place).
+1. What is the largest number a `5`-bit input interface could input? (Hint: The next bit would be the `16`s place).
 2. What is the decimal value of the binary number `1100`?
 3. How would you represent the number `10` in binary?
 
 ##### Real-World Connection: CPU Registers
 
-The `4`-bit register you just built is a real, albeit simplified, computer component. When you see a computer advertised as having a "64-bit processor", it means its internal registers (the spaces inside the chip where it does its most immediate work) are `64` bits wide. They are just like your device, but with `64` "levers" instead of just `4`. This allows them to work with incredibly large numbers in a single step! A `64`-bit register can hold a number larger than `18` quintillion.
+Your **4-bit input interface** is a simplified version of how real computers get information from the world. In everyday life, devices like keyboards, mice, and sensors act as input interfaces, turning your actions (like typing or clicking) into binary signals the computer understands. Our Minecraft build uses four levers to input a 4-bit number (0 to 15), but imagine scaling that up. Modern computers often handle **64-bit data**, meaning their circuits can process 64 bits at once, enough to represent numbers bigger than 18 quintillion!
 
-In real CPUs, these registers are used to store numbers, addresses, and even instructions. When you write code in assembly language, you are often moving values directly in and out of these registers. Each bit in a register is like a physical wire or lever that can be `ON` or `OFF`, just like your Minecraft build.
+Here’s how it connects: once an input device sends binary data, the computer stores it in **registers**, tiny, super-fast storage units inside the CPU. A “64-bit processor” has registers that hold 64 bits, letting it crunch huge numbers or instructions in a single step. Your 4-bit interface is just the beginning, it’s how we “talk” to the machine. Later, we’ll build a register and see how they use that input to make the computer think!
 
 ##### Software Connection (LeetCode): Counting Bits
 
 How does a programmer "look at" the individual bits you just set with your levers? They use bitwise operations! This is a sneak peek of what we'll learn in Module 2, but it's too cool not to share.
 
-A classic LeetCode problem is **"Number of 1 Bits"**: count how many `1`s are in a number's binary representation. Programmers solve this by checking each "wire" of the number one by one.
+A classic LeetCode problem is **"Number of 1 Bits"**: count how many `1`s are in a number's binary representation. Programmers solve this by checking each bit of the number one by one. It also gives a sneak peek at the concept of bitwise operations, which are essential for low-level programming and optimization.
 
 ```python
 def countSetBits(n):
@@ -181,14 +179,14 @@ def countSetBits(n):
 print(countSetBits(13)) # Output: 3
 ```
 
-**Software Analogy:** In most programming languages, you can use bitwise operators to manipulate numbers at the binary level. For example, in Python, `n & 1` checks the lowest bit, and `n >>= 1` shifts all bits to the right. This is just like flipping levers and reading wires in your register!
-
-**Extra:** Registers are the foundation for fast calculations in CPUs, and bitwise tricks are used everywhere in high-performance code, cryptography, and even graphics.
+**Software Analogy:** In most programming languages, you can use bitwise operators to manipulate numbers at the binary level. For example, in Python, `n & 1` checks the lowest bit, and `n >>= 1` shifts all bits to the right. This is just like flipping levers and reading wires from your input interface!
 
 ---
 
 ### Module 1 Conclusion
 
-Fantastic work! You've now mastered the most fundamental concept in all of computing: how information is physically stored in a binary system. You have a working input device, and you've seen how this physical concept directly connects to both real-world hardware and clever software algorithms.
+Fantastic work! You've now mastered the most fundamental concept in all of computing: how information is physically represented in a binary system. You have a working input device, and you've seen how this physical concept directly connects to both real-world hardware and clever software algorithms.
 
-**What's next:** Right now, these are just dumb switches connected to wires. In the next module, we will learn the rules of logic that will allow us to start manipulating these signals and make our machine think.
+**What's next:** Right now, these are just dumb switches connected to wires. In the next module, we will learn the rules of logic that will allow us to start manipulating these signals to perform calculations and make decisions.
+
+We will build the first real circuits that can process our binary inputs and produce outputs based on logical rules. The basic building blocks of our computer are about to take shape. Get ready for the world of logic gates and circuits!

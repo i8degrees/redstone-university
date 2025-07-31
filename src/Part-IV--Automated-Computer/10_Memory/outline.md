@@ -91,9 +91,9 @@ When `WE` is `0`, both the Set and Reset lines are forced to `0`, so the underly
 
 **The Final Integration Test:**
 This is the moment it all comes together.
-1.  **Perform a calculation:** Set Register A to `0101` (5) and Register B to `0110` (6). Set your ALU control panel to `ADD`. The ALU output is now `1011` (11), and the display shows `B`.
+1.  **Perform a calculation:** Set Input B to `0101` (5) and Input B to `0110` (6). Set your ALU control panel to `ADD`. The ALU output is now `1011` (11), and the display shows `B`.
 2.  **Store the result:** Flip the **"STORE"** lever ON for a moment, then turn it OFF. The D-Latches have now "seen" the `1011` from the ALU and have latched onto it. The display still shows `B`.
-3.  **Change the inputs:** Now, change Register A and B to `0001` and `0010`. The ALU now calculates `1+2=3`, but our display is still connected to the Memory Bus.
+3.  **Change the inputs:** Now, change Input A and B to `0001` and `0010`. The ALU now calculates `1+2=3`, but our display is still connected to the Memory Bus.
 4.  **The Payoff:** The display *still shows `B`*. It has remembered the previous result, completely independent of what the ALU is currently doing. You have successfully built working computer memory (RAM)!
 
 ---

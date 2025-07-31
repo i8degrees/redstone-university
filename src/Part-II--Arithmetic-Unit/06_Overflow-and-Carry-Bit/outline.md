@@ -10,7 +10,7 @@
 
 Congratulations on completing the Hexadecimal upgrade! Our display system is now robust, capable of showing any 4-bit number from `0` to `F`. It feels like our machine is unstoppable. But every machine, no matter how powerful, has its limits. In this lesson, we're going to find ours.
 
-The components we have built—our registers, our adder, our display driver—all operate on a **4-bit word size**. This means the "word" or number they are designed to handle is 4 bits wide. The largest number a 4-bit word can possibly represent is `1111`, which we know is 15 in decimal, or `F` in hex.
+The components we have built—our input interfaces, our adder, our display driver—all operate on a **4-bit word size**. This means the "word" or number they are designed to handle is 4 bits wide. The largest number a 4-bit word can possibly represent is `1111`, which we know is 15 in decimal, or `F` in hex.
 
 This raises a critical question: What happens if we ask our 4-bit adder to calculate an answer that is *larger* than 15?
 
@@ -26,17 +26,17 @@ The `Carry-Out` wire on our 4-bit adder isn't an error light. It's the 5th bit o
 
 **The Setup:**
 Your computer should still be set up from the end of Module 5.
-*   Two 4-bit Input Registers (A and B).
+*   Two 4-bit Input Interfaces (A and B).
 *   The 4-bit Adder.
 *   The Adder's 4-bit `Sum` output is connected to your upgraded 4-to-16 Hex Display system.
 *   **Crucially**, make sure the final `Carry-Out` wire from the 4th bit of your adder is connected to a single, separate **Redstone Lamp**. This is our diagnostic light.
 
 **The Integration Test:**
-*   **Drill 1 (Success):** Let's do a calculation that fits. Set Register A to `1010` (A) and Register B to `0101` (5).
+*   **Drill 1 (Success):** Let's do a calculation that fits. Set Input A to `1010` (A) and Input B to `0101` (5).
     *   **The Math:** `A + 5 = F` (or `10 + 5 = 15`).
     *   **The Result:** The Adder outputs `1111`. The Hex Display shows `F`. The Carry-Out lamp is **OFF**. Everything works perfectly. Our confidence is high!
 
-*   **Drill 2 (The "Aha!" Moment - The Bug):** Now, let's push it. Set Register A to `1100` (C) and Register B to `0101` (5).
+*   **Drill 2 (The "Aha!" Moment - The Bug):** Now, let's push it. Set Input A to `1100` (C) and Input B to `0101` (5).
     *   **The Math:** `C + 5 = 11` in hex (or `12 + 5 = 17` in decimal).
     *   **The Adder's Output:** Look closely at your machine. The 4-bit `Sum` bus is outputting `0001`. The `Carry-Out` lamp is **ON**.
     *   **The Display's Output:** The Hex Display receives the `0001` from the Sum bus and shows a `1`.
@@ -74,7 +74,7 @@ This is a simple 1-bit decoder. Let the Carry-Out wire be `C`.
 
 Let's rerun our "failed" test with our newly upgraded, two-digit display system.
 
-*   **The Test:** Set Register A to `1100` (C) and Register B to `0101` (5).
+*   **The Test:** Set Input A to `1100` (C) and Input B to `0101` (5).
     1.  The Adder calculates the result. The `Sum` bus outputs `0001`. The `Carry-Out` (`C`) wire turns ON.
     2.  The main Hex Display receives `0001` and shows a `1`.
     3.  Our new "Tens Digit" driver receives `C=1`. It turns on segments `b` and `c`, showing a `1`.

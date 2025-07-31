@@ -72,7 +72,7 @@ This modular design is a core principle of good engineering. It lets us build, t
     -   **Logic for L8 (`1000`):** `B3 AND (!B2) AND (!B1) AND (!B0)`
 
 **The Minecraft Build:**
-1.  **The Bus:** Start with your 4-bit input register. Create a full 8-line bus by running each of the 4 input lines in parallel, then splitting each one through a NOT gate to create its inverted version. You should have `B3, !B3, B2, !B2, B1, !B1, B0, !B0` all available.
+1.  **The Bus:** Start with your 4-bit input interface. Create a full 8-line bus by running each of the 4 input lines in parallel, then splitting each one through a NOT gate to create its inverted version. You should have `B3, !B3, B2, !B2, B1, !B1, B0, !B0` all available.
 2.  **The Logic Array:** Build ten 4-input AND gates. For each gate, tap into the correct four lines from your bus to detect a specific number from 0 to 9.
 
 **ASCII Schematic (Conceptual View):**
@@ -109,7 +109,7 @@ This modular design is a core principle of good engineering. It lets us build, t
 
 > **PLACEHOLDER:** Insert Minecraft screenshot and CircuitVerse diagram of the 4-to-10 decoder build.
 
-**Lesson Summary:**  
+**Lesson Summary:**
 You’ve just built a circuit that can recognize any single digit from 0 to 9 in binary. This is an essential skill for translating between human and machine language.
 
 **Real-World Connection: The Instruction Decoder**
@@ -167,15 +167,15 @@ L2 --------+--------+--------+--------+--------+--------+--------+ (`2`)
 - If multiple digits light up segments incorrectly, verify that each input line only powers its intended segments.
 - Use temporary Redstone lamps to test each segment output individually.
 
-**Lesson Summary:**  
+**Lesson Summary:**
 You’ve created a programmable display driver using a physical “ROM.” This is a powerful concept that bridges hardware and software.
 
 **Real-World Connection: Read-Only Memory (ROM)**
 >
 > This "diode matrix" you've built is a simple form of **Read-Only Memory**. The "program," which is the shape of the numbers, is physically burned into the circuit's layout. Old video game cartridges and a computer's BIOS chip worked on this exact principle, with data permanently stored in the hardware's structure.
 
-**Software Connection:** 
-> I'll keep this brief, because if you've done any programming, you've used a **lookup table** or hash map. If you find yourself stuck on an interview question, it is worth remembering that the majority of those types problems can be solved naively using a lookup table. 
+**Software Connection:**
+> I'll keep this brief, because if you've done any programming, you've used a **lookup table** or hash map. If you find yourself stuck on an interview question, it is worth remembering that the majority of those types problems can be solved naively using a lookup table.
 
 ---
 
@@ -190,7 +190,7 @@ Now, connect the two stages together. The 10 output lines from your Stage 1 Deco
 4. The signal on the `L3` line powers the repeaters at the intersections for segments 'a', 'b', 'c', 'd', and 'g'.
 5. Those five segment lines light up, and your 7-segment display shows a perfect, glowing **3**.
 
-**Lesson Summary:**  
+**Lesson Summary:**
 By connecting your decoder and encoder, you’ve built a complete translation pipeline from binary input to human-readable output. This is a huge leap in making your computer interactive!
 
 > **PLACEHOLDER:** Insert photo or diagram of the final connected system, showing a number displayed.**
@@ -230,7 +230,7 @@ By connecting your decoder and encoder, you’ve built a complete translation pi
 
 By breaking the problem down into two distinct, logical stages, you've built a highly complex circuit in a way that is easy to understand, build, and debug. You've created a pure **Decoder** and a pure **Encoder/ROM**, two of the most fundamental building blocks in all of digital electronics. This is a massive milestone.
 
-**What’s Next?**  
+**What’s Next?**
 In the next module, you’ll discover a critical flaw in our simple BCD translator. You’ll also learn how real engineers solve it!
 
 ---
@@ -241,4 +241,3 @@ In the next module, you’ll discover a critical flaw in our simple BCD translat
 - **ROM (Read-Only Memory):** Hardware that stores fixed data, often used for lookup tables.
 - **BCD (Binary-Coded Decimal):** A way of representing decimal digits in binary.
 - **7-Segment Display:** An arrangement of LEDs or lamps used to display digits and some letters.
-

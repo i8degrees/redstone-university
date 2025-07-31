@@ -28,7 +28,7 @@ To select one of these 6 functions, we will need 3 select lines (since 2³=8, wh
 **Goal:** To build all the processing units in parallel, ready to be fed into our Multiplexer.
 
 **The Build:**
-1.  **Layout:** This will be our largest and most dense build. Start with your two 4-bit input registers (A and B) at the top.
+1.  **Layout:** This will be our largest and most dense build. Start with your two 4-bit input interfaces (Input A and Input B) at the top.
 2.  **The Input Bus:** Wire the outputs of A and B so they are available to all the lanes below.
 3.  **Lane 1 (AND):** Build a 4-bit AND unit.
 4.  **Lane 2 (OR):** Build a 4-bit OR unit.
@@ -43,7 +43,7 @@ To select one of these 6 functions, we will need 3 select lines (since 2³=8, wh
 **Goal:** To build the large multiplexer that will select our final output.
 
 **The Build:**
-1.  **The Control Panel:** Create a 3-bit "opcode" (operation code) register with 3 levers. We will build a 3-to-8 decoder (just like our 2-to-4 decoder, but bigger) to turn this 3-bit code into one of 8 unique control lines. We'll only use the first 6.
+1.  **The Control Panel:** Create a 3-bit "opcode" (operation code) interface with 3 levers. We will build a 3-to-8 decoder (just like our 2-to-4 decoder, but bigger) to turn this 3-bit code into one of 8 unique control lines. We'll only use the first 6.
 2.  **The MUX Array:** This is the scaled-up version of the MUX from Module 8.
     *   For each of the 4 bits of the final output, you will build a large OR gate.
     *   Each OR gate will be fed by 6 AND gates.
