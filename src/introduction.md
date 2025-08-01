@@ -28,7 +28,7 @@ Redstone University is the product of my own adventure learning digital logic an
 ---
 
 
-### How the Course is Structured
+## How the Course is Structured
 
 This course is organized as a complete curriculum, taking you from zero knowledge to a fully functional, programmable 4-bit computer. It is divided into Parts (major phases), Modules (specific projects), and Lessons (step-by-step instructions). Each module builds a piece of our computer, and each lesson guides you through that process.
 
@@ -40,7 +40,7 @@ You’ll find:
 
 ---
 
-### The Journey Ahead
+## The Journey Ahead
 
 *   **Part I: The Foundations - Speaking to the Machine.** We will begin by building the essential human-computer interface. We'll learn the language of binary, the grammar of Boolean logic, and construct our own "keyboard" and "monitor."
 *   **Part II: Engineering a Robust Arithmetic Unit.** Here, we will build the mathematical core of our machine. We'll engineer an adder and subtractor, discover our machine's natural limitations through "bugs" like overflow, and upgrade our system to solve them, just like real engineers.
@@ -48,7 +48,7 @@ You’ll find:
 *   **Part IV: Creating an Automated Computer.** In the final core modules, we'll give our processor a memory to store its thoughts and a clock to act as its heartbeat. We will assemble everything into a single, automated machine that can run a simple program on its own.
 *   **Part V: Post-Graduate Studies.** For those who want to go even further, we'll explore advanced topics, tackling the complex challenge of making our computer display multi-digit decimal numbers, just like a real-world calculator.
 
-### Who Is This For?
+## Who Is This For?
 
 This course is for the curious. It's for:
 *   **My daughter, Ada**, for whom this project was first imagined.
@@ -56,7 +56,7 @@ This course is for the curious. It's for:
 *   **University CS students** who want a physical way to visualize the concepts from their "Computer Architecture" class.
 *   **Self-taught programmers and professionals** who want to solidify their understanding of what's happening at the hardware level.
 
-### How to Get Started & Accessibility
+## How to Get Started & Accessibility
 
 This course is designed to be followed along in **Minecraft**. However, Minecraft is not strictly required!
 
