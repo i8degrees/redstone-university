@@ -1,4 +1,4 @@
-redstone-university/pdf-style.css ``` ```css img {
+img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -80,4 +80,12 @@ blockquote {
     padding: 0.5em 1em;
     color: #555;
     background: #fafafa;
+}
+
+hr.pagebreak {
+    page-break-before: always;
+    break-before: always;
+    border: none;
+    margin: 0;
+    height: 0;
 }

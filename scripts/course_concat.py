@@ -32,9 +32,8 @@ def concatenate_markdown_files(files, output_file):
             with open(file_path, "r", encoding="utf-8") as infile:
                 content = infile.read().strip()
                 outfile.write(content)
-                # Add page break between files, except after the last one
                 if idx < len(files) - 1:
-                    outfile.write("\n\n---\n\n")
+                    outfile.write('\n\n<hr class="pagebreak"/>\n\n')
 
 
 def main():
