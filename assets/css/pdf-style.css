@@ -27,8 +27,8 @@ ol,
 table,
 pre,
 blockquote {
-    orphans: 2;
-    widows: 2;
+    orphans: 5;
+    widows: 5;
 }
 
 h1,
@@ -39,6 +39,11 @@ h5,
 h6 {
     margin-top: 2em;
     margin-bottom: 1em;
+}
+
+h4,
+h5,
+h6 {
     page-break-after: avoid;
     break-after: avoid;
     page-break-inside: avoid;
