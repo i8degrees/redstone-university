@@ -183,7 +183,7 @@ print(countSetBits(13)) # Output: 3
 
 ---
 
-### Module 1 Conclusion
+#### Module 1 Conclusion
 
 Fantastic work! You've now mastered the most fundamental concept in all of computing: how information is physically represented in a binary system. You have a working input device, and you've seen how this physical concept directly connects to both real-world hardware and clever software algorithms.
 
