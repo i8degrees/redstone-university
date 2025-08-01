@@ -75,12 +75,6 @@ For each logic gate, we will start out with visuals and the formal definitions, 
 
 > **Key Takeaway:** The NOT gate flips a signal, turning ON to OFF, or 1 to 0. It’s the simplest way to create “opposite” logic in a circuit.
 
--   **Minecraft Gate:**
-
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOT-gate_minecraft.png" alt="NOT Gate in Minecraft" width="512px"/><br/><em>Figure: The **Redstone Torch** is a purpose-built NOT gate in Minecraft.</em></div></br></br>
-
--   **Circuit Diagram:**
-
 <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOT-gate_circuitverse.png" alt="NOT Gate in CircuitVerse" width="512px"/><br/><em>Figure: A single NOT gate with one input and one output, as shown in CircuitVerse.</em></div></br></br>
 
 -   **Formal Definition:** The NOT gate, or Inverter, performs **Negation**. It's the simplest possible operation: it takes a single input and outputs its exact opposite.
@@ -94,6 +88,9 @@ For each logic gate, we will start out with visuals and the formal definitions, 
 -   **The Boolean Expression:** The output `Y` is simply `Y = !A`.
 
 -   **Lab & Experiment:**
+
+    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOT-gate_minecraft.png" alt="NOT Gate in Minecraft" width="512px"/><br/><em>Figure: The **Redstone Torch** is a purpose-built NOT gate in Minecraft.</em></div></br></br>
+
     > **Note:** The Redstone Torch itself is a physical NOT gate, but we will add some lamps and dust just to help visualize everything better. Feel free to use a simple torch moving forward if you prefer.
 
     1.  Build the circuit as shown in the Minecraft screenshot:
@@ -127,11 +124,7 @@ For each logic gate, we will start out with visuals and the formal definitions, 
 
 > **Key Takeaway:** The OR gate outputs 1 if at least one input is 1. It’s how we express “either/or” logic in hardware and software.
 
-- **Minecraft Gate:**
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_OR_gate_minecraft.png" alt="OR Gate in Minecraft" width="512px"/><br/><em>Figure: The classic Minecraft OR gate using Redstone Dust merging.</em></div></br></br>
-
-- **Circuit Diagram:**
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_OR-gate_circuitverse.png" alt="OR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The OR gate as shown in CircuitVerse.</em></div></br></br>
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_OR-gate_circuitverse.png" alt="OR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The OR gate as shown in CircuitVerse.</em></div></br></br>
 
 - **Formal Definition:** The OR gate performs **Disjunction**. Think of it as the optimistic gate—it checks if *at least one* of its inputs is True.
 - **Symbols:** `A ∨ B` (logic), `A || B` (programming).
@@ -145,6 +138,8 @@ For each logic gate, we will start out with visuals and the formal definitions, 
   |  1  |  1  |    1     |
 - **The Boolean Expression:** The output `Y` is `Y = A OR B`.
 - **Lab & Experiment:**
+    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_OR_gate_minecraft.png" alt="OR Gate in Minecraft" width="512px"/><br/><em>Figure: The classic Minecraft OR gate using Redstone Dust merging.</em></div></br></br>
+
     1. Build the circuit as shown in the Minecraft screenshot:
 
         1. Place two redstone lamps with at least one space between them.
@@ -165,17 +160,9 @@ For each logic gate, we will start out with visuals and the formal definitions, 
 
 > **Key Takeaway:** The AND gate only outputs 1 if all its inputs are 1. It’s how we require multiple conditions to be true at once.
 
-- **Minecraft Gate: Our First Composite Gate**
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_AND-gate_circuitverse.png" alt="AND Gate in CircuitVerse" width="512px"/><br/><em>Figure: The standard AND gate symbol in CircuitVerse.</em></div></br></br>
 
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_AND-gate-composite_minecraft.png" alt="AND Gate Composite in Minecraft" width="512px"/><br/><em>Figure: The verbose AND gate in Minecraft, built as `!(!A OR !B)`.</em></div></br></br>
-
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_AND-gate_minecraft.png" alt="AND Gate Compact in Minecraft" width="512px"/><br/><em>Figure: The compact AND gate in Minecraft, using a more efficient layout.</em></div></br></br>
-
-- **Circuit Diagrams:**
-
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_AND-gate-composite_circuitverse.png" alt="AND Gate Composite in CircuitVerse" width="512px"/><br/><em>Figure: The AND gate built from NOT and OR gates in CircuitVerse.</em></div></br></br>
-
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_AND-gate_circuitverse.png" alt="AND Gate in CircuitVerse" width="512px"/><br/><em>Figure: The standard AND gate symbol in CircuitVerse.</em></div></br></br>
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_AND-gate-composite_circuitverse.png" alt="AND Gate Composite in CircuitVerse" width="512px"/><br/><em>Figure: The AND gate built from NOT and OR gates in CircuitVerse.</em></div></br></br>
 
 - **Formal Definition:** The AND gate performs **Conjunction**. It’s the strict gate—output is True only if *all* inputs are True.
 - **Symbols:** `A ∧ B` (logic), `A && B` (programming).
@@ -192,7 +179,7 @@ For each logic gate, we will start out with visuals and the formal definitions, 
     > **Note on Screenshots and Color Coding:**
     > Our Minecraft circuit screenshots use a pseudo-isometric view to show as much of the build as possible. However, it can sometimes be hard to tell if a redstone torch is attached to the backside of a block. To make this clear, any block with a torch on its backside is colored red in the screenshot. Blocks with torches only on top are easy to see, so they use the build’s default color unless they also have a backside torch, in which case they’re red. For redstone lamps used as inputs (with a lever on one side and a torch or repeater on the other), we can't color code them obviously, but the instructions clearly indicate when a torch is on the backside of one of these input blocks.
 
-
+    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_AND-gate-composite_minecraft.png" alt="AND Gate Composite in Minecraft" width="512px"/><br/><em>Figure: The verbose AND gate in Minecraft, built as `!(!A OR !B)`.</em></div></br></br>
 
     1. Build the verbose version as shown:
 
@@ -201,6 +188,9 @@ For each logic gate, we will start out with visuals and the formal definitions, 
         3. Merge these signals into a central block with redstone dust (an OR gate: `!A OR !B`).
         4. Place a torch on the central block to invert the signal, giving `!(!A OR !B)`.
         5. Connect the output to a lamp for `Y`.
+
+
+    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_AND-gate_minecraft.png" alt="AND Gate Compact in Minecraft" width="512px"/><br/><em>Figure: The compact AND gate in Minecraft, using a more efficient layout.</em></div></br></br>
 
     2. Build the compact version:
 
@@ -224,7 +214,7 @@ In this course, we’re treating AND as a key concept, but in Minecraft, we’re
 
 Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let us rearrange and simplify expressions. For us, **a simpler expression means a smaller, faster, and more reliable Redstone circuit.** This is a critical engineering skill.
 
-#### Boolean Notation: Logical vs Arithmetic
+##### Boolean Notation: Logical vs Arithmetic
 
 You’ll often see logic written using symbols from regular math. For example:
 - **AND** is sometimes written as multiplication: `A · B` or just `AB`
@@ -232,6 +222,9 @@ You’ll often see logic written using symbols from regular math. For example:
 - **NOT** as an overbar: `Ā`
 
 For this course, I’ll stick with `AND`, `OR`, and `NOT` for clarity, but you’ll see this other notation in textbooks and online.
+
+##### The Laws of Boolean Algebra
+Here are the key laws we will be using in our course. There are many more, but these are the most fundamental and useful for circuit design.
 
 - **Identity Law:** `A OR 0 = A` and `A AND 1 = A`.
 - **Annihilator Law:** `A OR 1 = 1` and `A AND 0 = 0`.
@@ -283,15 +276,11 @@ For this course, I’ll stick with `AND`, `OR`, and `NOT` for clarity, but you�
 
 - **Minecraft Gate:**
 
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XOR-gate-composite_minecraft.png" alt="XOR Gate (Composite) in Minecraft" width="512px"/><br/><em>Figure: A composite XOR gate in Minecraft, showing the logic as a combination of AND, OR, and NOT.</em></div></br></br>
-
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XOR-gate_minecraft.png" alt="XOR Gate (Compact) in Minecraft" width="512px"/><br/><em>Figure: A compact XOR gate built in Minecraft. The output is on only when the two inputs are different.</em></div></br></br>
-
-- **Circuit Diagram:**
+  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XOR-gate_circuitverse.png" alt="XOR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The standard XOR gate symbol in CircuitVerse.</em></div></br></br>
 
   <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XOR-gate-composite_circuitverse.png" alt="XOR Gate in (Composite) CircuitVerse" width="512px"/><br/><em>Figure: The XOR gate as shown in CircuitVerse, built from AND, OR, and NOT gates.</em></div></br></br>
 
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XOR-gate_circuitverse.png" alt="XOR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The standard XOR gate symbol in CircuitVerse.</em></div></br></br>
+
 
 - **Formal Definition:** The **Exclusive OR (XOR)** gate outputs True only when inputs differ.
 - **Symbols:** `A ⊕ B` (logic), `A ^ B` (programming).
@@ -306,14 +295,23 @@ For this course, I’ll stick with `AND`, `OR`, and `NOT` for clarity, but you�
 - **The Boolean Expression:** The output `Y` is `Y = (A AND NOT B) OR (NOT A AND B)`.
 - **Lab & Experiment:**
 
+    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XOR-gate-composite_minecraft.png" alt="XOR Gate (Composite) in Minecraft" width="512px"/><br/><em>Figure: A composite XOR gate in Minecraft, showing the logic as a combination of AND, OR, and NOT.</em></div></br></br>
+
     1. Build the XOR gate as shown in the screenshot:
 
         1. Set up two levers for inputs `A` and `B`.
-        2. Construct the gate as shown in the screenshot. (*updated this*)
+        2. TODO
         3. Connect to an output lamp for `Y`.
 
-    2. Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
-    3. **Verification:** The output is `1` only when inputs differ.
+    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XOR-gate_minecraft.png" alt="XOR Gate (Compact) in Minecraft" width="512px"/><br/><em>Figure: A compact XOR gate built in Minecraft. The output is on only when the two inputs are different.</em></div></br></br>
+
+    2. Build the compact version:
+        1. Use a more efficient layout (see screenshot).
+        2. TODO
+        2. Connect to an output lamp for `Y`.
+
+    3. Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
+    4. **Verification:** The output is `1` only when inputs differ.
 
 - **Real-World Connection:** XOR is used in adders, error detection, and two-switch light systems (light toggles if one switch changes).
 
@@ -368,15 +366,9 @@ This is a powerful bridge between hardware and software. The simple "difference 
 
 ##### Operator 4: NAND (The "Not Both" Gate)
 
-- **Minecraft Gate:**
-
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NAND-gate_minecraft.png" alt="NAND Gate in Minecraft" width="512px"/><br/><em>Figure: A NAND gate built in Minecraft. The output is off only when both inputs are on.</em></div></br></br>
-
-- **Circuit Diagrams:**
+  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NAND-gate_circuitverse.png" alt="NAND Gate in CircuitVerse" width="512px"/><br/><em>Figure: A NAND gate as shown in CircuitVerse (standard symbol).</em></div></br></br>
 
   <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NAND-gate-composite_circuitverse.png" alt="NAND Gate (Composite) in CircuitVerse" width="512px"/><br/><em>Figure: A composite NAND gate in CircuitVerse, constructed from AND and NOT gates.</em></div></br></br>
-
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NAND-gate_circuitverse.png" alt="NAND Gate in CircuitVerse" width="512px"/><br/><em>Figure: A NAND gate as shown in CircuitVerse (standard symbol).</em></div></br></br>
 
 - **Formal Definition:** The NAND gate performs a **NOT-AND** operation—negation of AND.
 - **Symbols:** `A NAND B` or `¬(A ∧ B)`.
@@ -391,6 +383,8 @@ This is a powerful bridge between hardware and software. The simple "difference 
 - **The Boolean Expression:** The output `Y` is `Y = NOT (A AND B)`.
 - **Lab & Experiment:**
 
+    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NAND-gate_minecraft.png" alt="NAND Gate in Minecraft" width="512px"/><br/><em>Figure: A NAND gate built in Minecraft. The output is off only when both inputs are on.</em></div></br></br>
+
     1. Build the NAND gate:
 
         1. Start with your AND gate setup.
@@ -404,15 +398,9 @@ This is a powerful bridge between hardware and software. The simple "difference 
 
 ##### Operator 5: NOR (The "Neither" Gate)
 
-- **Minecraft Gate:**
-
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOR-gate_minecraft.png" alt="NOR Gate in Minecraft" width="512px"/><br/><em>Figure: A NOR gate built in Minecraft. The output is on only when both inputs are off.</em></div></br></br>
-
-- **Circuit Diagrams:**
+  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOR-gate_circuitverse.png" alt="NOR Gate in CircuitVerse" width="512px"/><br/><em>Figure: A NOR gate as shown in CircuitVerse (standard symbol).</em></div></br></br>
 
   <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOR-gate-composite_circuitverse.png" alt="NOR Gate (Composite) in CircuitVerse" width="512px"/><br/><em>Figure: A composite NOR gate in CircuitVerse, constructed from OR and NOT gates.</em></div></br></br>
-
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOR-gate_circuitverse.png" alt="NOR Gate in CircuitVerse" width="512px"/><br/><em>Figure: A NOR gate as shown in CircuitVerse (standard symbol).</em></div></br></br>
 
 - **Formal Definition:** The NOR gate performs a **NOT-OR** operation—negation of OR.
 - **Symbols:** `A NOR B` or `¬(A ∨ B)`.
@@ -427,6 +415,8 @@ This is a powerful bridge between hardware and software. The simple "difference 
 - **The Boolean Expression:** The output `Y` is `Y = NOT (A OR B)`.
 - **Lab & Experiment:**
 
+    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOR-gate_minecraft.png" alt="NOR Gate in Minecraft" width="512px"/><br/><em>Figure: A NOR gate built in Minecraft. The output is on only when both inputs are off.</em></div></br></br>
+
     1. Build the NOR gate:
 
         1. Build an OR gate as before.
@@ -440,14 +430,9 @@ This is a powerful bridge between hardware and software. The simple "difference 
 
 ##### Operator 6: XNOR (The "Equality Detector")
 
-- **Minecraft Gate (Composite, Inverted Input Trick):**
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XNOR-gate_minecraft.png" alt="XNOR Gate (Composite) in Minecraft" width="512px"/><br/><em>Figure: XNOR gate in Minecraft, created by inverting one input to an XOR gate. This matches the XNOR truth table: the output is on when both inputs are the same.</em></div></br></br>
-
-- **Circuit Diagram (Composite, Inverted Input Trick):**
-  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XNOR-gate-composite_circuitverse.png" alt="XNOR Gate (Composite) in CircuitVerse" width="512px"/><br/><em>Figure: Composite XNOR gate in CircuitVerse, built by inverting one input to an XOR gate. This demonstrates that XOR(A, NOT B) is equivalent to XNOR(A, B).</em></div></br></br>
-
-- **Circuit Diagram (Standard Symbol):**
   <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XNOR-gate_circuitverse.png" alt="XNOR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The standard XNOR gate symbol in CircuitVerse.</em></div></br></br>
+
+  <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XNOR-gate-composite_circuitverse.png" alt="XNOR Gate (Composite) in CircuitVerse" width="512px"/><br/><em>Figure: Composite XNOR gate in CircuitVerse, built by inverting one input to an XOR gate. This demonstrates that XOR(A, NOT B) is equivalent to XNOR(A, B).</em></div></br></br>
 
 - **Formal Definition:** The XNOR gate performs a **NOT-XOR** operation—negation of XOR.
 - **Symbols:** `A XNOR B` or `¬(A ⊕ B)`.
@@ -461,6 +446,8 @@ This is a powerful bridge between hardware and software. The simple "difference 
   |  1  |  1  |     1      |
 - **The Boolean Expression:** The output `Y` is `Y = NOT (A XOR B)`.
 - **Lab & Experiment:**
+
+    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XNOR-gate_minecraft.png" alt="XNOR Gate (Composite) in Minecraft" width="512px"/><br/><em>Figure: XNOR gate in Minecraft, created by inverting one input to an XOR gate. This matches the XNOR truth table: the output is on when both inputs are the same.</em></div></br></br>
 
     1. Build the XNOR gate:
 
@@ -492,7 +479,7 @@ This is a powerful bridge between hardware and software. The simple "difference 
 
 ---
 
-### Module 2 Conclusion
+#### Module 2 Conclusion
 
 This was a huge module! But you now have the most powerful tool an engineer can possess: a formal language to describe, design, and simplify complex systems. You know the "verbs" of logic, have built them, and seen how that physical logic directly empowers elegant software solutions.
 
@@ -500,7 +487,7 @@ This was a huge module! But you now have the most powerful tool an engineer can 
 
 ---
 
-### Key Terms (Module 2)
+#### Key Terms (Module 2)
 
 -   **Boolean Algebra:** A branch of mathematics for working with true/false values (1/0), using operators like AND, OR, and NOT.
 -   **Logic Gate:** A physical or virtual device that implements a Boolean operation.
