@@ -405,7 +405,7 @@ These two rules allow for an incredibly elegant solution to a whole class of pro
 
 -   **Lab & Experiment:**
 
-    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NAND-gate_minecraft.png" alt="NAND Gate in Minecraft" width="512px"/><br/><em>Figure: A NAND gate built in Minecraft. The output is off only when both inputs are on.</em></div></br></br>
+    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NAND-gate-composite_minecraft.png" alt="NAND Gate in Minecraft" width="512px"/><br/><em>Figure: A NAND gate built in Minecraft. The output is off only when both inputs are on.</em></div></br></br>
 
     > **Note on Negated Gates:** The negated gates are the inverse of gates we built earlier. The NAND gate is simply an AND gate with its output inverted. Our composite AND gate build already ends with a NOT gate (a torch). To create a NAND gate, we can simply build our composite AND gate and remove that final torch.
 
@@ -472,7 +472,7 @@ These two rules allow for an incredibly elegant solution to a whole class of pro
 
 -   **Lab & Experiment:**
 
-    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XNOR-gate_minecraft.png" alt="XNOR Gate (Composite) in Minecraft" width="512px"/><br/><em>Figure: XNOR gate in Minecraft, created by adding a NOT gate to one input of our composite XOR gate. This matches the XNOR truth table: the output is on when both inputs are the same.</em></div></br></br>
+    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XNOR-gate-composite_minecraft.png" alt="XNOR Gate (Composite) in Minecraft" width="512px"/><br/><em>Figure: XNOR gate in Minecraft, created by adding a NOT gate to one input of our composite XOR gate. This matches the XNOR truth table: the output is on when both inputs are the same.</em></div></br></br>
 
     > **Verifying the Build: A Proof of Equivalence**
     >
