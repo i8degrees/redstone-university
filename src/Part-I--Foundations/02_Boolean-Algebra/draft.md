@@ -416,7 +416,7 @@ These two rules allow for an incredibly elegant solution to a whole class of pro
 
 -   **Lab & Experiment:**
 
-    ![NAND Gate in Minecraft](./images/NAND-gate_minecraft.png)
+    ![NAND Gate in Minecraft](./images/NAND-gate-composite_minecraft.png)
     *Figure: A NAND gate built in Minecraft. The output is off only when both inputs are on.*
 
     > **Note on Negated Gates:** The negated gates are the inverse of gates we built earlier. The NAND gate is simply an AND gate with its output inverted. Our composite AND gate build already ends with a NOT gate (a torch). To create a NAND gate, we can simply build our composite AND gate and remove that final torch.
@@ -489,7 +489,7 @@ These two rules allow for an incredibly elegant solution to a whole class of pro
 
 -   **Lab & Experiment:**
 
-    ![XNOR Gate (Composite) in Minecraft](./images/XNOR-gate_minecraft.png)
+    ![XNOR Gate (Composite) in Minecraft](./images/XNOR-gate-composite_minecraft.png)
     *Figure: XNOR gate in Minecraft, created by adding a NOT gate to one input of our composite XOR gate. This matches the XNOR truth table: the output is on when both inputs are the same.*
 
     > **Verifying the Build: A Proof of Equivalence**
