@@ -16,8 +16,7 @@
     -   Lesson 2.5: Software Superpowers – The XOR Trick for Programmers
     -   Lesson 2.6: The Negated Gates – NAND, NOR, and XNOR
     -   Lesson 2.7: Module 2 Checkpoint
--
-Minecraft Artifact:** A set of working Redstone logic gates (NOT, AND, OR, XOR, NAND, NOR, XNOR).
+-   **Minecraft Artifact:** A set of working Redstone logic gates (NOT, AND, OR, XOR, NAND, NOR, XNOR).
 
 ---
 
@@ -217,7 +216,7 @@ To connect the abstract concept of a gate to our physical build, we will use a c
     3.  Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
     4.  **Verification:** The output lamp lights only when both levers are ON.
 
-*   **Real-World Connection:** A missile launch might need `TurnKey1=True` AND `PressButton=True`.
+-   **Real-World Connection:** A missile launch might need `TurnKey1=True` AND `PressButton=True`.
 
 
 ---
@@ -231,9 +230,9 @@ Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let u
 ##### Boolean Notation: Logical vs Arithmetic
 
 You’ll often see logic written using symbols from regular math. For example:
-_   **AND** is sometimes written as multiplication: `A · B` or just `AB`
-_   **OR** as addition: `A + B`
-_   **NOT** as an overbar: `Ā`
+-   **AND** is sometimes written as multiplication: `A · B` or just `AB`
+-   **OR** as addition: `A + B`
+-   **NOT** as an overbar: `Ā`
 
 For this course, I’ll stick with `AND`, `OR`, and `NOT` for clarity, but you’ll see this other notation in textbooks and online.
 
@@ -280,7 +279,7 @@ Here are the key laws we will be using in our course. There are many more, but t
 |
 | NOR | NOT, AND, OR, XOR | `NOT A = A NOR A`<br>`AND = (NOT A) NOR (NOT B)`<br>`OR = (A NOR B) NOR (A NOR B)` |
 
-*Any logic circuit can be built using just NAND or just NOR gates!*
+-   Any logic circuit can be built using just NAND or just NOR gates!
 
 ---
 
@@ -313,7 +312,7 @@ It's important to understand that this is just one of many ways to build an XOR 
 
     > **A Note on Design Equivalence**: This powerful expression is a direct translation of our circuit diagram. It cleverly uses a shared NOR gate to feed the main logic paths, a common strategy in circuit design for efficiency. We haven't officially introduced NOR gates, but since it is simply a negated OR gate you can look at it as an `OR` gate followed by a `NOT` gate. I went with this design, because it avoids crossing wires while requiring only our primitives.
 
-    > While it looks very different from the textbook definition, we can prove with a truth table that it is functionally exacly the same. This is a perfect example of how different engineering approaches can lead to the same correct solution. There is always more than one way to build a gate!
+    > While it looks very different from the textbook definition, we can prove with a truth table that it is functionally exactly the same. This is a perfect example of how different engineering approaches can lead to the same correct solution. There is always more than one way to build a gate!
 
 -   **Lab & Experiment:**
 
@@ -488,7 +487,7 @@ These two rules allow for an incredibly elegant solution to a whole class of pro
         | 1 | 1 | 1 |
 -   **The Boolean Expression:** `Y = NOT ( !(A OR !(A OR B)) OR !(B OR !(A OR B)) )`
 
-*   **Lab & Experiment:**
+-   **Lab & Experiment:**
 
     ![XNOR Gate (Composite) in Minecraft](./images/XNOR-gate_minecraft.png)
     *Figure: XNOR gate in Minecraft, created by adding a NOT gate to one input of our composite XOR gate. This matches the XNOR truth table: the output is on when both inputs are the same.*
@@ -514,7 +513,7 @@ These two rules allow for an incredibly elegant solution to a whole class of pro
     2.  Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
     3.  **Verification:** The output is `1` only when the inputs are the same. You have successfully created an XNOR gate by modifying an XOR gate.
 
-*   **Real-World Connection:** XNOR gates are used in equality checks, like comparators in computing.
+-   **Real-World Connection:** XNOR gates are used in equality checks, like comparators in computing.
 
 ---
 
@@ -541,9 +540,15 @@ This was a huge module! But you now have the most powerful tool an engineer can 
 
 **What’s Next:** Now that you can “think in logic,” you’re ready to build circuits that translate, display, and process information. In the next module, we'll use this newfound language to build our first truly complex and useful machine: a translator that will let our computer speak to us.
 
+
+> **A Note on the Following Optional Interlude**
+> You have successfully completed Module 2. Congratulations!
+> Before you move on to the next project, we have a special, optional section called an "Interlude." In this module, we focused on building for clarity, making our gates large so the logic was easy to see. The Interlude introduces the art of building for efficiency and compact design.
+> Think of it as your first engineering deep-dive. You can read it now, or you can come back to it at any time. The choice is yours.
+
 ---
 
-#### **Key Terms (Module 2)**
+#### Key Terms (Module 2)
 
 -   **Boolean Algebra:** A branch of mathematics for working with true/false values (1/0), using operators like AND, OR, and NOT.
 -   **Logic Gate:** A physical or virtual device that implements a Boolean operation.
