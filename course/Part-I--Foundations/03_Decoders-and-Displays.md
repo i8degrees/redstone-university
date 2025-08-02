@@ -21,11 +21,23 @@
 
 #### Module Introduction
 
-In the previous modules, you learned how to speak to your computer in binary and how to manipulate those signals with logic gates. But a computer that can only listen isn't very satisfying. We want it to talk back! In this module, you'll build a translator that lets your computer display numbers in a way that humans can instantly recognize.
+In the previous modules, you learned how to speak to your computer in binary and how to manipulate those signals with logic gates. But a computer that can only listen isn't very satisfying. We want it to talk back! This is our first large-scale engineering project, and with it comes a new way of thinking.
 
-We'll break this challenge into two manageable stages: first, decoding binary numbers into a single, recognizable idea (a digit), and then encoding that idea into a pattern of lights on a 7-segment display. This modular approach mirrors how real computers handle complex translations and will give you a powerful new tool for your engineering toolkit.
+> **Our New Rule: The Power of Abstraction**
+>
+> In Module 2, we built every gate from scratch to understand how it worked. From this point forward, we will operate at a higher level of abstraction.
+>
+> When a diagram or instruction says to "Build an AND gate," **how you choose to build it is now up to you.**
+>
+> -   You can build the verbose, easy-to-read version from Module 2.
+> -   You can use a smaller, more efficient version from the Interlude.
+> -   You can design your own!
+>
+> As long as your component functions according to its truth table, it is a valid build. This freedom is a major step in your journey from student to engineer. The preceding Interlude, **The Art of Compact Design**, gives you the foundation for making these choices.
+>
+> If you are ever unsure, the verbose builds from Module 2 are guaranteed to work.
 
----
+Now, let's dive into this module's challenge. You'll build a translator that lets your computer display numbers in a way that humans can instantly recognize. We'll break this down into two manageable stages: first, decoding binary numbers into a single, recognizable idea (a digit), and then encoding that idea into a pattern of lights on a 7-segment display. This modular approach mirrors how real computers handle complex translations and will give you a powerful new tool for your engineering toolkit.
 
 #### Lesson 3.1: The Two-Stage Approach
 
