@@ -208,9 +208,10 @@ To connect the abstract concept of a gate to our physical build, we will use a c
     1.  Build the verbose version as shown:
 
         1.  Place two redstone lamps with a lever on the front of each for inputs `A` and `B`.
-        2.  Attach a redstone torch to the back of each input block to create `!A` and `!B`. This uses our primitive NOT gate.
-        3.  Merge these signals into a central block with redstone dust. This creates an OR gate: `!A OR !B`.
-        4.  Place a torch on the central block to invert the signal, giving `!(!A OR !B)`.
+        2.  Attach a redstone torch to the back of each redstone lamp to create the NOT gates for `!A` and `!B`.
+        3.  Merge these signals to a central point with redstone dust. This creates an OR gate: `!A OR !B`.
+        4.  Places a solid block and run the redstone dust into the back of the block.
+        5.  Invert this signal by placing a redstone torch on the opposite side of the block. This final NOT gate gives us `!(!A OR !B)`.
         5.  Connect the output to a lamp for `Y`.
 
     3.  Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
@@ -247,13 +248,12 @@ Here are the key laws we will be using in our course. There are many more, but t
 
 -   **Lab: The Proof in Practice**
     Let’s use De Morgan’s Law to prove our AND gate design is correct.
-    1.  The two side torches are NOT gates on our inputs, giving us `!A` and `!B`.
-    2.  Their signals merge into the central block, which is an OR gate (`!A OR !B`).
-    3.  The final output torch is a NOT gate on that signal.
-    4.  Therefore, the full expression for our circuit is `!(!A OR !B)`.
-    5.  Applying De Morgan’s Law to the part in the parentheses: `!A OR !B` is the same as `!(A AND B)`.
-    6.  Substituting that back in, our expression becomes `!(!(A AND B))`.
-    7.  The two NOTs (`!!`) cancel each other out, leaving `A AND B`. We used formal logic to prove our physical circuit is correct!
+    1.  The two redstone torches on the back of our redstone lamps are NOT gates, giving us `!A` and `!B`.
+    2.  Their signals merge into the central spot, which is an OR gate (`!A OR !B`).
+    3.  The final output torch is a NOT gate on that signal. Therefore, the full expression for our circuit is `!(!A OR !B)`.
+    4.  Applying De Morgan’s Law to the part in the parentheses: `!A OR !B` is the same as `!(A AND B)`.
+    5.  Substituting that back in, our expression becomes `!(!(A AND B))`.
+    6.  The two NOTs (`!!`) cancel each other out, leaving `A AND B`. We just proved our physical circuit is correct!
 
 ---
 
@@ -272,14 +272,18 @@ Here are the key laws we will be using in our course. There are many more, but t
 
 ---
 
-**Functional Completeness Table**
+**Functional Completeness: Building with Universal Gates**
 
-| Gate Used Alone | Can Build... | Example Construction |
-|---|---|---|
-|
-| NOR | NOT, AND, OR, XOR | `NOT A = A NOR A`<br>`AND = (NOT A) NOR (NOT B)`<br>`OR = (A NOR B) NOR (A NOR B)` |
+| Universal Gate | To Build a NOT Gate (`!A`) | To Build an AND Gate (`A AND B`) | To Build an OR Gate (`A OR B`) |
+| :--- | :--- | :--- | :--- |
+| **NAND** | `A NAND A` | `(A NAND B) NAND (A NAND B)` | `(A NAND A) NAND (B NAND B)` |
+| **NOR** | `A NOR A` | `(A NOR A) NOR (B NOR B)` | `(A NOR B) NOR (A NOR B)` |
 
--   Any logic circuit can be built using just NAND or just NOR gates!
+**Why does this matter?**
+
+For real-world chip designers, this is an incredibly powerful concept. Manufacturing a computer chip is a complex process. Instead of needing separate, specialized machinery to produce AND, OR, and NOT gates, a factory can be optimized to produce just *one* type of gate—like a NAND gate—in massive quantities with extreme reliability and low cost.
+
+Engineers then use the patterns from the table above to wire those identical simple gates together to create all the complex logic they need. The simplicity of manufacturing a single universal gate is a cornerstone of modern, affordable electronics.
 
 ---
 
@@ -290,25 +294,26 @@ Here are the key laws we will be using in our course. There are many more, but t
 ![XOR Gate in CircuitVerse](./images/XOR-gate_circuitverse.png)
 *Figure: The standard XOR gate symbol in CircuitVerse.*
 
-Like the AND gate, XOR is a composite gate. We will continue our practice of building it from our established primitives. We will show the abstract symbol used in diagrams, but our build will be made from only the NOT and OR gates we have already mastered.
+Like the AND gate, XOR is a composite gate. For all gates we show the asbtract symbol used in diagrams as we introduce them, but we will continue our practice of building it from our established primitives. Here is a version of an XOR gate built from OR and NOT, our minecraft primitives.
 
 ![XOR Gate in (Composite) CircuitVerse](./images/XOR-gate-composite_circuitverse.png)
-*Figure: The XOR gate as shown in CircuitVerse, built from AND, OR, and NOT gates.*
+*Figure: The XOR gate as shown in CircuitVerse, built from OR and NOT gates.*
 
-It's important to understand that this is just one of many ways to build an XOR gate. In Redstone engineering, as in real-world circuit design, there is often no single "correct" answer. Different designs might be bigger but easier to understand, or smaller but more complex. The design above is excellent for visualizing the underlying logic.
+It's important to understand that this is just one of many ways to build an XOR gate. In Redstone engineering, as in real-world circuit design, there is often no single "correct" answer. Different designs might be bigger but easier to understand, or smaller but more complex. The design above is excellent for visualizing the underlying logic while learning.
 
 -   **Formal Definition:** The **Exclusive OR (XOR)** gate outputs True only when inputs differ.
 -   **Symbols:** `A ⊕ B` (logic), `A ^ B` (programming).
 -   **The Rule:** The output is `True` if `A` is True and `B` is False, or vice versa; it’s `False` if inputs are the same.
 -   **Truth Table: XOR Gate**
-| `A` | `B` | `A XOR B` |
-|:---:|:---:|:---------:|
-| 0 | 0 | 0 |
-| 0 | 1 | 1 |
-| 1 | 0 | 1 |
-| 1 | 1 | 0 |
 
--   **The Boolean Expression**: `Y = !(A OR !(A OR B)) OR !(B OR !(A OR B))`
+    | `A` | `B` | `A XOR B` |
+    |:---:|:---:|:---------:|
+    | 0 | 0 | 0 |
+    | 0 | 1 | 1 |
+    | 1 | 0 | 1 |
+    | 1 | 1 | 0 |
+
+-   **The Boolean Expression**: `Y = !(A OR !(A OR B)) OR !(B OR !(A OR B))`.w
 
     > **A Note on Design Equivalence**: This powerful expression is a direct translation of our circuit diagram. It cleverly uses a shared NOR gate to feed the main logic paths, a common strategy in circuit design for efficiency. We haven't officially introduced NOR gates, but since it is simply a negated OR gate you can look at it as an `OR` gate followed by a `NOT` gate. I went with this design, because it avoids crossing wires while requiring only our primitives.
 
