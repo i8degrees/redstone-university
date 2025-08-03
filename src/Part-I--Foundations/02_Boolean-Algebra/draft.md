@@ -350,47 +350,81 @@ It's important to understand that this is just one of many ways to build an XOR 
 
 ---
 
-#### Lesson 2.5 Software Superpowers – The XOR Trick for Programmers
-
+#### **Lesson 2.5: Software Superpowers – The XOR Trick for Programmers**
 
 > **Key Takeaway:** XOR is a “secret weapon” in programming. Its reversible, self-canceling property allows for incredibly efficient solutions to common algorithmic problems.
 
 **Why is XOR so useful in programming?**
-Because it’s reversible and “cancels itself out.” For example, `a ^ a = 0` and `a ^ 0 = a`. This property lets you do things like swap two variables without a temporary variable, or find the one unique number in a list where every other number appears twice.
 
-**LeetCode Connection:** XOR is a favorite in programming interviews. Here’s a classic LeetCode problem and its solution using XOR:
-
-> The "Single Number" Problem:
->
-> -   **The Challenge:** You are given a list of numbers where every number appears exactly twice, except for one number that appears only once. Find that unique number.
-> -   **Example List:** `[4, 1, 2, 1, 2]`
-> -   **The XOR Solution:** If you XOR all the numbers together, the pairs cancel themselves into nothing, leaving only the unique number! `4 ^ (1 ^ 1) ^ (2 ^ 2)` becomes `4 ^ 0 ^ 0`, which is `4`.
-
-```python
-    def singleNumber(nums):
-        result = 0
-        for num in nums:
-            result ^= num
-        return result
-    # singleNumber([4, 1, 2, 1, 2]) returns 4
-```
-
-This is where our hardware knowledge directly translates into writing brilliant, efficient software. The XOR gate has two magical properties that programmers exploit constantly:
-
+The XOR gate has two magical properties that programmers exploit constantly:
 1.  Any number XORed with itself is zero: `x ^ x = 0`.
 2.  Any number XORed with zero is itself: `x ^ 0 = x`.
 
-These two rules allow for an incredibly elegant solution to a whole class of programming interview problems on sites like LeetCode.
+Because of these rules, XOR is reversible and "cancels itself out." This allows for brilliant solutions to problems that seem complex at first glance. This is where our hardware knowledge directly translates into writing efficient software.
 
--   **Real-World Connection:** XOR gates are used in digital circuits for error detection (parity checks), cryptography, and even in RAID storage systems to recover lost data.
--   **Software Connection:** XOR is used in programming for toggling bits, finding unique elements, and implementing simple encryption.
+Let's see it in action with a classic problem from programming interview sites like LeetCode.
 
-> The "Missing Number" Problem:
+**Example Problem: The "Single Number"**
+
+> *   **The Challenge:** You are given a list of numbers where every number appears exactly twice, except for one number that appears only once. Find that unique number.
+> *   **Example List:** `[4, 1, 2, 1, 2]`
+> *   **The XOR Solution:** If you XOR all the numbers in the list together, every number that appears twice will cancel itself out and become zero. The only number left at the end will be the unique one! `4 ^ (1 ^ 1) ^ (2 ^ 2)` becomes `4 ^ 0 ^ 0`, which is `4`.
+
+```python
+def singleNumber(nums):
+    result = 0
+    for num in nums:
+        result ^= num
+    return result
+```
+
+**Your Turn: The "Missing Number" Challenge**
+
+Now that you've seen how the XOR trick works, try applying the same core principle to solve a different, but related, problem.
+
+> **The Challenge:**
 >
-> -   **The Challenge:** You have a list containing every number from 0 to `n`, except one is missing. Find the missing number.
-> -   **The XOR Solution:** You can XOR all the numbers you *expect* to see (0 to n) with all the numbers you *actually* see in the list. The number that doesn't have a pair is the one that's missing.
+> You are given a list of numbers that contains every number from `0` to `n` exactly once, except for one number which is missing. Your task is to find that missing number.
 >
->This is a powerful bridge between hardware and software. The simple "difference detector" we built in Minecraft is the logical foundation for solving complex algorithmic problems with extreme efficiency.
+> -   **Example List:** `nums = [3, 0, 1]`
+> -   In this example, `n` would be 3. The full range of numbers should be `[0, 1, 2, 3]`. The missing number is `2`.
+>
+> **The Hint:**
+> Think about the two groups of numbers you're dealing with: the list you *have* and the complete list you *should have*. How can you use XOR's self-canceling property to find the single difference between these two groups?
+
+<br>
+
+<details>
+<summary><strong>Click here for the solution and explanation</strong></summary>
+
+---
+
+**The Logic:**
+
+The core idea is to XOR all the numbers that *should* be in the list against all the numbers that *are* actually in the list.
+
+1.  First, we calculate the XOR sum of the complete sequence of numbers from 0 to `n`. For our example `[3, 0, 1]`, `n` is 3, so this would be `0 ^ 1 ^ 2 ^ 3`.
+2.  Next, we calculate the XOR sum of the numbers in the list we were given: `3 ^ 0 ^ 1`.
+3.  If we XOR these two results together, all the numbers that are present in both lists will pair up and cancel out, leaving only the number that was missing from the input list.
+
+`(0 ^ 1 ^ 2 ^ 3) ^ (3 ^ 0 ^ 1)` can be rearranged as `(0^0) ^ (1^1) ^ (3^3) ^ 2`, which simplifies to `2`.
+
+**The Python Code:**
+
+```python
+def missingNumber(nums):
+    n = len(nums)
+    expected_xor_sum = 0
+    for i in range(n + 1):
+        expected_xor_sum ^= i
+
+    actual_xor_sum = 0
+    for num in nums:
+        actual_xor_sum ^= num
+
+    return expected_xor_sum ^ actual_xor_sum```
+
+</details>
 
 ---
 
