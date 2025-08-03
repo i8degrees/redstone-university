@@ -412,7 +412,8 @@ def missingNumber(nums):
     for num in nums:
         actual_xor_sum ^= num
 
-    return expected_xor_sum ^ actual_xor_sum```
+    return expected_xor_sum ^ actual_xor_sum
+```
 
 </details>
 
