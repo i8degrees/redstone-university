@@ -30,10 +30,13 @@ jobs:
         run: |
           sed -i 's|\.\./\.\./assets/images/|assets/images/|g' course/Redstone-University.md
 
-      - name: Generate PDF from concatenated markdown
+      - name: Extract solutions for PDF and build appendix
+        run: python scripts/extract_solutions.py
+
+      - name: Generate PDF from processed markdown
         uses: baileyjm02/markdown-to-pdf@v1
         with:
-          input_path: course/Redstone-University.md
+          input_path: course/Redstone-University-for-pdf.md
           output_dir: course/
           build_html: false
           theme: assets/css/pdf-style.css
