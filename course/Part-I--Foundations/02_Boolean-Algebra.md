@@ -340,58 +340,32 @@ It's important to understand that this is just one of many ways to build an XOR 
 
 ---
 
-#### Lesson 2.5 Software Superpowers – The XOR Trick for Programmers
-
+#### **Lesson 2.5: Software Superpowers – The XOR Trick for Programmers**
 
 > **Key Takeaway:** XOR is a “secret weapon” in programming. Its reversible, self-canceling property allows for incredibly efficient solutions to common algorithmic problems.
 
 **Why is XOR so useful in programming?**
-Because it’s reversible and “cancels itself out.” For example, `a ^ a = 0` and `a ^ 0 = a`. This property lets you do things like swap two variables without a temporary variable, or find the one unique number in a list where every other number appears twice.
 
-**LeetCode Connection:** XOR is a favorite in programming interviews. Here’s a classic LeetCode problem and its solution using XOR:
-
-> The "Single Number" Problem:
->
-> -   **The Challenge:** You are given a list of numbers where every number appears exactly twice, except for one number that appears only once. Find that unique number.
-> -   **Example List:** `[4, 1, 2, 1, 2]`
-> -   **The XOR Solution:** If you XOR all the numbers together, the pairs cancel themselves into nothing, leaving only the unique number! `4 ^ (1 ^ 1) ^ (2 ^ 2)` becomes `4 ^ 0 ^ 0`, which is `4`.
-
-```python
-    def singleNumber(nums):
-        result = 0
-        for num in nums:
-            result ^= num
-        return result
-    # singleNumber([4, 1, 2, 1, 2]) returns 4
-```
-
-This is where our hardware knowledge directly translates into writing brilliant, efficient software. The XOR gate has two magical properties that programmers exploit constantly:
-
+The XOR gate has two magical properties that programmers exploit constantly:
 1.  Any number XORed with itself is zero: `x ^ x = 0`.
 2.  Any number XORed with zero is itself: `x ^ 0 = x`.
 
-These two rules allow for an incredibly elegant solution to a whole class of programming interview problems on sites like LeetCode.
+Because of these rules, XOR is reversible and "cancels itself out." This allows for brilliant solutions to problems that seem complex at first glance. This is where our hardware knowledge directly translates into writing efficient software.
 
--   **Real-World Connection:** XOR gates are used in digital circuits for error detection (parity checks), cryptography, and even in RAID storage systems to recover lost data.
--   **Software Connection:** XOR is used in programming for toggling bits, finding unique elements, and implementing simple encryption.
+Let's see it in action with a classic problem from programming interview sites like LeetCode.
 
-> The "Missing Number" Problem:
->
-> -   **The Challenge:** You have a list containing every number from 0 to `n`, except one is missing. Find the missing number.
-> -   **The XOR Solution:** You can XOR all the numbers you *expect* to see (0 to n) with all the numbers you *actually* see in the list. The number that doesn't have a pair is the one that's missing.
->
-> This becomes `4 ^ 0 ^ 0`, which is simply `4`.
+**Example Problem: The "Single Number"**
 
-Here is the elegant Python code for this solution:
+> *   **The Challenge:** You are given a list of numbers where every number appears exactly twice, except for one number that appears only once. Find that unique number.
+> *   **Example List:** `[4, 1, 2, 1, 2]`
+> *   **The XOR Solution:** If you XOR all the numbers in the list together, every number that appears twice will cancel itself out and become zero. The only number left at the end will be the unique one! `4 ^ (1 ^ 1) ^ (2 ^ 2)` becomes `4 ^ 0 ^ 0`, which is `4`.
 
 ```python
 def singleNumber(nums):
     result = 0
     for num in nums:
-        result ^= num  # The ^= operator is shorthand for result = result ^ num
+        result ^= num
     return result
-
-# singleNumber([4, 1, 2, 1, 2]) will return 4
 ```
 
 **Your Turn: The "Missing Number" Challenge**
@@ -441,9 +415,6 @@ def missingNumber(nums):
     return expected_xor_sum ^ actual_xor_sum```
 
 </details>
-
----
-
 
 ---
 
