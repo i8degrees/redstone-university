@@ -380,7 +380,70 @@ These two rules allow for an incredibly elegant solution to a whole class of pro
 > -   **The Challenge:** You have a list containing every number from 0 to `n`, except one is missing. Find the missing number.
 > -   **The XOR Solution:** You can XOR all the numbers you *expect* to see (0 to n) with all the numbers you *actually* see in the list. The number that doesn't have a pair is the one that's missing.
 >
->This is a powerful bridge between hardware and software. The simple "difference detector" we built in Minecraft is the logical foundation for solving complex algorithmic problems with extreme efficiency.
+> This becomes `4 ^ 0 ^ 0`, which is simply `4`.
+
+Here is the elegant Python code for this solution:
+
+```python
+def singleNumber(nums):
+    result = 0
+    for num in nums:
+        result ^= num  # The ^= operator is shorthand for result = result ^ num
+    return result
+
+# singleNumber([4, 1, 2, 1, 2]) will return 4
+```
+
+**Your Turn: The "Missing Number" Challenge**
+
+Now that you've seen how the XOR trick works, try applying the same core principle to solve a different, but related, problem.
+
+> **The Challenge:**
+>
+> You are given a list of numbers that contains every number from `0` to `n` exactly once, except for one number which is missing. Your task is to find that missing number.
+>
+> -   **Example List:** `nums = [3, 0, 1]`
+> -   In this example, `n` would be 3. The full range of numbers should be `[0, 1, 2, 3]`. The missing number is `2`.
+>
+> **The Hint:**
+> Think about the two groups of numbers you're dealing with: the list you *have* and the complete list you *should have*. How can you use XOR's self-canceling property to find the single difference between these two groups?
+
+<br>
+
+<details>
+<summary><strong>Click here for the solution and explanation</strong></summary>
+
+---
+
+**The Logic:**
+
+The core idea is to XOR all the numbers that *should* be in the list against all the numbers that *are* actually in the list.
+
+1.  First, we calculate the XOR sum of the complete sequence of numbers from 0 to `n`. For our example `[3, 0, 1]`, `n` is 3, so this would be `0 ^ 1 ^ 2 ^ 3`.
+2.  Next, we calculate the XOR sum of the numbers in the list we were given: `3 ^ 0 ^ 1`.
+3.  If we XOR these two results together, all the numbers that are present in both lists will pair up and cancel out, leaving only the number that was missing from the input list.
+
+`(0 ^ 1 ^ 2 ^ 3) ^ (3 ^ 0 ^ 1)` can be rearranged as `(0^0) ^ (1^1) ^ (3^3) ^ 2`, which simplifies to `2`.
+
+**The Python Code:**
+
+```python
+def missingNumber(nums):
+    n = len(nums)
+    expected_xor_sum = 0
+    for i in range(n + 1):
+        expected_xor_sum ^= i
+
+    actual_xor_sum = 0
+    for num in nums:
+        actual_xor_sum ^= num
+
+    return expected_xor_sum ^ actual_xor_sum```
+
+</details>
+
+---
+
 
 ---
 
