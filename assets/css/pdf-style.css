@@ -1,4 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Libre+Baskerville&family=Inconsolata&display=swap");
+
 body {
+    font-family: "Libre Baskerville", serif;
     font-size: 13px;
     line-height: 1.5;
 }
@@ -42,6 +45,7 @@ h3,
 h4,
 h5,
 h6 {
+    font-family: "Montserrat", sans-serif;
     margin-top: 2em;
     margin-bottom: 1em;
 }
@@ -93,4 +97,14 @@ hr.pagebreak {
     border: none;
     margin: 0;
     height: 0;
+}
+
+pre {
+    font-family: "Inconsolata", monospace;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+code {
+    font-family: "Inconsolata", monospace;
 }
