@@ -2,7 +2,7 @@
 
 body {
     font-family: "Libre Baskerville", serif;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.5;
 }
 
@@ -99,10 +99,18 @@ hr.pagebreak {
     height: 0;
 }
 
-pre {
+pre,
+pre code,
+code.hljs,
+pre.hljs {
+    background: #282a36 !important;
+    color: #f8f8f2 !important;
     font-family: "Inconsolata", monospace;
     font-size: 12px;
     line-height: 1.2;
+    border-radius: 6px;
+    padding: 1em;
+    overflow-x: auto;
 }
 
 code {
