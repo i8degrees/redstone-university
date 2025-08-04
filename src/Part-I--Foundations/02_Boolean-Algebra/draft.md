@@ -89,7 +89,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 > **Key Takeaway:** The NOT gate flips a signal, turning ON to OFF, or 1 to 0. It’s the simplest way to create “opposite” logic in a circuit.
 
 ![NOT Gate in CircuitVerse](./images/NOT-gate_circuitverse.png)
-*Figure: A single NOT gate with one input and one output, as shown in CircuitVerse.*
+*Figure: The abstract symbol for the NOT gate (left) and its function in a basic circuit (right), taking a single input A and producing an inverted output Y.*
 
 -   **Formal Definition:** The NOT gate, or Inverter, performs **Negation**. It's the simplest possible operation: it takes a single input and outputs its exact opposite.
 -   **Symbols:** `¬A` (logic), `!A` (programming).
@@ -140,7 +140,8 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 > **Key Takeaway:** The OR gate outputs 1 if at least one input is 1. It’s how we express “either/or” logic in hardware and software.
 
 ![OR Gate in CircuitVerse](./images/OR-gate_circuitverse.png)
-*Figure: The OR gate as shown in CircuitVerse.*
+*Figure: The abstract symbol for the OR gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active if at least one input is active.*
+
 
 -   **Formal Definition:** The OR gate performs **Disjunction**. Think of it as the optimistic gate—it checks if *at least one* of its inputs is True.
 -   **Symbols:** `A ∨ B` (logic), `A || B` (programming).
@@ -178,7 +179,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 > **Key Takeaway:** The AND gate only outputs 1 if all its inputs are 1. It’s how we require multiple conditions to be true at once.
 
 ![AND Gate in CircuitVerse](./images/AND-gate_circuitverse.png)
-*Figure: The standard AND gate symbol in CircuitVerse.*
+*Figure: The abstract symbol for the AND gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if inputs A and B are both active.*
 
 Now we reach our first **composite gate**. Unlike NOT and OR, Minecraft does not give us a single block that performs the AND operation. Instead, we must build it from our primitives. This is a fundamental concept in digital engineering: combining simple components to create more complex functions. Our chosen primitives (NOT and OR) are *functionally complete*, meaning any possible logic function, including AND, can be built from them.
 
@@ -292,7 +293,7 @@ Engineers then use the patterns from the table above to wire those identical sim
 > **Key Takeaway:** XOR outputs 1 only when its inputs are different. It’s essential for circuits like adders and programming tricks.
 
 ![XOR Gate in CircuitVerse](./images/XOR-gate_circuitverse.png)
-*Figure: The standard XOR gate symbol in CircuitVerse.*
+*Figure: The abstract symbol for the Exclusive OR (XOR) gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if the inputs are different.*
 
 Like the AND gate, XOR is a composite gate. For all gates we show the asbtract symbol used in diagrams as we introduce them, but we will continue our practice of building it from our established primitives. Here is a version of an XOR gate built from OR and NOT, our minecraft primitives.
 
@@ -435,7 +436,8 @@ def missingNumber(nums):
 
 ##### Operator 4: NAND (The "Not Both" Gate)
 
-![NAND Gate in CircuitVerse](./images/NAND-gate_circuitverse.png)*Figure: A NAND gate as shown in CircuitVerse (standard symbol).*
+![NAND Gate in CircuitVerse](./images/NAND-gate_circuitverse.png)
+*Figure: The abstract symbol for the NAND gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active unless both inputs A and B are active.*
 
 ![NAND Gate (Composite) in CircuitVerse](./images/NAND-gate-composite_circuitverse.png)
 *Figure: A composite NAND gate in CircuitVerse, constructed from AND and NOT gates.*
@@ -459,11 +461,9 @@ def missingNumber(nums):
     ![NAND Gate in Minecraft](./images/NAND-gate-composite_minecraft.png)
     *Figure: A NAND gate built in Minecraft. The output is off only when both inputs are on.*
 
-    > **Note on Negated Gates:** The negated gates are the inverse of gates we built earlier. The NAND gate is simply an AND gate with its output inverted. Our composite AND gate build already ends with a NOT gate (a torch). To create a NAND gate, we can simply build our composite AND gate and remove that final torch.
-
     1.  Build the NAND gate:
 
-        1.  Start by building our composite AND gate from Lesson 2.2. In that build, we created !A and !B with torches, then fed them into an OR gate (merged dust), and finally inverted that with a final torch.
+        1.  Start by building our composite AND gate from Lesson 2.2.
         2.  To get the NAND output, remove the final torch.
         3.  The signal on the dust before that final torch is now your output. Connect this dust to the output lamp for Y. The lamp will now behave exactly like a NAND gate.
 
@@ -475,7 +475,7 @@ def missingNumber(nums):
 ##### Operator 5: NOR (The "Neither" Gate)
 
 ![NOR Gate in CircuitVerse](./images/NOR-gate_circuitverse.png)
-*Figure: A NOR gate as shown in CircuitVerse (standard symbol).*
+*Figure: The abstract symbol for the NOR gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if both inputs A and B are inactive.*
 
 ![NOR Gate (Composite) in CircuitVerse](./images/NOR-gate-composite_circuitverse.png)
 *Figure: A composite NOR gate in CircuitVerse, constructed from OR and NOT gates.*
@@ -510,7 +510,7 @@ def missingNumber(nums):
 ##### Operator 6: XNOR (The "Equality Detector")
 
 ![XNOR Gate in CircuitVerse](./images/XNOR-gate_circuitverse.png)
-*Figure: The standard XNOR gate symbol in CircuitVerse.*
+*Figure: The abstract symbol for the Exclusive NOR (XNOR) gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if the inputs are the same.*
 
 ![XNOR Gate (Composite) in CircuitVerse](./images/XNOR-gate-composite_circuitverse.png)
 *Figure: Composite XNOR gate in CircuitVerse, built by inverting one input to an XOR gate. This demonstrates that XOR(A, NOT B) is equivalent to XNOR(A, B).*
