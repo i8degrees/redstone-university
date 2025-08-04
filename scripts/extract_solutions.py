@@ -35,7 +35,7 @@ def main():
     with open(INPUT_FILE, "r", encoding="utf-8") as f:
         md = f.read()
 
-    appendix = ["### Appendix B: Solutions to Exercises\n\n---\n"]
+    appendix = ['<hr class="pagebreak"/>\n\n### Appendix B: Solutions to Exercises\n\n---\n']
     replaced_md = md
 
     for idx, (full_block, summary, inner, heading) in enumerate(extract_details_blocks(md), 1):
