@@ -481,9 +481,15 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
         4.  Run dust lines from each repeater and merge them into a single output line.
         5.  Connect this line to another redstone lamp for output `Y`.
 
-    2.  **Engineering Note:** When building this OR gate, you might notice that merging dust lines directly from the lamps without repeaters can cause "back-powering." Powering one lamp might light the other, even if its lever is off. The repeaters prevent this by acting as diodes, letting signals flow out but not back in.
-    3.  Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
-    4.  **Verification:** Confirm the output lamp matches the truth table for each test.
+    > **Engineering Note: What is a diode?**
+    > In electronics, a **diode** is a component that allows a signal to flow in only one direction, like a one-way valve or a turnstile for electricity. This property is essential for preventing signals from going where they aren't supposed to.
+    >
+    > In our OR gate, if we merge the dust lines directly, a signal from input `A` could travel backwards up the other wire and power input `B`'s lamp, even if `B`'s lever is off. This is called "back-powering."
+    >
+    > The **Redstone Repeater** is a perfect, purpose-built diode in Minecraft. Notice the small arrow on top of it—it will only allow a signal to pass in that direction. By placing a repeater on each input line, we ensure the signal can flow *out* towards the final lamp, but cannot flow *backwards* to interfere with the other input.
+
+    2.  Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
+    3.  **Verification:** Confirm the output lamp matches the truth table for each test.
 
 -   **Real-World Connection:** A security system might sound an alarm if `FrontDoorSensor=True` OR `BackDoorSensor=True`.
 
