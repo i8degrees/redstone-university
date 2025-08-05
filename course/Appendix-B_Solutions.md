@@ -32,7 +32,7 @@
 
 **Boolean Expression**: `A AND NOT B = !(NOT A OR B)` (by De Morgan’s Law).
 
-**Minecraft Circuit**: Place a torch on B’s block for NOT B. Merge A and NOT B with dust for OR. Invert the result with another torch for NOT (NOT A OR B). Connect to a lamp and test all combinations.
+**Minecraft Circuit**: Invert A to get !A. Then, take !A and the original B and feed them into an OR gate. Finally, invert the result of that OR gate.
 
 ---
 
@@ -118,79 +118,39 @@ def missingNumber(nums):
 
 ---
 
-#### Solution for ##### Practice Problems & Challenges
+#### Solution for ##### Part 1: Knowledge Check
 
-**Answer:** 0
-
----
-
-#### Solution for ##### Practice Problems & Challenges
-
-**Answer:** 0
+1.  An **OR** gate outputs `1` if *at least one* input is `1`. An **XOR** gate outputs `1` only if the inputs are *different*.
+2.  The **NAND** gate and the **NOR** gate. The property is called **Functional Completeness**.
+3.  The equivalent expression is `!A AND !B`.
 
 ---
 
-#### Solution for ##### Practice Problems & Challenges
+#### Solution for ###### Puzzle 1: The Word Problem
 
-**Answer:** XNOR
+The expression translates directly from the requirements:
 
----
+`Y = M OR (T AND !W)`
 
-#### Solution for ##### Practice Problems & Challenges
-
-**Simplify (A AND B) OR (A AND NOT B)**:
-        1. Factor out A: `A AND (B OR NOT B)`.
-        2. Since `B OR NOT B = 1`, the expression becomes `A AND 1 = A`.
-        **Answer**: `A`.
+The parentheses are crucial to ensure the `AND` condition is evaluated before being `OR`'d with the manual override switch.
 
 ---
 
-#### Solution for ##### Practice Problems & Challenges
+#### Solution for ###### Puzzle 2: The Simplification
 
-`B NOR C = NOT (B OR C) = NOT (0 OR 1) = NOT 1 = 0`
-        `A NAND 0 = NOT (A AND 0) = NOT 0 = 1`
+1.  **Start with the expression:** `Y = (A AND B) OR (A AND !B) OR (!A AND B)`
+2.  **Look for common terms to factor:** The first two terms both contain `A`. Let's factor it out using the Distributive Law.
+    *   `A AND (B OR !B)`
+3.  **Apply the Inverse Law:** We know that `B OR !B` is always `1`.
+    *   So, the first part simplifies to `A AND 1`, which is just `A`.
+4.  **Rewrite the expression:** Our expression is now much simpler: `Y = A OR (!A AND B)`
+5.  **Apply the Distributive Law again (in a less obvious way):** The law `(X OR Y) AND (X OR Z) = X OR (Y AND Z)` can be applied here. Let `X = A`.
+    *   We can expand `A OR (!A AND B)` into `(A OR !A) AND (A OR B)`.
+6.  **Apply the Inverse Law again:** We know that `A OR !A` is always `1`.
+    *   The expression becomes: `Y = 1 AND (A OR B)`
+7.  **Apply the Identity Law:** `1 AND` anything is just the anything.
+    *   The final, simplified expression is: `Y = A OR B`.
 
----
-
-#### Solution for ##### Practice Problems & Challenges
-
-Any Boolean function can be built using only NOR gates.
-
----
-
-#### Solution for ##### Practice Problems & Challenges
-
-The NOT gates needed to invert the AND output in the XOR construction are missing.
-
----
-
-#### Solution for ##### Practice Problems & Challenges
-
-Use De Morgan’s Law:
-        - `A AND B = NOT (NOT A OR NOT B)`
-        - `NOT A AND C = NOT (A OR NOT C)`
-        - Combine with OR: `[NOT (NOT A OR NOT B)] OR [NOT (A OR NOT C)]`
-
----
-
-#### Solution for ##### Practice Problems & Challenges
-
-```python
-        def find_two_unique(numbers):
-            xor_result = 0
-            for num in numbers:
-                xor_result ^= num
-            set_bit = xor_result & -xor_result
-            num1, num2 = 0, 0
-            for num in numbers:
-                if num & set_bit:
-                    num1 ^= num
-                else:
-                    num2 ^= num
-            return num1, num2
-        # Example: [2, 4, 3, 6, 4, 2] → 3, 6
-        print(find_two_unique([2, 4, 3, 6, 4, 2]))
-        ```
-        **Explanation:** XOR all numbers to get XOR of the two unique numbers. Use a set bit to split numbers into two groups, then XOR each group to find the unique numbers.
+The entire complex circuit simplifies down to a single OR gate!
 
 ---
