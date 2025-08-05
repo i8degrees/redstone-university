@@ -52,8 +52,6 @@
    - Similarly, `B AND !(A AND B) = B AND !A`.
 6. Final expression: `(A AND !B) OR (!A AND B)`, which is `A XOR B`.
 
-**Minecraft Circuit**: Build the XOR circuit from Lesson 2.4, as it’s equivalent. Compare it to the original, which requires more blocks and dust.
-
 ---
 
 **<strong>Solution: Two-Switch Light System</strong>**
