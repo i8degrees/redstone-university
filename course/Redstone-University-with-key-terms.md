@@ -481,12 +481,12 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
         4.  Run dust lines from each repeater and merge them into a single output line.
         5.  Connect this line to another redstone lamp for output `Y`.
 
-        > **Engineering Note: What is a diode?**
-        > In electronics, a **diode** is a component that allows a signal to flow in only one direction, like a one-way valve or a turnstile for electricity. This property is essential for preventing signals from going where they aren't supposed to.
-        >
-        > In our OR gate, if we merge the dust lines directly, a signal from input `A` could travel backwards up the other wire and power input `B`'s lamp, even if `B`'s lever is off. This is called "back-powering."
-        >
-        > The **Redstone Repeater** is a perfect, purpose-built diode in Minecraft. Notice the small arrow on top of it—it will only allow a signal to pass in that direction. By placing a repeater on each input line, we ensure the signal can flow *out* towards the final lamp, but cannot flow *backwards* to interfere with the other input.
+            > **Engineering Note: What is a diode?**
+            > In electronics, a **diode** is a component that allows a signal to flow in only one direction, like a one-way valve or a turnstile for electricity. This property is essential for preventing signals from going where they aren't supposed to.
+            >
+            > In our OR gate, if we merge the dust lines directly, a signal from input `A` could travel backwards up the other wire and power input `B`'s lamp, even if `B`'s lever is off. This is called "back-powering."
+            >
+            > The **Redstone Repeater** is a perfect, purpose-built diode in Minecraft. Notice the small arrow on top of it—it will only allow a signal to pass in that direction. By placing a repeater on each input line, we ensure the signal can flow *out* towards the final lamp, but cannot flow *backwards* to interfere with the other input.
 
     2.  Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
     3.  **Verification:** Confirm the output lamp matches the truth table for each test.
@@ -1122,6 +1122,7 @@ This was a huge module! But you now have the most powerful tool an engineer can 
 -   **Primitive Gate:** A basic, indivisible logic gate from which more complex gates are built. In our course, these are NOT and OR.
 -   **Composite Gate:** A logic gate constructed by combining primitive gates (e.g., an AND gate built from NOT and OR gates).
 -   **Truth Table:** A chart showing all possible input/output combinations for a logic gate or circuit.
+-   **Diode**: A component that allows an electrical signal to pass in only one direction. In Minecraft, the Redstone Repeater acts as a perfect diode.
 -   **Functionally Complete:** A set of gates from which any Boolean function can be built (e.g., just NAND or just NOR).
 -   **Bitwise Operation:** A software operation that manipulates individual bits of a number.
 -   **XOR (Exclusive OR):** Outputs 1 if inputs are different; used in both hardware and software for unique logic tricks.
@@ -1607,6 +1608,7 @@ Welcome to advanced studies. Let's dive into Module 12.
 -   **Primitive Gate:** A basic, indivisible logic gate from which more complex gates are built. In our course, these are NOT and OR.
 -   **Composite Gate:** A logic gate constructed by combining primitive gates (e.g., an AND gate built from NOT and OR gates).
 -   **Truth Table:** A chart showing all possible input/output combinations for a logic gate or circuit.
+-   **Diode**: A component that allows an electrical signal to pass in only one direction. In Minecraft, the Redstone Repeater acts as a perfect diode.
 -   **Functionally Complete:** A set of gates from which any Boolean function can be built (e.g., just NAND or just NOR).
 -   **Bitwise Operation:** A software operation that manipulates individual bits of a number.
 -   **XOR (Exclusive OR):** Outputs 1 if inputs are different; used in both hardware and software for unique logic tricks.
