@@ -26,7 +26,8 @@
           -   Lesson 2.4: The Special Operator – XOR
           -   Lesson 2.5: Software Superpowers – The XOR Trick for Programmers
           -   Lesson 2.6: The Negated Gates – NAND, NOR, and XNOR
-          -   Lesson 2.7: Module 2 Checkpoint
+          -   Lesson 2.7: Module Summary
+          -   Lesson 2.8: Module 2 Checkpoint
       -   **Minecraft Artifacts:** A set of working Redstone logic gates (NOT, AND, OR, XOR, NAND, NOR, XNOR).
       
       #### Module 3: Translators & Our First Display
