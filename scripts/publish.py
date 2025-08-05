@@ -20,6 +20,45 @@ RAW_BASE_URL = (
 TRANSFORM_IMAGES_FOR_GITHUB = True
 
 
+GATE_SYMBOLS = ["NOT", "AND", "OR", "NAND", "NOR", "XOR", "XNOR"]
+
+
+def replace_gate_symbols_with_html(md_content):
+    """
+    Replace Markdown image syntax for gate SVGs with HTML <img> tags with width=64px.
+    Only affects images named exactly as the gate symbols in the summary table.
+    """
+
+    def replacer(match):
+        alt = match.group(1)
+        src = match.group(2)
+        for gate in GATE_SYMBOLS:
+            if src.endswith(f"{gate}.svg"):
+                return f'<img src="{src}" alt="{alt}" width="64px">'
+        return match.group(0)
+
+    pattern = r"!\[([^\]]*)\]\(([^)]+\.svg)\)"
+    return re.sub(pattern, replacer, md_content)
+
+
+def replace_gate_symbols_svg_with_png(md_content):
+    """
+    For PDF: Replace Markdown image links to gate SVGs with PNGs (same basename).
+    """
+
+    def replacer(match):
+        alt = match.group(1)
+        src = match.group(2)
+        for gate in GATE_SYMBOLS:
+            if src.endswith(f"{gate}.svg"):
+                png_src = src[:-4] + ".png"
+                return f"![{alt}]({png_src})"
+        return match.group(0)
+
+    pattern = r"!\[([^\]]*)\]\(([^)]+\.svg)\)"
+    return re.sub(pattern, replacer, md_content)
+
+
 def md_img_with_caption_to_centered_html(md_content):
     """
     Transform Markdown image + caption pairs to centered HTML blocks for GitHub.
@@ -122,6 +161,9 @@ def main():
         # Replace logo with <picture> HTML using absolute URLs
         content = replace_logo_with_picture_html(content)
 
+        # Replace gate symbol SVGs with HTML <img> tags for web/GitHub
+        content = replace_gate_symbols_with_html(content)
+
         # Replace all other image paths with absolute URLs
         # Find all Markdown images and build a map of old_path -> absolute_url
         image_pattern = r"!\[[^\]]*\]\(([^)]+)\)"
@@ -158,6 +200,9 @@ def main():
 
                 # Replace logo with <picture> HTML using absolute URLs (if present)
                 content = replace_logo_with_picture_html(content)
+
+                # Replace gate symbol SVGs with HTML <img> tags for web/GitHub
+                content = replace_gate_symbols_with_html(content)
 
                 # Replace all other image paths with absolute URLs
                 image_pattern = r"!\[[^\]]*\]\(([^)]+)\)"
@@ -209,6 +254,9 @@ def main():
 
                         # Replace logo with <picture> HTML using absolute URLs (if present)
                         content = replace_logo_with_picture_html(content)
+
+                        # Replace gate symbol SVGs with HTML <img> tags for web/GitHub
+                        content = replace_gate_symbols_with_html(content)
 
                         # Replace all other image paths with absolute URLs
                         # Also catch any Markdown images not in ./images/
