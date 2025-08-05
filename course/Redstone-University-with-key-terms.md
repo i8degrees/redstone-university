@@ -486,7 +486,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
             >
             > In our OR gate, if we merge the dust lines directly, a signal from input `A` could travel backwards up the other wire and power input `B`'s lamp, even if `B`'s lever is off. This is called "back-powering."
             >
-            > The **Redstone Repeater** is a perfect, purpose-built diode in Minecraft. Notice the small arrow on top of it—it will only allow a signal to pass in that direction. By placing a repeater on each input line, we ensure the signal can flow *out* towards the final lamp, but cannot flow *backwards* to interfere with the other input.
+            > The **Redstone Repeater** is a perfect, purpose-built diode in Minecraft. Notice the small arrow on top of it, it will only allow a signal to pass in that direction. By placing a repeater on each input line, we ensure the signal can flow *out* towards the final lamp, but cannot flow *backwards* to interfere with the other input.
 
     2.  Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
     3.  **Verification:** Confirm the output lamp matches the truth table for each test.
@@ -651,8 +651,11 @@ This looks like it would require two AND gates and one OR gate. Let's use the la
 | Inverse | `A OR !A = 1`<br>`A AND !A = 0` | Input and its ! always produce 1 (OR) or 0 (AND)|
 | Commutative | `A OR B = B OR A`<br>`A AND B = B AND A` | Order doesn't matter |
 | Associative | `(A OR B) OR C = A OR (B OR C)`<br>`(A AND B) AND C = A AND (B AND C)` | Grouping doesn't matter |
-| Distributive | `A AND (B OR C) = (A AND B) OR (A AND C)` | AND distributes over OR |
+| Distributive | `A AND (B OR C) = (A AND B) OR (A AND C)` <br>A OR (B AND C) = (A OR B) AND (A OR C) | AND distributes over OR, OR distributes over AND |
 | De Morgan's Laws | `!(A AND B) = !A OR !B`<br>`!(A OR B) = !A AND !B` | Converts between AND/OR with ! |
+
+> **A Special Note on the Distributive Law:**
+> Notice that Boolean algebra has two distributive laws. The first one, `A AND (B OR C)`, looks very similar to the distributive law in regular algebra. However, the second one, `A OR (B AND C)`, is unique to Boolean logic. In the algebra you're used to, `a + (b * c)` does NOT equal `(a + b) * (a + c)`. This unique property of duality is one of the things that makes Boolean algebra so powerful for simplifying digital circuits.
 
 ---
 
