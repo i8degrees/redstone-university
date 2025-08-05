@@ -106,11 +106,11 @@ pre.hljs {
     background: #282a36 !important;
     color: #f8f8f2 !important;
     font-family: "Inconsolata", monospace;
-    font-size: 12px;
-    line-height: 1.2;
-    border-radius: 6px;
-    padding: 1em;
-    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.4;
+    border-radius: 4px;
+    padding: 0.5em;
+    /* overflow-x: auto; */
 }
 
 code {
