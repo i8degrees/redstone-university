@@ -4,7 +4,11 @@
 
 ---
 
-#### Solution for ##### Practice Problem: Boolean Expression Evaluation
+## Part I: The Foundations, Speaking to the Machine
+
+### Module 2: The Language of Logic – A Deep Dive into Boolean Algebra
+
+**<strong>Solution: Boolean Expression Evaluation</strong>**
 
 **Truth Table for A OR NOT B**:
 
@@ -19,7 +23,7 @@
 
 ---
 
-#### Solution for ##### Practice Problem: Logic Gate Design Challenge
+**<strong>Solution: A AND NOT B Circuit</strong>**
 
 **Truth Table for A AND NOT B**:
 
@@ -36,7 +40,7 @@
 
 ---
 
-#### Solution for ##### Practice Problem: Circuit Simplification Challenge
+**<strong>Solution: Simplifying (A OR B) AND (NOT A OR NOT B)</strong>**
 
 **Simplification Steps:**
 1. Start with `(A OR B) AND (NOT A OR NOT B)`.
@@ -52,7 +56,7 @@
 
 ---
 
-#### Solution for ##### Practice Problem: Two-Switch Light System
+**<strong>Solution: Two-Switch Light System</strong>**
 
 **Logic:** The light should be ON when exactly one switch is ON (A XOR B).
 
@@ -69,7 +73,7 @@
 
 ---
 
-#### Solution for #### **Lesson 2.5: Software Superpowers – The XOR Trick for Programmers**
+**<strong>Click here for the solution and explanation</strong>**
 
 ---
 
@@ -101,7 +105,7 @@ def missingNumber(nums):
 
 ---
 
-#### Solution for ##### Practice Problem: Universal Gate Challenge with NOR Gates
+**<strong>Solution: AND Gate Using NOR Gates</strong>**
 
 **Logic:** `A AND B = (A NOR A) NOR (B NOR B)`
 
@@ -118,7 +122,7 @@ def missingNumber(nums):
 
 ---
 
-#### Solution for ##### Part 1: Knowledge Check
+**<strong>Click for answers</strong>**
 
 1.  An **OR** gate outputs `1` if *at least one* input is `1`. An **XOR** gate outputs `1` only if the inputs are *different*.
 2.  The **NAND** gate and the **NOR** gate. The property is called **Functional Completeness**.
@@ -126,7 +130,7 @@ def missingNumber(nums):
 
 ---
 
-#### Solution for ###### Puzzle 1: The Word Problem
+**<strong>Click for the solution</strong>**
 
 The expression translates directly from the requirements:
 
@@ -136,7 +140,7 @@ The parentheses are crucial to ensure the `AND` condition is evaluated before be
 
 ---
 
-#### Solution for ###### Puzzle 2: The Simplification
+**<strong>Click for the step-by-step proof</strong>**
 
 1.  **Start with the expression:** `Y = (A AND B) OR (A AND !B) OR (!A AND B)`
 2.  **Look for common terms to factor:** The first two terms both contain `A`. Let's factor it out using the Distributive Law.
