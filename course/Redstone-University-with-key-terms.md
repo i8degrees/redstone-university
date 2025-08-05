@@ -933,12 +933,12 @@ def missingNumber(nums):
 -   **Symbols:** `A XNOR B` or `¬(A ⊕ B)`.
 -   **The Rule:** The output is `True` when inputs are the same (both `True` or both `False`).
 -   **Truth Table: XNOR Gate**
-        | `A` | `B` | `A XNOR B` |
-        |:---:|:---:|:----------:|
-        | 0 | 0 | 1 |
-        | 0 | 1 | 0 |
-        | 1 | 0 | 0 |
-        | 1 | 1 | 1 |
+    | `A` | `B` | `A XNOR B` |
+    |:---:|:---:|:----------:|
+    | 0 | 0 | 1 |
+    | 0 | 1 | 0 |
+    | 1 | 0 | 0 |
+    | 1 | 1 | 1 |
 -   **The Boolean Expression:** `Y = !( !(A OR !(A OR B)) OR !(B OR !(A OR B)) )`
 
 -   **Lab & Experiment:**
@@ -1001,7 +1001,7 @@ Build an AND gate using only NOR gates. Verify it with a truth table in Minecraf
 
 |  Gate   |                       Symbol                             |             Core Logic Rule             |    Primitive Boolean Expression              |
 | :------ | :---------------------------------------------------------------- | :-------------------------------------- | :--------------------------------------------|
-| **!**   | <img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOT.svg" alt="NOT Gate Symbol" width="64px">   | Inverts a single input.                 | `!A`                                         |
+| **NOT**   | <img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOT.svg" alt="NOT Gate Symbol" width="64px">   | Inverts a single input.                 | `!A`                                         |
 | **OR**  | <img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_OR.svg" alt="OR Gate Symbol" width="64px">     | True if **at least one** input is True. | `A OR B`                                     |
 | **AND** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_AND.svg" alt="AND Gate Symbol" width="64px">   | True only if **all** inputs are True.   | `!(!A OR !B)`                                |
 | **XOR** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XOR.svg" alt="XOR Gate Symbol" width="64px">   | True only if inputs are **different**.  |`!(A OR !(A OR B)) OR !(B OR !(A OR B))`      |
