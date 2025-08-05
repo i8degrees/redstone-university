@@ -370,7 +370,7 @@ Engineers then use the patterns from the table above to wire those identical sim
 
 ##### Practice Problem: Circuit Simplification Challenge
 
-Given the expression `(A OR B) AND (!A OR !B)`, simplify it using Boolean laws and build the simplified circuit in Minecraft.
+Given the expression `(A OR B) AND (!A OR !B)`, simplify it using Boolean laws.
 
 <details>
 <summary><strong>Solution: Simplifying (A OR B) AND (NOT A OR NOT B)</strong></summary>
@@ -384,8 +384,6 @@ Given the expression `(A OR B) AND (!A OR !B)`, simplify it using Boolean laws a
    - `A AND !(A AND B) = A AND (!A OR !B) = (A AND !A) OR (A AND !B) = 0 OR (A AND !B) = A AND !B`.
    - Similarly, `B AND !(A AND B) = B AND !A`.
 6. Final expression: `(A AND !B) OR (!A AND B)`, which is `A XOR B`.
-
-**Minecraft Circuit**: Build the XOR circuit from Lesson 2.4, as it’s equivalent. Compare it to the original, which requires more blocks and dust.
 </details>
 
 ---
@@ -557,7 +555,42 @@ def missingNumber(nums):
 
 > **Key Takeaway:** Negated gates combine basic operations with NOT. NAND and NOR are “functionally complete.” You can build anything with just one of them!
 
-##### Operator 4: NAND (The "Not Both" Gate)
+##### Operator 4: NOR (The "Neither" Gate)
+
+![NOR Gate in CircuitVerse](./images/NOR-gate_circuitverse.png)
+*Figure: The abstract symbol for the NOR gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if both inputs A and B are inactive.*
+
+![NOR Gate (Composite) in CircuitVerse](./images/NOR-gate-composite_circuitverse.png)
+*Figure: A composite NOR gate in CircuitVerse, constructed using only OR and NOT gates. The output is high only when both inputs are low, demonstrating NOR logic using our primitive gates.*
+
+-   **Formal Definition:** The NOR gate performs a **NOT-OR** operation (negation of OR).
+-   **Symbols:** `A NOR B` or `¬(A ∨ B)`.
+-   **The Rule:** The output is `True` only when both inputs are `False`.
+-   **Truth Table: NOR Gate**
+    | `A` | `B` | `A NOR B` |
+    |:---:|:---:|:---------:|
+    | 0 | 0 | 1 |
+    | 0 | 1 | 0 |
+    | 1 | 0 | 0 |
+    | 1 | 1 | 0 |
+-   **The Boolean Expression:** The output `Y` is `Y = !(A OR B)`.
+-   **Lab & Experiment:**
+
+    ![NOR Gate in Minecraft](./images/NOR-gate_minecraft.png)
+    *Figure: A NOR gate in Minecraft, created by merging two Redstone Dust lines (OR logic) and then inverting the result with a Redstone Torch. The output lamp lights up only when both input levers are off, demonstrating the NOR operation.*
+
+    1.  Build the NOR gate:
+
+        1.  Build the OR gate as in Lesson 2.2.
+        2.  Between the merged dust and the output lamp, place a block with a torch on the output side to invert the signal.
+        3.  Make sure the dust still connects everything to the output lamp for `Y`.
+
+    2.  Test all four combinations from the truth table.
+    3.  **Verification:** The output is `1` only when both inputs are `0`.
+
+-   **Real-World Connection:** NOR gates are used in logic circuits needing a “neither” condition and are also functionally complete.
+
+##### Operator 5: NAND (The "Not Both" Gate)
 
 ![NAND Gate in CircuitVerse](./images/NAND-gate_circuitverse.png)
 *Figure: The abstract symbol for the NAND gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active unless both inputs A and B are active.*
@@ -594,41 +627,6 @@ def missingNumber(nums):
     3.  **Verification:** The output is `0` only when both inputs are `1`.
 
 -   **Real-World Connection:** NAND gates are key in hardware (e.g., memory circuits) due to their functional completeness.
-
-##### Operator 5: NOR (The "Neither" Gate)
-
-![NOR Gate in CircuitVerse](./images/NOR-gate_circuitverse.png)
-*Figure: The abstract symbol for the NOR gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if both inputs A and B are inactive.*
-
-![NOR Gate (Composite) in CircuitVerse](./images/NOR-gate-composite_circuitverse.png)
-*Figure: A composite NOR gate in CircuitVerse, constructed using only OR and NOT gates. The output is high only when both inputs are low, demonstrating NOR logic using our primitive gates.*
-
--   **Formal Definition:** The NOR gate performs a **NOT-OR** operation (negation of OR).
--   **Symbols:** `A NOR B` or `¬(A ∨ B)`.
--   **The Rule:** The output is `True` only when both inputs are `False`.
--   **Truth Table: NOR Gate**
-    | `A` | `B` | `A NOR B` |
-    |:---:|:---:|:---------:|
-    | 0 | 0 | 1 |
-    | 0 | 1 | 0 |
-    | 1 | 0 | 0 |
-    | 1 | 1 | 0 |
--   **The Boolean Expression:** The output `Y` is `Y = !(A OR B)`.
--   **Lab & Experiment:**
-
-    ![NOR Gate in Minecraft](./images/NOR-gate_minecraft.png)
-    *Figure: A NOR gate in Minecraft, created by merging two Redstone Dust lines (OR logic) and then inverting the result with a Redstone Torch. The output lamp lights up only when both input levers are off, demonstrating the NOR operation.*
-
-    1.  Build the NOR gate:
-
-        1.  Build the OR gate as in Lesson 2.2.
-        2.  Between the merged dust and the output lamp, place a block with a torch on the output side to invert the signal.
-        3.  Make sure the dust still connects everything to the output lamp for `Y`.
-
-    2.  Test all four combinations from the truth table.
-    3.  **Verification:** The output is `1` only when both inputs are `0`.
-
--   **Real-World Connection:** NOR gates are used in logic circuits needing a “neither” condition and are also functionally complete.
 
 ##### Operator 6: XNOR (The "Equality Detector")
 
