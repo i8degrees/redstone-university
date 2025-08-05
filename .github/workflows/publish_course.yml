@@ -33,11 +33,15 @@ jobs:
       - name: Extract solutions for PDF and build appendix
         run: python scripts/extract_solutions.py
 
+      - name: Extract key terms for appendix
+        run: python scripts/extract_key_terms.py
+
       - name: Generate PDF from processed markdown
         uses: baileyjm02/markdown-to-pdf@v1
         with:
           input_path: course/Redstone-University-for-pdf.md
           output_dir: course/
+          output_file: Redstone-University.pdf
           build_html: false
           theme: assets/css/pdf-style.css
           highlight_theme: assets/css/darcula.css
@@ -47,7 +51,7 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add course/ assets/
-          git reset course/Redstone-University.md
+          git reset course/Redstone-University-for-pdf.md
           git add course/Redstone-University.pdf || true
           # The following command checks if there are any staged changes
           if ! git diff --staged --quiet; then
