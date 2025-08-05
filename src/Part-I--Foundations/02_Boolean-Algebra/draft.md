@@ -143,7 +143,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 *Figure: The abstract symbol for the OR gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active if at least one input is active.*
 
 
--   **Formal Definition:** The OR gate performs **Disjunction**. Think of it as the optimistic gate—it checks if *at least one* of its inputs is True.
+-   **Formal Definition:** The OR gate performs **Disjunction**. Think of it as the optimistic gate; it checks if *at least one* of its inputs is True.
 -   **Symbols:** `A ∨ B` (logic), `A || B` (programming).
 -   **The Rule:** The output is `True` if `A` is True, OR `B` is True, or if both are True.
 -   **Truth Table: OR Gate**
@@ -161,12 +161,12 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
     1.  Build the circuit as shown in the Minecraft screenshot:
 
         1.  Place two redstone lamps with at least one space between them.
-        2.  Place a lever on each lamp—these represent inputs `A` and `B`.
+        2.  Place a lever on each lamp (these represent inputs `A` and `B`).
         3.  On the other side of each lamp, place a redstone repeater facing away to act as a diode.
         4.  Run dust lines from each repeater and merge them into a single output line.
         5.  Connect this line to another redstone lamp for output `Y`.
 
-    2.  **Engineering Note:** When building this OR gate, you might notice that merging dust lines directly from the lamps without repeaters can cause "back-powering"—powering one lamp might light the other, even if its lever is off. The repeaters prevent this by acting as diodes, letting signals flow out but not back in.
+    2.  **Engineering Note:** When building this OR gate, you might notice that merging dust lines directly from the lamps without repeaters can cause "back-powering." Powering one lamp might light the other, even if its lever is off. The repeaters prevent this by acting as diodes, letting signals flow out but not back in.
     3.  Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
     4.  **Verification:** Confirm the output lamp matches the truth table for each test.
 
@@ -209,7 +209,7 @@ To connect the abstract concept of a gate to our physical build, we will use a c
 ![AND Gate Composite in CircuitVerse](./images/AND-gate-composite_circuitverse.png)
 *Figure: The AND gate constructed from NOT and OR gates in CircuitVerse. This composite diagram shows how two NOT gates and one OR gate are grouped to function as a single AND gate, following the logic Y = !(!A OR !B).*
 
-- **Formal Definition:** The AND gate performs **Conjunction**. It’s the strict gate—output is True only if *all* inputs are True.
+- **Formal Definition:** The AND gate performs **Conjunction**. It’s the strict gate: output is True only if *all* inputs are True.
 - **Symbols:** `A ∧ B` (logic), `A && B` (programming).
 - **The Rule:** The output is `True` only if `A` is True AND `B` is True.
 - **Truth Table: AND Gate**
@@ -259,7 +259,7 @@ Design a circuit that implements the logic `A AND NOT B` using only the NOT and 
 
 **Boolean Expression**: `A AND NOT B = !(NOT A OR B)` (by De Morgan’s Law).
 
-**Minecraft Circuit**: Place a torch on B’s block for NOT B. Merge A and NOT B with dust for OR. Invert the result with another torch for NOT (NOT A OR B). Connect to a lamp and test all combinations.
+**Minecraft Circuit**: Invert A to get !A. Then, take !A and the original B and feed them into an OR gate. Finally, invert the result of that OR gate.
 </details>
 
 ---
@@ -287,18 +287,44 @@ Here are the key laws we will be using in our course. There are many more, but t
     -   `!(A AND B)` is the same as `!A OR !B`
     -   `!(A OR B)` is the same as `!A AND !B`
 
--   **Lab: The Proof in Practice**
-    Let’s use De Morgan’s Law to prove our AND gate design is correct.
-    1.  The two redstone torches on the back of our redstone lamps are NOT gates, giving us `!A` and `!B`.
-    2.  Their signals merge into the central spot, which is an OR gate (`!A OR !B`).
-    3.  The final output torch is a NOT gate on that signal. Therefore, the full expression for our circuit is `!(!A OR !B)`.
-    4.  Applying De Morgan’s Law to the part in the parentheses: `!A OR !B` is the same as `!(A AND B)`.
-    5.  Substituting that back in, our expression becomes `!(!(A AND B))`.
-    6.  The two NOTs (`!!`) cancel each other out, leaving `A AND B`. We just proved our physical circuit is correct!
+  ---
+
+##### **Lab 1: Proving a Circuit with De Morgan's Law**
+
+Let’s use De Morgan’s Law to prove our AND gate design is correct.
+
+1.  The two redstone torches on the back of our redstone lamps are NOT gates, giving us `!A` and `!B`.
+2.  Their signals merge into the central spot, which is an OR gate (`!A OR !B`).
+3.  The final output torch is a NOT gate on that signal. Therefore, the full expression for our circuit is `!(!A OR !B)`.
+4.  Applying De Morgan’s Law to the part in the parentheses: `!A OR !B` is the same as `!(A AND B)`.
+5.  Substituting that back in, our expression becomes `!(!(A AND B))`.
+6.  The two NOTs (`!!`) cancel each other out, leaving `A AND B`. We just proved our physical circuit is correct!
 
 ---
 
-**Summary Table: Boolean Laws**
+##### **Lab 2: Proving a Circuit with the Distributive Law**
+
+The laws of logic don't just prove that a circuit is correct; they can also make our circuits much simpler. This is a crucial engineering skill called **simplification**.
+
+Consider a circuit that needs to turn on if `(A is ON and B is ON)` OR if `(A is ON and B is OFF)`. The direct Boolean expression would be:
+
+`Y = (A AND B) OR (A AND !B)`
+
+This looks like it would require two AND gates and one OR gate. Let's use the laws of logic to simplify it.
+
+1.  **Start with the expression:** `Y = (A AND B) OR (A AND !B)`
+2.  **Apply the Distributive Law:** Notice that `A AND` is common to both terms. We can "factor it out."
+    *   This gives us: `Y = A AND (B OR !B)`
+3.  **Apply the Inverse Law:** We know that an input OR'd with its own inverse (`B OR !B`) is always equal to `1` (True).
+    *   The expression becomes: `Y = A AND 1`
+4.  **Apply the Identity Law:** We know that any input AND'd with `1` is just itself.
+    *   The final expression is: `Y = A`
+
+**Lab Takeaway:** We have just proven that this entire three-gate circuit can be replaced by a single wire connected to input `A`. This is the power of simplification in action. It saves resources, space, and makes our designs more elegant.
+
+---
+
+##### Summary Table: Boolean Laws
 
 | Law Name | Example(s) | Description |
 |---|---|---|
@@ -313,7 +339,7 @@ Here are the key laws we will be using in our course. There are many more, but t
 
 ---
 
-**Functional Completeness: Building with Universal Gates**
+##### Functional Completeness: Building with Universal Gates
 
 | Universal Gate | To Build a NOT Gate (`!A`) | To Build an AND Gate (`A AND B`) | To Build an OR Gate (`A OR B`) |
 | :--- | :--- | :--- | :--- |
@@ -322,17 +348,9 @@ Here are the key laws we will be using in our course. There are many more, but t
 
 **Why does this matter?**
 
-For real-world chip designers, this is an incredibly powerful concept. Manufacturing a computer chip is a complex process. Instead of needing separate, specialized machinery to produce AND, OR, and NOT gates, a factory can be optimized to produce just *one* type of gate—like a NAND gate—in massive quantities with extreme reliability and low cost.
+For real-world chip designers, this is an incredibly powerful concept. Manufacturing a computer chip is a complex process. Instead of needing separate, specialized machinery to produce AND, OR, and NOT gates, a factory can be optimized to produce just *one* type of gate (like a NAND gate) in massive quantities with extreme reliability and low cost.
 
 Engineers then use the patterns from the table above to wire those identical simple gates together to create all the complex logic they need. The simplicity of manufacturing a single universal gate is a cornerstone of modern, affordable electronics.
-
-##### Warm-Up Problem: Circuit Simplification
-Given the expression `(A AND B) OR (A AND NOT B)`, simplify it using Boolean laws.
-
-**Example:** Simplify `(A AND B) OR (A AND NOT B)`:
-1. Factor out A: `A AND (B OR NOT B)`.
-2. Since `B OR NOT B = 1`, it becomes `A AND 1 = A`.
-**Result:** `A`.
 
 ##### Practice Problem: Circuit Simplification Challenge
 
@@ -382,7 +400,7 @@ It's important to understand that this is just one of many ways to build an XOR 
     | 1 | 0 | 1 |
     | 1 | 1 | 0 |
 
--   **The Boolean Expression**: `Y = !(A OR !(A OR B)) OR !(B OR !(A OR B))`.w
+-   **The Boolean Expression**: `Y = !(A OR !(A OR B)) OR !(B OR !(A OR B))`.
 
     > **A Note on Design Equivalence**: This powerful expression is a direct translation of our circuit diagram. It cleverly uses a shared NOR gate to feed the main logic paths, a common strategy in circuit design for efficiency. We haven't officially introduced NOR gates, but since it is simply a negated OR gate you can look at it as an `OR` gate followed by a `NOT` gate. I went with this design, because it avoids crossing wires while requiring only our primitives.
 
@@ -521,7 +539,7 @@ def missingNumber(nums):
 
 #### Lesson 2.6: The Negated Gates – NAND, NOR, and XNOR
 
-> **Key Takeaway:** Negated gates combine basic operations with NOT. NAND and NOR are “functionally complete”—you can build anything with just one of them!
+> **Key Takeaway:** Negated gates combine basic operations with NOT. NAND and NOR are “functionally complete.” You can build anything with just one of them!
 
 ##### Operator 4: NAND (The "Not Both" Gate)
 
@@ -531,7 +549,7 @@ def missingNumber(nums):
 ![NAND Gate (Composite) in CircuitVerse](./images/NAND-gate-composite_circuitverse.png)
 *Figure: A composite NAND gate in CircuitVerse, constructed using only OR and NOT gates. This diagram shows how the NAND function can be achieved by inverting the output of a composite AND gate built from these primitives, without using a dedicated AND gate block.*
 
--   **Formal Definition:** The NAND gate performs a **NOT-AND** operation—negation of AND.
+-   **Formal Definition:** The NAND gate performs a **NOT-AND** operation (negation of AND).
 -   **Symbols:** `A NAND B` or `¬(A ∧ B)`.
 -   **The Rule:** The output is `True` unless both inputs are `True`.
 -   **Truth Table: NAND Gate**
@@ -569,7 +587,7 @@ def missingNumber(nums):
 ![NOR Gate (Composite) in CircuitVerse](./images/NOR-gate-composite_circuitverse.png)
 *Figure: A composite NOR gate in CircuitVerse, constructed using only OR and NOT gates. The output is high only when both inputs are low, demonstrating NOR logic using our primitive gates.*
 
--   **Formal Definition:** The NOR gate performs a **NOT-OR** operation—negation of OR.
+-   **Formal Definition:** The NOR gate performs a **NOT-OR** operation (negation of OR).
 -   **Symbols:** `A NOR B` or `¬(A ∨ B)`.
 -   **The Rule:** The output is `True` only when both inputs are `False`.
 -   **Truth Table: NOR Gate**
@@ -604,7 +622,7 @@ def missingNumber(nums):
 ![XNOR Gate (Composite) in CircuitVerse](./images/XNOR-gate-composite_circuitverse.png)
 *Figure: Composite XNOR gate in CircuitVerse, constructed using only OR and NOT gates. This diagram shows how XNOR logic can be achieved by inverting one input to a composite XOR gate built from these primitives, demonstrating the equivalence between XOR(A, NOT B) and XNOR(A, B).*
 
--   **Formal Definition:** The XNOR gate performs a **NOT-XOR** operation—negation of XOR.
+-   **Formal Definition:** The XNOR gate performs a **NOT-XOR** operation (negation of XOR).
 -   **Symbols:** `A XNOR B` or `¬(A ⊕ B)`.
 -   **The Rule:** The output is `True` when inputs are the same (both `True` or both `False`).
 -   **Truth Table: XNOR Gate**
@@ -667,110 +685,114 @@ Build an AND gate using only NOR gates. Verify it with a truth table in Minecraf
 
 ---
 
-#### Lesson 2.7: Module 2 Review & Summary
+#### **Lesson 2.7: Module 2 Summary**
 
-> **Mini-Summary:** You’ve learned the core logic gates, their symbols, and how to combine them. You’ve also seen how Boolean algebra powers both hardware and software problem-solving!
+> You have reached the end of the learning portion of this module. You started with the basic idea of True and False and have now built a complete toolkit of the seven fundamental logic gates. You've learned how to describe them with truth tables and Boolean expressions, how to build them from our primitives, and how they connect to both real-world hardware and software.
+>
+> This summary table provides a single place to review all the gates at a glance.
 
-##### Logic Gates Summary Table
+##### **Logic Gates Summary Table**
 
-| Gate   | Symbol      | Truth Table                | Minecraft Build         | Real-World Use                  |
-|--------|-------------|---------------------------|------------------------|---------------------------------|
-| NOT    | ![NOT](./images/NOT-gate_circuitverse.png)   | 0→1, 1→0                      | Torch on block          | Inverts a signal                |
-| OR     | ![OR](./images/OR-gate_circuitverse.png)     | 00→0, 01→1, 10→1, 11→1        | Dust merger             | Alarm triggers                  |
-| AND    | ![AND](./images/AND-gate_circuitverse.png)   | 00→0, 01→0, 10→0, 11→1        | Two torches             | All conditions must be met      |
-| NOR    | ![NOR](./images/NOR-gate_circuitverse.png)   | 00→1, 01→0, 10→0, 11→0        | OR with torch           | Memory circuits                 |
-| NAND   | ![NAND](./images/NAND-gate_circuitverse.png) | 00→1, 01→1, 10→1, 11→0        | AND with torch          | Digital locks                   |
-| XOR    | ![XOR](./images/XOR-gate_circuitverse.png)   | 00→0, 01→1, 10→1, 11→0        | See Lesson 2.4          | Toggle, parity checks           |
-| XNOR   | ![XNOR](./images/XNOR-gate_circuitverse.png) | 00→1, 01→0, 10→0, 11→1        | See Lesson 2.6          | Equality detection              |
+|  Gate   |                       Abstract Symbol                             |             Core Logic Rule             |    Primitive Boolean Expression              |
+| :------ | :---------------------------------------------------------------- | :-------------------------------------- | :--------------------------------------------|
+| **NOT** | <img src="./images/NOT.svg" alt="NOT Gate Symbol" width="64px">   | Inverts a single input.                 | `!A`                                         |
+| **OR**  | <img src="./images/OR.svg" alt="OR Gate Symbol" width="64px">     | True if **at least one** input is True. | `A OR B`                                     |
+| **AND** | <img src="./images/AND.svg" alt="AND Gate Symbol" width="64px">   | True only if **all** inputs are True.   | `!(!A OR !B)`                                |
+| **XOR** | <img src="./images/XOR.svg" alt="XOR Gate Symbol" width="64px">   | True only if inputs are **different**.  |`!(A OR !(A OR B)) OR !(B OR !(A OR B))`      |
+| **NAND**| <img src="./images/NAND.svg" alt="NAND Gate Symbol" width="64px"> | True unless **all** inputs are True.    | `!A OR !B`                                   |
+| **NOR** | <img src="./images/NOR.svg" alt="NOR Gate Symbol" width="64px">   | True only if **all** inputs are False.  | `!(A OR B)`                                  |
+| **XNOR**| <img src="./images/XNOR.svg" alt="XNOR Gate Symbol" width="64px"> | True only if inputs are the **same**.   | `!(!(A OR !(A OR B)) OR !(B OR !(A OR B)))`  |
 
 ---
 
-##### Practice Problems & Challenges
+#### **Lesson 2.8: Module 2 Checkpoint**
 
--   **Quiz:**
+> **Module Summary:** You have reached the end of the most theory-intensive module in this course. You began with simple on/off switches and have now mastered the seven fundamental logic gates, the Boolean laws that govern them, the power of simplification, and the bridge between hardware logic and software problem-solving. It is time to test your newfound knowledge.
 
-    1.  What is the output of `(1 AND 0) OR (1 XOR 1)`?
-        <details>
-        <summary><strong>Solution</strong></summary>
-        **Answer:** 0
-        </details>
+This checkpoint is divided into three parts to test the different skills you've acquired:
+*   **Part 1: Knowledge Check** - Quick questions to test your memory and understanding of core concepts.
+*   **Part 2: Logic Puzzles** - "On-paper" challenges requiring you to apply the laws of Boolean algebra.
+*   **Part 3: The Debug Challenge** - A practical, in-game challenge to test your troubleshooting skills.
 
-    2.  If `A=0` and `B=1`, what is `!(A OR B)`? (This is a NOR gate.)
-        <details>
-        <summary><strong>Solution</strong></summary>
-        **Answer:** 0
-        </details>
+---
 
-    3.  Which logic gate acts as an "Equality Detector"?
-        <details>
-        <summary><strong>Solution</strong></summary>
-        **Answer:** XNOR
-        </details>
+##### Part 1: Knowledge Check
 
-    4.  Simplify the expression `(A AND B) OR (A AND NOT B)` using Boolean laws.
-        <details>
-        <summary><strong>Solution: Quiz Question 4</strong></summary>
-        **Simplify (A AND B) OR (A AND NOT B)**:
-        1. Factor out A: `A AND (B OR NOT B)`.
-        2. Since `B OR NOT B = 1`, the expression becomes `A AND 1 = A`.
-        **Answer**: `A`.
-        </details>
+Test your core understanding with these rapid-fire questions.
 
-    5.  What is the output of `A NAND (B NOR C)` when `A=1`, `B=0`, `C=1`?
-        <details>
-        <summary><strong>Solution</strong></summary>
-        `B NOR C = NOT (B OR C) = NOT (0 OR 1) = NOT 1 = 0`
-        `A NAND 0 = NOT (A AND 0) = NOT 0 = 1`
-        </details>
+1.  What is the key difference in the output of an OR gate versus an XOR gate?
+2.  Which two gates are considered "universal," and what is the name of this property?
+3.  Using De Morgan's Law, what is the equivalent expression for `NOT (A OR B)`?
 
-    6.  Why is NOR considered functionally complete?
-        <details>
-        <summary><strong>Solution</strong></summary>
-        Any Boolean function can be built using only NOR gates.
-        </details>
+<details>
+<summary><strong>Click for answers</strong></summary>
 
-    7.  A circuit intended to implement `A XOR B` actually outputs `A OR B`. What’s likely missing?
-        <details>
-        <summary><strong>Solution</strong></summary>
-        The NOT gates needed to invert the AND output in the XOR construction are missing.
-        </details>
+1.  An **OR** gate outputs `1` if *at least one* input is `1`. An **XOR** gate outputs `1` only if the inputs are *different*.
+2.  The **NAND** gate and the **NOR** gate. The property is called **Functional Completeness**.
+3.  The equivalent expression is `!A AND !B`.
 
-    8.  Design a circuit for `(A AND B) OR (NOT A AND C)` using only NOT and OR gates.
-        <details>
-        <summary><strong>Solution</strong></summary>
-        Use De Morgan’s Law:
-        - `A AND B = NOT (NOT A OR NOT B)`
-        - `NOT A AND C = NOT (A OR NOT C)`
-        - Combine with OR: `[NOT (NOT A OR NOT B)] OR [NOT (A OR NOT C)]`
-        </details>
+</details>
 
-    9.  Given a list of numbers where all numbers appear an even number of times except two numbers that appear once, find those two numbers using XOR.
-        <details>
-        <summary><strong>Solution: Find Two Unique Numbers</strong></summary>
-        ```python
-        def find_two_unique(numbers):
-            xor_result = 0
-            for num in numbers:
-                xor_result ^= num
-            set_bit = xor_result & -xor_result
-            num1, num2 = 0, 0
-            for num in numbers:
-                if num & set_bit:
-                    num1 ^= num
-                else:
-                    num2 ^= num
-            return num1, num2
-        # Example: [2, 4, 3, 6, 4, 2] → 3, 6
-        print(find_two_unique([2, 4, 3, 6, 4, 2]))
-        ```
-        **Explanation:** XOR all numbers to get XOR of the two unique numbers. Use a set bit to split numbers into two groups, then XOR each group to find the unique numbers.
-        </details>
+---
 
--   **Debug Challenge (Module 2.5):**
-    > In the world download, you'll find a section labeled "Module 2 Debug Challenge." I've built a circuit that is *supposed* to implement the logic `(A AND B) OR C`, but it's giving the wrong output for some inputs! Your mission is to use your knowledge of truth tables to diagnose the mistake in the wiring and fix it.
+##### Part 2: Logic Puzzles
 
--   **Bonus Debug Challenge:**
-    A circuit is intended to implement `A XOR B` but outputs `A OR B` due to a missing NOT gate. Diagnose and fix it using truth tables and your XOR knowledge.
+Apply the laws of Boolean algebra to solve these challenges on paper.
+
+###### Puzzle 1: The Word Problem
+
+A greenhouse has an automated climate control system. An alarm `Y` should sound if the following conditions are met:
+*   The system is in "Manual Override" mode (`M` is `True`), **OR**
+*   The Temperature `T` is too high **AND** the Water Sprinklers `W` have failed to turn on (`W` is `False`).
+
+Write the single Boolean expression for the alarm `Y`.
+
+<details>
+<summary><strong>Click for the solution</strong></summary>
+
+The expression translates directly from the requirements:
+
+`Y = M OR (T AND !W)`
+
+The parentheses are crucial to ensure the `AND` condition is evaluated before being `OR`'d with the manual override switch.
+
+</details>
+
+<br>
+
+###### Puzzle 2: The Simplification
+
+An engineer has designed a circuit with the expression: `Y = (A AND B) OR (A AND !B) OR (!A AND B)`.
+
+This seems to require three AND gates and two OR gates. Simplify this expression to its most efficient form using Boolean laws.
+
+<details>
+<summary><strong>Click for the step-by-step proof</strong></summary>
+
+1.  **Start with the expression:** `Y = (A AND B) OR (A AND !B) OR (!A AND B)`
+2.  **Look for common terms to factor:** The first two terms both contain `A`. Let's factor it out using the Distributive Law.
+    *   `A AND (B OR !B)`
+3.  **Apply the Inverse Law:** We know that `B OR !B` is always `1`.
+    *   So, the first part simplifies to `A AND 1`, which is just `A`.
+4.  **Rewrite the expression:** Our expression is now much simpler: `Y = A OR (!A AND B)`
+5.  **Apply the Distributive Law again (in a less obvious way):** The law `(X OR Y) AND (X OR Z) = X OR (Y AND Z)` can be applied here. Let `X = A`.
+    *   We can expand `A OR (!A AND B)` into `(A OR !A) AND (A OR B)`.
+6.  **Apply the Inverse Law again:** We know that `A OR !A` is always `1`.
+    *   The expression becomes: `Y = 1 AND (A OR B)`
+7.  **Apply the Identity Law:** `1 AND` anything is just the anything.
+    *   The final, simplified expression is: `Y = A OR B`.
+
+The entire complex circuit simplifies down to a single OR gate!
+
+</details>
+
+---
+
+##### Part 3: The Debug Challenge (In-Game)
+
+> In the world download for this module, you will find a section labeled "Module 2 Debug Challenge." I have built a circuit that is *supposed* to implement the logic for the greenhouse alarm from Part 2: `M OR (T AND !W)`.
+>
+> However, it's giving the wrong output for some input combinations! Your mission is to use your knowledge of truth tables and circuit tracing to diagnose the mistake in the Redstone wiring and fix it so it functions correctly. Good luck!
 
 ---
 
