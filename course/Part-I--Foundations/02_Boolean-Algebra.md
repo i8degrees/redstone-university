@@ -113,7 +113,6 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
     <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOT-gate_minecraft.png" alt="NOT Gate in Minecraft" width="512px"/><br/><em>Figure: A NOT gate implemented in Minecraft using a Redstone Torch. The torch inverts the input from the lever, turning the lamp on when the lever is off and vice versa. This is the simplest physical realization of logical negation in the game.</em></div></br></br>
 
-    > **Note:** The Redstone Torch itself is a physical NOT gate, but we will add some lamps and dust just to help visualize everything better. Feel free to use a simple torch moving forward if you prefer.
 
     1.  Build the circuit as shown in the Minecraft screenshot:
 
@@ -121,7 +120,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
         2.  On the backside of the lamp, place a redstone torch. This is the core component of the NOT gate.
         3.  From the torch, run a line of redstone dust to another redstone lamp representing output `Y`.
 
-        > **Note:** The torch itself is the critical component of the NOT gate. The extra lamps and dust are just for visualization.
+            > **Note:** The torch itself is the critical component of the NOT gate. The extra lamps and dust are just for visualization.
 
     2.  Test the circuit:
 
