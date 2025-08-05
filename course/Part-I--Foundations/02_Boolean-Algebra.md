@@ -54,26 +54,35 @@ Boolean algebra gives us a set of rules and operators to manipulate these True/F
 
 #### Lesson 2.2: The Core Operators (The Verbs of Logic)
 
-**How We Describe Each Gate**
 
-For each logic gate, we will start out with visuals and the formal definitions, then move to the truth table and Boolean expression. This will give us a complete understanding of the gate's function.
+##### **How We Describe Each Gate**
 
--   **Minecraft Gate:** A screenshot of the gate implemented in Minecraft.
--   **Circuit Diagram:** CircuitVerse diagram of the gate. Note for primitive gates, this will be a single gate with inputs and outputs. For composite gates, we will compose them from the primitive gates.
--   **Formal Definition:** The high-level concept and official terminology.
--   **Symbols:** The common ways this operator is written in logic and programming.
--   **The Rule:** A plain-English sentence describing what the gate does.
--   **Truth Table:** A complete chart defining the gate's behavior. This is the ultimate "source of truth."
--   **Boolean Expression:** The algebraic/logical representation of the gate's output.
+To ensure a complete understanding, every logic gate is introduced using a consistent structure that moves from the abstract concept to the practical build.
 
--   **Lab & Experiment:** A hands-on test to verify the gate's function against its truth table.
--   **Real-World Connection:** An example of where this logic is used in real technology.
+-   **Visual Introduction:**
+
+    -   **Abstract Symbol & Function:** We begin with an image showing the gate's standard engineering symbol alongside a simple circuit demonstrating its basic function.
+    -   **Composite Diagram (For Composite Gates Only):** For gates built from our primitives, we then show a detailed CircuitVerse diagram of how they are constructed using only NOT and OR gates.
+    -   **Minecraft Build:** Finally, we show a screenshot of the gate built in Minecraft, reflecting our "primitives-only" design philosophy.
+
+-  **Formal Definition & Rules:**
+
+    -   **Formal Definition:** The high-level concept and official terminology (e.g., "Conjunction").
+    -   **Symbols:** Common ways the operator is written in logic (`∧`) and programming (`&&`).
+    -   **The Rule:** A plain-English sentence describing what the gate does.
+    -   **Truth Table:** A complete chart defining all possible input/output combinations. This is the ultimate "source of truth."
+    -   **Primitive Boolean Expression:** The specific algebraic expression that represents our composite build using only `NOT` and `OR`.
+
+ -   **Practical Application:**
+
+     -   **Lab & Experiment:** A hands-on test to verify your Minecraft build against the gate's truth table.
+     -   **Real-World Connection:** An example of where this logic is used in real technology.
 
 ---
 
 ##### A Note on Our Primitives
 
-In the world of computer science, you can build any logic gate from a small set of "primitive" gates. For this course, our primitives are dictated by the physics of Minecraft itself. The game gives us two logical operations right out of the box:
+In the world of computer science, you can build any logic gate from a small set of "primitive" gates. For this course, our primitives are dictated by the game mehanis of Minecraft itself. The game gives us two logical operations right out of the box:
 
 1.  **NOT:** A Redstone Torch naturally inverts a signal. This is our primitive NOT gate.
 2.  **OR:** Redstone Dust naturally merges signals. If any line powering a central wire is ON, the whole wire becomes ON. This is our primitive OR gate.
@@ -94,10 +103,10 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 -   **Symbols:** `¬A` (logic), `!A` (programming).
 -   **The Rule:** If the input is `True`, the output is `False`. If the input is `False`, the output is `True`.
 -   **Truth Table: NOT Gate**
-    | `A` | `NOT A` |
-    |:---:|:-------:|
-    |  0  |   1     |
-    |  1  |   0     |
+    | `A` | `!A` |
+    |:---:|:----:|
+    |  0  |  1   |
+    |  1  |  0   |
 -   **The Boolean Expression:** The output `Y` is simply `Y = !A`.
 
 -   **Lab & Experiment:**
@@ -172,21 +181,21 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
 ##### Practice Problem: Boolean Expression Evaluation
 
-Given the Boolean expression `A OR NOT B`, evaluate the output for all possible input combinations (A, B = 0,0; 0,1; 1,0; 1,1) and create a truth table. Then, build a Minecraft circuit to verify your results.
+Given the Boolean expression `A OR !B`, evaluate the output for all possible input combinations (A, B = 0,0; 0,1; 1,0; 1,1) and create a truth table. Then, build a Minecraft circuit to verify your results.
 
 <details>
 <summary><strong>Solution: Boolean Expression Evaluation</strong></summary>
 
-**Truth Table for A OR NOT B**:
+**Truth Table for A OR !B**:
 
-| A | B | NOT B | A OR NOT B |
-|---|---|-------|------------|
-| 0 | 0 |   1   |     1      |
-| 0 | 1 |   0   |     0      |
-| 1 | 0 |   1   |     1      |
-| 1 | 1 |   0   |     1      |
+| A | B | !B | A OR !B |
+|---|---|----|---------|
+| 0 | 0 |  1 |    1    |
+| 0 | 1 |  0 |    0    |
+| 1 | 0 |  1 |    1    |
+| 1 | 1 |  0 |    1    |
 
-**Minecraft Circuit**: Use a lever for A, a lever for B, a redstone torch on B’s block for NOT B, merge A and NOT B with dust for OR, and connect to a lamp for output. Test all combinations to verify.
+**Minecraft Circuit**: Use a lever for A, a lever for B, a redstone torch on B’s block for !B, merge A and !B with dust for OR, and connect to a lamp for output. Test all combinations to verify.
 </details>
 
 ---
@@ -236,21 +245,21 @@ To connect the abstract concept of a gate to our physical build, we will use a c
 
 ##### Practice Problem: Logic Gate Design Challenge
 
-Design a circuit that implements the logic `A AND NOT B` using only the NOT and OR primitives (no direct AND gate). Build it in Minecraft and verify with a truth table.
+Design a circuit that implements the logic `A AND !B` using only the NOT and OR primitives (no direct AND gate). Build it in Minecraft and verify with a truth table.
 
 <details>
-<summary><strong>Solution: A AND NOT B Circuit</strong></summary>
+<summary><strong>Solution: A AND !B Circuit</strong></summary>
 
-**Truth Table for A AND NOT B**:
+**Truth Table for A AND !B**:
 
-| A | B | NOT B | A AND NOT B |
-|---|---|-------|-------------|
-| 0 | 0 |   1   |      0      |
-| 0 | 1 |   0   |      0      |
-| 1 | 0 |   1   |      1      |
-| 1 | 1 |   0   |      0      |
+| A | B | !B | A AND !B |
+|---|---|----|----------|
+| 0 | 0 |  1 |    0     |
+| 0 | 1 |  0 |    0     |
+| 1 | 0 |  1 |    1     |
+| 1 | 1 |  0 |    0     |
 
-**Boolean Expression**: `A AND NOT B = !(NOT A OR B)` (by De Morgan’s Law).
+**Boolean Expression**: `A AND !B = !(!A OR B)` (by De Morgan’s Law).
 
 **Minecraft Circuit**: Invert A to get !A. Then, take !A and the original B and feed them into an OR gate. Finally, invert the result of that OR gate.
 </details>
@@ -262,14 +271,13 @@ Design a circuit that implements the logic `A AND NOT B` using only the NOT and 
 
 Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let us rearrange and simplify expressions. For us, **a simpler expression means a smaller, faster, and more reliable Redstone circuit.** This is a critical engineering skill.
 
+
 ##### Boolean Notation: Logical vs Arithmetic
+You’ll often see logic written using symbols from regular math. For example, **AND** is sometimes written as multiplication (`A · B` or `AB`), **OR** as addition (`A + B`), and **NOT** as an overbar (`Ā`).
 
-You’ll often see logic written using symbols from regular math. For example:
--   **AND** is sometimes written as multiplication: `A · B` or just `AB`
--   **OR** as addition: `A + B`
--   **NOT** as an overbar: `Ā`
-
-For this course, I’ll stick with `AND`, `OR`, and `NOT` for clarity, but you’ll see this other notation in textbooks and online.
+For this course, we will use a specific convention designed for maximum clarity:
+ -   We will use the words **`AND`** and **`OR`** in our expressions, as they are unambiguous.
+ -   For **negation**, we will use the exclamation mark (**`!`**), as in **`!A`**. This is the standard symbol used in many programming languages and keeps our complex expressions clean and readable.
 
 ##### The Laws of Boolean Algebra
 Here are the key laws we will be using in our course. There are many more, but these are the most fundamental and useful for circuit design.
@@ -280,7 +288,7 @@ Here are the key laws we will be using in our course. There are many more, but t
     -   `!(A AND B)` is the same as `!A OR !B`
     -   `!(A OR B)` is the same as `!A AND !B`
 
-  ---
+---
 
 ##### **Lab 1: Proving a Circuit with De Morgan's Law**
 
@@ -324,11 +332,11 @@ This looks like it would require two AND gates and one OR gate. Let's use the la
 | Identity | `A OR 0 = A`<br>`A AND 1 = A` | Leaves value unchanged |
 | Annihilator | `A OR 1 = 1`<br>`A AND 0 = 0` | Output is always 1 (OR) or 0 (AND) |
 | Idempotent | `A OR A = A`<br>`A AND A = A` | Repeating input doesn't change output |
-| Inverse | `A OR NOT A = 1`<br>`A AND NOT A = 0` | Input and its NOT always produce 1 (OR) or 0 (AND)|
+| Inverse | `A OR !A = 1`<br>`A AND !A = 0` | Input and its ! always produce 1 (OR) or 0 (AND)|
 | Commutative | `A OR B = B OR A`<br>`A AND B = B AND A` | Order doesn't matter |
 | Associative | `(A OR B) OR C = A OR (B OR C)`<br>`(A AND B) AND C = A AND (B AND C)` | Grouping doesn't matter |
 | Distributive | `A AND (B OR C) = (A AND B) OR (A AND C)` | AND distributes over OR |
-| De Morgan's Laws | `NOT (A AND B) = NOT A OR NOT B`<br>`NOT (A OR B) = NOT A AND NOT B` | Converts between AND/OR with NOT |
+| De Morgan's Laws | `!(A AND B) = !A OR !B`<br>`!(A OR B) = !A AND !B` | Converts between AND/OR with ! |
 
 ---
 
@@ -347,20 +355,20 @@ Engineers then use the patterns from the table above to wire those identical sim
 
 ##### Practice Problem: Circuit Simplification Challenge
 
-Given the expression `(A OR B) AND (NOT A OR NOT B)`, simplify it using Boolean laws and build the simplified circuit in Minecraft.
+Given the expression `(A OR B) AND (!A OR !B)`, simplify it using Boolean laws and build the simplified circuit in Minecraft.
 
 <details>
 <summary><strong>Solution: Simplifying (A OR B) AND (NOT A OR NOT B)</strong></summary>
 
 **Simplification Steps:**
-1. Start with `(A OR B) AND (NOT A OR NOT B)`.
-2. Apply De Morgan’s Law to the second term: `NOT A OR NOT B = NOT (A AND B)`.
-3. The expression becomes `(A OR B) AND NOT (A AND B)`.
-4. Distribute: `(A AND NOT (A AND B)) OR (B AND NOT (A AND B))`.
+1. Start with `(A OR B) AND (!A OR !B)`.
+2. Apply De Morgan’s Law to the second term: `!A OR !B = !(A AND B)`.
+3. The expression becomes `(A OR B) AND !(A AND B)`.
+4. Distribute: `(A AND !(A AND B)) OR (B AND !(A AND B))`.
 5. Simplify each term:
-   - `A AND NOT (A AND B) = A AND (NOT A OR NOT B) = (A AND NOT A) OR (A AND NOT B) = 0 OR (A AND NOT B) = A AND NOT B`.
-   - Similarly, `B AND NOT (A AND B) = B AND NOT A`.
-6. Final expression: `(A AND NOT B) OR (B AND NOT A)`, which is `A XOR B`.
+   - `A AND !(A AND B) = A AND (!A OR !B) = (A AND !A) OR (A AND !B) = 0 OR (A AND !B) = A AND !B`.
+   - Similarly, `B AND !(A AND B) = B AND !A`.
+6. Final expression: `(A AND !B) OR (!A AND B)`, which is `A XOR B`.
 
 **Minecraft Circuit**: Build the XOR circuit from Lesson 2.4, as it’s equivalent. Compare it to the original, which requires more blocks and dust.
 </details>
@@ -549,7 +557,7 @@ def missingNumber(nums):
     | 1 | 1 | 0 |
 -   **The Boolean Expression:** `Y = !A OR !B`
 
-    > **A Note on De Morgan's Law in Action**: This is one of the most powerful tricks in digital logic. We know that NAND is NOT (A AND B). We also know from De Morgan's Law that NOT (A AND B) is perfectly equivalent to !A OR !B. Our  composite AND gate was built as !(!A OR !B). To create a NAND gate, we simply remove the final NOT (the last torch), which leaves us with the physical circuit for !A OR !B. This is a perfect physical proof of a fundamental logic law!
+    > **A Note on De Morgan's Law in Action**: This is one of the most powerful tricks in digital logic. We know that NAND is !(A AND B). We also know from De Morgan's Law that !(A AND B) is perfectly equivalent to !A OR !B. Our composite AND gate was built as !(!A OR !B). To create a NAND gate, we simply remove the final ! (the last torch), which leaves us with the physical circuit for !A OR !B. This is a perfect physical proof of a fundamental logic law!
 
 -   **Lab & Experiment:**
 
@@ -582,7 +590,7 @@ def missingNumber(nums):
     | 0 | 1 | 0 |
     | 1 | 0 | 0 |
     | 1 | 1 | 0 |
--   **The Boolean Expression:** The output `Y` is `Y = NOT (A OR B)`.
+-   **The Boolean Expression:** The output `Y` is `Y = !(A OR B)`.
 -   **Lab & Experiment:**
 
     <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOR-gate_minecraft.png" alt="NOR Gate in Minecraft" width="512px"/><br/><em>Figure: A NOR gate in Minecraft, created by merging two Redstone Dust lines (OR logic) and then inverting the result with a Redstone Torch. The output lamp lights up only when both input levers are off, demonstrating the NOR operation.</em></div></br></br>
@@ -614,7 +622,7 @@ def missingNumber(nums):
         | 0 | 1 | 0 |
         | 1 | 0 | 0 |
         | 1 | 1 | 1 |
--   **The Boolean Expression:** `Y = NOT ( !(A OR !(A OR B)) OR !(B OR !(A OR B)) )`
+-   **The Boolean Expression:** `Y = !( !(A OR !(A OR B)) OR !(B OR !(A OR B)) )`
 
 -   **Lab & Experiment:**
 
@@ -626,7 +634,7 @@ def missingNumber(nums):
     >
     > How can we prove this using only our primitive gates?
     >
-    > 1.  The expression for `XNOR(A, B)` is our entire complex XOR expression wrapped in a NOT.
+    > 1.  The expression for `XNOR(A, B)` is the **logical negation** of our entire complex XOR expression
     > 2.  The expression for `XOR(A, !B)` is our entire complex XOR expression, but with every `B` replaced by `!B`.
     >
     > While the direct algebraic proof is incredibly long, we can use a **truth table** to verify it. If you trace all four input combinations for both of these complex expressions, you will find they both produce the exact same final output column: `1, 0, 0, 1`. The trick works perfectly, even with our primitive-only design!
@@ -676,7 +684,7 @@ Build an AND gate using only NOR gates. Verify it with a truth table in Minecraf
 
 |  Gate   |                       Symbol                             |             Core Logic Rule             |    Primitive Boolean Expression              |
 | :------ | :---------------------------------------------------------------- | :-------------------------------------- | :--------------------------------------------|
-| **NOT** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOT.svg" alt="NOT Gate Symbol" width="64px">   | Inverts a single input.                 | `!A`                                         |
+| **!**   | <img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOT.svg" alt="NOT Gate Symbol" width="64px">   | Inverts a single input.                 | `!A`                                         |
 | **OR**  | <img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_OR.svg" alt="OR Gate Symbol" width="64px">     | True if **at least one** input is True. | `A OR B`                                     |
 | **AND** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_AND.svg" alt="AND Gate Symbol" width="64px">   | True only if **all** inputs are True.   | `!(!A OR !B)`                                |
 | **XOR** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XOR.svg" alt="XOR Gate Symbol" width="64px">   | True only if inputs are **different**.  |`!(A OR !(A OR B)) OR !(B OR !(A OR B))`      |
@@ -703,7 +711,7 @@ Test your core understanding with these rapid-fire questions.
 
 1.  What is the key difference in the output of an OR gate versus an XOR gate?
 2.  Which two gates are considered "universal," and what is the name of this property?
-3.  Using De Morgan's Law, what is the equivalent expression for `NOT (A OR B)`?
+3.  Using De Morgan's Law, what is the equivalent expression for `!(A OR B)`?
 
 <details>
 <summary><strong>Click for answers</strong></summary>
