@@ -481,6 +481,16 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
 ---
 
+##### Practice Problem: Boolean Expression Evaluation
+
+Given the Boolean expression `A OR NOT B`, evaluate the output for all possible input combinations (A, B = 0,0; 0,1; 1,0; 1,1) and create a truth table. Then, build a Minecraft circuit to verify your results.
+
+> **Solution available in Appendix B: Solutions to Exercises**
+
+
+
+---
+
 ##### Operator 3: AND (The "Strict" Gate) - Our First Composite Gate
 
 > **Key Takeaway:** The AND gate only outputs 1 if all its inputs are 1. It’s how we require multiple conditions to be true at once.
@@ -524,9 +534,15 @@ To connect the abstract concept of a gate to our physical build, we will use a c
 
 -   **Real-World Connection:** A missile launch might need `TurnKey1=True` AND `PressButton=True`.
 
+##### Practice Problem: Logic Gate Design Challenge
+
+Design a circuit that implements the logic `A AND NOT B` using only the NOT and OR primitives (no direct AND gate). Build it in Minecraft and verify with a truth table.
+
+> **Solution available in Appendix B: Solutions to Exercises**
+
+
 
 ---
-
 #### Lesson 2.3: The Laws of Logic & The Power of Simplification
 
 > **Key Takeaway:** Boolean laws let us simplify complex circuits and expressions, making our designs more efficient and easier to understand.
@@ -590,6 +606,22 @@ For real-world chip designers, this is an incredibly powerful concept. Manufactu
 
 Engineers then use the patterns from the table above to wire those identical simple gates together to create all the complex logic they need. The simplicity of manufacturing a single universal gate is a cornerstone of modern, affordable electronics.
 
+##### Warm-Up Problem: Circuit Simplification
+Given the expression `(A AND B) OR (A AND NOT B)`, simplify it using Boolean laws.
+
+**Example:** Simplify `(A AND B) OR (A AND NOT B)`:
+1. Factor out A: `A AND (B OR NOT B)`.
+2. Since `B OR NOT B = 1`, it becomes `A AND 1 = A`.
+**Result:** `A`.
+
+##### Practice Problem: Circuit Simplification Challenge
+
+Given the expression `(A OR B) AND (NOT A OR NOT B)`, simplify it using Boolean laws and build the simplified circuit in Minecraft.
+
+> **Solution available in Appendix B: Solutions to Exercises**
+
+
+
 ---
 
 #### Lesson 2.4: The Special Operator – XOR
@@ -649,6 +681,14 @@ It's important to understand that this is just one of many ways to build an XOR 
         6.  Connect this final `OR` gate merge point to the output lamp `Y`.
 
 -   **Real-World Connection:** XOR is used in adders, error detection, and two-switch light systems (light toggles if one switch changes).
+
+##### Practice Problem: Two-Switch Light System
+
+Design a Minecraft circuit for a two-switch light system where flipping either switch toggles the light’s state (on to off, or off to on). Use only NOT and OR gates to implement the XOR logic.
+
+> **Solution available in Appendix B: Solutions to Exercises**
+
+
 
 ---
 
@@ -818,22 +858,88 @@ Now that you've seen how the XOR trick works, try applying the same core princip
 
 -   **Real-World Connection:** XNOR gates are used in equality checks, like comparators in computing.
 
+##### Practice Problem: Universal Gate Challenge with NOR Gates
+
+Build an AND gate using only NOR gates. Verify it with a truth table in Minecraft.
+
+> **Solution available in Appendix B: Solutions to Exercises**
+
+
+
 ---
 
-#### Lesson 2.7: Module 2 Checkpoint
+#### Lesson 2.7: Module 2 Review & Summary
 
 > **Mini-Summary:** You’ve learned the core logic gates, their symbols, and how to combine them. You’ve also seen how Boolean algebra powers both hardware and software problem-solving!
 
-> **NOTE:** Insert summary visual or concept map for all gates.
+##### Logic Gates Summary Table
+
+| Gate   | Symbol      | Truth Table                | Minecraft Build         | Real-World Use                  |
+|--------|-------------|---------------------------|------------------------|---------------------------------|
+| NOT    | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOT-gate_circuitverse.png" alt="NOT" width="512px"/><br/>Figure: NOT</div>   | 0→1, 1→0                      | Torch on block          | Inverts a signal                |
+| OR     | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_OR-gate_circuitverse.png" alt="OR" width="512px"/><br/>Figure: OR</div>     | 00→0, 01→1, 10→1, 11→1        | Dust merger             | Alarm triggers                  |
+| AND    | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_AND-gate_circuitverse.png" alt="AND" width="512px"/><br/>Figure: AND</div>   | 00→0, 01→0, 10→0, 11→1        | Two torches             | All conditions must be met      |
+| NOR    | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NOR-gate_circuitverse.png" alt="NOR" width="512px"/><br/>Figure: NOR</div>   | 00→1, 01→0, 10→0, 11→0        | OR with torch           | Memory circuits                 |
+| NAND   | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_NAND-gate_circuitverse.png" alt="NAND" width="512px"/><br/>Figure: NAND</div> | 00→1, 01→1, 10→1, 11→0        | AND with torch          | Digital locks                   |
+| XOR    | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XOR-gate_circuitverse.png" alt="XOR" width="512px"/><br/>Figure: XOR</div>   | 00→0, 01→1, 10→1, 11→0        | See Lesson 2.4          | Toggle, parity checks           |
+| XNOR   | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02_XNOR-gate_circuitverse.png" alt="XNOR" width="512px"/><br/>Figure: XNOR</div> | 00→1, 01→0, 10→0, 11→1        | See Lesson 2.6          | Equality detection              |
+
+---
+
+##### Practice Problems & Challenges
 
 -   **Quiz:**
 
-    1.  What is the output of `(1 AND 0) OR (1 XOR 1)`? (Answer: 0)
-    2.  If `A=0` and `B=1`, what is `!(A OR B)`? (This is a NOR gate. Answer: 0)
-    3.  Which logic gate acts as an "Equality Detector"? (XNOR).
+    1.  What is the output of `(1 AND 0) OR (1 XOR 1)`?
+        > **Solution available in Appendix B: Solutions to Exercises**
 
--   **Debug Challenge ("Module 2.5"):**
+
+
+    2.  If `A=0` and `B=1`, what is `!(A OR B)`? (This is a NOR gate.)
+        > **Solution available in Appendix B: Solutions to Exercises**
+
+
+
+    3.  Which logic gate acts as an "Equality Detector"?
+        > **Solution available in Appendix B: Solutions to Exercises**
+
+
+
+    4.  Simplify the expression `(A AND B) OR (A AND NOT B)` using Boolean laws.
+        > **Solution available in Appendix B: Solutions to Exercises**
+
+
+
+    5.  What is the output of `A NAND (B NOR C)` when `A=1`, `B=0`, `C=1`?
+        > **Solution available in Appendix B: Solutions to Exercises**
+
+
+
+    6.  Why is NOR considered functionally complete?
+        > **Solution available in Appendix B: Solutions to Exercises**
+
+
+
+    7.  A circuit intended to implement `A XOR B` actually outputs `A OR B`. What’s likely missing?
+        > **Solution available in Appendix B: Solutions to Exercises**
+
+
+
+    8.  Design a circuit for `(A AND B) OR (NOT A AND C)` using only NOT and OR gates.
+        > **Solution available in Appendix B: Solutions to Exercises**
+
+
+
+    9.  Given a list of numbers where all numbers appear an even number of times except two numbers that appear once, find those two numbers using XOR.
+        > **Solution available in Appendix B: Solutions to Exercises**
+
+
+
+-   **Debug Challenge (Module 2.5):**
     > In the world download, you'll find a section labeled "Module 2 Debug Challenge." I've built a circuit that is *supposed* to implement the logic `(A AND B) OR C`, but it's giving the wrong output for some inputs! Your mission is to use your knowledge of truth tables to diagnose the mistake in the wiring and fix it.
+
+-   **Bonus Debug Challenge:**
+    A circuit is intended to implement `A XOR B` but outputs `A OR B` due to a missing NOT gate. Diagnose and fix it using truth tables and your XOR knowledge.
 
 ---
 
@@ -1330,7 +1436,74 @@ This final module is not for the faint of heart. It is a true capstone project t
 
 Welcome to advanced studies. Let's dive into Module 12.
 
+<hr class="pagebreak"/>
+
 ### Appendix B: Solutions to Exercises
+
+---
+
+#### Solution for ##### Practice Problem: Boolean Expression Evaluation
+
+**Truth Table for A OR NOT B**:
+
+| A | B | NOT B | A OR NOT B |
+|---|---|-------|------------|
+| 0 | 0 |   1   |     1      |
+| 0 | 1 |   0   |     0      |
+| 1 | 0 |   1   |     1      |
+| 1 | 1 |   0   |     1      |
+
+**Minecraft Circuit**: Use a lever for A, a lever for B, a redstone torch on B’s block for NOT B, merge A and NOT B with dust for OR, and connect to a lamp for output. Test all combinations to verify.
+
+---
+
+#### Solution for ##### Practice Problem: Logic Gate Design Challenge
+
+**Truth Table for A AND NOT B**:
+
+| A | B | NOT B | A AND NOT B |
+|---|---|-------|-------------|
+| 0 | 0 |   1   |      0      |
+| 0 | 1 |   0   |      0      |
+| 1 | 0 |   1   |      1      |
+| 1 | 1 |   0   |      0      |
+
+**Boolean Expression**: `A AND NOT B = !(NOT A OR B)` (by De Morgan’s Law).
+
+**Minecraft Circuit**: Place a torch on B’s block for NOT B. Merge A and NOT B with dust for OR. Invert the result with another torch for NOT (NOT A OR B). Connect to a lamp and test all combinations.
+
+---
+
+#### Solution for ##### Practice Problem: Circuit Simplification Challenge
+
+**Simplification Steps:**
+1. Start with `(A OR B) AND (NOT A OR NOT B)`.
+2. Apply De Morgan’s Law to the second term: `NOT A OR NOT B = NOT (A AND B)`.
+3. The expression becomes `(A OR B) AND NOT (A AND B)`.
+4. Distribute: `(A AND NOT (A AND B)) OR (B AND NOT (A AND B))`.
+5. Simplify each term:
+   - `A AND NOT (A AND B) = A AND (NOT A OR NOT B) = (A AND NOT A) OR (A AND NOT B) = 0 OR (A AND NOT B) = A AND NOT B`.
+   - Similarly, `B AND NOT (A AND B) = B AND NOT A`.
+6. Final expression: `(A AND NOT B) OR (B AND NOT A)`, which is `A XOR B`.
+
+**Minecraft Circuit**: Build the XOR circuit from Lesson 2.4, as it’s equivalent. Compare it to the original, which requires more blocks and dust.
+
+---
+
+#### Solution for ##### Practice Problem: Two-Switch Light System
+
+**Logic:** The light should be ON when exactly one switch is ON (A XOR B).
+
+**Truth Table:**
+
+| A | B | Light (A XOR B) |
+|---|---|-----------------|
+| 0 | 0 |        0        |
+| 0 | 1 |        1        |
+| 1 | 0 |        1        |
+| 1 | 1 |        0        |
+
+**Minecraft Circuit:** Build the XOR circuit from Lesson 2.4 (using NOT and OR gates). Connect levers for A and B, and a lamp for the output. Test by flipping each lever and verifying the lamp toggles.
 
 ---
 
@@ -1363,5 +1536,99 @@ def missingNumber(nums):
 
     return expected_xor_sum ^ actual_xor_sum
 ```
+
+---
+
+#### Solution for ##### Practice Problem: Universal Gate Challenge with NOR Gates
+
+**Logic:** `A AND B = (A NOR A) NOR (B NOR B)`
+
+**Truth Table:**
+
+| A | B | A NOR A | B NOR B | (A NOR A) NOR (B NOR B) |
+|---|---|---------|---------|-------------------------|
+| 0 | 0 |    1    |    1    |            0            |
+| 0 | 1 |    1    |    0    |            0            |
+| 1 | 0 |    0    |    1    |            0            |
+| 1 | 1 |    0    |    0    |            1            |
+
+**Minecraft Circuit:** Build three NOR gates using redstone dust mergers and torches. Connect levers for A and B, and a lamp for the output. Test all combinations to verify AND behavior.
+
+---
+
+#### Solution for ##### Practice Problems & Challenges
+
+**Answer:** 0
+
+---
+
+#### Solution for ##### Practice Problems & Challenges
+
+**Answer:** 0
+
+---
+
+#### Solution for ##### Practice Problems & Challenges
+
+**Answer:** XNOR
+
+---
+
+#### Solution for ##### Practice Problems & Challenges
+
+**Simplify (A AND B) OR (A AND NOT B)**:
+        1. Factor out A: `A AND (B OR NOT B)`.
+        2. Since `B OR NOT B = 1`, the expression becomes `A AND 1 = A`.
+        **Answer**: `A`.
+
+---
+
+#### Solution for ##### Practice Problems & Challenges
+
+`B NOR C = NOT (B OR C) = NOT (0 OR 1) = NOT 1 = 0`
+        `A NAND 0 = NOT (A AND 0) = NOT 0 = 1`
+
+---
+
+#### Solution for ##### Practice Problems & Challenges
+
+Any Boolean function can be built using only NOR gates.
+
+---
+
+#### Solution for ##### Practice Problems & Challenges
+
+The NOT gates needed to invert the AND output in the XOR construction are missing.
+
+---
+
+#### Solution for ##### Practice Problems & Challenges
+
+Use De Morgan’s Law:
+        - `A AND B = NOT (NOT A OR NOT B)`
+        - `NOT A AND C = NOT (A OR NOT C)`
+        - Combine with OR: `[NOT (NOT A OR NOT B)] OR [NOT (A OR NOT C)]`
+
+---
+
+#### Solution for ##### Practice Problems & Challenges
+
+```python
+        def find_two_unique(numbers):
+            xor_result = 0
+            for num in numbers:
+                xor_result ^= num
+            set_bit = xor_result & -xor_result
+            num1, num2 = 0, 0
+            for num in numbers:
+                if num & set_bit:
+                    num1 ^= num
+                else:
+                    num2 ^= num
+            return num1, num2
+        # Example: [2, 4, 3, 6, 4, 2] → 3, 6
+        print(find_two_unique([2, 4, 3, 6, 4, 2]))
+        ```
+        **Explanation:** XOR all numbers to get XOR of the two unique numbers. Use a set bit to split numbers into two groups, then XOR each group to find the unique numbers.
 
 ---
