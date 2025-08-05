@@ -693,7 +693,7 @@ Build an AND gate using only NOR gates. Verify it with a truth table in Minecraf
 
 ##### **Logic Gates Summary Table**
 
-|  Gate   |                       Abstract Symbol                             |             Core Logic Rule             |    Primitive Boolean Expression              |
+|  Gate   |                       Symbol                             |             Core Logic Rule             |    Primitive Boolean Expression              |
 | :------ | :---------------------------------------------------------------- | :-------------------------------------- | :--------------------------------------------|
 | **NOT** | <img src="./images/NOT.svg" alt="NOT Gate Symbol" width="64px">   | Inverts a single input.                 | `!A`                                         |
 | **OR**  | <img src="./images/OR.svg" alt="OR Gate Symbol" width="64px">     | True if **at least one** input is True. | `A OR B`                                     |
