@@ -238,7 +238,7 @@ By connecting your decoder and encoder, you’ve built a complete translation pi
 ---
 
 
-### Module 3 Conclusion
+#### Module 3 Conclusion
 
 By breaking the problem down into two distinct, logical stages, you've built a highly complex circuit in a way that is easy to understand, build, and debug. You've created a pure **Decoder** and a pure **Encoder/ROM**, two of the most fundamental building blocks in all of digital electronics. This is a massive milestone.
 
@@ -247,7 +247,7 @@ In the next module, you’ll discover a critical flaw in our simple BCD translat
 
 ---
 
-**Key Terms (Module 3):**
+#### Key Terms (Module 3)
 - **Decoder:** A circuit that activates one output line based on a unique binary input.
 - **Encoder:** A circuit that translates a single input into a coded output (here, segment patterns).
 - **ROM (Read-Only Memory):** Hardware that stores fixed data, often used for lookup tables.
