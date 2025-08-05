@@ -10,31 +10,31 @@
 
 **<strong>Solution: Boolean Expression Evaluation</strong>**
 
-**Truth Table for A OR NOT B**:
+**Truth Table for A OR !B**:
 
-| A | B | NOT B | A OR NOT B |
-|---|---|-------|------------|
-| 0 | 0 |   1   |     1      |
-| 0 | 1 |   0   |     0      |
-| 1 | 0 |   1   |     1      |
-| 1 | 1 |   0   |     1      |
+| A | B | !B | A OR !B |
+|---|---|----|---------|
+| 0 | 0 |  1 |    1    |
+| 0 | 1 |  0 |    0    |
+| 1 | 0 |  1 |    1    |
+| 1 | 1 |  0 |    1    |
 
-**Minecraft Circuit**: Use a lever for A, a lever for B, a redstone torch on B’s block for NOT B, merge A and NOT B with dust for OR, and connect to a lamp for output. Test all combinations to verify.
+**Minecraft Circuit**: Use a lever for A, a lever for B, a redstone torch on B’s block for !B, merge A and !B with dust for OR, and connect to a lamp for output. Test all combinations to verify.
 
 ---
 
-**<strong>Solution: A AND NOT B Circuit</strong>**
+**<strong>Solution: A AND !B Circuit</strong>**
 
-**Truth Table for A AND NOT B**:
+**Truth Table for A AND !B**:
 
-| A | B | NOT B | A AND NOT B |
-|---|---|-------|-------------|
-| 0 | 0 |   1   |      0      |
-| 0 | 1 |   0   |      0      |
-| 1 | 0 |   1   |      1      |
-| 1 | 1 |   0   |      0      |
+| A | B | !B | A AND !B |
+|---|---|----|----------|
+| 0 | 0 |  1 |    0     |
+| 0 | 1 |  0 |    0     |
+| 1 | 0 |  1 |    1     |
+| 1 | 1 |  0 |    0     |
 
-**Boolean Expression**: `A AND NOT B = !(NOT A OR B)` (by De Morgan’s Law).
+**Boolean Expression**: `A AND !B = !(!A OR B)` (by De Morgan’s Law).
 
 **Minecraft Circuit**: Invert A to get !A. Then, take !A and the original B and feed them into an OR gate. Finally, invert the result of that OR gate.
 
@@ -43,14 +43,14 @@
 **<strong>Solution: Simplifying (A OR B) AND (NOT A OR NOT B)</strong>**
 
 **Simplification Steps:**
-1. Start with `(A OR B) AND (NOT A OR NOT B)`.
-2. Apply De Morgan’s Law to the second term: `NOT A OR NOT B = NOT (A AND B)`.
-3. The expression becomes `(A OR B) AND NOT (A AND B)`.
-4. Distribute: `(A AND NOT (A AND B)) OR (B AND NOT (A AND B))`.
+1. Start with `(A OR B) AND (!A OR !B)`.
+2. Apply De Morgan’s Law to the second term: `!A OR !B = !(A AND B)`.
+3. The expression becomes `(A OR B) AND !(A AND B)`.
+4. Distribute: `(A AND !(A AND B)) OR (B AND !(A AND B))`.
 5. Simplify each term:
-   - `A AND NOT (A AND B) = A AND (NOT A OR NOT B) = (A AND NOT A) OR (A AND NOT B) = 0 OR (A AND NOT B) = A AND NOT B`.
-   - Similarly, `B AND NOT (A AND B) = B AND NOT A`.
-6. Final expression: `(A AND NOT B) OR (B AND NOT A)`, which is `A XOR B`.
+   - `A AND !(A AND B) = A AND (!A OR !B) = (A AND !A) OR (A AND !B) = 0 OR (A AND !B) = A AND !B`.
+   - Similarly, `B AND !(A AND B) = B AND !A`.
+6. Final expression: `(A AND !B) OR (!A AND B)`, which is `A XOR B`.
 
 **Minecraft Circuit**: Build the XOR circuit from Lesson 2.4, as it’s equivalent. Compare it to the original, which requires more blocks and dust.
 
