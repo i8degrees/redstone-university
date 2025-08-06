@@ -82,6 +82,10 @@ It’s time to stop talking and start building! Our **4-bit input interface** wi
 
 <sup>*You can use any solid block, but for the input interface, I recommend a redstone lamp. It doubles as a visual indicator of the current state of each bit.</sup>
 
+---
+
+This input bus will serve as the starting point for our future circuits. In later modules, we’ll process these binary inputs and display the results on a 7-segment display—a device that lights up segments to show numbers, like on a digital clock.
+
 ##### The Build Guide
 
 <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/01_input_minecraft.png" alt="Minecraft Input Interface" width="512px"/><br/><em>Figure: The input interface in Minecraft, set to `0110` (binary for 6). The levers are flipped to represent the bits, and the dust is connected to the back. Using redstone lamps makes it easy to see the current state of each bit.</em></div></br></br>
@@ -185,6 +189,6 @@ print(countSetBits(13)) # Output: 3
 
 Fantastic work! You've now mastered the most fundamental concept in all of computing: how information is physically represented in a binary system. You have a working input device, and you've seen how this physical concept directly connects to both real-world hardware and clever software algorithms.
 
-**What's next:** Right now, these are just dumb switches connected to wires. In the next module, we will learn the rules of logic that will allow us to start manipulating these signals to perform calculations and make decisions.
+Your input bus is ready to carry these binary signals to the next stage where logic gates will turn them into calculations and decisions. Now that you’ve built your input interface and practiced working with binary, you’re ready to learn how to manipulate these binary signals using logic gates in the next module. These gates will process the inputs you’ve set here into meaningful outputs.
 
-We will build the first real circuits that can process our binary inputs and produce outputs based on logical rules. The basic building blocks of our computer are about to take shape. Get ready for the world of logic gates and circuits!
+The basic building blocks of our computer are about to take shape. Get ready for the world of logic gates and circuits!

@@ -10,11 +10,12 @@
     -   Apply Boolean logic to a large-scale, modular project.
     -   See the direct connection between these components and real-world computer hardware.
 -   **Lesson Overview:**
-    -   Lesson 3.1: The Two-Stage Approach
-    -   Lesson 3.2: The Lab – Building Stage 1 (The 4-to-10 BCD Decoder)
-    -   Lesson 3.3: The Lab – Building Stage 2 (The ROM and Display Encoder)
-    -   Lesson 3.4: The Final Connection and The Grand Payoff
-    -   Lesson 3.5: Module 3 Checkpoint
+    -   Lesson 3.1: The Output Problem & Building the Display
+    -   Lesson 3.2: The Plan – A Two-Stage Approach
+    -   Lesson 3.3: Building the Decoder (Stage 1)
+    -   Lesson 3.4: Building the Encoder (Stage 2)
+    -   Lesson 3.5: The Grand Payoff: The Final Connection
+    -   Lesson 3.6: Module 3 Checkpoint
 -   **Minecraft Artifact:** A working two-stage translator: a 4-to-10 BCD decoder and a 7-segment display encoder, forming a complete digital display system.
 
 ---
@@ -37,42 +38,48 @@ In the previous modules, you learned how to speak to your computer in binary and
 >
 > If you are ever unsure, the verbose builds from Module 2 are guaranteed to work.
 
-Now, let's dive into this module's challenge. You'll build a translator that lets your computer display numbers in a way that humans can instantly recognize. We'll break this down into two manageable stages: first, decoding binary numbers into a single, recognizable idea (a digit), and then encoding that idea into a pattern of lights on a 7-segment display. This modular approach mirrors how real computers handle complex translations and will give you a powerful new tool for your engineering toolkit.
+---
 
-#### Lesson 3.1: The Two-Stage Approach
+#### Lesson 3.1: The Output Problem & Building the Display
 
-When you see the binary `0101` and want to show a "5" on a display, your brain does two things:
-1.  **Decoding:** Recognize that `0101` *is* the number 5.
-2.  **Encoding/Mapping:** Recall which segments on a display need to light up to *draw* the shape of a 5.
+Our computer can hear us, but it can’t talk back. We’ve built an input interface and learned how to process signals with logic gates, but so far, all our work is invisible—buried in wires and circuits. How do we make our computer show us numbers in a way we understand?
 
-We'll build a machine that mimics this exact two-stage process:
+The answer is the **7-segment display**—a classic output device found in digital clocks, calculators, and scoreboards. It uses seven segments consisting of 3 redstone lamps each, labeled `a` through `g`, arranged like this:
 
--   **Stage 1: The Binary-to-Decimal Decoder.** This circuit looks at a 4-bit binary input and activates **one, and only one,** of its 10 output lines (one for each digit 0–9).
--   **Stage 2: The Display Encoder/Driver.** This circuit takes the active digit line and sends power to the correct segments (a, c, d, f, g, etc.) to draw the right number.
+     aaa
+  fff   bbb
+     ggg
+  eee   ccc
+     ddd
 
-This modular design is a core principle of good engineering. It lets us build, test, and understand each part separately before combining them.
+Each segment can light up independently. By combining them, we can display any digit from 0 to 9.
 
-**Conceptual Diagram: Two-Stage Translation**
+**Lab: Building the Display**
 
-```
-[4-bit Binary Input]
-         |
-         v
-   [Decoder: 4-to-10]
-         |
-         v
-[One-hot Output (0–9)]
-         |
-         v
-   [Encoder/ROM: 7-segment]
-         |
-         v
- [7-Segment Display Output]
-```
+Let’s start by building the physical display in Minecraft. Place 7 segements of redstone lamps in the “8” shape shown above. For simplicity of wiring, we will surround the lamps with block concrete. This simplifies the wiring tremendously. To power each segment, you simply need to place a block below the middle lamp of each segment andrun a repeater into the middle lamp. This will power all three lamps in each segment.  For the rest of this lesson, let's put a block behind the repeater and put a lever on it to control and test each segment individually. In the next lessons we will be wiring these segments up to the logic that controls them.
+
+:TODO: finish this lesson, let's add some pictures, and a lab that instructs the student to use the levers to create a few specific numbers, so they fully grok how the segments need to be powered in order to display each digit.
 
 ---
 
-#### Lesson 3.2: The Lab – Building Stage 1 (The 4-to-10 BCD Decoder)
+#### Lesson 3.2: The Plan – A Two-Stage Approach
+
+Now that we have our display, how do we control it? If we tried to connect our 4-bit input directly to the seven segments, the wiring would be complex and confusing. Instead, let’s think like engineers and break the problem into two manageable stages:
+
+1. **Decoder:** Translates a 4-bit binary input into a single active output line (representing the digit 0–9).
+2. **Encoder:** Maps that active output line to the correct combination of segments to draw the digit.
+
+This modular approach makes our system easier to build, test, and debug. Here’s the signal flow:
+
+```
+[4-bit Input] → [Decoder] → [Encoder/ROM] → [7-Segment Display]
+```
+
+Let’s build each stage step by step.
+
+---
+
+#### Lesson 3.3: Building the Decoder (Stage 1)
 
 **Goal:** Build a circuit that takes a 4-bit BCD input (0–9) and activates one of 10 corresponding output lines. This is a pure application of your Module 2 logic skills.
 
@@ -130,7 +137,7 @@ You’ve just built a circuit that can recognize any single digit from 0 to 9 in
 
 ---
 
-#### Lesson 3.3: The Lab – Building Stage 2 (The ROM and Display Encoder)
+#### Lesson 3.4: Building the Encoder (Stage 2)
 
 **Goal:** Build a circuit that takes one of the 10 active lines from Stage 1 and lights up the correct combination of the 7 display segments.
 
@@ -191,7 +198,7 @@ You’ve created a programmable display driver using a physical “ROM.” This 
 
 ---
 
-#### Lesson 3.4: The Final Connection and The Grand Payoff
+#### Lesson 3.5: The Grand Payoff: The Final Connection
 
 Now, connect the two stages together. The 10 output lines from your Stage 1 Decoder become the 10 input lines for your Stage 2 Encoder.
 
@@ -203,13 +210,13 @@ Now, connect the two stages together. The 10 output lines from your Stage 1 Deco
 5. Those five segment lines light up, and your 7-segment display shows a perfect, glowing **3**.
 
 **Lesson Summary:**
-By connecting your decoder and encoder, you’ve built a complete translation pipeline from binary input to human-readable output. This is a huge leap in making your computer interactive!
+By connecting your decoder and encoder to the display you built in Lesson 3.1, you’ve created a complete translation pipeline from binary input to human-readable output. This is a huge leap in making your computer interactive!
 
 > **PLACEHOLDER:** Insert photo or diagram of the final connected system, showing a number displayed.**
 
 ---
 
-#### Lesson 3.5: Module 3 Checkpoint
+#### Lesson 3.6: Module 3 Checkpoint
 
 -   **Quiz:**
     1.  What is the main difference between a decoder and an encoder?
