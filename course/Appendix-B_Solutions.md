@@ -156,3 +156,31 @@ The parentheses are crucial to ensure the `AND` condition is evaluated before be
 The entire complex circuit simplifies down to a single OR gate!
 
 ---
+
+### **Lesson 3.4: The Decoder Solution: An Elegant, Compact Design**
+
+**<strong>Solution: Taps for L6 (`0110`)</strong>**
+
+Applying our rule:
+-   `B3` is `0`: Requires a **Repeater Tap**.
+-   `B2` is `1`: Requires a **Torch Tap**.
+-   `B1` is `1`: Requires a **Torch Tap**.
+-   `B0` is `0`: Requires a **Repeater Tap**.
+
+---
+
+**<strong>Solution: Debugging the L8 and L9 Error</strong>**
+
+**The Logic:** The `L8` lamp should turn OFF when the input is `1001`. For `L8` to turn off, its wire needs to be powered. This means one of its "mismatch" taps must have activated.
+
+**The Identity of `L8` is `1000`.** Let's compare this to the input `1001`.
+-   `B3` is `1`, `L8` expects `1`. No mismatch.
+-   `B2` is `0`, `L8` expects `0`. No mismatch.
+-   `B1` is `0`, `L8` expects `0`. No mismatch.
+-   `B0` is `1`, `L8` expects `0`. **This is a mismatch.**
+
+The tap for `B0` on the `L8` line is supposed to detect this mismatch and power the `L8` wire. Since `L8` expects a `0` for `B0`, the rule says it must have a **Repeater Tap**.
+
+**The Conclusion:** The fact that the `L8` lamp is still ON means its mismatch detector for the `B0` bit failed. The most likely cause is that you **forgot to place the Repeater Tap** from the `B0` bus line to the `L8` output wire. Without that tap, the wire never gets powered, and the lamp stays on.
+
+---

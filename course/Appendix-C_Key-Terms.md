@@ -17,13 +17,3 @@
 -   **XOR (Exclusive OR):** Outputs 1 if inputs are different; used in both hardware and software for unique logic tricks.
 
 ---
-
-#### Key Terms (Module 3)
-
-- **Decoder:** A circuit that activates one output line based on a unique binary input.
-- **Encoder:** A circuit that translates a single input into a coded output (here, segment patterns).
-- **ROM (Read-Only Memory):** Hardware that stores fixed data, often used for lookup tables.
-- **BCD (Binary-Coded Decimal):** A way of representing decimal digits in binary.
-- **7-Segment Display:** An arrangement of LEDs or lamps used to display digits and some letters.
-
----
