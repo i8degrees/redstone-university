@@ -44,6 +44,8 @@ In the previous modules, you learned how to speak to your computer in binary and
 
 #### Lesson 3.1: The Goal: Building Our 7-Segment Display
 
+> **Key Takeaway:** A 7-segment display is a standard output device that uses seven independent segments to form numbers. Understanding how to control it manually is the first step to controlling it automatically.
+
 ![7-Segment Display in CircuitVerse](./images/7-Segment-Display.png)
 *Figure: The symbol for a 7-Segment Display on CircuitVerse (left) and its function in a basic circuit (right), taking seven inputs and lighting up the segments based.*
 
@@ -52,7 +54,7 @@ Our computer can hear us, but it can’t talk back. So far, all our work is invi
 The answer is the **7-segment display**, a classic output device found in everything from digital clocks to microwaves. It uses seven independently controlled segments, labeled `a` through `g`, arranged in an '8' pattern.
 
 ![7-Segment Display labeled](./images/7-Segment-Display_labeled.png)
-*Figure: How the segments of a 7-Segment Displayed are commonly labeled.*
+*Figure: The standard labeling for the segments of a 7-Segment Display..*
 
 
 By lighting up specific combinations of these seven segments, we can display any digit from 0 to 9.
