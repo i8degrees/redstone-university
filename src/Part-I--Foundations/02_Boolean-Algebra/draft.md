@@ -55,7 +55,7 @@ Boolean algebra gives us a set of rules and operators to manipulate these True/F
 #### Lesson 2.2: The Core Operators (The Verbs of Logic)
 
 
-##### **How We Describe Each Gate**
+##### How We Describe Each Gate
 
 To ensure a complete understanding, every logic gate is introduced using a consistent structure that moves from the abstract concept to the practical build.
 
@@ -302,7 +302,7 @@ Here are the key laws we will be using in our course. There are many more, but t
 
 ---
 
-##### **Lab 1: Proving a Circuit with De Morgan's Law**
+##### Lab 1: Proving a Circuit with De Morgan's Law
 
 Let’s use De Morgan’s Law to prove our AND gate design is correct.
 
@@ -315,7 +315,7 @@ Let’s use De Morgan’s Law to prove our AND gate design is correct.
 
 ---
 
-##### **Lab 2: Proving a Circuit with the Distributive Law**
+##### Lab 2: Proving a Circuit with the Distributive Law
 
 The laws of logic don't just prove that a circuit is correct; they can also make our circuits much simpler. This is a crucial engineering skill called **simplification**.
 
@@ -472,7 +472,7 @@ Design a Minecraft circuit for a two-switch light system where flipping either s
 
 ---
 
-#### **Lesson 2.5: Software Superpowers – The XOR Trick for Programmers**
+#### Lesson 2.5: Software Superpowers – The XOR Trick for Programmers
 
 > **Key Takeaway:** XOR is a “secret weapon” in programming. Its reversible, self-canceling property allows for incredibly efficient solutions to common algorithmic problems.
 
@@ -699,13 +699,13 @@ Build an AND gate using only NOR gates. Verify it with a truth table in Minecraf
 
 ---
 
-#### **Lesson 2.7: Module 2 Summary**
+#### Lesson 2.7: Module 2 Summary
 
 > You have reached the end of the learning portion of this module. You started with the basic idea of True and False and have now built a complete toolkit of the seven fundamental logic gates. You've learned how to describe them with truth tables and Boolean expressions, how to build them from our primitives, and how they connect to both real-world hardware and software.
 >
 > This summary table provides a single place to review all the gates at a glance.
 
-##### **Logic Gates Summary Table**
+##### Logic Gates Summary Table
 
 |  Gate   |                       Symbol                             |             Core Logic Rule             |    Primitive Boolean Expression              |
 | :------ | :---------------------------------------------------------------- | :-------------------------------------- | :--------------------------------------------|
@@ -719,7 +719,7 @@ Build an AND gate using only NOR gates. Verify it with a truth table in Minecraf
 
 ---
 
-#### **Lesson 2.8: Module 2 Checkpoint**
+#### Lesson 2.8: Module 2 Checkpoint
 
 > **Module Summary:** You have reached the end of the most theory-intensive module in this course. You began with simple on/off switches and have now mastered the seven fundamental logic gates, the Boolean laws that govern them, the power of simplification, and the bridge between hardware logic and software problem-solving. It is time to test your newfound knowledge.
 
