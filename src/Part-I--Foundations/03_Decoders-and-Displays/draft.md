@@ -1,8 +1,8 @@
-### **Module 3: From Binary to Pictures - Building a Digital Display**
+### Module 3: From Binary to Pictures - Building a Digital Display
 
 ---
 
-#### **Module Summary**
+#### Module Summary
 
 -   **Narrative Beat:** We've learned the computer's language. Now, let's build a translator so it can talk back to us. This is our first major engineering project, where we'll turn abstract binary signals into a number we can actually read.
 -   **Learning Goals:**
@@ -22,7 +22,7 @@
 
 ---
 
-#### **Module Introduction**
+#### Module Introduction
 
 In the previous modules, you learned how to speak to your computer in binary and how to manipulate those signals with logic gates. But a computer that can only listen isn't very satisfying. We want it to talk back! This is our first large-scale engineering project, and with it comes a new way of thinking about building.
 
@@ -42,22 +42,18 @@ In the previous modules, you learned how to speak to your computer in binary and
 
 ---
 
-### **Lesson 3.1: The Goal: Building Our 7-Segment Display**
+#### Lesson 3.1: The Goal: Building Our 7-Segment Display
 
 ![7-Segment Display in CircuitVerse](./images/7-Segment-Display.png)
-*Figure: The abstract symbol for the Exclusive NOR (XNOR) gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if the inputs are the same.*
+*Figure: The symbol for a 7-Segment Display on CircuitVerse (left) and its function in a basic circuit (right), taking seven inputs and lighting up the segments based.*
 
-Our computer can hear us, but it can’t talk back. So far, all our work is invisible—buried in wires and circuits. How do we make our computer show us numbers in a way we understand?
+Our computer can hear us, but it can’t talk back. So far, all our work is invisible, buried in wires and circuits. How do we make our computer show us numbers in a way we understand?
 
-The answer is the **7-segment display**—a classic output device found in everything from digital clocks to microwaves. It uses seven independently controlled segments, labeled `a` through `g`, arranged in an '8' pattern.
+The answer is the **7-segment display**, a classic output device found in everything from digital clocks to microwaves. It uses seven independently controlled segments, labeled `a` through `g`, arranged in an '8' pattern.
 
-     aaa
-    f   b
-    f   b
-     ggg
-    e   c
-    e   c
-     ddd
+![7-Segment Display labeled](./images/7-Segment-Display_labeled.png)
+*Figure: How the segments of a 7-Segment Displayed are commonly labeled.*
+
 
 By lighting up specific combinations of these seven segments, we can display any digit from 0 to 9.
 
@@ -66,8 +62,8 @@ By lighting up specific combinations of these seven segments, we can display any
 Let’s start by building the physical canvas for our numbers.
 
 1.  **Construct the Segments:** In Minecraft, place Redstone Lamps in the "8" shape shown above. For good visibility, making each segment 3 lamps long is a great choice.
-2.  **Isolate the Segments:** Carefully surround the lamp segments with a non-conductive block like Wool or Concrete. This is crucial to prevent the wiring for one segment from accidentally powering another.
-3.  **Create Manual Controls:** For each of the seven segments, we need a way to power   it. The easiest way is to run a Redstone Repeater into the middle lamp of the segment. For now, place a solid block behind each repeater and attach a **Lever** to it. This will give you manual control over all seven segments, which is perfect for testing.
+2.  **Isolate the Segments:** Carefully surround the lamp segments with a non-conductive block like Wool or Concrete. This is crucial to prevent the wiring for one segment from accidentally powering another. I personally use black concrete to make the segments stand out, but this is the only place I recommend using black concrete in this module.
+3.  **Create Manual Controls:** Now we need a way to power each of the 7 segments individually. The easiest way is to run a Redstone Repeater into the middle lamp of the segment so that it becomes powered and will share signal with it's neighboring lamps. Place a solid block behind each repeater and attach a **Lever** to it. This will give you manual control over all seven segments, which is perfect for testing.
 
 ![7 Segment Display in Minecraft](./images/7-segment-display_minecraft.png)
 *Figure: Need to update this caption. The image has examples of the 3 stages described above, from left to right. Then the 4th item in the image all the way to the right is a zoomed in look at how each segment is powered for our manual control.*
@@ -76,16 +72,18 @@ Let’s start by building the physical canvas for our numbers.
 
 Before we build the complex logic to control this display automatically, let's get a feel for it ourselves. Use the levers you just installed to "draw" the following digits. This exercise will build your intuition for exactly what our machine needs to accomplish.
 
+> **Note:** The levers are on the back of the display, so keep that in mind when flipping specific segments. It might help to label the segments with a sign by the lever that controls it for this exercise.
+
 1.  Flip the levers for segments **`b`** and **`c`**. You should see the digit **`1`**.
 2.  Now, try to display the digit **`7`**. (You'll need segments `a`, `b`, and `c`).
 3.  Next, create the digit **`4`**. (This requires segments `f`, `g`, `b`, and `c`).
 4.  **Challenge:** Try to form the digit **`8`**. What do you notice? Now try to form the digit **`2`**.
 
 Take a moment to appreciate the pattern. For each number, a unique combination of segments must be turned ON. Our job for the rest of this module is to build a machine that does this for us.
-
+z
 ---
 
-### **Lesson 3.2: The Master Plan: A Two-Stage Translation**
+#### Lesson 3.2: The Master Plan: A Two-Stage Translation
 
 Now that we have our display, how do we control it? Our computer thinks in 4-bit binary, but our display needs 7 separate signals. Connecting the 4-bit input directly to the 7 segments would require an incredibly complex web of logic gates.
 
@@ -101,33 +99,33 @@ This modular, two-stage approach is the heart of good engineering. It's easier t
 
 ---
 
-### **Lesson 3.3: The Decoder Lab: A Simple "Brute-Force" Build**
+#### Lesson 3.3: The Decoder Lab: A Simple "Brute-Force" Build
 
-Before we tackle our full 4-bit to 10-line decoder, let's build a smaller, simpler version to prove the concept. We are going to build a **2-bit to 4-line decoder**. This circuit will take a 2-bit binary input (00, 01, 10, 11) and light up one of four corresponding output lamps.
+Before we tackle our full 4-bit to 10-line decoder, let's build a smaller, simpler version to prove the concept. We are going to build a **2-bit to 4-line decoder**. This circuit will take a 2-bit binary input (00, 01, 10, 11) and light up one of four corresponding output lamps (L1, L2, L3) representing those values in decimal (0, 1, 2, 3).
 
-This lab will demonstrate the "brute-force" method in a manageable way.
+By scaling down the problem, we can focus on the core logic without getting overwhelmed. This is a common engineering practice: start small, prove the concept, then scale up. I'm calling this a "brute-force" method because we will build a separate AND gate for each output, rather than using a more elegant design, which we will learn in the next lesson.
 
 **The Logic on Paper**
 
 -   **Inputs:** `B1` (the "2s" place), `B0` (the "1s" place)
 -   **Outputs:** `L0`, `L1`, `L2`, `L3`
 -   **Logic Gates:** We need one 2-input AND gate for each output.
-    -   `L0` (for `00`) = `(!B1) AND (!B0)`
-    -   `L1` (for `01`) = `(!B1) AND B0`
-    -   `L2` (for `10`) = `B1 AND (!B0)`
-    -   `L3` (for `11`) = `B1 AND B0`
+    -   `L0` (for `00` or `0`) = `(!B1) AND (!B0)`
+    -   `L1` (for `01` or `1`) = `(!B1) AND B0`
+    -   `L2` (for `10` or `2`) = `B1 AND (!B0)`
+    -   `L3` (for `11` or `3`) = `B1 AND B0`
 
 **Lab: Building the 2-to-4 Decoder**
 
 **Step 1: The 2-Bit Bus**
-1.  Set up two input levers, labeling them `B1` and `B0`.
-2.  From these levers, create a **4-line bus**. Run two parallel lines from each lever. On one line of each pair, place a NOT gate (a block with a torch).
+1.  Set up two the standard inputs we've been using throughout the course, the redstone lamp with a lever on one side. Label them `B1` and `B0`.
+2.  From these levers, create a **4-line bus**. Run redstone dust from the back of each lamp to a central point and then split each line into two parallel lines. On one line of each pair, place a NOT gate (a block with a torch on the opposite side that the dust runs in to ).
 3.  You now have four parallel lines carrying the signals `B1`, `!B1`, `B0`, and `!B0`. Use colored wool to keep them organized!
 
 > **PLACEHOLDER:** Insert a screenshot of the 4-line bus with inputs `B1` and `B0` and their inversions, clearly labeled.
 
 **Step 2: Build and Test the First Gate (`L0`)**
-1.  Choose your favorite 2-input AND gate design from Module 2. Build one of these gates.
+1.  Choose your favorite 2-input AND gate design from Module 2 or the Interlude. Build one of these gates.
 2.  Connect the gate's two inputs to the `!B1` line and the `!B0` line on your bus. Be careful with your wiring!
 3.  Place a Redstone Lamp at the output of the AND gate. This is your `L0` output.
 4.  **Test it!** Set your input levers to `00` (`B1`=OFF, `B0`=OFF). The `L0` lamp should turn ON. Now, flip either lever. The lamp should turn OFF. This proves your first gate is wired correctly.
@@ -160,32 +158,34 @@ In the next lesson, we will learn a far more elegant and compact solution to thi
 
 ---
 
-### **Lesson 3.4: The Decoder Solution: An Elegant, Compact Design**
+#### Lesson 3.4: The Decoder Solution: An Elegant, Compact Design
 
 > **Key Takeaway:** By using an "active-low" design and two clever types of "taps" (Repeater and Torch), we can build a decoder that is vastly smaller and more efficient than the brute-force method from the previous lesson.
 
-In Lesson 3.3, we built a working decoder but also discovered the "problem of scale." A brute-force design using standard AND gates works, but it's huge. Now, we will build the engineer's solution—a design that is compact, fast, and leverages the unique physics of Redstone.
+In Lesson 3.3, we built a working decoder but also discovered the "problem of scale." A brute-force design using standard AND gates works, but it's huge. Now, we will build the engineer's solution: a design that is compact, fast, and leverages the unique physics of Redstone.
 
 Our method is different. Instead of an "active-high" design where the correct output line turns ON, we will build an **"active-low"** design where the correct line turns **OFF**. This allows a lamp powered by an inverted signal to finally light up.
 
-#### **The Core Concept: The Mismatch Detector**
+##### The Core Concept: The Mismatch Detector
 
-The entire structure for a single output line functions as a large **"mismatch detector."** Its only job is to power its own wire (and thus turn its lamp OFF) if the binary input from the bus does **not** perfectly match the number the line is supposed to represent.
+The entire structure for a single output line functions as a large **"mismatch detector"**. Its only job is to power its own wire (and thus turn its lamp OFF) if the binary input from the bus does **not** perfectly match the number the line is supposed to represent.
 
-The only time a lamp will stay ON is when the input is a perfect match. In this state, none of the "mismatch" taps activate, leaving the wire unpowered. This "any tap will turn it off" behavior means each output wire acts like a large, custom **OR** gate. The torch under the lamp provides the final **NOT**—making the whole structure a **Multi-Input NOR Gate**. This is De Morgan's Law in action, right in our circuit!
+The only time a lamp will stay ON is when the input is a perfect match. In this state, none of the "mismatch" taps activate, leaving the wire unpowered. This "any tap will turn it off" behavior means each output wire acts like a large, custom **OR** gate. The torch under the lamp provides the final **NOT**, making the whole structure a **Multi-Input NOR Gate**.
 
-#### **Two Types of Taps: The Key to the Design**
+##### Two Types of Taps: The Key to the Design
 
 We use two different methods to tap the bus. This allows a single bus line (e.g., `B1`) to check for two different conditions depending on which tap we use.
 
 1.  **The Repeater Tap (Checks for a `1`):** A Repeater placed to tap a bus line will only activate if that bus line is **ON (`1`)**. We use this to detect a `1` where we expect a `0`.
 2.  **The Torch Tap (Checks for a `0`):** A Torch placed to tap a bus line will only activate if that bus line is **OFF (`0`)**. We use this to detect a `0` where we expect a `1`.
 
-#### **The "Aha!" Moment: The Simple Rule for Building**
+Don't worry if this sounds confusing at first. The key is that each output line will have a unique identity, represented as a 4-bit binary number (e.g., `0011` for line `L3`). Each bit in this identity tells us whether to expect a `0` or a `1` from the corresponding bus line.
+
+##### The Simple Rule for Building
 
 Here is the straightforward rule for programming each output line. It's the key to the entire build.
 
-> To program the wire for an output line `LN` (which represents a binary number `B3 B2 B1 B0`):
+> To program the wire for an output line `LN` (which represents a binary number over our 4-bit bus `B3 B2 B1 B0`):
 > -   For every bit position that is **`0`** in its identity, place a **Repeater Tap** from that bus line.
 > -   For every bit position that is **`1`** in its identity, place a **Torch Tap** from that bus line.
 
@@ -217,13 +217,14 @@ Here is the straightforward rule for programming each output line. It's the key 
 5.  **Test Your Work!** Cycle through all binary inputs from 0 (`0000`) to 9 (`1001`). For each one, verify that only the single, correct lamp remains lit. The `L3` lamp should only be on for input `0011`, and the `L8` lamp only for `1000`.
 
 ---
-**Practice Problems**
+##### Practice Problems
 
-#### **Problem 1: Design on Paper**
+###### Problem 1: Design on Paper
 
 Before you build, an engineer must be able to plan. For output line **`L6` (Identity: `0110`)**, what taps would you need? List out which type of tap (Repeater or Torch) is required for each of the four bus lines (`B3`, `B2`, `B1`, `B0`).
 
 <details>
+<summary>Show Solution</summary>
 <summary><strong>Solution: Taps for L6 (`0110`)</strong></summary>
 
 Applying our rule:
@@ -234,7 +235,7 @@ Applying our rule:
 
 </details>
 
-#### **Problem 2: The Debug Challenge**
+##### Problem 2: The Debug Challenge
 
 You've built your decoder, but something is wrong. When you set the input levers to **`1001`** (for the number 9), you notice that the lamp for `L9` is on (which is correct), but the lamp for **`L8`** is *also* on (which is incorrect).
 
@@ -259,9 +260,9 @@ The tap for `B0` on the `L8` line is supposed to detect this mismatch and power 
 
 ---
 
-### **Lesson 3.5: The Encoder: Building a "Diode Matrix" ROM**
+#### Lesson 3.5: The Encoder: Building a "Diode Matrix" ROM
 
-We now have a working decoder that gives us a single **unpowered** line for any given number. The next step is to build our "artist"—the encoder that will take this information and draw the number on our display.
+We now have a working decoder that gives us a single **unpowered** line for any given number. The next step is to build our "artist," the encoder that will take this information and draw the number on our display.
 
 **The Concept: Read-Only Memory**
 
@@ -287,7 +288,7 @@ This stage is effectively a physical **Read-Only Memory (ROM)**. The "address" i
 
 ---
 
-### **Lesson 3.6: The Grand Payoff: The Final Connection**
+#### Lesson 3.6: The Grand Payoff: The Final Connection
 
 The moment of truth has arrived. All the components are built. All that's left is to connect them.
 
@@ -309,7 +310,7 @@ Congratulations. You have successfully translated a 4-bit binary number into a h
 
 ---
 
-### **Lesson 3.7: Module 3 Checkpoint**
+#### Lesson 3.7: Module 3 Checkpoint
 
 -   **Quiz:**
     1.  What is the primary job of the decoder stage? What about the encoder stage?
@@ -322,7 +323,7 @@ Congratulations. You have successfully translated a 4-bit binary number into a h
 
 ---
 
-#### **Module 3 Conclusion**
+#### Module 3 Conclusion
 
 This was a massive milestone. You didn't just build a circuit; you engineered a system. By breaking a complex problem down into two distinct, logical stages (a decoder and an encoder), you built something complex in a way that was manageable, testable, and understandable. You have now mastered the concepts of binary-to-decimal decoding and using a hardware ROM to drive an output, two of the most fundamental building blocks in all of digital electronics.
 
@@ -331,7 +332,7 @@ In the next module, you’ll discover a critical flaw in our simple translator w
 
 ---
 
-#### **Key Terms (Module 3)**
+#### Key Terms (Module 3)
 
 -   **Decoder:** A circuit that takes a multi-bit binary input and activates a single, corresponding output line.
 -   **Encoder:** A circuit that takes a single active input line and translates it into a multi-bit coded output (like the patterns for a 7-segment display).
