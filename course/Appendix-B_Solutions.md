@@ -159,9 +159,7 @@ The entire complex circuit simplifies down to a single OR gate!
 
 ### Module 3: From Binary to Pictures - Building a Digital Display
 
-**Show Solution**
-
-<summary><strong>Solution: Taps for L6 (`0110`)</strong></summary>
+**<strong>Solution: Taps for L6 (`0110`)</strong>**
 
 Applying our rule:
 -   `B3` is `0`: Requires a **Repeater Tap**.
@@ -184,5 +182,35 @@ Applying our rule:
 The tap for `B0` on the `L8` line is supposed to detect this mismatch and power the `L8` wire. Since `L8` expects a `0` for `B0`, the rule says it must have a **Repeater Tap**.
 
 **The Conclusion:** The fact that the `L8` lamp is still ON means its mismatch detector for the `B0` bit failed. The most likely cause is that you **forgot to place the Repeater Tap** from the `B0` bus line to the `L8` output wire. Without that tap, the wire never gets powered, and the lamp stays on.
+
+---
+
+**<strong>Click for answers</strong>**
+
+1.  It breaks the problem down, making it easier to design, build, and debug each part independently (modularity).
+2.  The Repeater Tap creates a "strongly powered" block, which is necessary to power the Redstone dust on the output line across the 1-block air gap. Simple dust would create a "weakly powered" block, which cannot.
+3.  It represents a single "bit" of stored information. Specifically, it's a command to "turn this segment OFF for this number."
+
+---
+
+**<strong>Click for solutions</strong>**
+
+1.  You want the lamp to be ON only when `B0` is `0`. Our active-low system turns the lamp on when the line is unpowered. You would need a single **Repeater Tap** from the `B0` line. When `B0` is `1` (odd), the repeater powers the `LE` line and turns the lamp off. When `B0` is `0` (even), the repeater is off, the line is unpowered, and the lamp turns on.
+2.  The `LA` line would need to suppress the torch for the segment that is OFF: only segment **`d`**.
+3.  Torches are for `1`s, Repeaters are for `0`s. So the identity is `0110`. This is the binary for decimal **6**.
+
+---
+
+**<strong>Click for the solution</strong>**
+
+**The Logic:**
+When the input is `2`, the `L2` line from the decoder correctly goes LOW. The `L2` line is supposed to stop suppressing the torches for segments `a,b,d,e,g` and continue suppressing the torches for `c` and `f`.
+
+The display shows a `6`, meaning segments `c` and `f` are ON when they should be OFF, and segment `b` is OFF when it should be ON.
+
+**The Conclusion:**
+This points to a catastrophic failure in the "programming" of the `L2` line in your Diode Matrix. You have wired it incorrectly.
+-   The connections from the `L2` line to the `c` and `f` segment torches are likely **missing**.
+-   You have likely **accidentally added** a connection from the `L2` line to the `b` segment torch.
 
 ---
