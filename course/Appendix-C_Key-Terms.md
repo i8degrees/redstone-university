@@ -23,6 +23,7 @@
 -   **Decoder:** A circuit that takes a multi-bit binary input and activates a single, corresponding output line.
 -   **Encoder:** A circuit that takes a single active input line and translates it into a multi-bit coded output (like the patterns for a 7-segment display).
 -   **Active-Low Logic:** A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal, rather than a HIGH (powered) one.
+-   **Tap (Repeater/Torch):** Our term for a connection that reads a signal from a bus line to control another wire.
 -   **ROM (Read-Only Memory):** A type of storage where data is permanently programmed into the hardware's structure.
 -   **Diode Matrix:** A grid of input and output lines where diodes (in our case, Redstone Repeaters and torches) are placed at intersections to create a programmable logic device, often used as a ROM.
 -   **BCD (Binary-Coded Decimal):** A method of representing the decimal digits 0-9 using a 4-bit binary code.
