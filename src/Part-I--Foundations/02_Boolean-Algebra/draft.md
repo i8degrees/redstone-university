@@ -73,10 +73,10 @@ To ensure a complete understanding, every logic gate is introduced using a consi
     -   **Truth Table:** A complete chart defining all possible input/output combinations. This is the ultimate "source of truth."
     -   **Primitive Boolean Expression:** The specific algebraic expression that represents our composite build using only `NOT` and `OR`.
 
- -   **Practical Application:**
+-   **Practical Application:**
 
-     -   **Lab & Experiment:** A hands-on test to verify your Minecraft build against the gate's truth table.
-     -   **Real-World Connection:** An example of where this logic is used in real technology.
+    -   **Lab & Experiment:** A hands-on test to verify your Minecraft build against the gate's truth table.
+    -   **Real-World Connection:** An example of where this logic is used in real technology.
 
 ---
 
@@ -246,12 +246,12 @@ To connect the abstract concept of a gate to our physical build, we will use a c
         1.  Place two redstone lamps with a lever on the front of each for inputs `A` and `B`.
         2.  Attach a redstone torch to the back of each redstone lamp to create the NOT gates for `!A` and `!B`.
         3.  Merge these signals to a central point with redstone dust. This creates an OR gate: `!A OR !B`.
-        4.  Places a solid block and run the redstone dust into the back of the block.
+        4.  Place a solid block and run the redstone dust into the back of the block.
         5.  Invert this signal by placing a redstone torch on the opposite side of the block. This final NOT gate gives us `!(!A OR !B)`.
-        5.  Connect the output to a lamp for `Y`.
+        6.  Connect the output to a lamp for `Y`.
 
-    3.  Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
-    4.  **Verification:** The output lamp lights only when both levers are ON.
+    2.  Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
+    3.  **Verification:** The output lamp lights only when both levers are ON.
 
 -   **Real-World Connection:** A missile launch might need `TurnKey1=True` AND `PressButton=True`.
 
@@ -288,8 +288,8 @@ Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let u
 You’ll often see logic written using symbols from regular math. For example, **AND** is sometimes written as multiplication (`A · B` or `AB`), **OR** as addition (`A + B`), and **NOT** as an overbar (`Ā`).
 
 For this course, we will use a specific convention designed for maximum clarity:
- -   We will use the words **`AND`** and **`OR`** in our expressions, as they are unambiguous.
- -   For **negation**, we will use the exclamation mark (**`!`**), as in **`!A`**. This is the standard symbol used in many programming languages and keeps our complex expressions clean and readable.
+-   We will use the words **`AND`** and **`OR`** in our expressions, as they are unambiguous.
+-   For **negation**, we will use the exclamation mark (**`!`**), as in **`!A`**. This is the standard symbol used in many programming languages and keeps our complex expressions clean and readable.
 
 ##### The Laws of Boolean Algebra
 Here are the key laws we will be using in our course. There are many more, but these are the most fundamental and useful for circuit design.
