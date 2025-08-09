@@ -157,9 +157,11 @@ The entire complex circuit simplifies down to a single OR gate!
 
 ---
 
-### **Lesson 3.4: The Decoder Solution: An Elegant, Compact Design**
+### Module 3: From Binary to Pictures - Building a Digital Display
 
-**<strong>Solution: Taps for L6 (`0110`)</strong>**
+**Show Solution**
+
+<summary><strong>Solution: Taps for L6 (`0110`)</strong></summary>
 
 Applying our rule:
 -   `B3` is `0`: Requires a **Repeater Tap**.
