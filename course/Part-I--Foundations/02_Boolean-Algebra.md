@@ -55,7 +55,7 @@ Boolean algebra gives us a set of rules and operators to manipulate these True/F
 #### Lesson 2.2: The Core Operators (The Verbs of Logic)
 
 
-##### **How We Describe Each Gate**
+##### How We Describe Each Gate
 
 To ensure a complete understanding, every logic gate is introduced using a consistent structure that moves from the abstract concept to the practical build.
 
@@ -73,10 +73,10 @@ To ensure a complete understanding, every logic gate is introduced using a consi
     -   **Truth Table:** A complete chart defining all possible input/output combinations. This is the ultimate "source of truth."
     -   **Primitive Boolean Expression:** The specific algebraic expression that represents our composite build using only `NOT` and `OR`.
 
- -   **Practical Application:**
+-   **Practical Application:**
 
-     -   **Lab & Experiment:** A hands-on test to verify your Minecraft build against the gate's truth table.
-     -   **Real-World Connection:** An example of where this logic is used in real technology.
+    -   **Lab & Experiment:** A hands-on test to verify your Minecraft build against the gate's truth table.
+    -   **Real-World Connection:** An example of where this logic is used in real technology.
 
 ---
 
@@ -239,12 +239,12 @@ To connect the abstract concept of a gate to our physical build, we will use a c
         1.  Place two redstone lamps with a lever on the front of each for inputs `A` and `B`.
         2.  Attach a redstone torch to the back of each redstone lamp to create the NOT gates for `!A` and `!B`.
         3.  Merge these signals to a central point with redstone dust. This creates an OR gate: `!A OR !B`.
-        4.  Places a solid block and run the redstone dust into the back of the block.
+        4.  Place a solid block and run the redstone dust into the back of the block.
         5.  Invert this signal by placing a redstone torch on the opposite side of the block. This final NOT gate gives us `!(!A OR !B)`.
-        5.  Connect the output to a lamp for `Y`.
+        6.  Connect the output to a lamp for `Y`.
 
-    3.  Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
-    4.  **Verification:** The output lamp lights only when both levers are ON.
+    2.  Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
+    3.  **Verification:** The output lamp lights only when both levers are ON.
 
 -   **Real-World Connection:** A missile launch might need `TurnKey1=True` AND `PressButton=True`.
 
@@ -281,8 +281,8 @@ Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let u
 You’ll often see logic written using symbols from regular math. For example, **AND** is sometimes written as multiplication (`A · B` or `AB`), **OR** as addition (`A + B`), and **NOT** as an overbar (`Ā`).
 
 For this course, we will use a specific convention designed for maximum clarity:
- -   We will use the words **`AND`** and **`OR`** in our expressions, as they are unambiguous.
- -   For **negation**, we will use the exclamation mark (**`!`**), as in **`!A`**. This is the standard symbol used in many programming languages and keeps our complex expressions clean and readable.
+-   We will use the words **`AND`** and **`OR`** in our expressions, as they are unambiguous.
+-   For **negation**, we will use the exclamation mark (**`!`**), as in **`!A`**. This is the standard symbol used in many programming languages and keeps our complex expressions clean and readable.
 
 ##### The Laws of Boolean Algebra
 Here are the key laws we will be using in our course. There are many more, but these are the most fundamental and useful for circuit design.
@@ -295,7 +295,7 @@ Here are the key laws we will be using in our course. There are many more, but t
 
 ---
 
-##### **Lab 1: Proving a Circuit with De Morgan's Law**
+##### Lab 1: Proving a Circuit with De Morgan's Law
 
 Let’s use De Morgan’s Law to prove our AND gate design is correct.
 
@@ -308,7 +308,7 @@ Let’s use De Morgan’s Law to prove our AND gate design is correct.
 
 ---
 
-##### **Lab 2: Proving a Circuit with the Distributive Law**
+##### Lab 2: Proving a Circuit with the Distributive Law
 
 The laws of logic don't just prove that a circuit is correct; they can also make our circuits much simpler. This is a crucial engineering skill called **simplification**.
 
@@ -462,7 +462,7 @@ Design a Minecraft circuit for a two-switch light system where flipping either s
 
 ---
 
-#### **Lesson 2.5: Software Superpowers – The XOR Trick for Programmers**
+#### Lesson 2.5: Software Superpowers – The XOR Trick for Programmers
 
 > **Key Takeaway:** XOR is a “secret weapon” in programming. Its reversible, self-canceling property allows for incredibly efficient solutions to common algorithmic problems.
 
@@ -680,13 +680,13 @@ Build an AND gate using only NOR gates. Verify it with a truth table in Minecraf
 
 ---
 
-#### **Lesson 2.7: Module 2 Summary**
+#### Lesson 2.7: Module 2 Summary
 
 > You have reached the end of the learning portion of this module. You started with the basic idea of True and False and have now built a complete toolkit of the seven fundamental logic gates. You've learned how to describe them with truth tables and Boolean expressions, how to build them from our primitives, and how they connect to both real-world hardware and software.
 >
 > This summary table provides a single place to review all the gates at a glance.
 
-##### **Logic Gates Summary Table**
+##### Logic Gates Summary Table
 
 |  Gate   |                       Symbol                             |             Core Logic Rule             |    Primitive Boolean Expression              |
 | :------ | :---------------------------------------------------------------- | :-------------------------------------- | :--------------------------------------------|
@@ -700,7 +700,7 @@ Build an AND gate using only NOR gates. Verify it with a truth table in Minecraf
 
 ---
 
-#### **Lesson 2.8: Module 2 Checkpoint**
+#### Lesson 2.8: Module 2 Checkpoint
 
 > **Module Summary:** You have reached the end of the most theory-intensive module in this course. You began with simple on/off switches and have now mastered the seven fundamental logic gates, the Boolean laws that govern them, the power of simplification, and the bridge between hardware logic and software problem-solving. It is time to test your newfound knowledge.
 
