@@ -116,20 +116,121 @@ Ready to start? Let's build our first component: the Input Register!
 
 <hr class="pagebreak"/>
 
-### Prelude: The Redstone Toolkit (Optional)
+### Module 0: The Redstone Toolkit – Orientation Day (Optional)
 
+---
 
-**TODO:** create this module
+#### Module Summary
 
-*   **Keep it Focused:** The goal is not to teach all of Minecraft. It's to provide a "Minimum Viable Knowledge" guide. We should cover:
-    1.  **The Absolute Basics:** What is a block? How do you place and break one?
-    2.  **The Core Components:** A visual guide to each key component used in the course.
-        *   **Redstone Dust:** How it transmits power, its 15-block limit.
-        *   **Redstone Torch:** How it provides power and, crucially, how it *inverts* a signal when placed on the side of a powered block.
-        *   **Lever/Button:** The basic input switches.
-        *   **Redstone Lamp:** The basic output indicator.
-        *   **Redstone Repeater:** Its two primary functions—extending a signal past 15 blocks and acting as a one-way diode.
-    3.  **Powering Blocks:** The concept of "strong" vs. "weak" power, and how a powered block can activate adjacent components.
+-   Narrative Beat: Before we can speak to our computer, we need to learn how to hold the pen. This module equips you with the minimum viable skills in Minecraft’s Redstone so you can confidently follow along with the rest of the course.
+-   Learning Goals:
+    -   Identify the core components used throughout the course and understand their primary functions.
+    -   Grasp the fundamental concepts of Redstone power, including signal strength and Strong vs. Weak powering.
+    -   Build a simple "test rig" that combines the core components into a working circuit.
+-   Lesson Overview:
+    -   Lesson 0.1: The Engineer's Toolkit
+    -   Lesson 0.2: How Redstone Thinks: The Rules of Power
+    -   Lesson 0.3: Lab: The Fundamental Circuit
+-   Minecraft Artifact: A working on/off lamp circuit using a lever, wire, and output lamp.
+
+---
+
+#### Module Introduction
+
+Welcome to Redstone University’s Orientation Day!
+
+Before we start building logic gates and registers, we need to make sure you know how to handle the tools of the trade. Think of this as our lab safety and equipment tour. Only here, the "equipment" is a mix of Redstone Dust, torches, and levers.
+
+This is not a comprehensive Minecraft tutorial. We’re here to cover only what you need for the rest of the course: the minimum viable knowledge to confidently follow along, experiment on your own, and troubleshoot when something does not work.
+
+If you’ve built with Redstone before, you can likely skim this. But if you’ve never placed a Redstone Torch or aren’t sure why a signal dies after 15 blocks, this short module will save you a lot of confusion later.
+
+> #### A Note on Controls & Game Setup
+> This course assumes you know the basic Minecraft controls for placing and breaking blocks. For an optimal learning experience, we highly recommend playing in **Creative Mode** on a **Superflat** world, which gives you unlimited resources and space to build.
+
+---
+
+#### Lesson 0.1: The Engineer's Toolkit
+
+These are the pieces you’ll see over and over. They are the alphabet we will use to write our computer into existence.
+
+> #### Note on Texture Packs:
+> For clarity, I use a texture pack that enhances Redstone visibility (e.g., showing dust lines clearly). I highly recommend you find a similar one for your version of the game (such as "Vanilla Tweaks" or others). It makes debugging much easier.
+
+| Component | Game Icon | Role in this Course | Description |
+| :--- | :--- | :--- | :--- |
+| **Redstone Dust** | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/00_icon_redstone-dust.png" alt="Redstone Dust Icon" width="512px"/><br/>Figure: Redstone Dust Icon</div> | **Wire:** The foundation of all circuits. | Carries a power signal up to 15 blocks before fading. Can be placed on most solid, opaque blocks. |
+| **Redstone Torch** | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/00_icon_redstone-torch.png" alt="Redstone Torch Icon" width="512px"/><br/>Figure: Redstone Torch Icon</div> | **Power Source & Inverter (NOT Gate):** Our most versatile tool. | Acts as a constant power source. When powered by another source, it turns OFF, inverting the signal. This is our primitive **NOT gate**. |
+| **Lever** | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/00_icon_lever.png" alt="Lever Icon" width="512px"/><br/>Figure: Lever Icon</div> | **Stable Input:** Our primary way to give commands. | A simple, manual on/off switch. Perfect for setting the inputs to our computer. |
+| **Redstone Lamp** | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/00_icon_redstone-lamp.png" alt="Redstone Lamp Icon" width="512px"/><br/>Figure: Redstone Lamp Icon</div> | **Output Indicator:** Lets us see the result of a calculation. | A block that lights up when powered. We use it to visualize the state of our circuits. |
+| **Redstone Repeater** | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/00_icon_redstone-repeater.png" alt="Redstone Repeater Icon" width="512px"/><br/>Figure: Redstone Repeater Icon</div> | **Signal Booster & Diode:** Essential for complex builds. | Extends a Redstone signal back to full strength (15) and acts as a one-way **diode** to prevent signals from flowing backward. |
+| **Solid Block** | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/00_icon_solid-block.png" alt="Solid Block Icon" width="512px"/><br/>Figure: Solid Block Icon</div> | **Conductor & Insulator:** The physical structure of our machine. | A non-transparent block like Stone or Wool. It can be powered by Redstone components and transmit that power to adjacent components. |
+| **Sign** | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/00_icon_sign.png" alt="Sign Icon" width="512px"/><br/>Figure: Sign Icon</div> | **Documentation:** A simple but vital tool for clarity. | Labeling your inputs, outputs, and different sections of a large build is crucial for understanding and debugging your own work. |
+| **Redstone Comparator** | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/00_icon_redstone-comparator.png" alt="Redstone Comparator Icon" width="512px"/><br/>Figure: Redstone Comparator Icon</div> | **Advanced Tool (Later Modules)** | We will introduce this component later when we build memory. For now, you just need to know it exists. |
+
+---
+
+#### Lesson 0.2: How Redstone Thinks: The Rules of Power
+
+Understanding how power travels is the single most important skill for a Redstone engineer. It can be non-intuitive, so let's establish the core rules.
+
+##### Rule 1: Signal Strength & Range
+A Redstone signal has a "strength" from 15 (full power) down to 0 (off).
+-   A signal source (like a Lever or Torch) outputs a signal of strength **15**.
+-   For every block of Redstone Dust the signal travels, its strength decreases by **1**.
+-   After 15 blocks of dust, the signal strength is 0, and the wire goes dead.
+-   A **Redstone Repeater** takes any signal strength from 1 to 15 and outputs a fresh, full-strength signal of 15.
+
+##### Rule 2: Strong vs. Weak Powering
+This is a critical concept. Blocks can be powered in two ways, and what they can do depends on how they are powered.
+
+| | **Strong Power** | **Weak Power** |
+| :--- | :--- | :--- |
+| **What Provides It?** | A **Lever**, **Button**, **Repeater**, or **Torch** directly powering a block. | **Redstone Dust** running into or across a block. |
+| **What Can It Do?** | Powers **all** adjacent Redstone components, including dust above, below, and on all sides. | Powers only **some** adjacent components (like a lamp or repeater), but **NOT** adjacent dust. |
+
+**Visual Example:**
+> ##### PLACEHOLDER:
+> Insert a screenshot showing two scenarios side-by-side.
+> -   **Left side:** A lever on a block (Strong Power). Show Redstone dust placed on every face of the block (top, bottom, all four sides) all lighting up.
+> -   **Right side:** A line of Redstone dust running over a block (Weak Power). Show that a lamp placed next to the block lights up, but dust placed next to it does not.
+
+Understanding this difference is the key to creating compact vertical circuits later in the course.
+
+---
+
+#### Lesson 0.3: Lab: The Fundamental Circuit
+
+Let’s combine these concepts to build a simple input to process to output circuit. This is the core pattern of every device we’ll make, from simple gates to a full CPU.
+
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/module0_minicircuit.png" alt="Mini Circuit in Minecraft" width="512px"/><br/><em>Figure: A lever (input) connected to a Redstone Lamp (output) through dust (wire).</em></div></br></br>
+
+1.  **Place an Output:** Place a **Redstone Lamp** on the ground.
+2.  **Place an Input:** A few blocks away, place a **solid block** with a **Lever** on it.
+3.  **Wire them up:** Connect the block under the lever to the lamp using a line of **Redstone Dust**.
+4.  **Test:** Flip the lever. The lamp should turn on and off.
+5.  **Experiment:** Now, modify your circuit to test your understanding.
+    -   **Invert the signal:** Insert a **Redstone Torch** somewhere in the path. How does the lamp's behavior change? (Hint: The torch acts as a NOT gate).
+    -   **Extend the signal:** Make your Redstone Dust wire 20 blocks long. The signal will not reach. Now, place a **Repeater** after block 14. Observe how it refreshes the signal.
+
+You’ve just built your first working circuit and verified the core rules of Redstone. Every single build in this course is just a more complex version of this fundamental pattern.
+
+---
+
+#### Module 0 Checkpoint
+
+1.  What two essential functions does a Redstone Repeater perform?
+2.  An engineer powers a block with a line of Redstone Dust. Will a piece of dust placed on top of that block receive power? Why or why not?
+3.  What Redstone component is our primitive **NOT gate**?
+
+<details>
+<summary><strong>Click for answers</strong></summary>
+
+1.  It boosts a signal back to strength 15 and acts as a one-way diode.
+2.  No. The dust only weakly powers the block, which cannot transmit power to adjacent dust.
+3.  The Redstone Torch.
+
+</details>
 
 <hr class="pagebreak"/>
 
@@ -1153,128 +1254,146 @@ This was a huge module! But you now have the most powerful tool an engineer can 
 
 ### Interlude I: The Art of Compact Design (Optional)
 
-**A Note from the Instructor:**
+---
 
-Congratulations on finishing Module 2! You've mastered the theoretical foundation of our entire computer.
+#### A Note from the Instructor
 
-Before we begin our next major project in Module 3, we have this special, optional section. Think of it as an engineering deep-dive. The goal of Module 2 was to build for **clarity**. This Interlude introduces the art of building for **efficiency**.
+Congratulations on finishing Module 2! You have mastered the theoretical foundation of our entire computer.
 
-You can read it now to prepare for the builds ahead, or you can skip it and come back anytime. In the course we will be using the abstract representation of our logic gates and how you implement them is completely up to you. That's the beauty of black box abstractions, we only care that it provides the interface that is defined in the spec, we don't care HOW it was implemented as long as it works.
+Before we begin our next major project, we have this special, optional section. Think of it as an engineering deep dive. The goal of Module 2 was to build for **clarity**, making our gates large so the logic was easy to trace. This Interlude introduces the art of building for **efficiency**.
+
+We will analyze some common, space-saving designs used by the Redstone community. Understanding them is not required, but it will empower you to make your own builds smaller and faster. This is your first step into true Redstone engineering. From Module 3 onward, we will follow the **Rule of Abstraction**: a gate is defined by its function, not its layout. You are free to use these new designs or the verbose ones from Module 2. As long as it works, it is correct.
 
 ---
 
 #### Interlude Summary
 
--   **Narrative Beat:** You’ve mastered the language of logic. Now, let's learn the art of the Redstone engineer: how to shrink those textbook examples into sleek components ready for a real machine.
--   **Learning Goals:**
+-   Narrative Beat: You have mastered the language of logic. Now, let's learn the art of the Redstone engineer: how to shrink those textbook examples into sleek components ready for a real machine.
+-   Learning Goals:
     -   Understand the engineering trade-offs between a circuit's size, speed, and readability.
     -   Learn common techniques Redstone engineers use to make circuits more compact.
-    -   Analyze a classic compact AND gate design to see these principles in action.
--   **Minecraft Artifact:** A compact version of the AND gate, built and understood.
-
----
-
-#### **Introduction**
-
-The circuits you built in Module 2 were designed with one goal: **clarity**. They are large and easy to trace so you can see how Boolean logic translates directly into physical blocks.
-
-But when you need to build dozens of gates for a complex component, space becomes a precious resource. This is where engineering comes in. In this appendix, we will explore the philosophy of **compact design**, optimizing our circuits for size and speed.
+    -   Analyze classic compact gate designs to see these principles in action.
+-   Minecraft Artifact: A toolkit of compact logic gate designs.
 
 ---
 
 #### The Engineering Trade-Off: Size, Speed, and Readability
 
-In Redstone, every design choice is a trade-off. When compacting a circuit, you are usually trading **readability** for **efficiency**.
+Every Redstone design is a compromise. When you compact a circuit, you are usually trading **readability** for **efficiency**.
 
 | Factor | Verbose (Educational) Builds | Compact (Practical) Builds |
 | :--- | :--- | :--- |
-| **Size / Footprint** | Large and sprawling. | Small and dense. Aims to fit the most logic in the smallest area. |
-| **Speed / Tick Delay** | Often slower due to more components. | Can be significantly faster by minimizing the signal path. |
-| **Readability** | Very easy to read and debug. | Often difficult to read, making it very challenging to find mistakes. |
+| **Size / Footprint** | Large and sprawling for clarity. | Small and dense to save space. |
+| **Speed / Tick Delay**| Often slower due to longer wiring. | Can be faster with shorter signal paths. |
+| **Readability** | Very easy to trace and debug. | Can be difficult to read, making errors harder to find. |
 
-Your goal is to find the right balance. For learning, verbose is best. For practical builds, compact is essential.
+> #### Guideline:
+> For learning and debugging, verbose is best. For large-scale builds where space is a concern, compact is essential.
 
 ---
 
-#### Case Study: The Compact AND Gate
+#### Case Studies in Compact Design
 
-Let's put this into practice by analyzing one of the most classic compact designs in Minecraft. First, recall our verbose AND gate, built to be easy to understand.
+Each case study compares the **Verbose Teaching Version** you learned in Module 2 with a **Compact Practical Version** designed for efficiency. Both obey the same truth table, the only difference is the implementation.
+
+---
+
+##### Case Study: The Compact AND Gate
+
+First, recall our verbose AND gate, built from our primitives to be easy to understand.
 
 <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02b_AND-gate-composite_minecraft.png" alt="Verbose AND Gate in Minecraft" width="512px"/><br/><em>Figure: Our easy-to-read, but large, educational AND gate.</em></div></br></br>
 
-Now, look at the design below. It performs the exact same logic, but in much smaller space. If we remove the lamps we are using to visual input then it is even more compact!
+Now, look at the design below. It performs the exact same logic, but in a much smaller space.
 
 <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02b_AND-gate_minecraft.png" alt="Compact AND Gate in Minecraft" width="512px"/><br/><em>Figure: A classic, space-efficient compact AND gate.</em></div></br></br>
 
+##### Logical Deconstruction
+This compact build still follows the logic of `!(!A OR !B)`. The components are just cleverly merged.
+-   The two torches on the sides are the first `NOT` gates, creating `!A` and `!B`.
+-   The central Redstone dust on top of the block acts as the `OR` gate, collecting the signals from the torches. If `!A` is on, OR `!B` is on, this dust becomes powered.
+-   The torch on the back of the central block is the final `NOT` gate, inverting the `OR` signal to produce the final AND output.
 
-
-    Let's see how this works. It's still `!(!A OR !B)`, but the components are cleverly merged.
-
-    1.  Place two redstone lamps with a lever on the front of each for inputs `A` and `B`.
-    2.  Place redstone dust directly behind each lamp.
-    3.  Directly behind the redstone place a solid block.
-    4.  Place a torch directly on top of each of the solid blocks to negate both `A` and `B` (`!A` and `!B`).
-    5.  Between these two blocks place another solid block. For clarity, it can help to make this a different color from the other two solid blocks. I use red for all solid blocks with a torch on the backside, so it is red in the screenshot above.
-    6.  Place redstone on top of the middle block which will serve as our OR gate (`!A OR !B`).
-    7.  On the backside of this middle block, place a redstone torch to negate the signal `(!(!A OR !B))`.
-    8.  Directly in front of the torch on the backside of the middle block, place your redstone lamp for output `Y`.>
+##### Build Steps
+1.  Place three solid blocks in a row.
+2.  Place input levers on the front of the two outer blocks.
+3.  Place a Redstone Torch on the top of each of the two outer blocks. These are your `!A` and `!B` inverters.
+4.  Place a single piece of Redstone Dust on top of the central block. This dust will be powered by either of the torches. This is your `OR` gate.
+5.  Place a Redstone Torch on the back face of the central block. This is your final inverter.
+6.  The output from this final torch is `A AND B`. Connect it to a lamp to test.
 
 ---
 
-#### Case Study: The Compact NAND Gate
+##### Case Study: The Compact NAND Gate
 
-**TODO**: include the composite and compact figures for NAND
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/NAND-gate-composite_minecraft.png" alt="Verbose NAND Gate in Minecraft" width="512px"/><br/><em>Figure: Our educational NAND gate, built by removing the final inverter from the verbose AND gate.</em></div></br></br>
 
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/NAND-gate-compact_minecraft.png" alt="Compact NAND Gate in Minecraft" width="512px"/><br/><em>Figure: A compact NAND gate, created by tapping the output of the compact AND gate before the final inversion.</em></div></br></br>
 
-  **TODO:** Explain to the user that they apply the same process that we did in module 2... Negate the final output of the compact AND gate of their choice..
+##### Logical Deconstruction
+This is the beauty of understanding the logic. A NAND gate is simply `!(A AND B)`. In our compact AND gate build, the final component is a torch that performs the last inversion. To get a NAND output, we just need to take the signal from *before* that final torch. The signal on the central dust is `!A OR !B`, which De Morgan's Law proves is logically identical to `A NAND B`.
 
+##### Build Steps
+1.  Build the compact AND gate exactly as described above.
+2.  Instead of taking the output from the final torch, connect your output wire directly to the Redstone Dust on top of the central block.
+3.  This signal is your NAND output. Connect it to a lamp to verify.
 
+---
 
-#### Case Study: The Compact XOR Gate
-    Let's look back at our XOR Gate design from module 2...*TODO*: recall xor build from module 2
+##### Case Study: The Compact XOR Gate
 
-    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02b_AND-gate-composite_minecraft.png" alt="Verbose AND Gate in Minecraft" width="512px"/><br/><em>Figure: Our easy-to-read, but large, educational AND gate.</em></div></br></br>
+Recall our large, easy-to-read XOR gate from Module 2.
 
-    *TODO*: Introduce compact version
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02b_XOR-gate-composite_minecraft.png" alt="Verbose XOR Gate in Minecraft" width="512px"/><br/><em>Figure: Our educational XOR gate, built for clarity.</em></div></br></br>
 
-    <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02b_XOR-gate_minecraft.png" alt="Compact XOR Gate in Minecraft" width="512px"/><br/><em>Figure: A compact XOR gate built in Minecraft. The output is on only when the two inputs are different.</em></div></br></br>
+Now, observe a classic compact XOR design. It is much smaller but harder to read at a glance.
 
-  **The Build:**
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/02b_XOR-gate_minecraft.png" alt="Compact XOR Gate in Minecraft" width="512px"/><br/><em>Figure: A very common and tileable compact XOR gate design.</em></div></br></br>
 
-    2.  Build the compact version:
-        1.  This more efficient layout uses the same principles but in a smaller space.
-        2.  Inputs A and B power blocks that have torches on three sides, creating a complex interaction of NOT and AND-like logic.
-        3.  The final output is taken from the torch at the front. It will only be ON if the inputs are different.
-        4.  Connect to an output lamp for `Y`.
+##### Logical Deconstruction
+This design is more complex and relies on how torches interact. The logic effectively creates the two conditions for an XOR (`A AND !B` and `!A AND B`) in parallel and merges their outputs.
+-   The torches on top of the input blocks create `!A` and `!B`.
+-   The torches on the sides of the output block are each controlled by a combination of a direct input and an inverted input.
+-   The final Redstone dust on top acts as an OR gate, combining the outputs of the side torches.
 
-    3.  Test all four combinations from the truth table (`0,0`, `0,1`, `1,0`, `1,1`).
-    4.  **Verification:** The output is `1` only when inputs differ.
+##### Build Steps
+1.  Place two solid blocks for your inputs, side-by-side. Place levers on the front.
+2.  Place a third solid block one block away from and between the inputs. This will be your output block.
+3.  On the input blocks, place Redstone Dust on top.
+4.  On the output block, place Redstone Torches on the two sides facing the input blocks.
+5.  On top of the output block, place a piece of Redstone Dust.
+6.  Place Redstone Torches on the faces of the input blocks that face the central output block.
+7.  The final output is taken from the Redstone Dust on top of the output block. Connect it to a lamp. It will be on only when the inputs differ.
 
-#### Case Study: The Compact XNOR Gate
+---
 
-**TODO**: include the composite and compact figures for XNOR
+##### Case Study: The Compact XNOR Gate
 
-**The Build:**
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/XNOR-gate-composite_minecraft.png" alt="Verbose XNOR Gate in Minecraft" width="512px"/><br/><em>Figure: The educational XNOR, built by inverting an input to the verbose XOR gate.</em></div></br></br>
 
-**TODO**: Add build instructions
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/XNOR-gate-compact_minecraft.png" alt="Compact XNOR Gate in Minecraft" width="512px"/><br/><em>Figure: A compact XNOR gate, built by simply inverting one input to the compact XOR gate.</em></div></br></br>
 
+##### Logical Deconstruction
+Just as we learned in Module 2, the simplest way to create an XNOR (equality detector) is to invert one of the inputs to an XOR gate. The logic `A XNOR B` is identical to `A XOR !B`. We can apply this exact same principle to our compact build. This is the art of the engineer: modifying an existing component instead of reinventing the wheel.
 
+##### Build Steps
+1.  Build the compact XOR gate exactly as described above.
+2.  Choose one input, for example, input B.
+3.  To invert it, place a Redstone Torch between the lever for B and the input block of the XOR gate.
+4.  Now, flipping the B lever will send an inverted signal into the compact XOR circuit. The entire circuit will now behave as an XNOR gate, lighting up only when the two levers are in the same state.
 
-
-
-
-
+---
 
 #### Conclusion: Your Journey Into Optimization
 
-You now understand the crucial difference between a circuit designed for learning and one designed for practice. This is the first step toward thinking like an engineer.
+You now know the difference between a circuit designed for teaching and one designed for practical builds. This is a major step in your engineering journey. You understand that compact designs are not magic; they are just clever physical implementations of the same Boolean logic you have already mastered.
 
-You do not need to memorize compact designs to complete this course. The verbose builds will work just fine. However, understanding *why* compact designs exist will make you a much better builder.
+From Module 3 onward, we follow the **Rule of Abstraction**:
+-   A gate is defined by its **truth table** and interface, not by its internal layout.
+-   You are free to use verbose or compact designs as you prefer.
 
-**Explore More in the World Download!**
-**TODO:** Put together a world showcasing a wide variety of compact logic gate designs and tricks.
-
-This case study is just the beginning. To help you on your journey, the Module 2 world download includes a "Gate Museum" showcasing many different community-tested designs for each logic gate. I encourage you to explore them and use the principles you learned here to understand how they work.
+> #### Explore More: The Gate Museum
+> In the world download provided for the course, you will find a section labeled "Gate Museum" which showcases these and many other community-tested compact designs for each logic gate. I encourage you to explore, build, and test them to expand your engineering toolkit.
 
 <hr class="pagebreak"/>
 
