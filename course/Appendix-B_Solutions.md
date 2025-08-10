@@ -6,6 +6,16 @@
 
 ## Part I: The Foundations, Speaking to the Machine
 
+### Module 0: The Redstone Toolkit – Orientation Day (Optional)
+
+**<strong>Click for answers</strong>**
+
+1.  It boosts a signal back to strength 15 and acts as a one-way diode.
+2.  No. The dust only weakly powers the block, which cannot transmit power to adjacent dust.
+3.  The Redstone Torch.
+
+---
+
 ### Module 2: The Language of Logic – A Deep Dive into Boolean Algebra
 
 **<strong>Solution: Boolean Expression Evaluation</strong>**
