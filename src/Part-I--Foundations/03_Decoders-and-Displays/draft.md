@@ -397,29 +397,29 @@ This checkpoint is divided into three parts to test the different skills you've 
 
 ##### Part 1: Knowledge Check
 1.  Why is a two-stage (Decoder -> Encoder) design generally better than a single, complex circuit?
-2.  What is the purpose of the Repeater Tap in our compact decoder? Why can't we just use Redstone dust?
-3.  In our Diode Matrix ROM, what does a connection between a horizontal line (`LN`) and a vertical segment line physically represent?
+2.  What is the purpose of the **Repeater Tap** in our compact decoder? Why can't we just use Redstone dust?
+3.  In our Diode Matrix ROM, what does placing a **Torch Tap** at an intersection physically represent?
 
 <details>
 <summary><strong>Click for answers</strong></summary>
-1.  It breaks the problem down, making it easier to design, build, and debug each part independently (modularity).
+1.  It breaks the problem down into smaller, independent modules (modularity). This makes each part easier to design, build, and debug.
 2.  The Repeater Tap creates a "strongly powered" block, which is necessary to power the Redstone dust on the output line across the 1-block air gap. Simple dust would create a "weakly powered" block, which cannot.
-3.  It represents a single "bit" of stored information. Specifically, it's a command to "turn this segment OFF for this number."
+3.  It represents a single "bit" of stored information. Specifically, it's a command to "turn this segment ON when this number line is selected (LOW)."
 </details>
 
 ##### Part 2: Logic Puzzles
 1.  **Decoder Design:** You want to add a special output line, `LE`, that lights up only for even numbers (`0, 2, 4, 6, 8`). You realize that for all even numbers, the `B0` bit is always `0`. What is the single tap you would need to build a simple detector for this?
-2.  **Encoder Design:** The letter 'A' can be made with segments `a, b, c, e, f, g`. On paper, which segment torches would the input line `LA` need to suppress in our Diode Matrix ROM?
+2.  **Encoder Design:** The letter 'A' can be made with segments `a, b, c, e, f, g`. According to the design of our ROM, which segment line is the *only one* that would **not** have a torch tap placed on it from the `LA` input line?
 3.  **Reverse Engineering:** You see a line in a decoder that has Torch Taps on `B2` and `B1`, and Repeater Taps on `B3` and `B0`. What decimal number is this line designed to detect?
 
 <details>
 <summary><strong>Click for solutions</strong></summary>
 1.  You want the lamp to be ON only when `B0` is `0`. Our active-low system turns the lamp on when the line is unpowered. You would need a single **Repeater Tap** from the `B0` line. When `B0` is `1` (odd), the repeater powers the `LE` line and turns the lamp off. When `B0` is `0` (even), the repeater is off, the line is unpowered, and the lamp turns on.
-2.  The `LA` line would need to suppress the torch for the segment that is OFF: only segment **`d`**.
+2.  The line for the letter 'A' would need to activate every segment *except* for segment **`d`**. Therefore, `d` is the only segment line that would not get a torch tap.
 3.  Torches are for `1`s, Repeaters are for `0`s. So the identity is `0110`. This is the binary for decimal **6**.
 </details>
 
-###### Part 3: The Debug Challenge (In-Game)
+##### Part 3: The Debug Challenge (In-Game)
 > In the world download for this module, you will find a section labeled "Module 3 Debug Challenge." The display system is fully connected. When you input **`0010`** (for the number 2), the display incorrectly shows a **`6`**.
 >
 > **Trace the logic:**
@@ -431,33 +431,33 @@ This checkpoint is divided into three parts to test the different skills you've 
 <details>
 <summary><strong>Click for the solution</strong></summary>
 **The Logic:**
-When the input is `2`, the `L2` line from the decoder correctly goes LOW. The `L2` line is supposed to stop suppressing the torches for segments `a,b,d,e,g` and continue suppressing the torches for `c` and `f`.
+When the input is `2`, the `L2` line from the decoder correctly goes LOW. This is supposed to activate the torches for segments `a, b, d, e, g`.
 
 The display shows a `6`, meaning segments `c` and `f` are ON when they should be OFF, and segment `b` is OFF when it should be ON.
 
 **The Conclusion:**
 This points to a catastrophic failure in the "programming" of the `L2` line in your Diode Matrix. You have wired it incorrectly.
--   The connections from the `L2` line to the `c` and `f` segment torches are likely **missing**.
--   You have likely **accidentally added** a connection from the `L2` line to the `b` segment torch.
+-   You have likely **accidentally placed** torch taps from the `L2` line to the segment lines for `c` and `f`.
+-   You have likely **forgotten to place** the torch tap from the `L2` line to the segment line for `b`.
 </details>
----
 
+---
 #### Module 3 Conclusion
 
-This was a massive milestone. You didn't just build a circuit; you engineered a system. By breaking a complex problem down into two distinct, logical stages (a decoder and an encoder), you built something complex in a way that was manageable, testable, and understandable. You have now mastered the concepts of binary-to-decimal decoding and using a hardware ROM to drive an output, two of the most fundamental building blocks in all of digital electronics.
+This was a massive milestone. You didn't just build a circuit; you engineered a complete system. By breaking a complex problem down into distinct, logical stages, you built something complex in a way that was manageable, testable, and understandable. You have now mastered the concepts of binary-to-decimal decoding and using a hardware ROM to drive an output—two of the most fundamental building blocks in all of digital electronics.
 
 **What’s Next?**
-In the next module, you’ll discover a critical flaw in our simple translator when we try to count past 9. You’ll learn about the hexadecimal system and upgrade your display to handle it.
+You have successfully completed Part I of this course. You can now take a binary input and display it as a number humans can read. But what happens when we try to do math? In the next module, you’ll discover a critical flaw in our simple translator when we try to count past 9. You’ll learn about the hexadecimal system and how our modular design makes upgrading our system a breeze.
 
 ---
-
 #### Key Terms (Module 3)
 
--   **Decoder:** A circuit that takes a multi-bit binary input and activates a single, corresponding output line.
--   **Encoder:** A circuit that takes a single active input line and translates it into a multi-bit coded output (like the patterns for a 7-segment display).
--   **Active-Low Logic:** A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal, rather than a HIGH (powered) one.
--   **Tap (Repeater/Torch):** Our term for a connection that reads a signal from a bus line to control another wire.
--   **ROM (Read-Only Memory):** A type of storage where data is permanently programmed into the hardware's structure.
--   **Diode Matrix:** A grid of input and output lines where diodes (in our case, Redstone Repeaters and torches) are placed at intersections to create a programmable logic device, often used as a ROM.
--   **BCD (Binary-Coded Decimal):** A method of representing the decimal digits 0-9 using a 4-bit binary code.
 -   **7-Segment Display:** An arrangement of seven light segments that can be combined to display numbers and some letters.
+-   **Active-Low Logic:** A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal.
+-   **BCD (Binary-Coded Decimal):** A method of representing the decimal digits 0-9 using a 4-bit binary code.
+-   **Decoder:** A circuit that takes a multi-bit binary input and activates a single, corresponding output line. Our decoder acts as an **Identifier**.
+-   **Diode Matrix:** A grid of input and output lines where components (like our taps) are placed at intersections to create a programmable logic device, often used as a ROM.
+-   **Encoder:** A circuit that takes a single active input line and translates it into a multi-bit coded output. Our encoder acts as a **Mapper**.
+-   **Modularity:** The engineering practice of designing a system in independent, interchangeable components. This makes the system easier to design, test, and upgrade.
+-   **ROM (Read-Only Memory):** A type of storage where data is permanently programmed into the hardware's structure.
+-   **Tap (Repeater/Torch):** Our term for a connection that reads a signal from a bus line to control another wire.
