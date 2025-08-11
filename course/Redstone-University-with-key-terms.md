@@ -1667,53 +1667,123 @@ The tap for `B0` on the `L8` line is supposed to detect this mismatch and power 
 
 ---
 
-#### Lesson 3.5: The Encoder: Building a "Diode Matrix" ROM
+#### **Lesson 3.5: The Encoder: Programming a "Diode Matrix" ROM**
 
-We now have a working decoder that gives us a single **unpowered** line for any given number. The next step is to build our "artist," the encoder that will take this information and draw the number on our display.
+> **Key Takeaway**
+> An encoder can be built as a physical Read-Only Memory (ROM) using a "diode matrix," where the layout of the wiring permanently stores the data for how to draw each number.
 
-##### The Concept: Read-Only Memory
+We now have a working decoder that gives us a single **unpowered** (active-low) line for any given number. The next step is to build our "mapper"—the encoder that will take this single signal and draw the correct digit on our display.
 
-This stage is effectively a physical **Read-Only Memory (ROM)**. The "address" is the active (unpowered) line from the decoder, and the "data" that it looks up is the pattern of segments for that number. We build this using a structure called a **Diode Matrix**.
+##### The Concept: A Physical Lookup Table
+This stage is effectively a physical **Read-Only Memory (ROM)**. The "address" is the active-low line from the decoder, and the "data" that it looks up is the pattern of segments for that number. We will build this using a structure called a **Diode Matrix**.
 
--   **The Grid:** The 10 input lines (`L0`–`L9`) from our decoder will run horizontally. The 7 output lines that control the display segments (`a`–`g`) will run vertically, crossing over (but not touching) the input lines.
--   **The "Diodes":** In electronics, a diode lets current flow one way. In Minecraft, a **Redstone Repeater** does the same job perfectly. It ensures a signal flows from our encoder to the display, but not backward.
--   **The Logic:** This is the clever part. Since our active input line is **LOW**, we need to invert the signal again.
-    1.  We will place a torch at the base of each of the 7 vertical segment lines. By default, these torches are ON, trying to power all the segments.
-    2.  We will run Redstone dust from the **HIGH** (inactive) decoder lines to turn **OFF** the segment torches we don't need.
-    3.  When a decoder line like `L3` goes **LOW**, it stops suppressing the torches for segments `a, b, c, d, g`. Those torches are now free to turn ON, and the digit `3` appears.
+First, let's create the plan on paper. This lookup table is the blueprint for our build.
 
-##### Lab: Building the Diode Matrix
+**7-Segment Display Segment Table**
 
-1.  **Layout:** Run your 10 unpowered output lines from the decoder horizontally. Above or below them, run 7 vertical lines for your segment outputs.
-2.  **Power the Segments:** At the base of each of the 7 vertical segment lines, place a block with a Redstone Torch on top. These 7 torches are the power source for your display.
-3.  **Program the Matrix:** Now for the "programming." Refer to the 7-segment table.
-    -   For digit `0`, we need segments `a,b,c,d,e,f` ON and `g` OFF. This means the `L0` line must control the torch for segment `g`. Place a block at the intersection of the `L0` line and the `g` segment line. Run dust from the `L0` line to this block, and from this block to the block that the `g` torch is on. When `L0` is HIGH (inactive), it will keep the `g` torch OFF.
-    -   For digit `1`, we need `b,c` ON. This means the `L1` line must suppress the torches for `a,d,e,f,g`. Place connections from the `L1` line to the control blocks of those five torches.
-4.  **Add Diodes:** Place a Repeater on each of the 7 vertical segment lines, just after the torch, to ensure power only flows one way towards the display.
+| Digit | `a` | `b` | `c` | `d` | `e` | `f` | `g` |
+|:-----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|  `9`  |  X  |  X  |  X  |  X  |     |  X  |  X  |
+|  `8`  |  X  |  X  |  X  |  X  |  X  |  X  |  X  |
+|  `7`  |  X  |  X  |  X  |     |     |     |     |
+|  `6`  |  X  |     |  X  |  X  |  X  |  X  |  X  |
+|  `5`  |  X  |     |  X  |  X  |     |  X  |  X  |
+|  `4`  |     |  X  |  X  |     |     |  X  |  X  |
+|  `3`  |  X  |  X  |  X  |  X  |     |     |  X  |
+|  `2`  |  X  |  X  |     |  X  |  X  |     |  X  |
+|  `1`  |     |  X  |  X  |     |     |     |     |
+|  `0`  |  X  |  X  |  X  |  X  |  X  |  X  |     |
+*(X = segment ON)*
 
-> **PLACEHOLDER:** Insert a screenshot of the diode matrix. A close-up of the `L1` or `L2` line showing how it connects to turn OFF specific segment torches would be ideal.
+##### The Logic: Inverting the Inversion
+This is where our active-low signal becomes very powerful.
+-   Our input is a single LOW line from the decoder.
+-   Our goal is to turn this one LOW signal into multiple HIGH signals to power the correct display segments.
+-   We can do this perfectly with **Redstone Torches**. When the input line from the decoder is LOW, any torch placed along it will turn **ON**.
+
+This gives us a very simple rule: to turn a segment ON for a given number, we just need to place a torch at the intersection of that number's line and that segment's line.
+
+---
+##### Lab & Experiment: Building the Diode Matrix
+
+###### 1. The Setup: The Grid
+Just like our decoder, this build uses a two-layer structure to keep the wiring clean.
+
+-   **Segment Output Layer (Ground Level):** Lay out 7 parallel lines of Redstone dust. These are your perpendicular segment outputs (`a` through `g`) that will run towards the display. Leave a 1-block air gap between each line.
+-   **Decoder Input Layer (Floating):** Now, build a platform of solid blocks one level directly above the ground layer (leaving no air gap). On this platform, run your 10 active-low lines from the decoder (`L9` down to `L0`) as horizontal rows of Redstone dust, so they run perpendicularly *over* the 7 segment lines on the ground.
+
+
+> **PLACEHOLDER:** An angled screenshot showing the two-layer structure: the 7 perpendicular segment lines on the ground, and the 10 horizontal input lines on the layer of blocks directly above them.
+
+
+##### 2. Programming the Matrix: Placing the Torch Taps
+This is where we physically "burn" the data from our lookup table into the hardware.
+-   **The Rule:** For each number line `LN`, look at the lookup table. For every segment that should be **ON** for that number, place a torch tap.
+-   **How to Build the Tap:** At the correct intersection, simply place a **Redstone Torch on the side of the block** that the raised horizontal input line (`LN`) is resting on. The torch should be positioned so that it powers the segment line on the ground below it.
+
+##### 3. Programming Example: Line `L9`
+-   According to our table, the digit `9` needs segments `a, b, c, d, f,` and `g` to be ON.
+-   Therefore, along the horizontal `L9` line, you will place six torch taps, one at each intersection with the perpendicular lines for those six segments.
+
+> **PLACEHOLDER:** A close-up screenshot showing the `L9` line with its six corresponding torch taps lighting up the correct segment lines below.
+
+> ##### Engineering Note: The Self-Isolating Design
+> You might wonder if we need repeaters to isolate the segment lines from each other like we did in our basic OR gate. In this specific design, we don't! The Redstone Torches we are using as taps are naturally **one-way devices**. They can send power *out* to the segment line, but power from another torch cannot flow *backwards* through them. The torches themselves are acting as the diodes in our "Diode Matrix," making the design incredibly elegant and efficient.
+
+##### 4. Test Your Work
+-   Before connecting the encoder to the decoder, you can test it independently. Place a lever at the start of one of the horizontal lines (e.g., `L9`). When you turn the lever **OFF** (simulating the active-low signal), you should see the correct segments (`a,b,c,d,f,g`) light up at the end of the perpendicular lines.
+
+---
+##### Real-World Connection: BIOS and Game Cartridges
+The "Diode Matrix" you've just built is a simple but powerful form of **Read-Only Memory (ROM)**. The "program" is physically burned into the circuit's layout by the placement of the torches. This exact principle was fundamental to early computing. A computer's **BIOS chip**, which tells it how to boot up, is a form of ROM. Old video game cartridges were also ROMs, with the entire game's data permanently stored in the hardware's structure. You've built the same technology!
+
+---
+##### Practice Problems
+
+##### Problem 1: Design on Paper
+You are programming the line for the digit **`2`**. According to the lookup table, which perpendicular segment lines need a torch tap from the horizontal `L2` line?
+
+<details>
+<summary><strong>Solution</strong></summary>
+The digit `2` uses segments **`a`, `b`, `d`, `e`, and `g`**. Therefore, you would place torch taps at the intersections of the `L2` line and the perpendicular lines for those five segments.
+</details>
+
+##### Problem 2: The Debug Challenge
+When you test your encoder by providing a LOW signal to the `L4` line, you expect to see the digit `4` (segments `b,c,f,g`). Instead, the display shows `b,c,f` but **segment `g` remains dark**. What is the most likely cause of this error?
+
+<details>
+<summary><strong>Solution</strong></summary>
+If a segment that should be ON is OFF, it means it is not receiving power. The most likely cause is simple: you **forgot to place the torch tap** at the intersection of the horizontal `L4` line and the perpendicular segment `g` line. Without that torch, there is nothing to power the line when `L4` goes low.
+</details>-
 
 ---
 
-#### Lesson 3.6: The Grand Payoff: The Final Connection
+#### Lesson 3.6: The Grand Payoff: System Integration
 
-The moment of truth has arrived. All the components are built. All that's left is to connect them.
+> **Key Takeaway**
+> Connecting individual, tested modules into a complete, working system is the final and most rewarding step of any engineering project.
 
-1.  Connect the 10 output lines from your **Decoder** to the 10 input lines of your **Encoder/ROM**.
-2.  Connect the 7 output lines from your **Encoder/ROM** to the control inputs of the **7-Segment Display** you built in the very first lesson.
+The moment of truth has arrived. All the individual components are built and tested. The Decoder can correctly identify numbers, and the Encoder knows how to draw them. All that's left is to bring them together and watch our machine come to life.
 
-**Let's Trace the Entire Signal for the Digit `3` (`0011`):**
+##### Lab & Experiment: The Final Connection
 
+This is the final step. Unlike the previous lessons which required precise layouts, this step is all about making the connections. The wiring might get a little messy, but that's okay! The goal is simply to link the outputs of one module to the inputs of the next.
+
+1.  **Connect Decoder to Encoder:** Carefully connect the 10 active-low output lines from your **Decoder** to the 10 horizontal input lines of your **Encoder/ROM**. Use repeaters as needed to ensure the signals are strong enough to travel the distance.
+2.  **Connect Encoder to Display:** Connect the 7 output lines from your **Encoder/ROM** to the control inputs of the **7-Segment Display** you built in the very first lesson. This might require some creative wiring to get the signals up to the display, but as long as each segment line connects to the correct input on the display, you're good to go.
+
+##### Let's Trace the Signal: `3` (`0011`)
+With everything connected, let's trace a signal from beginning to end to prove our understanding.
 1.  You flip your input levers to `0011`.
-2.  **In the Decoder:** The specialized NAND gate for `L3` receives all its required inputs. Its final torch turns OFF, and the `L3` line goes **LOW**. All other lines (`L0-L2`, `L4-L9`) remain HIGH.
-3.  **In the Encoder:** The HIGH lines keep the torches for the segments they control turned OFF. The `L3` line, however, is now LOW. It is no longer suppressing the torches for segments `a, b, c, d,` and `g`.
-4.  Those five torches turn ON, sending power up their respective vertical lines.
+2.  **In the Decoder:** The "mismatch detector" for the `L3` line finds a perfect match. All its taps are OFF, so the `L3` wire becomes **unpowered (LOW)**. Every other line (`L0-L2`, `L4-L9`) has a mismatch, so their wires are powered HIGH.
+3.  **In the Encoder:** The HIGH lines keep their corresponding torches turned off. The `L3` line, however, is now LOW. This allows the torches at the intersections for segments `a, b, c, d,` and `g` to turn **ON**.
+4.  Those five torches send power down their respective perpendicular output lines.
 5.  **At the Display:** The signals travel to the display, lighting up segments `a, b, c, d,` and `g`.
 6.  You look at your display and see a perfect, glowing **3**.
 
-Congratulations. You have successfully translated a 4-bit binary number into a human-readable digit.
+Congratulations. You have successfully engineered a complete system that translates a 4-bit binary number into a human-readable digit. This is a massive achievement in digital electronics, and you should be proud of your work!
 
-> **PLACEHOLDER:** Insert a glorious wide-shot of the entire finished machine. The input levers should be set to a number (e.g., 9), and the display should clearly show that same number.
+> **PLACEHOLDER:** A glorious wide-shot of the entire finished machine. The input levers should be set to a number (e.g., 9), and the display should clearly show that same number.
 
 ---
 
@@ -1723,29 +1793,29 @@ This checkpoint is divided into three parts to test the different skills you've 
 
 ##### Part 1: Knowledge Check
 1.  Why is a two-stage (Decoder -> Encoder) design generally better than a single, complex circuit?
-2.  What is the purpose of the Repeater Tap in our compact decoder? Why can't we just use Redstone dust?
-3.  In our Diode Matrix ROM, what does a connection between a horizontal line (`LN`) and a vertical segment line physically represent?
+2.  What is the purpose of the **Repeater Tap** in our compact decoder? Why can't we just use Redstone dust?
+3.  In our Diode Matrix ROM, what does placing a **Torch Tap** at an intersection physically represent?
 
 <details>
 <summary><strong>Click for answers</strong></summary>
-1.  It breaks the problem down, making it easier to design, build, and debug each part independently (modularity).
+1.  It breaks the problem down into smaller, independent modules (modularity). This makes each part easier to design, build, and debug.
 2.  The Repeater Tap creates a "strongly powered" block, which is necessary to power the Redstone dust on the output line across the 1-block air gap. Simple dust would create a "weakly powered" block, which cannot.
-3.  It represents a single "bit" of stored information. Specifically, it's a command to "turn this segment OFF for this number."
+3.  It represents a single "bit" of stored information. Specifically, it's a command to "turn this segment ON when this number line is selected (LOW)."
 </details>
 
 ##### Part 2: Logic Puzzles
 1.  **Decoder Design:** You want to add a special output line, `LE`, that lights up only for even numbers (`0, 2, 4, 6, 8`). You realize that for all even numbers, the `B0` bit is always `0`. What is the single tap you would need to build a simple detector for this?
-2.  **Encoder Design:** The letter 'A' can be made with segments `a, b, c, e, f, g`. On paper, which segment torches would the input line `LA` need to suppress in our Diode Matrix ROM?
+2.  **Encoder Design:** The letter 'A' can be made with segments `a, b, c, e, f, g`. According to the design of our ROM, which segment line is the *only one* that would **not** have a torch tap placed on it from the `LA` input line?
 3.  **Reverse Engineering:** You see a line in a decoder that has Torch Taps on `B2` and `B1`, and Repeater Taps on `B3` and `B0`. What decimal number is this line designed to detect?
 
 <details>
 <summary><strong>Click for solutions</strong></summary>
 1.  You want the lamp to be ON only when `B0` is `0`. Our active-low system turns the lamp on when the line is unpowered. You would need a single **Repeater Tap** from the `B0` line. When `B0` is `1` (odd), the repeater powers the `LE` line and turns the lamp off. When `B0` is `0` (even), the repeater is off, the line is unpowered, and the lamp turns on.
-2.  The `LA` line would need to suppress the torch for the segment that is OFF: only segment **`d`**.
+2.  The line for the letter 'A' would need to activate every segment *except* for segment **`d`**. Therefore, `d` is the only segment line that would not get a torch tap.
 3.  Torches are for `1`s, Repeaters are for `0`s. So the identity is `0110`. This is the binary for decimal **6**.
 </details>
 
-###### Part 3: The Debug Challenge (In-Game)
+##### Part 3: The Debug Challenge (In-Game)
 > In the world download for this module, you will find a section labeled "Module 3 Debug Challenge." The display system is fully connected. When you input **`0010`** (for the number 2), the display incorrectly shows a **`6`**.
 >
 > **Trace the logic:**
@@ -1757,36 +1827,36 @@ This checkpoint is divided into three parts to test the different skills you've 
 <details>
 <summary><strong>Click for the solution</strong></summary>
 **The Logic:**
-When the input is `2`, the `L2` line from the decoder correctly goes LOW. The `L2` line is supposed to stop suppressing the torches for segments `a,b,d,e,g` and continue suppressing the torches for `c` and `f`.
+When the input is `2`, the `L2` line from the decoder correctly goes LOW. This is supposed to activate the torches for segments `a, b, d, e, g`.
 
 The display shows a `6`, meaning segments `c` and `f` are ON when they should be OFF, and segment `b` is OFF when it should be ON.
 
 **The Conclusion:**
 This points to a catastrophic failure in the "programming" of the `L2` line in your Diode Matrix. You have wired it incorrectly.
--   The connections from the `L2` line to the `c` and `f` segment torches are likely **missing**.
--   You have likely **accidentally added** a connection from the `L2` line to the `b` segment torch.
+-   You have likely **accidentally placed** torch taps from the `L2` line to the segment lines for `c` and `f`.
+-   You have likely **forgotten to place** the torch tap from the `L2` line to the segment line for `b`.
 </details>
----
 
+---
 #### Module 3 Conclusion
 
-This was a massive milestone. You didn't just build a circuit; you engineered a system. By breaking a complex problem down into two distinct, logical stages (a decoder and an encoder), you built something complex in a way that was manageable, testable, and understandable. You have now mastered the concepts of binary-to-decimal decoding and using a hardware ROM to drive an output, two of the most fundamental building blocks in all of digital electronics.
+This was a massive milestone. You didn't just build a circuit; you engineered a complete system. By breaking a complex problem down into distinct, logical stages, you built something complex in a way that was manageable, testable, and understandable. You have now mastered the concepts of binary-to-decimal decoding and using a hardware ROM to drive an output—two of the most fundamental building blocks in all of digital electronics.
 
 **What’s Next?**
-In the next module, you’ll discover a critical flaw in our simple translator when we try to count past 9. You’ll learn about the hexadecimal system and upgrade your display to handle it.
+You have successfully completed Part I of this course. You can now take a binary input and display it as a number humans can read. But what happens when we try to do math? In the next module, you’ll discover a critical flaw in our simple translator when we try to count past 9. You’ll learn about the hexadecimal system and how our modular design makes upgrading our system a breeze.
 
 ---
-
 #### Key Terms (Module 3)
 
--   **Decoder:** A circuit that takes a multi-bit binary input and activates a single, corresponding output line.
--   **Encoder:** A circuit that takes a single active input line and translates it into a multi-bit coded output (like the patterns for a 7-segment display).
--   **Active-Low Logic:** A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal, rather than a HIGH (powered) one.
--   **Tap (Repeater/Torch):** Our term for a connection that reads a signal from a bus line to control another wire.
--   **ROM (Read-Only Memory):** A type of storage where data is permanently programmed into the hardware's structure.
--   **Diode Matrix:** A grid of input and output lines where diodes (in our case, Redstone Repeaters and torches) are placed at intersections to create a programmable logic device, often used as a ROM.
--   **BCD (Binary-Coded Decimal):** A method of representing the decimal digits 0-9 using a 4-bit binary code.
 -   **7-Segment Display:** An arrangement of seven light segments that can be combined to display numbers and some letters.
+-   **Active-Low Logic:** A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal.
+-   **BCD (Binary-Coded Decimal):** A method of representing the decimal digits 0-9 using a 4-bit binary code.
+-   **Decoder:** A circuit that takes a multi-bit binary input and activates a single, corresponding output line. Our decoder acts as an **Identifier**.
+-   **Diode Matrix:** A grid of input and output lines where components (like our taps) are placed at intersections to create a programmable logic device, often used as a ROM.
+-   **Encoder:** A circuit that takes a single active input line and translates it into a multi-bit coded output. Our encoder acts as a **Mapper**.
+-   **Modularity:** The engineering practice of designing a system in independent, interchangeable components. This makes the system easier to design, test, and upgrade.
+-   **ROM (Read-Only Memory):** A type of storage where data is permanently programmed into the hardware's structure.
+-   **Tap (Repeater/Torch):** Our term for a connection that reads a signal from a bus line to control another wire.
 
 <hr class="pagebreak"/>
 
@@ -1893,13 +1963,14 @@ Welcome to advanced studies. Let's dive into Module 12.
 
 #### Key Terms (Module 3)
 
--   **Decoder:** A circuit that takes a multi-bit binary input and activates a single, corresponding output line.
--   **Encoder:** A circuit that takes a single active input line and translates it into a multi-bit coded output (like the patterns for a 7-segment display).
--   **Active-Low Logic:** A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal, rather than a HIGH (powered) one.
--   **Tap (Repeater/Torch):** Our term for a connection that reads a signal from a bus line to control another wire.
--   **ROM (Read-Only Memory):** A type of storage where data is permanently programmed into the hardware's structure.
--   **Diode Matrix:** A grid of input and output lines where diodes (in our case, Redstone Repeaters and torches) are placed at intersections to create a programmable logic device, often used as a ROM.
--   **BCD (Binary-Coded Decimal):** A method of representing the decimal digits 0-9 using a 4-bit binary code.
 -   **7-Segment Display:** An arrangement of seven light segments that can be combined to display numbers and some letters.
+-   **Active-Low Logic:** A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal.
+-   **BCD (Binary-Coded Decimal):** A method of representing the decimal digits 0-9 using a 4-bit binary code.
+-   **Decoder:** A circuit that takes a multi-bit binary input and activates a single, corresponding output line. Our decoder acts as an **Identifier**.
+-   **Diode Matrix:** A grid of input and output lines where components (like our taps) are placed at intersections to create a programmable logic device, often used as a ROM.
+-   **Encoder:** A circuit that takes a single active input line and translates it into a multi-bit coded output. Our encoder acts as a **Mapper**.
+-   **Modularity:** The engineering practice of designing a system in independent, interchangeable components. This makes the system easier to design, test, and upgrade.
+-   **ROM (Read-Only Memory):** A type of storage where data is permanently programmed into the hardware's structure.
+-   **Tap (Repeater/Torch):** Our term for a connection that reads a signal from a bus line to control another wire.
 
 ---

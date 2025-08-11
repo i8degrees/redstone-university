@@ -195,18 +195,30 @@ The tap for `B0` on the `L8` line is supposed to detect this mismatch and power 
 
 ---
 
+**<strong>Solution</strong>**
+
+The digit `2` uses segments **`a`, `b`, `d`, `e`, and `g`**. Therefore, you would place torch taps at the intersections of the `L2` line and the perpendicular lines for those five segments.
+
+---
+
+**<strong>Solution</strong>**
+
+If a segment that should be ON is OFF, it means it is not receiving power. The most likely cause is simple: you **forgot to place the torch tap** at the intersection of the horizontal `L4` line and the perpendicular segment `g` line. Without that torch, there is nothing to power the line when `L4` goes low.
+
+---
+
 **<strong>Click for answers</strong>**
 
-1.  It breaks the problem down, making it easier to design, build, and debug each part independently (modularity).
+1.  It breaks the problem down into smaller, independent modules (modularity). This makes each part easier to design, build, and debug.
 2.  The Repeater Tap creates a "strongly powered" block, which is necessary to power the Redstone dust on the output line across the 1-block air gap. Simple dust would create a "weakly powered" block, which cannot.
-3.  It represents a single "bit" of stored information. Specifically, it's a command to "turn this segment OFF for this number."
+3.  It represents a single "bit" of stored information. Specifically, it's a command to "turn this segment ON when this number line is selected (LOW)."
 
 ---
 
 **<strong>Click for solutions</strong>**
 
 1.  You want the lamp to be ON only when `B0` is `0`. Our active-low system turns the lamp on when the line is unpowered. You would need a single **Repeater Tap** from the `B0` line. When `B0` is `1` (odd), the repeater powers the `LE` line and turns the lamp off. When `B0` is `0` (even), the repeater is off, the line is unpowered, and the lamp turns on.
-2.  The `LA` line would need to suppress the torch for the segment that is OFF: only segment **`d`**.
+2.  The line for the letter 'A' would need to activate every segment *except* for segment **`d`**. Therefore, `d` is the only segment line that would not get a torch tap.
 3.  Torches are for `1`s, Repeaters are for `0`s. So the identity is `0110`. This is the binary for decimal **6**.
 
 ---
@@ -214,13 +226,13 @@ The tap for `B0` on the `L8` line is supposed to detect this mismatch and power 
 **<strong>Click for the solution</strong>**
 
 **The Logic:**
-When the input is `2`, the `L2` line from the decoder correctly goes LOW. The `L2` line is supposed to stop suppressing the torches for segments `a,b,d,e,g` and continue suppressing the torches for `c` and `f`.
+When the input is `2`, the `L2` line from the decoder correctly goes LOW. This is supposed to activate the torches for segments `a, b, d, e, g`.
 
 The display shows a `6`, meaning segments `c` and `f` are ON when they should be OFF, and segment `b` is OFF when it should be ON.
 
 **The Conclusion:**
 This points to a catastrophic failure in the "programming" of the `L2` line in your Diode Matrix. You have wired it incorrectly.
--   The connections from the `L2` line to the `c` and `f` segment torches are likely **missing**.
--   You have likely **accidentally added** a connection from the `L2` line to the `b` segment torch.
+-   You have likely **accidentally placed** torch taps from the `L2` line to the segment lines for `c` and `f`.
+-   You have likely **forgotten to place** the torch tap from the `L2` line to the segment line for `b`.
 
 ---
