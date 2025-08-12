@@ -2,7 +2,7 @@ import os
 import re
 
 INPUT_FILE = "course/Redstone-University.md"
-APPENDIX_FILE = "course/Appendix-C_Key-Terms.md"
+APPENDIX_FILE = "appendices/Appendix-C_Key-Terms.md"
 OUTPUT_FILE = "course/Redstone-University-with-key-terms.md"
 
 
@@ -34,6 +34,7 @@ def main():
     for heading, bullets in key_terms_sections:
         appendix.append(f"{heading}\n\n{bullets}\n\n---\n")
 
+    os.makedirs(os.path.dirname(APPENDIX_FILE), exist_ok=True)
     with open(APPENDIX_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(appendix))
 

@@ -128,7 +128,9 @@ By scaling down the problem, we can focus on the core logic without getting over
 2.  From these levers, create a **4-line bus**. Run redstone dust from the back of each lamp to a central point and then split each line into two parallel lines. On one line of each pair, place a NOT gate (a block with a torch on the opposite side that the dust runs in to ).
 3.  You now have four parallel lines carrying the signals `B1`, `!B1`, `B0`, and `!B0`. Use colored wool to keep them organized!
 
-> **PLACEHOLDER:** Insert a screenshot of the 4-line bus with inputs `B1` and `B0` and their inversions, clearly labeled.
+
+![2-to-4 Decoder Step 1](./images/2-to-4-decoder-1_minecraft.png)
+*Figure: 4-line bus with inputs `B1` and `B0` and their inversions*
 
 **Step 2: Build and Test the First Gate (`L0`)**
 1.  Choose your favorite 2-input AND gate design from Module 2 or the Interlude. Build one of these gates.
