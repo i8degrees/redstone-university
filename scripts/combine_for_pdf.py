@@ -3,7 +3,7 @@ import os
 MAIN_FILE = "course/Redstone-University-for-pdf.md"
 APPENDIX_B = "appendices/Appendix-B_Solutions.md"
 APPENDIX_C = "appendices/Appendix-C_Key-Terms.md"
-FINAL_FILE = "course/Redstone-University-final.md"
+FINAL_FILE = "course/Redstone-University.md"
 
 
 def read_file(path):
@@ -25,7 +25,7 @@ def main():
         f.write(combined)
         f.write("\n")
 
-    print(f"✅ Combined main content and appendices into {FINAL_FILE}")
+   print(f"✅ Combined main content and appendices into {FINAL_FILE}")
 
 
 if __name__ == "__main__":

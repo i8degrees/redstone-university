@@ -42,7 +42,7 @@ jobs:
       - name: Generate PDF from processed markdown
         uses: baileyjm02/markdown-to-pdf@v1
         with:
-          input_path: course/Redstone-University-final.md
+          input_path: course/Redstone-University.md
           output_dir: course/
           output_file: Redstone-University.pdf
           build_html: false
@@ -53,7 +53,6 @@ jobs:
         run: |
           rm -f course/Redstone-University-for-pdf.md
           rm -f course/Redstone-University-with-key-terms.md
-          rm -f course/Redstone-University-final.md
 
       - name: Commit and push if changed
         run: |
