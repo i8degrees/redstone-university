@@ -70,12 +70,7 @@ This is a critical concept. Blocks can be powered in two ways, and what they can
 | :--- | :--- | :--- |
 | **What Provides It?** | A **Lever**, **Button**, **Repeater**, or **Torch** directly powering a block. | **Redstone Dust** running into or across a block. |
 | **What Can It Do?** | Powers **all** adjacent Redstone components, including dust above, below, and on all sides. | Powers only **some** adjacent components (like a lamp or repeater), but **NOT** adjacent dust. |
-
-**Visual Example:**
-> ##### PLACEHOLDER:
-> Insert a screenshot showing two scenarios side-by-side.
-> -   **Left side:** A lever on a block (Strong Power). Show Redstone dust placed on every face of the block (top, bottom, all four sides) all lighting up.
-> -   **Right side:** A line of Redstone dust running over a block (Weak Power). Show that a lamp placed next to the block lights up, but dust placed next to it does not.
+| **Example** | ![Strongly powered block](./images/strongly-powered-block_minecraft.png) | ![Weakly powered block](./images/weakly-powered-block_minecraft.png) |
 
 Understanding this difference is the key to creating compact vertical circuits later in the course.
 
@@ -85,11 +80,11 @@ Understanding this difference is the key to creating compact vertical circuits l
 
 Let’s combine these concepts to build a simple input to process to output circuit. This is the core pattern of every device we’ll make, from simple gates to a full CPU.
 
-![Mini Circuit in Minecraft](./images/module0_minicircuit.png)
-*Figure: A lever (input) connected to a Redstone Lamp (output) through dust (wire).*
+![Basic circuit in Minecraft](./images/basic-circuit_minecraft.png)
+*Figure: A Redstone Lamp with a lever (input) connected to a Redstone Lamp (output) through Redstone Dust (wire).*
 
 1.  **Place an Output:** Place a **Redstone Lamp** on the ground.
-2.  **Place an Input:** A few blocks away, place a **solid block** with a **Lever** on it.
+2.  **Place an Input:** A few blocks away, place a **solid block** with a **Lever** on it. You can use any solid block, but throughout the course I will use a redstone lamp with a lever as the input. This acts as a visual indicator of the input state.
 3.  **Wire them up:** Connect the block under the lever to the lamp using a line of **Redstone Dust**.
 4.  **Test:** Flip the lever. The lamp should turn on and off.
 5.  **Experiment:** Now, modify your circuit to test your understanding.
@@ -114,3 +109,15 @@ You’ve just built your first working circuit and verified the core rules of Re
 3.  The Redstone Torch.
 
 </details>
+
+#### Key Terms (Module 0)
+-   **Signal Strength:** The power level of a Redstone signal, ranging from 15 (full) down to 0 (off). A signal loses 1 strength for every block of dust it travels.
+-   **Power Source:** A component, like a Redstone Torch or Lever, that outputs a full-strength (15) signal.
+-   **Wire:** Our term for any component, usually Redstone Dust, that transmits a signal from one point to another.
+-   **Input:** A component, like a Lever, that allows a user to manually control a circuit.
+-   **Output:** A component, like a Redstone Lamp, that displays the result or state of a circuit.
+-   **Strong Power:** A type of power provided by components like Repeaters or Torches directly to a block. It can activate all adjacent Redstone components, including dust.
+-   **Weak Power:** A type of power provided by Redstone Dust to a block. It can activate components like lamps and repeaters, but not adjacent Redstone dust.
+-   **Repeater:** A component that acts as a signal booster (refreshing signal strength to 15) and a diode.
+-   **Diode:** A component that allows a signal to flow in only one direction, preventing back-powering. The Redstone Repeater is our primary diode.
+-   **Inverter (NOT Gate):** A circuit or component that flips a signal from ON to OFF, or OFF to ON. The Redstone Torch is our primitive inverter.
