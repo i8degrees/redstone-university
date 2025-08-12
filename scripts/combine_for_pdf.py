@@ -25,7 +25,7 @@ def main():
         f.write(combined)
         f.write("\n")
 
-   print(f"✅ Combined main content and appendices into {FINAL_FILE}")
+    print(f"✅ Combined main content and appendices into {FINAL_FILE}")
 
 
 if __name__ == "__main__":
