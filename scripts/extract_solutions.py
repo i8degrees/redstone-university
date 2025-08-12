@@ -3,7 +3,7 @@ import re
 
 INPUT_FILE = "course/Redstone-University.md"
 OUTPUT_FILE = "course/Redstone-University-for-pdf.md"
-APPENDIX_FILE = "course/Appendix-B_Solutions.md"
+APPENDIX_FILE = "appendices/Appendix-B_Solutions.md"
 
 
 def extract_solutions_by_module_and_lesson(md):
@@ -57,6 +57,9 @@ def main():
 
     with open(INPUT_FILE, "r", encoding="utf-8") as f:
         md = f.read()
+
+    # Ensure appendices directory exists
+    os.makedirs(os.path.dirname(APPENDIX_FILE), exist_ok=True)
 
     appendix = ['<hr class="pagebreak"/>\n\n### Appendix B: Solutions to Exercises\n\n---\n']
     replaced_md = md
