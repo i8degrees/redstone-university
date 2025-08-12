@@ -192,3 +192,13 @@ Fantastic work! You've now mastered the most fundamental concept in all of compu
 Your input bus is ready to carry these binary signals to the next stage where logic gates will turn them into calculations and decisions. Now that you’ve built your input interface and practiced working with binary, you’re ready to learn how to manipulate these binary signals using logic gates in the next module. These gates will process the inputs you’ve set here into meaningful outputs.
 
 The basic building blocks of our computer are about to take shape. Get ready for the world of logic gates and circuits!
+
+
+#### Key Terms (Module 1)
+-   **Binary:** A base-2 number system that uses only two symbols, 0 and 1, to represent information. It is the fundamental language of all digital computers.
+-   **Bit:** A single "binary digit," which can be either a 0 or a 1. It is the smallest possible unit of data in computing.
+-   **Decimal:** The base-10 number system that humans commonly use, with ten unique symbols (0-9).
+-   **Bus (Input Bus):** A collection of parallel wires that carry a complete piece of binary information. Our 4-bit input interface creates a 4-bit bus.
+-   **Interface (Input Interface):** A device that allows a user or system to provide information to a machine. Our 4-lever setup is a manual input interface.
+-   **Bitwise Operation:** An operation in software that manipulates numbers at the level of their individual bits, rather than their decimal value.
+-   **Register:** A small, extremely fast storage location inside a computer's central processing unit (CPU) that holds data for immediate use.

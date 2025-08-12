@@ -188,12 +188,7 @@ This is a critical concept. Blocks can be powered in two ways, and what they can
 | :--- | :--- | :--- |
 | **What Provides It?** | A **Lever**, **Button**, **Repeater**, or **Torch** directly powering a block. | **Redstone Dust** running into or across a block. |
 | **What Can It Do?** | Powers **all** adjacent Redstone components, including dust above, below, and on all sides. | Powers only **some** adjacent components (like a lamp or repeater), but **NOT** adjacent dust. |
-
-**Visual Example:**
-> ##### PLACEHOLDER:
-> Insert a screenshot showing two scenarios side-by-side.
-> -   **Left side:** A lever on a block (Strong Power). Show Redstone dust placed on every face of the block (top, bottom, all four sides) all lighting up.
-> -   **Right side:** A line of Redstone dust running over a block (Weak Power). Show that a lamp placed next to the block lights up, but dust placed next to it does not.
+| **Example** | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/00_strongly-powered-block_minecraft.png" alt="Strongly powered block" width="512px"/><br/>Figure: Strongly powered block</div> | <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/00_weakly-powered-block_minecraft.png" alt="Weakly powered block" width="512px"/><br/>Figure: Weakly powered block</div> |
 
 Understanding this difference is the key to creating compact vertical circuits later in the course.
 
@@ -203,10 +198,10 @@ Understanding this difference is the key to creating compact vertical circuits l
 
 Let’s combine these concepts to build a simple input to process to output circuit. This is the core pattern of every device we’ll make, from simple gates to a full CPU.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/module0_minicircuit.png" alt="Mini Circuit in Minecraft" width="512px"/><br/><em>Figure: A lever (input) connected to a Redstone Lamp (output) through dust (wire).</em></div></br></br>
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/00_basic-circuit_minecraft.png" alt="Basic circuit in Minecraft" width="512px"/><br/><em>Figure: A Redstone Lamp with a lever (input) connected to a Redstone Lamp (output) through Redstone Dust (wire).</em></div></br></br>
 
 1.  **Place an Output:** Place a **Redstone Lamp** on the ground.
-2.  **Place an Input:** A few blocks away, place a **solid block** with a **Lever** on it.
+2.  **Place an Input:** A few blocks away, place a **solid block** with a **Lever** on it. You can use any solid block, but throughout the course I will use a redstone lamp with a lever as the input. This acts as a visual indicator of the input state.
 3.  **Wire them up:** Connect the block under the lever to the lamp using a line of **Redstone Dust**.
 4.  **Test:** Flip the lever. The lamp should turn on and off.
 5.  **Experiment:** Now, modify your circuit to test your understanding.
@@ -231,6 +226,18 @@ You’ve just built your first working circuit and verified the core rules of Re
 3.  The Redstone Torch.
 
 </details>
+
+#### Key Terms (Module 0)
+-   **Signal Strength:** The power level of a Redstone signal, ranging from 15 (full) down to 0 (off). A signal loses 1 strength for every block of dust it travels.
+-   **Power Source:** A component, like a Redstone Torch or Lever, that outputs a full-strength (15) signal.
+-   **Wire:** Our term for any component, usually Redstone Dust, that transmits a signal from one point to another.
+-   **Input:** A component, like a Lever, that allows a user to manually control a circuit.
+-   **Output:** A component, like a Redstone Lamp, that displays the result or state of a circuit.
+-   **Strong Power:** A type of power provided by components like Repeaters or Torches directly to a block. It can activate all adjacent Redstone components, including dust.
+-   **Weak Power:** A type of power provided by Redstone Dust to a block. It can activate components like lamps and repeaters, but not adjacent Redstone dust.
+-   **Repeater:** A component that acts as a signal booster (refreshing signal strength to 15) and a diode.
+-   **Diode:** A component that allows a signal to flow in only one direction, preventing back-powering. The Redstone Repeater is our primary diode.
+-   **Inverter (NOT Gate):** A circuit or component that flips a signal from ON to OFF, or OFF to ON. The Redstone Torch is our primitive inverter.
 
 <hr class="pagebreak"/>
 
@@ -428,6 +435,16 @@ Fantastic work! You've now mastered the most fundamental concept in all of compu
 Your input bus is ready to carry these binary signals to the next stage where logic gates will turn them into calculations and decisions. Now that you’ve built your input interface and practiced working with binary, you’re ready to learn how to manipulate these binary signals using logic gates in the next module. These gates will process the inputs you’ve set here into meaningful outputs.
 
 The basic building blocks of our computer are about to take shape. Get ready for the world of logic gates and circuits!
+
+
+#### Key Terms (Module 1)
+-   **Binary:** A base-2 number system that uses only two symbols, 0 and 1, to represent information. It is the fundamental language of all digital computers.
+-   **Bit:** A single "binary digit," which can be either a 0 or a 1. It is the smallest possible unit of data in computing.
+-   **Decimal:** The base-10 number system that humans commonly use, with ten unique symbols (0-9).
+-   **Bus (Input Bus):** A collection of parallel wires that carry a complete piece of binary information. Our 4-bit input interface creates a 4-bit bus.
+-   **Interface (Input Interface):** A device that allows a user or system to provide information to a machine. Our 4-lever setup is a manual input interface.
+-   **Bitwise Operation:** An operation in software that manipulates numbers at the level of their individual bits, rather than their decimal value.
+-   **Register:** A small, extremely fast storage location inside a computer's central processing unit (CPU) that holds data for immediate use.
 
 <hr class="pagebreak"/>
 
@@ -1944,6 +1961,33 @@ Welcome to advanced studies. Let's dive into Module 12.
 <hr class="pagebreak"/>
 
 ### Appendix C: Key Terms
+
+---
+
+#### Key Terms (Module 0)
+
+-   **Signal Strength:** The power level of a Redstone signal, ranging from 15 (full) down to 0 (off). A signal loses 1 strength for every block of dust it travels.
+-   **Power Source:** A component, like a Redstone Torch or Lever, that outputs a full-strength (15) signal.
+-   **Wire:** Our term for any component, usually Redstone Dust, that transmits a signal from one point to another.
+-   **Input:** A component, like a Lever, that allows a user to manually control a circuit.
+-   **Output:** A component, like a Redstone Lamp, that displays the result or state of a circuit.
+-   **Strong Power:** A type of power provided by components like Repeaters or Torches directly to a block. It can activate all adjacent Redstone components, including dust.
+-   **Weak Power:** A type of power provided by Redstone Dust to a block. It can activate components like lamps and repeaters, but not adjacent Redstone dust.
+-   **Repeater:** A component that acts as a signal booster (refreshing signal strength to 15) and a diode.
+-   **Diode:** A component that allows a signal to flow in only one direction, preventing back-powering. The Redstone Repeater is our primary diode.
+-   **Inverter (NOT Gate):** A circuit or component that flips a signal from ON to OFF, or OFF to ON. The Redstone Torch is our primitive inverter.
+
+---
+
+#### Key Terms (Module 1)
+
+-   **Binary:** A base-2 number system that uses only two symbols, 0 and 1, to represent information. It is the fundamental language of all digital computers.
+-   **Bit:** A single "binary digit," which can be either a 0 or a 1. It is the smallest possible unit of data in computing.
+-   **Decimal:** The base-10 number system that humans commonly use, with ten unique symbols (0-9).
+-   **Bus (Input Bus):** A collection of parallel wires that carry a complete piece of binary information. Our 4-bit input interface creates a 4-bit bus.
+-   **Interface (Input Interface):** A device that allows a user or system to provide information to a machine. Our 4-lever setup is a manual input interface.
+-   **Bitwise Operation:** An operation in software that manipulates numbers at the level of their individual bits, rather than their decimal value.
+-   **Register:** A small, extremely fast storage location inside a computer's central processing unit (CPU) that holds data for immediate use.
 
 ---
 
