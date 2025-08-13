@@ -198,29 +198,52 @@ This design relies on a two-layer structure to keep the input and output lines s
 
 1.  **Output Layer (Ground Level):** Lay out 10 parallel lines of Redstone dust for your output lines (`L0` through `L9`). Leave at least one empty block between each line to prevent interference. At the end of each line, place a solid block, a Redstone torch on top, and a Redstone Lamp on top of the torch. All 10 lamps should be ON by default.
 
-> **PLACEHOLDER:** A screenshot showing the 10 output lines on the ground, each ending with a lamp and torch.
+![Compact 4-to-10 Decoder Step 1](./images/4-to-10-decoder-compact-1_minecraft.png)
+*Figure: Screenshot showing the 10 output lines on the ground, step 1 of the compact 4-to-10 decoder*
 
 2.  **Input Layer (Floating):** Now, build a platform for your input bus two blocks off the ground (leaving a 1-block high air gap). On this platform, run your four parallel input bus lines (`B3` to `B0`) so they run perpendicularly across all 10 output lines below.
 
-> **PLACEHOLDER:** A screenshot showing the two-tiered structure: the 10 output lines on the ground and the 4 perpendicular input lines floating above them.
+![Compact 4-to-10 Decoder Step 2](./images/4-to-10-decoder-compact-2_minecraft.png)
+*Figure: The two-tiered structure with four input bus lines (`B3` to `B0`) floating above the 10 output lines.*
 
 ###### Programming the Lines: Placing the Taps
-Now we will place our taps to connect the input and output layers.
+Now we will place our taps to connect the input and output layers, “programming” each output line to detect its unique binary identity. This is where the magic of active-low logic comes to life—each tap checks for a mismatch, and only the perfectly matched line stays unpowered (lamp ON).
 
--   **How to Build a Torch Tap:** At the correct intersection, place a Redstone torch on the side of the block that the input bus line rests on, directly above the output wire below.
+-   **How to Build a Torch Tap:** At the correct intersection, place a Redstone torch on the side of the block that the input bus line rests on, directly above the output wire below. This tap activates (powers the output wire) when the bus line is OFF (`0`).
 -   **How to Build a Repeater Tap:** This requires specific placement to achieve strong power. At the correct intersection, one block *before* the output wire, break the input bus line. On the ground level, place a solid block and put a Repeater on top of it, facing in the direction of signal flow. This "snaking" path is essential. It is important to note that the Repeater itself does not power the output wire directly; it powers the block it runs into, which then becomes strongly powered and can power the output wire.
 
-###### Programming Example: Line `L3` (Identity: `0011`)
--   At the intersection of bus line `B3` and output line `L3`, build a **Repeater Tap**.
--   At the intersection of bus line `B2` and output line `L3`, build a **Repeater Tap**.
--   At the intersection of bus line `B1` and output line `L3`, build a **Torch Tap**.
--   At the intersection of bus line `B0` and output line `L3`, build a **Torch Tap**.
+Let’s apply this to one line to see it in action, then you’ll program the rest using the reference chart.
 
-> **PLACEHOLDER:** A close-up, angled screenshot focused on the `L3` line, clearly showing the physical construction of the two repeater taps and two torch taps.
+###### Programming Example: Line `L3` (Identity: `0011`)
+To make the `L3` line detect the binary input `0011` (decimal 3), we need to place taps according to its identity:
+-   `B3` is `0`: Place a **Repeater Tap** (checks for a `1`, powers the wire if mismatched).
+-   `B2` is `0`: Place a **Repeater Tap**.
+-   `B1` is `1`: Place a **Torch Tap** (checks for a `0`, powers the wire if mismatched).
+-   `B0` is `1`: Place a **Torch Tap**.
+
+Here’s what it looks like once you’ve added the taps for `L3`:
+
+![Compact 4-to-10 Decoder L3 Tapped](./images/4-to-10-decoder-compact-3_minecraft.png)
+*Figure: The two-tiered structure with taps added for the `L3` line, set to input `0000`. All lamps are lit except `L3`, which is off due to its mismatch detectors activating.*
+
+With the taps in place, test the `L3` line by setting the input to `0000` (all levers OFF). Every output line except `L3` should have at least one tap activated (powering the wire, turning the lamp OFF). For `L3`, all taps are inactive because the input doesn’t match `0011`, so its lamp stays ON. This confirms your mismatch detector is working!
+
+To get a closer look at how the taps are placed, check out this isolated view of the `L3` line:
+
+![Isolated L3 Line Close-Up](./images/4-to-10-decoder-L3_minecraft.png)
+*Figure: Close-up of the `L3` line with two Repeater Taps (`B3`, `B2`) and two Torch Taps (`B1`, `B0`), no inputs active.*
+
+This zoomed-in view shows exactly where to place each tap for `L3`. Notice the “snaking” path of the Repeater Taps, ensuring strong power, and the Torch Taps hanging off the side of the input bus blocks. Precision here is key! Double-check your placements to avoid crossed signals.
+
+To verify the `L3` line works as intended, you can add levers to test it independently before connecting all lines. Set the inputs to `0011` (matching `L3`’s identity):
+
+![Testable L3 Line](./images/4-to-10-decoder-L3_testable_minecraft.png)
+*Figure: Isolated `L3` line with levers set to `0011`, lighting the `L3` lamp to confirm correct tap placement.*
+
+In this test, the levers mimic the input `0011`. The `L3` lamp lights up because no taps activate (no mismatches), leaving the wire unpowered. Try flipping any lever (for example, `0010`), and the lamp should turn OFF as a tap detects a mismatch. This hands-on test builds confidence before scaling to all 10 lines.
 
 ###### Complete All Lines: Using the Reference Chart
 Apply the rule and build methods to the remaining 9 lines. Use the chart below to verify your placements. This is your blueprint.
-
 
 | Bus Line | `L0` | `L1` | `L2` | `L3` | `L4` | `L5` | `L6` | `L7` | `L8` | `L9` |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -230,11 +253,12 @@ Apply the rule and build methods to the remaining 9 lines. Use the chart below t
 | **`B0` (1)** | R | T | R | T | R | T | R | T | R | T |
 *(R = Repeater Tap, T = Torch Tap)*
 
+![Compact 4-to-10 Decoder](./images/4-to-10-decoder-compact-complete_minecraft.png)
+*Figure: The complete 4-to-10 compact decoder in action, with input 0011 lighting only the L3*
+
 ###### Test Your Work!
 Cycle through inputs `0000` to `1001`. Verify that only one lamp is lit for each input.
 
-
-> **PLACEHOLDER:** screenshot of the entire compact decoder
 ---
 
 ##### Practice Problems
