@@ -13,7 +13,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          # Fetch the full history to allow for rebasing
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -61,6 +64,7 @@ jobs:
           git add course/Redstone-University.pdf appendices/
           if ! git diff --staged --quiet; then
             git commit -m "docs: Rebuild course PDF and appendices"
+            git pull --rebase
             git push
           else
             echo "No changes to commit."
