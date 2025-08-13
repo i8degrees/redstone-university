@@ -158,7 +158,7 @@ Now, cycle through all four possible inputs with your levers:
 
 Congratulations, you've built a working decoder!
 
-![2-to-4 Decoder Step 2](./images/2-to-4-decoder-2_minecraft.png)
+![2-to-4 Decoder Step 3](./images/2-to-4-decoder-3_minecraft.png)
 *Figure: Final working 2-to-4 decoder, with the input set to `11`, so only the `L3` lamp is ON.*
 
 **Lesson Summary: The Problem of Scale**
@@ -208,7 +208,7 @@ This design relies on a two-layer structure to keep the input and output lines s
 Now we will place our taps to connect the input and output layers.
 
 -   **How to Build a Torch Tap:** At the correct intersection, place a Redstone torch on the side of the block that the input bus line rests on, directly above the output wire below.
--    **How to Build a Repeater Tap:** This requires specific placement to achieve strong power. At the correct intersection, one block *before* the output wire, break the input bus line. On the ground level, place a solid block and put a Repeater on top of it, facing in the direction of signal flow. This "snaking" path is essential. It is important to note that the Repeater itself does not power the output wire directly; it powers the block it runs into, which then becomes strongly powered and can power the output wire.
+-   **How to Build a Repeater Tap:** This requires specific placement to achieve strong power. At the correct intersection, one block *before* the output wire, break the input bus line. On the ground level, place a solid block and put a Repeater on top of it, facing in the direction of signal flow. This "snaking" path is essential. It is important to note that the Repeater itself does not power the output wire directly; it powers the block it runs into, which then becomes strongly powered and can power the output wire.
 
 ###### Programming Example: Line `L3` (Identity: `0011`)
 -   At the intersection of bus line `B3` and output line `L3`, build a **Repeater Tap**.
@@ -233,6 +233,8 @@ Apply the rule and build methods to the remaining 9 lines. Use the chart below t
 ###### Test Your Work!
 Cycle through inputs `0000` to `1001`. Verify that only one lamp is lit for each input.
 
+
+> **PLACEHOLDER:** screenshot of the entire compact decoder
 ---
 
 ##### Practice Problems
