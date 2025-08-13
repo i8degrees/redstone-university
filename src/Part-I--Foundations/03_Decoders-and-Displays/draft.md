@@ -138,7 +138,8 @@ By scaling down the problem, we can focus on the core logic without getting over
 3.  Place a Redstone Lamp at the output of the AND gate. This is your `L0` output.
 4.  **Test it!** Set your input levers to `00` (`B1`=OFF, `B0`=OFF). The `L0` lamp should turn ON. Now, flip either lever. The lamp should turn OFF. This proves your first gate is wired correctly.
 
-> **PLACEHOLDER:** Insert a screenshot showing the single AND gate connected to the `!B1` and `!B0` lines of the bus, with its output lamp lit.
+![2-to-4 Decoder Step 2](./images/2-to-4-decoder-2_minecraft.png)
+*Figure: Single AND gate connected to the `!B1` and `!B0` lines of the bus. The input is set to `11`, so the `LO` lamp is OFF. It would be on if the input were `00`.*
 
 **Step 3: Build the Remaining Gates**
 1.  Build three more identical 2-input AND gates next to the first one.
@@ -156,6 +157,10 @@ Now, cycle through all four possible inputs with your levers:
 -   `11` -> Only the `L3` lamp should be ON.
 
 Congratulations, you've built a working decoder!
+
+![2-to-4 Decoder Step 2](./images/2-to-4-decoder-2_minecraft.png)
+*Figure: Final working 2-to-4 decoder, with the input set to `11`, so only the `L3` lamp is ON.*
+
 
 > **PLACEHOLDER:** Insert a screenshot or GIF of the final, working 2-to-4 decoder, showing how only one lamp lights up at a time as the inputs change.
 
