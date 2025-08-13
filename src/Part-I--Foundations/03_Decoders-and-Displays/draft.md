@@ -349,6 +349,9 @@ Just like our decoder, this build uses a two-layer structure to keep the wiring 
 
 > **PLACEHOLDER:** An angled screenshot showing the two-layer structure: the 7 perpendicular segment lines on the ground, and the 10 horizontal input lines on the layer of blocks directly above them.
 
+![Encoder Step 1](./images/encoder-1_minecraft.png)
+*Figure: Two layer encoder structure: 7 perpendicular segment lines on the ground, and 10 horizontal input lines on a layer of blocks directly above*
+
 
 ##### 2. Programming the Matrix: Placing the Torch Taps
 This is where we physically "burn" the data from our lookup table into the hardware.
