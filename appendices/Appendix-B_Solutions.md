@@ -4,7 +4,7 @@
 
 ---
 
-## Part I: The Foundations, Speaking to the Machine
+## Part I: The Foundations - Laying the Groundwork
 
 ### Module 0: The Redstone Toolkit – Orientation Day (Optional)
 
