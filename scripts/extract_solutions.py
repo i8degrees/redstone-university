@@ -3,7 +3,7 @@ import re
 
 INPUT_FILE = "course/Redstone-University.md"
 OUTPUT_FILE = "course/Redstone-University-for-pdf.md"
-APPENDIX_FILE = "appendices/Appendix-B_Solutions.md"
+APPENDIX_FILE = "course/appendices/Appendix-B_Solutions.md"
 
 
 def extract_solutions_by_module_and_lesson(md):

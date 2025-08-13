@@ -2,7 +2,7 @@ import os
 import re
 
 INPUT_FILE = "course/Redstone-University-for-pdf.md"
-APPENDIX_FILE = "appendices/Appendix-C_Key-Terms.md"
+APPENDIX_FILE = "course/appendices/Appendix-C_Key-Terms.md"
 
 
 def extract_key_terms_from_md(md_content):
