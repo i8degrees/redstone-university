@@ -161,9 +161,6 @@ Congratulations, you've built a working decoder!
 ![2-to-4 Decoder Step 2](./images/2-to-4-decoder-2_minecraft.png)
 *Figure: Final working 2-to-4 decoder, with the input set to `11`, so only the `L3` lamp is ON.*
 
-
-> **PLACEHOLDER:** Insert a screenshot or GIF of the final, working 2-to-4 decoder, showing how only one lamp lights up at a time as the inputs change.
-
 **Lesson Summary: The Problem of Scale**
 Take a look at the space your 2-to-4 decoder occupies. Now, imagine our real goal: a 4-to-10 decoder. We would need **ten** 4-input AND gates, which are much larger than the simple gates we just used. The brute-force method works, but it does not scale well. It creates a massive, resource-hungry machine.
 
