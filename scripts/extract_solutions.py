@@ -50,6 +50,18 @@ def extract_solutions_by_module_and_lesson(md):
     return solutions
 
 
+def clean_summary(summary):
+    """
+    Clean up the summary for the appendix.
+    """
+    cleaned = summary.replace("Click for the solution and explanation", "")
+    cleaned = cleaned.replace("Click for answers", "")
+    cleaned = cleaned.strip()
+    if not cleaned.lower().startswith("solution"):
+        cleaned = f"Solution: {cleaned}"
+    return cleaned
+
+
 def main():
     if not os.path.exists(INPUT_FILE):
         print(f"Input file '{INPUT_FILE}' not found. Please run course_concat.py first.")
@@ -58,29 +70,30 @@ def main():
     with open(INPUT_FILE, "r", encoding="utf-8") as f:
         md = f.read()
 
-    # Ensure appendices directory exists
     os.makedirs(os.path.dirname(APPENDIX_FILE), exist_ok=True)
 
-    appendix = ['<hr class="pagebreak"/>\n\n### Appendix B: Solutions to Exercises\n\n---\n']
+    appendix = ['<hr class="pagebreak"/>\n\n### Appendix B: Solutions\n']
     replaced_md = md
 
     solutions = extract_solutions_by_module_and_lesson(md)
     solution_count = 0
 
-    for module in solutions:
-        appendix.append(f"## {module}\n")
-        for lesson in solutions[module]:
+    for module, lessons in sorted(solutions.items()):
+        appendix.append(f"\n## {module}\n")
+        for lesson, items in sorted(lessons.items()):
             appendix.append(f"### {lesson}\n")
-            for summary, inner, full_block in solutions[module][lesson]:
+            for summary, inner, full_block in items:
                 solution_count += 1
-                reference = "> **Solution available in Appendix B: Solutions to Exercises**\n\n"
+
+                cleaned_summary = clean_summary(summary)
+
+                reference = "> **(Solution for this exercise is in Appendix B)**\n"
                 replaced_md = replaced_md.replace(full_block, reference)
-                appendix.append(f"**{summary}**\n\n{inner}\n\n---\n")
+
+                appendix.append(f"#### {cleaned_summary}\n\n{inner}\n\n---\n")
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(replaced_md)
-        f.write("\n\n")
-        f.write("\n".join(appendix))
 
     with open(APPENDIX_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(appendix))
