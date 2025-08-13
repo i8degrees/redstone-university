@@ -47,7 +47,7 @@ jobs:
           output_file: Redstone-University.pdf
           build_html: false
           theme: assets/css/pdf-style.css
-          highlight_theme: assets/css/darcula.css
+          pandoc_args: --highlight-style=espresso
 
       - name: Clean up intermediate files
         run: |
