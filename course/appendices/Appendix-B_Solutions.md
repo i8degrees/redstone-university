@@ -1,14 +1,13 @@
 <hr class="pagebreak"/>
 
-### Appendix B: Solutions to Exercises
+### Appendix B: Solutions
 
----
 
-## Part I: The Foundations, Speaking to the Machine
+## Part I: The Foundations - Laying the Groundwork
 
 ### Module 0: The Redstone Toolkit – Orientation Day (Optional)
 
-**<strong>Click for answers</strong>**
+#### Solution: <strong></strong>
 
 1.  It boosts a signal back to strength 15 and acts as a one-way diode.
 2.  No. The dust only weakly powers the block, which cannot transmit power to adjacent dust.
@@ -18,7 +17,7 @@
 
 ### Module 2: The Language of Logic – A Deep Dive into Boolean Algebra
 
-**<strong>Solution: Boolean Expression Evaluation</strong>**
+#### Solution: <strong>Solution: Boolean Expression Evaluation</strong>
 
 **Truth Table for A OR !B**:
 
@@ -33,7 +32,7 @@
 
 ---
 
-**<strong>Solution: A AND !B Circuit</strong>**
+#### Solution: <strong>Solution: A AND !B Circuit</strong>
 
 **Truth Table for A AND !B**:
 
@@ -50,7 +49,7 @@
 
 ---
 
-**<strong>Solution: Simplifying (A OR B) AND (NOT A OR NOT B)</strong>**
+#### Solution: <strong>Solution: Simplifying (A OR B) AND (NOT A OR NOT B)</strong>
 
 **Simplification Steps:**
 1. Start with `(A OR B) AND (!A OR !B)`.
@@ -64,7 +63,7 @@
 
 ---
 
-**<strong>Solution: Two-Switch Light System</strong>**
+#### Solution: <strong>Solution: Two-Switch Light System</strong>
 
 **Logic:** The light should be ON when exactly one switch is ON (A XOR B).
 
@@ -81,7 +80,7 @@
 
 ---
 
-**<strong>Click here for the solution and explanation</strong>**
+#### Solution: <strong>Click here for the solution and explanation</strong>
 
 ---
 
@@ -113,7 +112,7 @@ def missingNumber(nums):
 
 ---
 
-**<strong>Solution: AND Gate Using NOR Gates</strong>**
+#### Solution: <strong>Solution: AND Gate Using NOR Gates</strong>
 
 **Logic:** `A AND B = (A NOR A) NOR (B NOR B)`
 
@@ -130,7 +129,7 @@ def missingNumber(nums):
 
 ---
 
-**<strong>Click for answers</strong>**
+#### Solution: <strong></strong>
 
 1.  An **OR** gate outputs `1` if *at least one* input is `1`. An **XOR** gate outputs `1` only if the inputs are *different*.
 2.  The **NAND** gate and the **NOR** gate. The property is called **Functional Completeness**.
@@ -138,7 +137,7 @@ def missingNumber(nums):
 
 ---
 
-**<strong>Click for the solution</strong>**
+#### Solution: <strong>Click for the solution</strong>
 
 The expression translates directly from the requirements:
 
@@ -148,7 +147,7 @@ The parentheses are crucial to ensure the `AND` condition is evaluated before be
 
 ---
 
-**<strong>Click for the step-by-step proof</strong>**
+#### Solution: <strong>Click for the step-by-step proof</strong>
 
 1.  **Start with the expression:** `Y = (A AND B) OR (A AND !B) OR (!A AND B)`
 2.  **Look for common terms to factor:** The first two terms both contain `A`. Let's factor it out using the Distributive Law.
@@ -169,7 +168,7 @@ The entire complex circuit simplifies down to a single OR gate!
 
 ### Module 3: From Binary to Pictures - Building a Digital Display
 
-**<strong>Solution: Taps for L6 (`0110`)</strong>**
+#### Solution: <strong>Solution: Taps for L6 (`0110`)</strong>
 
 Applying our rule:
 -   `B3` is `0`: Requires a **Repeater Tap**.
@@ -179,7 +178,7 @@ Applying our rule:
 
 ---
 
-**<strong>Solution: Debugging the L8 and L9 Error</strong>**
+#### Solution: <strong>Solution: Debugging the L8 and L9 Error</strong>
 
 **The Logic:** The `L8` lamp should turn OFF when the input is `1001`. For `L8` to turn off, its wire needs to be powered. This means one of its "mismatch" taps must have activated.
 
@@ -195,19 +194,19 @@ The tap for `B0` on the `L8` line is supposed to detect this mismatch and power 
 
 ---
 
-**<strong>Solution</strong>**
+#### Solution: <strong>Solution</strong>
 
 The digit `2` uses segments **`a`, `b`, `d`, `e`, and `g`**. Therefore, you would place torch taps at the intersections of the `L2` line and the perpendicular lines for those five segments.
 
 ---
 
-**<strong>Solution</strong>**
+#### Solution: <strong>Solution</strong>
 
 If a segment that should be ON is OFF, it means it is not receiving power. The most likely cause is simple: you **forgot to place the torch tap** at the intersection of the horizontal `L4` line and the perpendicular segment `g` line. Without that torch, there is nothing to power the line when `L4` goes low.
 
 ---
 
-**<strong>Click for answers</strong>**
+#### Solution: <strong></strong>
 
 1.  It breaks the problem down into smaller, independent modules (modularity). This makes each part easier to design, build, and debug.
 2.  The Repeater Tap creates a "strongly powered" block, which is necessary to power the Redstone dust on the output line across the 1-block air gap. Simple dust would create a "weakly powered" block, which cannot.
@@ -215,7 +214,7 @@ If a segment that should be ON is OFF, it means it is not receiving power. The m
 
 ---
 
-**<strong>Click for solutions</strong>**
+#### Solution: <strong>Click for solutions</strong>
 
 1.  You want the lamp to be ON only when `B0` is `0`. Our active-low system turns the lamp on when the line is unpowered. You would need a single **Repeater Tap** from the `B0` line. When `B0` is `1` (odd), the repeater powers the `LE` line and turns the lamp off. When `B0` is `0` (even), the repeater is off, the line is unpowered, and the lamp turns on.
 2.  The line for the letter 'A' would need to activate every segment *except* for segment **`d`**. Therefore, `d` is the only segment line that would not get a torch tap.
@@ -223,7 +222,7 @@ If a segment that should be ON is OFF, it means it is not receiving power. The m
 
 ---
 
-**<strong>Click for the solution</strong>**
+#### Solution: <strong>Click for the solution</strong>
 
 **The Logic:**
 When the input is `2`, the `L2` line from the decoder correctly goes LOW. This is supposed to activate the torches for segments `a, b, d, e, g`.
