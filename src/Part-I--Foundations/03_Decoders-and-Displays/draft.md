@@ -432,7 +432,7 @@ This final step is all about making the connections between all of the component
 
 Here’s what your fully connected system should look like, with the input set to `0011` to display a “3”:
 
-![Complete Digital Display Isometric](./images/complete-digital-display-isometric_minecraft.png)
+![Complete Digital Display Isometric](./images/complete-digital-display_minecraft.png)
 *Figure: The complete digital display system in action, with input `0011` activating the `L3` line and lighting segments `a, b, c, d, g` to form a glowing “3”.*
 
 Take a moment to admire this masterpiece! Your modular design has paid off, making this complex system manageable and functional.
