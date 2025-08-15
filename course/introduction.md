@@ -1,9 +1,4 @@
-<p align="center">
-    <picture>
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/logo.png">
-      <img alt="Redstone University Logo" src="https://raw.githubusercontent.com/fielding/redstone-university/refs/heads/main/assets/images/logo-dark.png">
-    </picture>
-</p>
+<p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/logo.png"><img alt="Redstone University Logo" src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/logo-dark.png"></picture></p>
 
 # Welcome to Redstone University!
 
