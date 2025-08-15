@@ -690,13 +690,13 @@ Build an AND gate using only NOR gates. Verify it with a truth table in Minecraf
 
 |  Gate   |                       Symbol                             |             Core Logic Rule             |    Primitive Boolean Expression              |
 | :------ | :---------------------------------------------------------------- | :-------------------------------------- | :--------------------------------------------|
-| **NOT** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_NOT.svg" alt="NOT Gate" width="64px">                                     | Inverts a single input.                 | `!A`                                         |
-| **OR**  | <img src="./images/OR.svg" alt="OR Gate Symbol" width="64px">     | True if **at least one** input is True. | `A OR B`                                     |
-| **AND** | <img src="./images/AND.svg" alt="AND Gate Symbol" width="64px">   | True only if **all** inputs are True.   | `!(!A OR !B)`                                |
-| **XOR** | <img src="./images/XOR.svg" alt="XOR Gate Symbol" width="64px">   | True only if inputs are **different**.  |`!(A OR !(A OR B)) OR !(B OR !(A OR B))`      |
-| **NAND**| <img src="./images/NAND.svg" alt="NAND Gate Symbol" width="64px"> | True unless **all** inputs are True.    | `!A OR !B`                                   |
-| **NOR** | <img src="./images/NOR.svg" alt="NOR Gate Symbol" width="64px">   | True only if **all** inputs are False.  | `!(A OR B)`                                  |
-| **XNOR**| <img src="./images/XNOR.svg" alt="XNOR Gate Symbol" width="64px"> | True only if inputs are the **same**.   | `!(!(A OR !(A OR B)) OR !(B OR !(A OR B)))`  |
+| **NOT** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_NOT.png" alt="NOT Gate" width="64px">                                     | Inverts a single input.                 | `!A`                                         |
+| **OR**  | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_OR.png" alt="OR Gate" width="64px">                                       | True if **at least one** input is True. | `A OR B`                                     |
+| **AND** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_AND.png" alt="AND Gate" width="64px">                                     | True only if **all** inputs are True.   | `!(!A OR !B)`                                |
+| **XOR** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_XOR.png" alt="XOR Gate" width="64px">                                     | True only if inputs are **different**.  |`!(A OR !(A OR B)) OR !(B OR !(A OR B))`      |
+| **NAND**| <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_NAND.png" alt="NAND Gate" width="64px">                                   | True unless **all** inputs are True.    | `!A OR !B`                                   |
+| **NOR** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_NOR.png" alt="NOR Gate" width="64px">                                     | True only if **all** inputs are False.  | `!(A OR B)`                                  |
+| **XNOR**| <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_XNOR.png" alt="XNOR Gate" width="64px">                                   | True only if inputs are the **same**.   | `!(!(A OR !(A OR B)) OR !(B OR !(A OR B)))`  |
 
 ---
 
