@@ -1,261 +1,199 @@
+#!/usr/bin/env python3
+"""
+Builds the course materials for web/github.
+
+This script processes files from the 'src' directory and generates a clean,
+browsable course structure in the 'course' directory. It is designed to be
+the single source of truth for preparing the course for its web version.
+
+Core responsibilities:
+1.  Sets up a clean build environment by deleting and recreating the 'course'
+    and 'assets/images' directories.
+2.  Traverses the 'src' directory, finding all markdown files (including
+    introductions, lessons, etc.).
+3.  For each markdown file, it processes all referenced local images:
+    - Copies the image to the central 'assets/images' directory with a unique,
+      prefixed name to prevent conflicts.
+    - Replaces the original relative image path in the markdown with an
+      absolute URL pointing to the raw file on GitHub. This ensures images
+      render correctly on the web.
+4.  Applies GitHub-specific HTML transformations to the markdown content for
+    enhanced presentation (e.g., light/dark mode logos, centered images with
+    captions, and correctly sized images in tables).
+5.  Copies static assets, like logos, that are not referenced directly in
+    markdown files.
+6.  Writes the final, processed markdown files to the 'course' directory,
+    maintaining the original order and structure.
+"""
+
 import os
 import re
 import shutil
 
 SRC_DIR = "src"
 COURSE_DIR = "course"
-ASSETS_DIR = "assets/images"
-PROJECT_ASSETS_SRC_DIR = os.path.join(SRC_DIR, "project_assets")
+ASSETS_DIR = "assets"
+ASSETS_IMG_DIR = os.path.join(ASSETS_DIR, "images")
 LESSON_DRAFT_FILENAME = "draft.md"
 
 GITHUB_USER = "fielding"
 GITHUB_REPO = "redstone-university"
 GITHUB_BRANCH = "main"
-RAW_BASE_URL = (
-    f"https://raw.githubusercontent.com/{GITHUB_USER}/{GITHUB_REPO}/refs/heads/{GITHUB_BRANCH}/assets/images/"
-)
+RAW_BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{GITHUB_REPO}/" f"{GITHUB_BRANCH}/"
 
-TRANSFORM_IMAGES_FOR_GITHUB = True
-
-
+# This is used for some one off html transformations
 GATE_SYMBOLS = ["NOT", "AND", "OR", "NAND", "NOR", "XOR", "XNOR"]
 
 
-def replace_gate_symbols_with_html(md_content):
+def setup_directories():
+    """Cleans and creates the necessary build directories."""
+    print("🧹 Cleaning old build directories...")
+    if os.path.exists(COURSE_DIR):
+        shutil.rmtree(COURSE_DIR)
+    if os.path.exists(ASSETS_IMG_DIR):
+        shutil.rmtree(ASSETS_IMG_DIR)
+
+    os.makedirs(COURSE_DIR)
+    os.makedirs(ASSETS_IMG_DIR)
+    print("📁 Created fresh build directories.")
+
+
+def copy_static_assets():
+    """Copies static project assets (e.g., logos) to the build directory."""
+    project_assets_src = os.path.join(SRC_DIR, "project_assets")
+    if os.path.exists(project_assets_src):
+        for asset in os.listdir(project_assets_src):
+            shutil.copy2(os.path.join(project_assets_src, asset), ASSETS_IMG_DIR)
+        print("🎨 Copied static project assets.")
+
+
+def apply_github_html_transforms(content):
     """
-    Replace Markdown image syntax for gate SVGs with HTML <img> tags with width=64px.
-    Only affects images named exactly as the gate symbols in the summary table.
-    """
+    Applies several HTML transformations for optimal display on GitHub.
+    This includes:
+    - Replacing the Redstone University logo with a <picture> block for light/dark
+      mode support.
+    - Replacing gate SVGs with <img> tags that have a fixed width.
+    - Replacing images with captions to be centered and properly formatted.
 
-    def replacer(match):
-        alt = match.group(1)
-        src = match.group(2)
-        for gate in GATE_SYMBOLS:
-            if src.endswith(f"{gate}.svg"):
-                return f'<img src="{src}" alt="{alt}" width="64px">'
-        return match.group(0)
+    Args:
+        content (str): The markdown content.
 
-    pattern = r"!\[([^\]]*)\]\(([^)]+\.svg)\)"
-    return re.sub(pattern, replacer, md_content)
-
-
-def replace_gate_symbols_svg_with_png(md_content):
-    """
-    For PDF: Replace Markdown image links to gate SVGs with PNGs (same basename).
-    """
-
-    def replacer(match):
-        alt = match.group(1)
-        src = match.group(2)
-        for gate in GATE_SYMBOLS:
-            if src.endswith(f"{gate}.svg"):
-                png_src = src[:-4] + ".png"
-                return f"![{alt}]({png_src})"
-        return match.group(0)
-
-    pattern = r"!\[([^\]]*)\]\(([^)]+\.svg)\)"
-    return re.sub(pattern, replacer, md_content)
-
-
-def md_img_with_caption_to_centered_html(md_content):
-    """
-    Transform Markdown image + caption pairs to centered HTML blocks for GitHub.
-    - If an image is followed by a *Figure: ...* line, combine them into a single centered HTML block.
-    - If not, fallback to using the alt text as the caption.
+    Returns:
+        str: Content with HTML transformations applied.
     """
 
-    def img_caption_replacer(match):
-        alt = match.group(1)
-        src = match.group(2)
-        caption = match.group(3)
-        html = (
+    def replace_logo(match):
+        """Replaces the logo markdown with a <picture> HTML block."""
+        logo_light = RAW_BASE_URL + ASSETS_IMG_DIR + "/logo.png"
+        logo_dark = RAW_BASE_URL + ASSETS_IMG_DIR + "/logo-dark.png"
+        return (
+            f'<p align="center"><picture>'
+            f'<source media="(prefers-color-scheme: light)" srcset="{logo_light}">'
+            f'<img alt="Redstone University Logo" src="{logo_dark}">'
+            f"</picture></p>"
+        )
+
+    def replace_gate_svgs(match):
+        """Replaces gate SVG markdown with an HTML <img> tag with fixed width."""
+        alt, src = match.groups()
+        return f'<img src="{src}" alt="{alt}" width="64px">'
+
+    def replace_images_with_captions(match):
+        """Replaces image + caption markdown with a centered HTML block."""
+        alt, src, caption = match.groups()
+        return (
             f'<div align="center">'
             f'<img src="{src}" alt="{alt}" width="512px"/><br/>'
             f"<em>{caption}</em>"
-            f"</div></br></br>"
+            f"</div><br/>"
         )
-        return html
 
-    pattern_pair = r"!\[([^\]]*)\]\(([^)]+)\)\s*\n\s*\*(Figure:[^\n]*)\*"
-    md_content = re.sub(pattern_pair, img_caption_replacer, md_content)
+    content = re.sub(r"!\[Redstone University Logo\]\([^)]+\)", replace_logo, content)
 
-    def img_fallback_replacer(match):
-        alt = match.group(1)
-        src = match.group(2)
-        caption = f"Figure: {alt}" if alt else ""
-        html = f'<div align="center"><img src="{src}" alt="{alt}" width="512px"/>'
-        if caption:
-            html += f"<br/>{caption}"
-        html += "</div>"
-        return html
+    svg_pattern = r"!\[([^\]]*)\]\((" + "|".join(f"[^)]*?{g}\\.svg" for g in GATE_SYMBOLS) + r")\)"
+    content = re.sub(svg_pattern, replace_gate_svgs, content)
 
-    pattern_img = r"!\[([^\]]*)\]\(([^)]+)\)"
-    md_content = re.sub(pattern_img, img_fallback_replacer, md_content)
-    return md_content
+    caption_pattern = r"!\[([^\]]*)\]\(([^)]+)\)\s*\n\s*\*(Figure:[^\n]*)\*"
+    content = re.sub(caption_pattern, replace_images_with_captions, content)
 
-
-def replace_all_image_paths_with_absolute(content, image_map):
-    """
-    Replace all local image paths in the Markdown content with absolute GitHub raw URLs.
-    image_map: dict mapping old local paths (as used in the Markdown) to absolute URLs.
-    """
-    for old_path, abs_url in image_map.items():
-        content = content.replace(old_path, abs_url)
     return content
 
 
-def replace_logo_with_picture_html(content):
+def process_markdown_file(src_path, dest_path):
     """
-    Replace the Redstone University Logo Markdown image with a <picture> HTML block using absolute URLs.
+    Processes a single markdown file.
+
+    Reads the content, processes all local images to have absolute GitHub
+    URLs, applies HTML transformations, and writes the result to the
+    destination.
+
+    Args:
+        src_path (str): The full path to the source markdown file.
+        dest_path (str): The full path to the destination markdown file.
     """
-    logo_md_pattern = r"!\[Redstone University Logo\]\([^)]+\)"
-    logo_light_url = RAW_BASE_URL + "logo.png"
-    logo_dark_url = RAW_BASE_URL + "logo-dark.png"
-    logo_html = (
-        '<p align="center">\n'
-        "    <picture>\n"
-        f'      <source media="(prefers-color-scheme: light)" srcset="{logo_light_url}">\n'
-        f'      <img alt="Redstone University Logo" src="{logo_dark_url}">\n'
-        "    </picture>\n"
-        "</p>"
-    )
-    return re.sub(logo_md_pattern, logo_html, content)
+    print(f"  - Processing: {src_path}")
+    with open(src_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    image_pattern = re.compile(r"!\[([^\]]*)\]\((?!http)([^)]+)\)")
+
+    def image_path_replacer(match):
+        """
+        A replacer function for re.sub that processes one image match.
+        """
+        alt_text, original_path = match.groups()
+
+        src_image_path = os.path.normpath(os.path.join(os.path.dirname(src_path), original_path))
+
+        if not os.path.exists(src_image_path):
+            print(f"    - ⚠️ WARNING: Image not found: {src_image_path}")
+            return match.group(0)
+
+        module_dir = os.path.basename(os.path.dirname(src_path))
+        module_prefix = module_dir.split("_")[0]
+        new_image_name = f"{module_prefix}_{os.path.basename(src_image_path)}"
+        dest_image_path = os.path.join(ASSETS_IMG_DIR, new_image_name)
+
+        shutil.copy2(src_image_path, dest_image_path)
+
+        absolute_url = RAW_BASE_URL + dest_image_path.replace(os.path.sep, "/")
+
+        return f"![{alt_text}]({absolute_url})"
+
+    content = image_pattern.sub(image_path_replacer, content)
+    content = apply_github_html_transforms(content)
+
+    with open(dest_path, "w", encoding="utf-8") as f:
+        f.write(content)
+    print(f"    - Published to '{dest_path}'")
 
 
 def main():
-    print("🚀 Starting Redstone University course build...")
+    """Main function to orchestrate the entire build process."""
+    setup_directories()
+    copy_static_assets()
 
-    if os.path.exists(COURSE_DIR):
-        shutil.rmtree(COURSE_DIR)
-        print(f"🧹 Cleaned old '{COURSE_DIR}' directory.")
-    if os.path.exists(ASSETS_DIR):
-        shutil.rmtree(ASSETS_DIR)
-        print(f"🧹 Cleaned old '{ASSETS_DIR}' directory.")
+    print("\n📝 Processing all markdown source files...")
+    for root, _, files in os.walk(SRC_DIR):
+        if "project_assets" in root:
+            continue
 
-    os.makedirs(COURSE_DIR)
-    os.makedirs(ASSETS_DIR)
-    print("📁 Created fresh build directories.")
+        for file in files:
+            if file.endswith(".md"):
+                src_file_path = os.path.join(root, file)
 
-    if os.path.exists(PROJECT_ASSETS_SRC_DIR):
-        for asset_filename in os.listdir(PROJECT_ASSETS_SRC_DIR):
-            src_path = os.path.join(PROJECT_ASSETS_SRC_DIR, asset_filename)
-            dest_path = os.path.join(ASSETS_DIR, asset_filename)
-            if os.path.isfile(src_path):
-                shutil.copy2(src_path, dest_path)
-        print(f"🎨 Copied static project assets from '{PROJECT_ASSETS_SRC_DIR}'.")
+                relative_path = os.path.relpath(src_file_path, SRC_DIR)
+                dest_file_path = os.path.join(COURSE_DIR, relative_path)
 
-    course_intro_src_path = os.path.join(SRC_DIR, "introduction.md")
-    course_intro_dest_path = os.path.join(COURSE_DIR, "README.md")
+                if file == LESSON_DRAFT_FILENAME:
+                    module_name = os.path.basename(root)
+                    dest_file_path = os.path.join(os.path.dirname(dest_file_path), f"{module_name}.md")
 
-    if os.path.exists(course_intro_src_path):
-        with open(course_intro_src_path, "r", encoding="utf-8") as f:
-            content = f.read()
+                os.makedirs(os.path.dirname(dest_file_path), exist_ok=True)
+                process_markdown_file(src_file_path, dest_file_path)
 
-        content = replace_logo_with_picture_html(content)
-
-        content = replace_gate_symbols_with_html(content)
-
-        image_pattern = r"!\[[^\]]*\]\(([^)]+)\)"
-        image_paths = set(re.findall(image_pattern, content))
-        image_map = {}
-        for path in image_paths:
-            filename = os.path.basename(path)
-            abs_url = RAW_BASE_URL + filename
-            image_map[path] = abs_url
-        content = replace_all_image_paths_with_absolute(content, image_map)
-
-        if TRANSFORM_IMAGES_FOR_GITHUB:
-            content = md_img_with_caption_to_centered_html(content)
-
-        with open(course_intro_dest_path, "w", encoding="utf-8") as f:
-            f.write(content)
-        print("  - Published Course Introduction")
-
-    for part_name in sorted(os.listdir(SRC_DIR)):
-        part_src_path = os.path.join(SRC_DIR, part_name)
-        part_dest_path = os.path.join(COURSE_DIR, part_name)
-
-        if os.path.isdir(part_src_path) and part_name != "project_assets":
-            os.makedirs(part_dest_path)
-            print(f"\nProcessing Part: {part_name}")
-
-            intro_src_path = os.path.join(part_src_path, "introduction.md")
-            intro_dest_path = os.path.join(part_dest_path, "README.md")
-            if os.path.exists(intro_src_path):
-                with open(intro_src_path, "r", encoding="utf-8") as f:
-                    content = f.read()
-
-                content = replace_logo_with_picture_html(content)
-
-                content = replace_gate_symbols_with_html(content)
-
-                image_pattern = r"!\[[^\]]*\]\(([^)]+)\)"
-                image_paths = set(re.findall(image_pattern, content))
-                image_map = {}
-                for path in image_paths:
-                    filename = os.path.basename(path)
-                    abs_url = RAW_BASE_URL + filename
-                    image_map[path] = abs_url
-                content = replace_all_image_paths_with_absolute(content, image_map)
-
-                if TRANSFORM_IMAGES_FOR_GITHUB:
-                    content = md_img_with_caption_to_centered_html(content)
-
-                with open(intro_dest_path, "w", encoding="utf-8") as f:
-                    f.write(content)
-                print("  - Published Part Introduction")
-
-            for module_name in sorted(os.listdir(part_src_path)):
-                module_src_path = os.path.join(part_src_path, module_name)
-
-                if os.path.isdir(module_src_path) and module_name[0].isdigit():
-                    draft_path = os.path.join(module_src_path, LESSON_DRAFT_FILENAME)
-
-                    if os.path.exists(draft_path):
-                        print(f"  - Processing Module: {module_name}")
-
-                        with open(draft_path, "r", encoding="utf-8") as f:
-                            content = f.read()
-
-                        image_pattern = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")
-                        found_images = image_pattern.findall(content)
-                        image_map = {}
-
-                        for image_path in found_images:
-                            if image_path.startswith("http"):
-                                continue
-
-                            src_image_full_path = os.path.normpath(os.path.join(module_src_path, image_path))
-                            if os.path.exists(src_image_full_path):
-                                image_filename = os.path.basename(image_path)
-                                module_prefix = module_name.split("_")[0]
-                                new_image_name = f"{module_prefix}_{image_filename}"
-
-                                image_dest_path = os.path.join(ASSETS_DIR, new_image_name)
-                                shutil.copy2(src_image_full_path, image_dest_path)
-
-                                new_path_for_md = f"../../assets/images/{new_image_name}"
-                                content = content.replace(image_path, new_path_for_md)
-                                print(
-                                    f"    - Migrated image '{image_filename}' to '{new_image_name}' and updated path."
-                                )
-                            else:
-                                print(f"    - WARNING: Image not found at '{src_image_full_path}'")
-
-                        content = replace_logo_with_picture_html(content)
-
-                        content = replace_gate_symbols_with_html(content)
-
-                        if TRANSFORM_IMAGES_FOR_GITHUB:
-                            content = md_img_with_caption_to_centered_html(content)
-
-                        final_lesson_name = f"{module_name}.md"
-                        final_lesson_path = os.path.join(part_dest_path, final_lesson_name)
-                        with open(final_lesson_path, "w", encoding="utf-8") as f:
-                            f.write(content)
-                        print(f"    - Published lesson to '{final_lesson_path}'")
-
-    print("\n✅ Build complete! The 'course' directory is up to date.")
+    print("\n✅ Build complete! The 'course' directory is ready for publication.")
 
 
 if __name__ == "__main__":
