@@ -28,3 +28,5 @@ This part is crafted to deliver a thrilling payoff. You’ll start with basic sw
 ### Why This Progression?
 
 I’ve designed this course to build confidence step-by-step. It's frustrating to try and build something complex if you don't first understand the tools (Module 0) or the language (Module 1). The faster you see something working, the more driven you’ll be to push forward. Part I is all about giving you that tangible progress and a powerful sense of accomplishment as you complete your first fully-functional system.
+
+Ready to start? Let's learn to handle our tools in the Redstone Toolkit
