@@ -1,0 +1,17 @@
+# Table of contents
+
+* [introduction](README.md)
+* [Redstone-University](Redstone-University.md)
+* [Part I: The Foundations - Laying the Groundwork](Part-I--Foundations/README.md)
+  * [Module 0: The Redstone Toolkit – Orientation Day (Optional)](Part-I--Foundations/00_Prelude-The-Redstone-Toolkit.md)
+  * [Module 1: Speaking in 1s and 0s – The Input Interface](Part-I--Foundations/01_Input-Register.md)
+  * [Module 2: The Language of Logic – A Deep Dive into Boolean Algebra](Part-I--Foundations/02_Boolean-Algebra.md)
+  * [Interlude I: The Art of Compact Design (Optional)](Part-I--Foundations/02b_Interlude-Compact-Design.md)
+  * [Module 3: From Binary to Pictures - Building a Digital Display](Part-I--Foundations/03_Decoders-and-Displays.md)
+* [Part II: The Processor Core - Giving Our Machine a Brain](Part-II--Arithmetic-Unit/README.md)
+* [Part III: The Processor Core](Part-III--Processor-Core/README.md)
+* [Part IV: Creating an Automated Computer](Part-IV--Automated-Computer/README.md)
+* [Part V: Post-Graduate Studies - Advanced Engineering](Part-V--Post-Graduate/README.md)
+* [appendices](appendices/README.md)
+  * [Appendix-B\_Solutions](appendices/Appendix-B_Solutions.md)
+  * [Appendix-C\_Key-Terms](appendices/Appendix-C_Key-Terms.md)
