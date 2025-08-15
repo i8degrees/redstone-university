@@ -3,20 +3,19 @@
 Builds the course materials for web publication on GitHub.
 
 This script processes files from the 'src' directory and generates a clean,
-browsable course structure in the 'course' directory. It follows a multi-pass
-approach to ensure that different types of content (special SVGs, standard
-images, etc.) are handled correctly.
+browsable course structure in the 'course' directory. It assumes a PNG-first
+strategy for all images to ensure maximum compatibility.
 
 Core responsibilities:
 1.  Sets up a clean build environment.
-2.  Pass 1 (Special SVGs): Finds all gate SVGs (NOT.svg, etc.), copies them
-    to assets, and replaces their Markdown with specific HTML <img> tags for
-    proper display in web tables.
-3.  Pass 2 (Standard Images): Finds all other local images (PNG, etc.), copies
-    them to assets, and replaces their paths with absolute GitHub URLs.
-4.  Pass 3 (Final HTML Polish): Applies non-image transformations, such as
-    the theme-aware logo and centered captions for figures.
-5.  Copies all static assets and writes the final processed markdown files.
+2.  Processes all markdown files from the 'src' directory.
+3.  For each local image referenced:
+    - Copies the image to the central 'assets/images' directory.
+    - Replaces its path with an absolute GitHub URL.
+    - If the image is a gate symbol (e.g., NOT.png), it's converted to an
+      HTML <img> tag with a fixed width for proper table display.
+4.  Applies final HTML polishing for logos and figure captions.
+5.  Writes the final markdown files to a clean, flat 'course' directory structure.
 """
 
 import os
@@ -61,67 +60,48 @@ def copy_static_assets():
 
 def process_markdown_file(src_path, dest_path):
     """
-    Processes a single markdown file through a multi-pass system.
-
-    This function ensures that special image types are handled before general
-    ones, preventing regex conflicts and ensuring correct output for both web
-    and potential PDF builds.
-
-    Args:
-        src_path (str): The full path to the source markdown file.
-        dest_path (str): The full path to the destination markdown file.
+    Processes a single markdown file, handling all images in one pass.
     """
-    print(f"  - Processing: {src_path}")
+    print(f"  - Processing: {src_path} -> {dest_path}")
     with open(src_path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    gate_svg_pattern = re.compile(r"!\[([^\]]*)\]\(([^)]*?(" + "|".join(GATE_SYMBOLS) + r")\.svg)\)")
+    image_pattern = re.compile(r"!\[([^\]]*)\]\((?!http)([^)]+)\)")
 
-    def gate_svg_replacer(match):
-        """Copies the SVG and returns an HTML <img> tag with a fixed width."""
-        alt_text, original_path, _ = match.groups()
-        abs_url = copy_image_and_get_absolute_url(original_path, src_path)
-        return f'<img src="{abs_url}" alt="{alt_text}" width="64px">'
-
-    content = gate_svg_pattern.sub(gate_svg_replacer, content)
-
-    standard_image_pattern = re.compile(r"!\[([^\]]*)\]\((?!http)([^)]+)\)")
-
-    def standard_image_replacer(match):
-        """Copies the image and returns a standard Markdown link with an absolute URL."""
+    def image_replacer(match):
+        """
+        Copies images and returns the appropriate Markdown or HTML.
+        """
         alt_text, original_path = match.groups()
-        abs_url = copy_image_and_get_absolute_url(original_path, src_path)
-        return f"![{alt_text}]({abs_url})"
 
-    content = standard_image_pattern.sub(standard_image_replacer, content)
+        basename = os.path.basename(original_path)
+        filename_no_ext, _ = os.path.splitext(basename)
+        is_gate_symbol = filename_no_ext in GATE_SYMBOLS
+
+        abs_url = copy_image_and_get_absolute_url(original_path, src_path)
+
+        if is_gate_symbol:
+            return f'<img src="{abs_url}" alt="{alt_text}" width="64px">'
+        else:
+            return f"![{alt_text}]({abs_url})"
+
+    content = image_pattern.sub(image_replacer, content)
 
     content = apply_final_html_transforms(content)
 
     with open(dest_path, "w", encoding="utf-8") as f:
         f.write(content)
-    print(f"    - Published to '{dest_path}'")
 
 
 def copy_image_and_get_absolute_url(original_path, markdown_src_path):
     """
-    Copies a local image to the central assets directory and returns its absolute URL.
-
-    This is a helper function to avoid code duplication. It handles resolving
-    the image path, creating a unique prefixed name, copying the file, and
-    generating the final raw GitHub URL.
-
-    Args:
-        original_path (str): The relative path to the image from the markdown file.
-        markdown_src_path (str): The path to the markdown file being processed.
-
-    Returns:
-        str: The absolute URL to the image on GitHub.
+    Copies a local image to assets and returns its absolute GitHub URL.
     """
     src_image_path = os.path.normpath(os.path.join(os.path.dirname(markdown_src_path), original_path))
 
     if not os.path.exists(src_image_path):
         print(f"    - ⚠️ WARNING: Image not found: {src_image_path}")
-        return original_path  # Return original path if not found
+        return original_path
 
     module_dir = os.path.basename(os.path.dirname(markdown_src_path))
     module_prefix = module_dir.split("_")[0]
@@ -137,15 +117,6 @@ def copy_image_and_get_absolute_url(original_path, markdown_src_path):
 def apply_final_html_transforms(content):
     """
     Applies non-image-copy transformations for web presentation.
-
-    This includes the theme-aware logo and centered captions for figures. This
-    should be run after all image paths have been finalized.
-
-    Args:
-        content (str): The markdown content with absolute image URLs.
-
-    Returns:
-        str: Content with final HTML transformations applied.
     """
     logo_light = RAW_BASE_URL + ASSETS_IMG_DIR + "/logo.png"
     logo_dark = RAW_BASE_URL + ASSETS_IMG_DIR + "/logo-dark.png"
@@ -169,7 +140,6 @@ def apply_final_html_transforms(content):
         )
 
     content = re.sub(caption_pattern, caption_replacer, content)
-
     return content
 
 
@@ -180,23 +150,29 @@ def main():
 
     print("\n📝 Processing all markdown source files...")
     for root, _, files in os.walk(SRC_DIR):
-        if "project_assets" in root:
+        if "project_assets" in root or "images" in root:
             continue
 
-        for file in files:
-            if file.endswith(".md"):
-                src_file_path = os.path.join(root, file)
-                relative_path = os.path.relpath(src_file_path, SRC_DIR)
-                dest_file_path = os.path.join(COURSE_DIR, relative_path)
+        dest_path = None
+        src_path = None
 
-                if file.endswith("draft.md"):
-                    module_name = os.path.basename(root)
-                    dest_file_path = os.path.join(os.path.dirname(dest_file_path), f"{module_name}.md")
+        if "draft.md" in files:
+            src_path = os.path.join(root, "draft.md")
+            module_name = os.path.basename(root)
+            parent_dir_rel_path = os.path.relpath(os.path.dirname(root), SRC_DIR)
+            dest_dir = os.path.join(COURSE_DIR, parent_dir_rel_path)
+            dest_path = os.path.join(dest_dir, f"{module_name}.md")
+        elif "introduction.md" in files:
+            src_path = os.path.join(root, "introduction.md")
+            relative_dir = os.path.relpath(root, SRC_DIR)
+            dest_dir = os.path.join(COURSE_DIR, relative_dir) if relative_dir != "." else COURSE_DIR
+            dest_path = os.path.join(dest_dir, "README.md")
 
-                os.makedirs(os.path.dirname(dest_file_path), exist_ok=True)
-                process_markdown_file(src_file_path, dest_file_path)
+        if src_path and dest_path:
+            os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+            process_markdown_file(src_path, dest_path)
 
-    print("\n✅ Build complete! The 'course' directory is ready for publication.")
+    print("\n✅ Build complete! The 'course' directory has the correct flat structure.")
 
 
 if __name__ == "__main__":

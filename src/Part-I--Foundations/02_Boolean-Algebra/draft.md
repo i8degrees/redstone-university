@@ -709,13 +709,13 @@ Build an AND gate using only NOR gates. Verify it with a truth table in Minecraf
 
 |  Gate   |                       Symbol                             |             Core Logic Rule             |    Primitive Boolean Expression              |
 | :------ | :---------------------------------------------------------------- | :-------------------------------------- | :--------------------------------------------|
-| **NOT** | ![NOT Gate](./images/NOT.svg)                                     | Inverts a single input.                 | `!A`                                         |
-| **OR**  | <img src="./images/OR.svg" alt="OR Gate Symbol" width="64px">     | True if **at least one** input is True. | `A OR B`                                     |
-| **AND** | <img src="./images/AND.svg" alt="AND Gate Symbol" width="64px">   | True only if **all** inputs are True.   | `!(!A OR !B)`                                |
-| **XOR** | <img src="./images/XOR.svg" alt="XOR Gate Symbol" width="64px">   | True only if inputs are **different**.  |`!(A OR !(A OR B)) OR !(B OR !(A OR B))`      |
-| **NAND**| <img src="./images/NAND.svg" alt="NAND Gate Symbol" width="64px"> | True unless **all** inputs are True.    | `!A OR !B`                                   |
-| **NOR** | <img src="./images/NOR.svg" alt="NOR Gate Symbol" width="64px">   | True only if **all** inputs are False.  | `!(A OR B)`                                  |
-| **XNOR**| <img src="./images/XNOR.svg" alt="XNOR Gate Symbol" width="64px"> | True only if inputs are the **same**.   | `!(!(A OR !(A OR B)) OR !(B OR !(A OR B)))`  |
+| **NOT** | ![NOT Gate](./images/NOT.png)                                     | Inverts a single input.                 | `!A`                                         |
+| **OR**  | ![OR Gate](./images/OR.png)                                       | True if **at least one** input is True. | `A OR B`                                     |
+| **AND** | ![AND Gate](./images/AND.png)                                     | True only if **all** inputs are True.   | `!(!A OR !B)`                                |
+| **XOR** | ![XOR Gate](./images/XOR.png)                                     | True only if inputs are **different**.  |`!(A OR !(A OR B)) OR !(B OR !(A OR B))`      |
+| **NAND**| ![NAND Gate](./images/NAND.png)                                   | True unless **all** inputs are True.    | `!A OR !B`                                   |
+| **NOR** | ![NOR Gate](./images/NOR.png)                                     | True only if **all** inputs are False.  | `!(A OR B)`                                  |
+| **XNOR**| ![XNOR Gate](./images/XNOR.png)                                   | True only if inputs are the **same**.   | `!(!(A OR !(A OR B)) OR !(B OR !(A OR B)))`  |
 
 ---
 
