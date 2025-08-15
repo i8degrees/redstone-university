@@ -486,13 +486,13 @@ This checkpoint is divided into three parts to test the different skills you've 
 </details>
 
 ##### Part 3: The Debug Challenge (In-Game)
-> In the world download for this module, you will find a section labeled "Module 3 Debug Challenge." The display system is fully connected. When you input **`0010`** (for the number 2), the display incorrectly shows a **`6`**.
->
-> **Trace the logic:**
-> -   The digit `2` should be `a, b, g, e, d`.
-> -   The digit `6` is `a, c, d, e, f, g`.
->
-> What is the single most likely point of failure in the system that would cause this specific error? (Hint: The problem is in the Encoder/ROM).
+In the world download for this module, you will find a section labeled "Module 3 Debug Challenge." The display system is fully connected. When you input **`0010`** (for the number 2), the display incorrectly shows a **`6`**.
+
+**Trace the logic:**
+  -   The digit `2` should be `a, b, g, e, d`.
+  -   The digit `6` is `a, c, d, e, f, g`.
+
+What is the single most likely point of failure in the system that would cause this specific error? (Hint: The problem is in the Encoder/ROM).
 
 <details>
 <summary><strong>Click for the solution</strong></summary>
