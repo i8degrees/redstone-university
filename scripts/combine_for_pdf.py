@@ -1,8 +1,8 @@
 import os
 
 MAIN_FILE = "course/Redstone-University-for-pdf.md"
-APPENDIX_B = "course/appendices/Appendix-B_Solutions.md"
-APPENDIX_C = "course/appendices/Appendix-C_Key-Terms.md"
+APPENDIX_B = "course/Z-Appendices/Appendix-B_Solutions.md"
+APPENDIX_C = "course/Z-Appendices/Appendix-C_Key-Terms.md"
 FINAL_FILE = "course/Redstone-University.md"
 
 
