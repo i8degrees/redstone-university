@@ -26,10 +26,12 @@ def extract_key_terms_from_md(md_content, file_path):
     Returns a list of (term, definition, module_num) tuples with detailed logging.
     """
     pattern = re.compile(
-        r"^###\s*Key Terms\s*\(Module (\d+)\)\s*\n((?:-\s*\*\*[^*]+\*\*:\s*.+?(?=\n\s*-\s*\*\*|\n\s*\n|$))+)",
+        r"^###\s*Key Terms\s*\(Module (\d+)\)\s*\n((?:-\s*\*\*[^*]+\*\*:[^\n]*(?:\n(?!\s*-|\s*\n)[^\n]*)*)+)",
         re.MULTILINE | re.DOTALL,
     )
-    term_pattern = re.compile(r"-\s*\*\*([^*]+?)\*\*:\s*(.+?)(?=\n\s*-\s*\*\*|\n\s*\n|$)", re.DOTALL)
+    term_pattern = re.compile(
+        r"-\s*\*\*([^*]+?)\*\*:\s*((?:[^\n]*(?:\n(?!\s*-|\s*\n)[^\n]*)*))(?=\s*-|\s*\n|$)", re.DOTALL
+    )
     all_terms = []
 
     matches = pattern.finditer(md_content)
@@ -37,9 +39,10 @@ def extract_key_terms_from_md(md_content, file_path):
     for section_match in matches:
         section_count += 1
         module_num = section_match.group(1)
-        term_list_str = section_match.group(2)
+        term_list_str = section_match.group(2).strip()
         section_start = section_match.start()
         print(f"📄 Found 'Key Terms (Module {module_num})' section {section_count} at position {section_start}")
+        print(f"📜 Term list content:\n{term_list_str}\n{'-'*50}")
 
         term_matches = term_pattern.finditer(term_list_str)
         term_count = 0
