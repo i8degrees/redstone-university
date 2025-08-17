@@ -1,6 +1,7 @@
 <p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/logo.png"><img alt="Redstone University Logo" src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/logo-dark.png"></picture></p>
 
-# Welcome to Redstone University!
+
+## Welcome to Redstone University!
 
 Have you ever used a computer or a smartphone and wondered what’s *really* happening inside? Not just the software, but the deep, physical magic of a machine that seems to "think"?
 
@@ -10,7 +11,7 @@ As a non-traditional, self-taught software engineer, I found myself wanting to e
 
 That is the mission of Redstone University. We will make the abstract tangible. We will turn theory into a physical, working machine that you can walk around inside of.
 
-## My Personal Journey & Course Philosophy
+### My Personal Journey & Course Philosophy
 
 Redstone University is the product of my own adventure learning digital logic and computer architecture. This adventure started with curiosity and grew into a passion for building, experimenting, and teaching. Every lesson, every build, and every design choice in this course is shaped by what felt intuitive and exciting to me as a learner. I’ve structured the curriculum to follow the path that made the most sense to me: building what I wanted to see next, solving the problems that naturally arose, and always striving to make each concept click in a hands-on, visual way.
 
@@ -21,13 +22,13 @@ Redstone University is the product of my own adventure learning digital logic an
 
 ---
 
-## Course Build Philosophy
+### Course Build Philosophy
 
 > **Disclaimer:** The builds and circuits in this course are intentionally designed for clarity and educational value, not for performance or compactness. We lay out circuits horizontally and in a “paper-like” fashion to make the logic easy to follow, just as you would draw them on paper. Our goal is to illustrate the underlying principles of computer engineering, not to create the most efficient or smallest circuits.
 
 ---
 
-## How the Course is Structured
+### How the Course is Structured
 
 This course is organized as a complete curriculum, taking you from zero knowledge to a fully functional, programmable 4-bit computer. It is divided into Parts (major phases), Modules (specific projects), and Lessons (step-by-step instructions).
 
@@ -39,7 +40,7 @@ You’ll find:
 
 ---
 
-## The Journey Ahead
+### The Journey Ahead
 
 -   **Part I: The Foundations - Speaking to the Machine.** We will begin by learning the absolute basics of Redstone and binary. We will then master the grammar of Boolean logic and use it to construct our own "keyboard" and "monitor."
     -   **Module 0 (Optional):** The Redstone Toolkit
@@ -58,7 +59,7 @@ You’ll find:
 
 ---
 
-## Who Is This For?
+### Who Is This For?
 
 This course is for the curious. It's for:
 *   **My daughter, Ada**, for whom this project was first imagined.
@@ -66,7 +67,7 @@ This course is for the curious. It's for:
 *   **University CS students** who want a physical way to visualize the concepts from their "Computer Architecture" class.
 *   **Self-taught programmers and professionals** who want to solidify their understanding of what's happening at the hardware level.
 
-## How to Get Started & Accessibility
+### How to Get Started & Accessibility
 
 This course is designed to be followed along in **Minecraft**. However, Minecraft is not strictly required!
 
@@ -78,7 +79,7 @@ I am excited for you to join me on this journey. It's time to stop just *using* 
 
 ---
 
-## How to Use This Course
+### How to Use This Course
 
 - **Follow the modules in order:** Each module builds on the last, so start at the beginning and work your way through.
 - **Try the builds yourself:** The hands-on experience is where the real learning happens. Use Minecraft or CircuitVerse as you prefer.

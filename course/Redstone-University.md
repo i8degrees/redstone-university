@@ -1,6 +1,7 @@
 <p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/logo.png"><img alt="Redstone University Logo" src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/logo-dark.png"></picture></p>
 
-# Welcome to Redstone University!
+
+## Welcome to Redstone University!
 
 Have you ever used a computer or a smartphone and wondered what’s *really* happening inside? Not just the software, but the deep, physical magic of a machine that seems to "think"?
 
@@ -10,7 +11,7 @@ As a non-traditional, self-taught software engineer, I found myself wanting to e
 
 That is the mission of Redstone University. We will make the abstract tangible. We will turn theory into a physical, working machine that you can walk around inside of.
 
-## My Personal Journey & Course Philosophy
+### My Personal Journey & Course Philosophy
 
 Redstone University is the product of my own adventure learning digital logic and computer architecture. This adventure started with curiosity and grew into a passion for building, experimenting, and teaching. Every lesson, every build, and every design choice in this course is shaped by what felt intuitive and exciting to me as a learner. I’ve structured the curriculum to follow the path that made the most sense to me: building what I wanted to see next, solving the problems that naturally arose, and always striving to make each concept click in a hands-on, visual way.
 
@@ -21,13 +22,13 @@ Redstone University is the product of my own adventure learning digital logic an
 
 ---
 
-## Course Build Philosophy
+### Course Build Philosophy
 
 > **Disclaimer:** The builds and circuits in this course are intentionally designed for clarity and educational value, not for performance or compactness. We lay out circuits horizontally and in a “paper-like” fashion to make the logic easy to follow, just as you would draw them on paper. Our goal is to illustrate the underlying principles of computer engineering, not to create the most efficient or smallest circuits.
 
 ---
 
-## How the Course is Structured
+### How the Course is Structured
 
 This course is organized as a complete curriculum, taking you from zero knowledge to a fully functional, programmable 4-bit computer. It is divided into Parts (major phases), Modules (specific projects), and Lessons (step-by-step instructions).
 
@@ -39,7 +40,7 @@ You’ll find:
 
 ---
 
-## The Journey Ahead
+### The Journey Ahead
 
 -   **Part I: The Foundations - Speaking to the Machine.** We will begin by learning the absolute basics of Redstone and binary. We will then master the grammar of Boolean logic and use it to construct our own "keyboard" and "monitor."
     -   **Module 0 (Optional):** The Redstone Toolkit
@@ -58,7 +59,7 @@ You’ll find:
 
 ---
 
-## Who Is This For?
+### Who Is This For?
 
 This course is for the curious. It's for:
 *   **My daughter, Ada**, for whom this project was first imagined.
@@ -66,7 +67,7 @@ This course is for the curious. It's for:
 *   **University CS students** who want a physical way to visualize the concepts from their "Computer Architecture" class.
 *   **Self-taught programmers and professionals** who want to solidify their understanding of what's happening at the hardware level.
 
-## How to Get Started & Accessibility
+### How to Get Started & Accessibility
 
 This course is designed to be followed along in **Minecraft**. However, Minecraft is not strictly required!
 
@@ -78,7 +79,7 @@ I am excited for you to join me on this journey. It's time to stop just *using* 
 
 ---
 
-## How to Use This Course
+### How to Use This Course
 
 - **Follow the modules in order:** Each module builds on the last, so start at the beginning and work your way through.
 - **Try the builds yourself:** The hands-on experience is where the real learning happens. Use Minecraft or CircuitVerse as you prefer.
@@ -231,16 +232,16 @@ You’ve just built your first working circuit and verified the core rules of Re
 
 
 #### Key Terms (Module 0)
--   **Signal Strength:** The power level of a Redstone signal, ranging from 15 (full) down to 0 (off). A signal loses 1 strength for every block of dust it travels.
--   **Power Source:** A component, like a Redstone Torch or Lever, that outputs a full-strength (15) signal.
--   **Wire:** Our term for any component, usually Redstone Dust, that transmits a signal from one point to another.
--   **Input:** A component, like a Lever, that allows a user to manually control a circuit.
--   **Output:** A component, like a Redstone Lamp, that displays the result or state of a circuit.
--   **Strong Power:** A type of power provided by components like Repeaters or Torches directly to a block. It can activate all adjacent Redstone components, including dust.
--   **Weak Power:** A type of power provided by Redstone Dust to a block. It can activate components like lamps and repeaters, but not adjacent Redstone dust.
--   **Repeater:** A component that acts as a signal booster (refreshing signal strength to 15) and a diode.
--   **Diode:** A component that allows a signal to flow in only one direction, preventing back-powering. The Redstone Repeater is our primary diode.
--   **Inverter (NOT Gate):** A circuit or component that flips a signal from ON to OFF, or OFF to ON. The Redstone Torch is our primitive inverter.
+-   **Signal Strength**: The power level of a Redstone signal, ranging from 15 (full) down to 0 (off). A signal loses 1 strength for every block of dust it travels.
+-   **Power Source**: A component, like a Redstone Torch or Lever, that outputs a full-strength (15) signal.
+-   **Wire**: Our term for any component, usually Redstone Dust, that transmits a signal from one point to another.
+-   **Input**: A component, like a Lever, that allows a user to manually control a circuit.
+-   **Output**: A component, like a Redstone Lamp, that displays the result or state of a circuit.
+-   **Strong Power**: A type of power provided by components like Repeaters or Torches directly to a block. It can activate all adjacent Redstone components, including dust.
+-   **Weak Power**: A type of power provided by Redstone Dust to a block. It can activate components like lamps and repeaters, but not adjacent Redstone dust.
+-   **Repeater**: A component that acts as a signal booster (refreshing signal strength to 15) and a diode.
+-   **Diode**: A component that allows a signal to flow in only one direction, preventing back-powering. The Redstone Repeater is our primary diode.
+-   **Inverter (NOT Gate)**: A circuit or component that flips a signal from ON to OFF, or OFF to ON. The Redstone Torch is our primitive inverter.
 
 <hr class="pagebreak"/>
 
@@ -441,13 +442,13 @@ The basic building blocks of our computer are about to take shape. Get ready for
 
 
 #### Key Terms (Module 1)
--   **Binary:** A base-2 number system that uses only two symbols, 0 and 1, to represent information. It is the fundamental language of all digital computers.
--   **Bit:** A single "binary digit," which can be either a 0 or a 1. It is the smallest possible unit of data in computing.
--   **Decimal:** The base-10 number system that humans commonly use, with ten unique symbols (0-9).
--   **Bus (Input Bus):** A collection of parallel wires that carry a complete piece of binary information. Our 4-bit input interface creates a 4-bit bus.
--   **Interface (Input Interface):** A device that allows a user or system to provide information to a machine. Our 4-lever setup is a manual input interface.
--   **Bitwise Operation:** An operation in software that manipulates numbers at the level of their individual bits, rather than their decimal value.
--   **Register:** A small, extremely fast storage location inside a computer's central processing unit (CPU) that holds data for immediate use.
+-   **Binary**: A base-2 number system that uses only two symbols, 0 and 1, to represent information. It is the fundamental language of all digital computers.
+-   **Bit**: A single "binary digit," which can be either a 0 or a 1. It is the smallest possible unit of data in computing.
+-   **Decimal**: The base-10 number system that humans commonly use, with ten unique symbols (0-9).
+-   **Bus (Input Bus)**: A collection of parallel wires that carry a complete piece of binary information. Our 4-bit input interface creates a 4-bit bus.
+-   **Interface (Input Interface)**: A device that allows a user or system to provide information to a machine. Our 4-lever setup is a manual input interface.
+-   **Bitwise Operation**: An operation in software that manipulates numbers at the level of their individual bits, rather than their decimal value.
+-   **Register**: A small, extremely fast storage location inside a computer's central processing unit (CPU) that holds data for immediate use.
 
 <hr class="pagebreak"/>
 
@@ -1134,19 +1135,96 @@ This was a huge module! But you now have the most powerful tool an engineer can 
 
 #### Key Terms (Module 2)
 
--   **Boolean Algebra:** A branch of mathematics for working with true/false values (1/0), using operators like AND, OR, and NOT.
--   **Logic Gate:** A physical or virtual device that implements a Boolean operation.
--   **Primitive Gate:** A basic, indivisible logic gate from which more complex gates are built. In our course, these are NOT and OR.
--   **Composite Gate:** A logic gate constructed by combining primitive gates (e.g., an AND gate built from NOT and OR gates).
--   **Truth Table:** A chart showing all possible input/output combinations for a logic gate or circuit.
+-   **Boolean Algebra**: A branch of mathematics for working with true/false values (1/0), using operators like AND, OR, and NOT.
+-   **Logic Gate**: A physical or virtual device that implements a Boolean operation.
+-   **Primitive Gate**: A basic, indivisible logic gate from which more complex gates are built. In our course, these are NOT and OR.
+-   **Composite Gate**: A logic gate constructed by combining primitive gates (e.g., an AND gate built from NOT and OR gates).
+-   **Truth Table**: A chart showing all possible input/output combinations for a logic gate or circuit.
 -   **Diode**: A component that allows an electrical signal to pass in only one direction. In Minecraft, the Redstone Repeater acts as a perfect diode.
--   **Functionally Complete:** A set of gates from which any Boolean function can be built (e.g., just NAND or just NOR).
--   **Bitwise Operation:** A software operation that manipulates individual bits of a number.
--   **XOR (Exclusive OR):** Outputs 1 if inputs are different; used in both hardware and software for unique logic tricks.
+-   **Functionally Complete**: A set of gates from which any Boolean function can be built (e.g., just NAND or just NOR).
+-   **Bitwise Operation**: A software operation that manipulates individual bits of a number.
+-   **XOR (Exclusive OR)**: Outputs 1 if inputs are different; used in both hardware and software for unique logic tricks.
 
 <hr class="pagebreak"/>
 
-### Interlude I: The Art of Compact Design (Optional)
+### Interlude I (B): The Art of Compact Design (Optional)
+**note:** This is one potential versin of this interlude. I haven't decided which approach to take yet.
+
+#### A Note from the Instructor
+
+Congratulations on finishing Module 2! You have mastered the theoretical foundation of our entire computer.
+
+Before we begin our next major project, we have this special, optional section. Think of it as an engineering deep dive. The goal of Module 2 was to build for **clarity**, making our gates large so the logic was easy to trace. This Interlude introduces the art of building for **efficiency**.
+
+We will analyze some common, space-saving designs used by the Redstone community. Understanding them is not required for the rest of the course, but it will empower you to make your own builds smaller and faster. This is your first step from being a student of logic to becoming a true Redstone engineer.
+
+#### The Engineering Trade-Off: Size, Speed, and Readability
+
+Every engineering decision is a compromise. When you compact a circuit, you are usually trading **readability** for **efficiency**.
+
+| Factor | Verbose (Educational) Builds | Compact (Practical) Builds |
+| :--- | :--- | :--- |
+| **Size / Footprint** | Large and sprawling for clarity. | Small and dense to save space in large machines. |
+| **Speed / Tick Delay**| Often slightly slower due to longer wire paths. | Can be faster with shorter signal paths. |
+| **Readability** | Very easy for a human to trace and debug. | Can be cryptic and difficult to troubleshoot. |
+
+> **Guideline:** For learning and debugging, verbose is best. For final builds where space and resources matter, compact is essential.
+
+---
+
+#### Case Studies in Compact Design
+
+Let's analyze a few classic compact designs. For each one, we'll compare the **Verbose Teaching Version** you already built with a **Compact Practical Version** and break down how it works.
+
+##### Case Study 1: The AND Gate
+
+First, recall our verbose AND gate. It's a perfect physical representation of De Morgan's Law, `!(!A OR !B)`, but it takes up a lot of room.
+
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02b_AND-gate-composite_minecraft.png" alt="Verbose AND Gate in Minecraft" width="512px"/><br/><em>Figure: Our easy-to-read, but large, educational AND gate.</em></div><br/>
+
+Now, observe a classic compact AND gate. It performs the exact same function in a tiny 3x2 footprint.
+
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02b_AND-gate_minecraft.png" alt="Compact AND Gate in Minecraft" width="512px"/><br/><em>Figure: A classic, space-efficient compact AND gate.</em></div><br/>
+
+**Logical Deconstruction:**
+This compact build is a brilliant physical implementation of the same logic.
+*   The two torches on the sides of the input blocks are your first **NOT** gates, creating `!A` and `!B`.
+*   The central Redstone dust is the **OR** gate. It gets powered if *either* of the side torches turns off.
+*   The torch on the front of the central block is the final **NOT** gate, inverting the signal from the dust.
+The logic is identical: `!(!A OR !B)`. It's just cleverly folded into a smaller space by using how torches and dust interact.
+
+##### Case Study 2: The XOR Gate
+
+Our educational XOR gate is large because the logic is complex. It's designed to be read.
+
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02b_XOR-gate-composite_minecraft.png" alt="Verbose XOR Gate in Minecraft" width="512px"/><br/><em>Figure: Our educational XOR gate, built for clarity.</em></div><br/>
+
+The community has created many compact XOR designs. Here is one of the most common "tileable" (meaning you can place them side-by-side) versions.
+
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02b_XOR-gate_minecraft.png" alt="Compact XOR Gate in Minecraft" width="512px"/><br/><em>Figure: A very common and tileable compact XOR gate design.</em></div><br/>
+
+**Logical Deconstruction:**
+This design is a masterclass in efficiency. It cleverly uses torch burnout and block power states to create the two conditions for an XOR (`A AND !B` or `!A AND B`) and merges their outputs. While tracing the exact path is advanced, the key takeaway is that it perfectly matches the XOR truth table in a minimal amount of space, which is critical when you need to build dozens of them for an arithmetic unit.
+
+---
+
+#### Conclusion: Your Journey Into Optimization
+
+You now see the difference between a circuit designed for teaching and one designed for a practical machine. Compact designs aren't magic; they are just clever physical implementations of the same Boolean logic you have already mastered.
+
+From Module 3 onward, we will follow the **Rule of Abstraction**:
+
+> A logic gate is defined by its **truth table** (its inputs and outputs), not by its internal layout. You are now free to use the verbose educational builds, the compact practical builds, or any other design that functions correctly.
+
+This freedom is a major step in your journey from student to engineer.
+
+> #### Explore More: The Gate Museum
+> In the world download provided for the course, you will find a section labeled "Gate Museum" which showcases these and many other community-tested compact designs for each logic gate. I encourage you to explore, build, and test them to expand your engineering toolkit.
+
+<hr class="pagebreak"/>
+
+### Interlude I (A): The Art of Compact Design (Optional)
+**note:** This is one potential versin of this interlude. I haven't decided which approach to take yet.
 
 ---
 
@@ -1749,15 +1827,15 @@ You have successfully completed Part I of this course. You can now take a binary
 ---
 #### Key Terms (Module 3)
 
--   **7-Segment Display:** An arrangement of seven light segments that can be combined to display numbers and some letters.
--   **Active-Low Logic:** A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal.
--   **BCD (Binary-Coded Decimal):** A method of representing the decimal digits 0-9 using a 4-bit binary code.
--   **Decoder:** A circuit that takes a multi-bit binary input and activates a single, corresponding output line. Our decoder acts as an **Identifier**.
--   **Diode Matrix:** A grid of input and output lines where components (like our taps) are placed at intersections to create a programmable logic device, often used as a ROM.
--   **Encoder:** A circuit that takes a single active input line and translates it into a multi-bit coded output. Our encoder acts as a **Mapper**.
--   **Modularity:** The engineering practice of designing a system in independent, interchangeable components. This makes the system easier to design, test, and upgrade.
--   **ROM (Read-Only Memory):** A type of storage where data is permanently programmed into the hardware's structure.
--   **Tap (Repeater/Torch):** Our term for a connection that reads a signal from a bus line to control another wire.
+-   **7-Segment Display**: An arrangement of seven light segments that can be combined to display numbers and some letters.
+-   **Active-Low Logic**: A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal.
+-   **BCD (Binary-Coded Decimal)**: A method of representing the decimal digits 0-9 using a 4-bit binary code.
+-   **Decoder**: A circuit that takes a multi-bit binary input and activates a single, corresponding output line. Our decoder acts as an **Identifier**.
+-   **Diode Matrix**: A grid of input and output lines where components (like our taps) are placed at intersections to create a programmable logic device, often used as a ROM.
+-   **Encoder**: A circuit that takes a single active input line and translates it into a multi-bit coded output. Our encoder acts as a **Mapper**.
+-   **Modularity**: The engineering practice of designing a system in independent, interchangeable components. This makes the system easier to design, test, and upgrade.
+-   **ROM (Read-Only Memory)**: A type of storage where data is permanently programmed into the hardware's structure.
+-   **Tap (Repeater/Torch)**: Our term for a connection that reads a signal from a bus line to control another wire.
 
 <hr class="pagebreak"/>
 
@@ -2084,5 +2162,101 @@ This points to a catastrophic failure in the "programming" of the `L2` line in y
 
 ### Appendix C: Key Terms
 
+**7-Segment Display**
+: An arrangement of seven light segments that can be combined to display numbers and some letters.
+
+**Active-Low Logic**
+: A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal.
+
+**BCD (Binary-Coded Decimal)**
+: A method of representing the decimal digits 0-9 using a 4-bit binary code.
+
+**Binary**
+: A base-2 number system that uses only two symbols, 0 and 1, to represent information. It is the fundamental language of all digital computers.
+
+**Bit**
+: A single "binary digit," which can be either a 0 or a 1. It is the smallest possible unit of data in computing.
+
+**Bitwise Operation**
+: An operation in software that manipulates numbers at the level of their individual bits, rather than their decimal value.
+
+**Boolean Algebra**
+: A branch of mathematics for working with true/false values (1/0), using operators like AND, OR, and NOT.
+
+**Bus (Input Bus)**
+: A collection of parallel wires that carry a complete piece of binary information. Our 4-bit input interface creates a 4-bit bus.
+
+**Composite Gate**
+: A logic gate constructed by combining primitive gates (e.g., an AND gate built from NOT and OR gates).
+
+**Decimal**
+: The base-10 number system that humans commonly use, with ten unique symbols (0-9).
+
+**Decoder**
+: A circuit that takes a multi-bit binary input and activates a single, corresponding output line. Our decoder acts as an **Identifier**.
+
 **Diode**
-: A component that allows an electrical signal to pass in only one direction. In Minecraft, the Redstone Repeater acts as a perfect diode.
+: A component that allows a signal to flow in only one direction, preventing back-powering. The Redstone Repeater is our primary diode.
+
+**Diode Matrix**
+: A grid of input and output lines where components (like our taps) are placed at intersections to create a programmable logic device, often used as a ROM.
+
+**Encoder**
+: A circuit that takes a single active input line and translates it into a multi-bit coded output. Our encoder acts as a **Mapper**.
+
+**Functionally Complete**
+: A set of gates from which any Boolean function can be built (e.g., just NAND or just NOR).
+
+**Input**
+: A component, like a Lever, that allows a user to manually control a circuit.
+
+**Interface (Input Interface)**
+: A device that allows a user or system to provide information to a machine. Our 4-lever setup is a manual input interface.
+
+**Inverter (NOT Gate)**
+: A circuit or component that flips a signal from ON to OFF, or OFF to ON. The Redstone Torch is our primitive inverter.
+
+**Logic Gate**
+: A physical or virtual device that implements a Boolean operation.
+
+**Modularity**
+: The engineering practice of designing a system in independent, interchangeable components. This makes the system easier to design, test, and upgrade.
+
+**Output**
+: A component, like a Redstone Lamp, that displays the result or state of a circuit.
+
+**Power Source**
+: A component, like a Redstone Torch or Lever, that outputs a full-strength (15) signal.
+
+**Primitive Gate**
+: A basic, indivisible logic gate from which more complex gates are built. In our course, these are NOT and OR.
+
+**ROM (Read-Only Memory)**
+: A type of storage where data is permanently programmed into the hardware's structure.
+
+**Register**
+: A small, extremely fast storage location inside a computer's central processing unit (CPU) that holds data for immediate use.
+
+**Repeater**
+: A component that acts as a signal booster (refreshing signal strength to 15) and a diode.
+
+**Signal Strength**
+: The power level of a Redstone signal, ranging from 15 (full) down to 0 (off). A signal loses 1 strength for every block of dust it travels.
+
+**Strong Power**
+: A type of power provided by components like Repeaters or Torches directly to a block. It can activate all adjacent Redstone components, including dust.
+
+**Tap (Repeater/Torch)**
+: Our term for a connection that reads a signal from a bus line to control another wire.
+
+**Truth Table**
+: A chart showing all possible input/output combinations for a logic gate or circuit.
+
+**Weak Power**
+: A type of power provided by Redstone Dust to a block. It can activate components like lamps and repeaters, but not adjacent Redstone dust.
+
+**Wire**
+: Our term for any component, usually Redstone Dust, that transmits a signal from one point to another.
+
+**XOR (Exclusive OR)**
+: Outputs 1 if inputs are different; used in both hardware and software for unique logic tricks.

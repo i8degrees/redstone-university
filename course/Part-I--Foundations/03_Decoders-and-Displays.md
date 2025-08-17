@@ -500,12 +500,12 @@ You have successfully completed Part I of this course. You can now take a binary
 ---
 #### Key Terms (Module 3)
 
--   **7-Segment Display:** An arrangement of seven light segments that can be combined to display numbers and some letters.
--   **Active-Low Logic:** A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal.
--   **BCD (Binary-Coded Decimal):** A method of representing the decimal digits 0-9 using a 4-bit binary code.
--   **Decoder:** A circuit that takes a multi-bit binary input and activates a single, corresponding output line. Our decoder acts as an **Identifier**.
--   **Diode Matrix:** A grid of input and output lines where components (like our taps) are placed at intersections to create a programmable logic device, often used as a ROM.
--   **Encoder:** A circuit that takes a single active input line and translates it into a multi-bit coded output. Our encoder acts as a **Mapper**.
--   **Modularity:** The engineering practice of designing a system in independent, interchangeable components. This makes the system easier to design, test, and upgrade.
--   **ROM (Read-Only Memory):** A type of storage where data is permanently programmed into the hardware's structure.
--   **Tap (Repeater/Torch):** Our term for a connection that reads a signal from a bus line to control another wire.
+-   **7-Segment Display**: An arrangement of seven light segments that can be combined to display numbers and some letters.
+-   **Active-Low Logic**: A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal.
+-   **BCD (Binary-Coded Decimal)**: A method of representing the decimal digits 0-9 using a 4-bit binary code.
+-   **Decoder**: A circuit that takes a multi-bit binary input and activates a single, corresponding output line. Our decoder acts as an **Identifier**.
+-   **Diode Matrix**: A grid of input and output lines where components (like our taps) are placed at intersections to create a programmable logic device, often used as a ROM.
+-   **Encoder**: A circuit that takes a single active input line and translates it into a multi-bit coded output. Our encoder acts as a **Mapper**.
+-   **Modularity**: The engineering practice of designing a system in independent, interchangeable components. This makes the system easier to design, test, and upgrade.
+-   **ROM (Read-Only Memory)**: A type of storage where data is permanently programmed into the hardware's structure.
+-   **Tap (Repeater/Torch)**: Our term for a connection that reads a signal from a bus line to control another wire.
