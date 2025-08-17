@@ -1150,6 +1150,8 @@ This was a huge module! But you now have the most powerful tool an engineer can 
 ## Interlude I (B): The Art of Compact Design (Optional)
 **note:** This is one potential versin of this interlude. I haven't decided which approach to take yet.
 
+---
+
 ### A Note from the Instructor
 
 Congratulations on finishing Module 2! You have mastered the theoretical foundation of our entire computer.
