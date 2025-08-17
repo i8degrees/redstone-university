@@ -1,47 +1,42 @@
 name: Build and Publish Course
-
 on:
   push:
     branches: [main]
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # Fetch the full history to allow for rebasing
           fetch-depth: 0
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.x"
-
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
       - name: Build the course files
         run: python scripts/publish.py
-
       - name: Concatenate markdown files for PDF
         run: python scripts/course_concat.py
-
+      - name: Normalize line endings for Redstone-University.md
+        run: sed -i 's/\r\n/\n/g' course/Redstone-University.md
       - name: Fix image paths in concatenated markdown
         run: |
           sed -i 's|\.\./\.\./assets/images/|assets/images/|g' course/Redstone-University.md
-
       - name: Extract solutions for PDF and build appendix
         run: python scripts/extract_solutions.py
-
+      - name: Normalize line endings for Redstone-University-for-pdf.md
+        run: sed -i 's/\r\n/\n/g' course/Redstone-University-for-pdf.md
       - name: Extract key terms for appendix
         run: python scripts/extract_key_terms.py
-
       - name: Combine appendices for PDF
         run: python scripts/combine_for_pdf.py
-
       - name: Generate PDF from processed markdown
         uses: baileyjm02/markdown-to-pdf@v1
         with:
@@ -52,14 +47,11 @@ jobs:
           build_html: false
           theme: assets/css/pdf-style.css
           extend_default_theme: true
-          # pandoc_args: --highlight-style=espresso
           highlight_theme: assets/css/darcula.css
-
       - name: Clean up intermediate files
         run: |
           rm -f course/Redstone-University-for-pdf.md
           rm -f course/Redstone-University-with-key-terms.md
-
       - name: Commit and push if changed
         run: |
           git config --global user.name 'github-actions[bot]'
