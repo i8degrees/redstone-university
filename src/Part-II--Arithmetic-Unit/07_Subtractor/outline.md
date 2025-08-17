@@ -1,4 +1,4 @@
-### **Module 7: The Subtractor & Negative Numbers**
+## **Module 7: The Subtractor & Negative Numbers**
 
 **(Learning Goals:** Understand how negative numbers are represented in binary using **Two's Complement**. Learn how to build a circuit that can perform subtraction using the existing adder. Appreciate the efficiency and elegance of component reuse in hardware design.)
 
@@ -6,7 +6,7 @@
 
 ---
 
-#### **Lesson 7.1: The Theory - The Magic of Two's Complement**
+### **Lesson 7.1: The Theory - The Magic of Two's Complement**
 
 The key to efficient subtraction in the binary world is to rephrase the problem. The expression `8 - 3` is exactly the same as `8 + (-3)`. If we can figure out a way to represent negative numbers in binary, we can just add them using our adder!
 
@@ -39,7 +39,7 @@ The system computers use is called **Two's Complement**. Here's the simple, two-
 
 ---
 
-#### **Lesson 7.2: The Lab - Building the Adder/Subtractor Unit**
+### **Lesson 7.2: The Lab - Building the Adder/Subtractor Unit**
 
 Now we need to build a circuit that can perform the "invert and add one" trick on command.
 
@@ -70,7 +70,7 @@ When `Subtract = 1`: The XOR gates invert B (`B XOR 1`), and the Carry-In is 1. 
 
 ---
 
-#### **Lesson 7.3: The Integration & Test**
+### **Lesson 7.3: The Integration & Test**
 
 Connect your new Adder/Subtractor unit to your input interfaces and your two-digit display system.
 
@@ -88,7 +88,7 @@ Connect your new Adder/Subtractor unit to your input interfaces and your two-dig
 
 ---
 
-#### **Module 7 Checkpoint**
+### **Module 7 Checkpoint**
 
 *   **Quiz:**
     1.  What are the two steps of the Two's Complement algorithm? (Invert, then add one).
@@ -98,5 +98,5 @@ Connect your new Adder/Subtractor unit to your input interfaces and your two-dig
 *   **Real-World Connection: The ALU Control Word**
     > In a real CPU, there isn't a separate "Subtract" lever. The Control Unit sends a multi-bit "control word" to the ALU. A specific bit in that word (e.g., bit #2) would serve this exact purpose, telling the ALU whether to treat the current operation as an addition or a subtraction. You have just built a key part of that control mechanism.
 
-**Module 7 Conclusion:**
+### **Module 7 Conclusion:**
 This was a huge leap forward! Our computer's mathematical abilities have now doubled. More importantly, you've learned the beautiful, efficient trick that allows all computers to handle negative numbers and subtraction without needing extra, complex hardware. You have now completed the entire Arithmetic Unit. With this powerful component finished, it is time to move on to the next major phase of our project: assembling the full Processor Core.

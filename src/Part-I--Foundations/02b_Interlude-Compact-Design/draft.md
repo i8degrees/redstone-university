@@ -1,9 +1,9 @@
-### Interlude I (A): The Art of Compact Design (Optional)
+## Interlude I (A): The Art of Compact Design (Optional)
 **note:** This is one potential versin of this interlude. I haven't decided which approach to take yet.
 
 ---
 
-#### A Note from the Instructor
+### A Note from the Instructor
 
 Congratulations on finishing Module 2! You have mastered the theoretical foundation of our entire computer.
 
@@ -13,7 +13,7 @@ We will analyze some common, space-saving designs used by the Redstone community
 
 ---
 
-#### Interlude Summary
+### Interlude Summary
 
 -   Narrative Beat: You have mastered the language of logic. Now, let's learn the art of the Redstone engineer: how to shrink those textbook examples into sleek components ready for a real machine.
 -   Learning Goals:
@@ -24,7 +24,7 @@ We will analyze some common, space-saving designs used by the Redstone community
 
 ---
 
-#### The Engineering Trade-Off: Size, Speed, and Readability
+### The Engineering Trade-Off: Size, Speed, and Readability
 
 Every Redstone design is a compromise. When you compact a circuit, you are usually trading **readability** for **efficiency**.
 
@@ -34,18 +34,18 @@ Every Redstone design is a compromise. When you compact a circuit, you are usual
 | **Speed / Tick Delay**| Often slower due to longer wiring. | Can be faster with shorter signal paths. |
 | **Readability** | Very easy to trace and debug. | Can be difficult to read, making errors harder to find. |
 
-> #### Guideline:
+> ### Guideline:
 > For learning and debugging, verbose is best. For large-scale builds where space is a concern, compact is essential.
 
 ---
 
-#### Case Studies in Compact Design
+### Case Studies in Compact Design
 
 Each case study compares the **Verbose Teaching Version** you learned in Module 2 with a **Compact Practical Version** designed for efficiency. Both obey the same truth table, the only difference is the implementation.
 
 ---
 
-##### Case Study: The Compact AND Gate
+#### Case Study: The Compact AND Gate
 
 First, recall our verbose AND gate, built from our primitives to be easy to understand.
 
@@ -57,13 +57,13 @@ Now, look at the design below. It performs the exact same logic, but in a much s
 ![Compact AND Gate in Minecraft](./images/AND-gate_minecraft.png)
 *Figure: A classic, space-efficient compact AND gate.*
 
-##### Logical Deconstruction
+#### Logical Deconstruction
 This compact build still follows the logic of `!(!A OR !B)`. The components are just cleverly merged.
 -   The two torches on the sides are the first `NOT` gates, creating `!A` and `!B`.
 -   The central Redstone dust on top of the block acts as the `OR` gate, collecting the signals from the torches. If `!A` is on, OR `!B` is on, this dust becomes powered.
 -   The torch on the back of the central block is the final `NOT` gate, inverting the `OR` signal to produce the final AND output.
 
-##### Build Steps
+#### Build Steps
 1.  Place three solid blocks in a row.
 2.  Place input levers on the front of the two outer blocks.
 3.  Place a Redstone Torch on the top of each of the two outer blocks. These are your `!A` and `!B` inverters.
@@ -73,7 +73,7 @@ This compact build still follows the logic of `!(!A OR !B)`. The components are 
 
 ---
 
-##### Case Study: The Compact NAND Gate
+#### Case Study: The Compact NAND Gate
 
 ![Verbose NAND Gate in Minecraft](./images/NAND-gate-composite_minecraft.png)
 *Figure: Our educational NAND gate, built by removing the final inverter from the verbose AND gate.*
@@ -81,17 +81,17 @@ This compact build still follows the logic of `!(!A OR !B)`. The components are 
 ![Compact NAND Gate in Minecraft](./images/NAND-gate-compact_minecraft.png)
 *Figure: A compact NAND gate, created by tapping the output of the compact AND gate before the final inversion.*
 
-##### Logical Deconstruction
+#### Logical Deconstruction
 This is the beauty of understanding the logic. A NAND gate is simply `!(A AND B)`. In our compact AND gate build, the final component is a torch that performs the last inversion. To get a NAND output, we just need to take the signal from *before* that final torch. The signal on the central dust is `!A OR !B`, which De Morgan's Law proves is logically identical to `A NAND B`.
 
-##### Build Steps
+#### Build Steps
 1.  Build the compact AND gate exactly as described above.
 2.  Instead of taking the output from the final torch, connect your output wire directly to the Redstone Dust on top of the central block.
 3.  This signal is your NAND output. Connect it to a lamp to verify.
 
 ---
 
-##### Case Study: The Compact XOR Gate
+#### Case Study: The Compact XOR Gate
 
 Recall our large, easy-to-read XOR gate from Module 2.
 
@@ -103,13 +103,13 @@ Now, observe a classic compact XOR design. It is much smaller but harder to read
 ![Compact XOR Gate in Minecraft](./images/XOR-gate_minecraft.png)
 *Figure: A very common and tileable compact XOR gate design.*
 
-##### Logical Deconstruction
+#### Logical Deconstruction
 This design is more complex and relies on how torches interact. The logic effectively creates the two conditions for an XOR (`A AND !B` and `!A AND B`) in parallel and merges their outputs.
 -   The torches on top of the input blocks create `!A` and `!B`.
 -   The torches on the sides of the output block are each controlled by a combination of a direct input and an inverted input.
 -   The final Redstone dust on top acts as an OR gate, combining the outputs of the side torches.
 
-##### Build Steps
+#### Build Steps
 1.  Place two solid blocks for your inputs, side-by-side. Place levers on the front.
 2.  Place a third solid block one block away from and between the inputs. This will be your output block.
 3.  On the input blocks, place Redstone Dust on top.
@@ -120,7 +120,7 @@ This design is more complex and relies on how torches interact. The logic effect
 
 ---
 
-##### Case Study: The Compact XNOR Gate
+#### Case Study: The Compact XNOR Gate
 
 ![Verbose XNOR Gate in Minecraft](./images/XNOR-gate-composite_minecraft.png)
 *Figure: The educational XNOR, built by inverting an input to the verbose XOR gate.*
@@ -128,10 +128,10 @@ This design is more complex and relies on how torches interact. The logic effect
 ![Compact XNOR Gate in Minecraft](./images/XNOR-gate-compact_minecraft.png)
 *Figure: A compact XNOR gate, built by simply inverting one input to the compact XOR gate.*
 
-##### Logical Deconstruction
+#### Logical Deconstruction
 Just as we learned in Module 2, the simplest way to create an XNOR (equality detector) is to invert one of the inputs to an XOR gate. The logic `A XNOR B` is identical to `A XOR !B`. We can apply this exact same principle to our compact build. This is the art of the engineer: modifying an existing component instead of reinventing the wheel.
 
-##### Build Steps
+#### Build Steps
 1.  Build the compact XOR gate exactly as described above.
 2.  Choose one input, for example, input B.
 3.  To invert it, place a Redstone Torch between the lever for B and the input block of the XOR gate.
@@ -139,7 +139,7 @@ Just as we learned in Module 2, the simplest way to create an XNOR (equality det
 
 ---
 
-#### Conclusion: Your Journey Into Optimization
+### Conclusion: Your Journey Into Optimization
 
 You now know the difference between a circuit designed for teaching and one designed for practical builds. This is a major step in your engineering journey. You understand that compact designs are not magic; they are just clever physical implementations of the same Boolean logic you have already mastered.
 
@@ -147,5 +147,5 @@ From Module 3 onward, we follow the **Rule of Abstraction**:
 -   A gate is defined by its **truth table** and interface, not by its internal layout.
 -   You are free to use verbose or compact designs as you prefer.
 
-> #### Explore More: The Gate Museum
+> ### Explore More: The Gate Museum
 > In the world download provided for the course, you will find a section labeled "Gate Museum" which showcases these and many other community-tested compact designs for each logic gate. I encourage you to explore, build, and test them to expand your engineering toolkit.

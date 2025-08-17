@@ -1,4 +1,4 @@
-### **Module 5: The Programmer's Solution - The Hexadecimal Upgrade**
+## **Module 5: The Programmer's Solution - The Hexadecimal Upgrade**
 
 **(Learning Goals:** Learn about hexadecimal (base-16) as the native language for binary. Appreciate the power of modular design by easily expanding an existing circuit. Connect hex to its practical use in software.)
 
@@ -6,7 +6,7 @@
 
 ---
 
-#### **Lesson 5.1: Why Hexadecimal is Easy for Computers**
+### **Lesson 5.1: Why Hexadecimal is Easy for Computers**
 
 When our adder outputted `1100`, our BCD decoder failed because it didn't have a rule for the number 12. We could try to build a very complex system with two separate displays for a "1" and a "2", but there's a much more elegant solution that programmers and engineers have used for decades.
 
@@ -35,11 +35,11 @@ This isn't a complex conversion; it's a direct, 1-to-1 lookup. This is why low-l
 
 ---
 
-#### **Lesson 5.2: The Lab - Upgrading Our System**
+### **Lesson 5.2: The Lab - Upgrading Our System**
 
 This is where our two-stage design proves its genius. We don't have to rebuild everything. We just have to **add to it**.
 
-##### **Part A: Upgrading Stage 1 (The Decoder)**
+#### **Part A: Upgrading Stage 1 (The Decoder)**
 *   **Goal:** Our decoder needs to understand the numbers 10 through 15. We will expand it from a 4-to-10 BCD decoder into a full **4-to-16 Binary Decoder**.
 *   **The Build:** This is just more of what you already did in Module 3!
     1.  Go back to your Stage 1 Decoder's logic array.
@@ -47,7 +47,7 @@ This is where our two-stage design proves its genius. We don't have to rebuild e
     3.  **Add another AND gate.** Wire it up to detect `1011`. Connect to line `LB`.
     4.  Continue this for `C`, `D`, `E`, and `F`, until you have 6 new output lines, for a total of 16 output lines (`L0` through `LF`).
 
-##### **Part B: Upgrading Stage 2 (The Encoder/ROM)**
+#### **Part B: Upgrading Stage 2 (The Encoder/ROM)**
 *   **Goal:** Our display driver needs to know what to do when one of the new lines (`LA` through `LF`) activates. We need to "program" the shapes for the letters.
 *   **The Build:** This is also just an expansion of our "diode matrix."
     1.  Extend your ROM. You now have 16 horizontal input lines (`L0`-`LF`) crossing the same 7 vertical segment lines.
@@ -58,7 +58,7 @@ This is where our two-stage design proves its genius. We don't have to rebuild e
 
 ---
 
-#### **Lesson 5.3: The Integration Test & The Payoff**
+### **Lesson 5.3: The Integration Test & The Payoff**
 
 Now, let's rerun the test that "failed" in Module 4.
 

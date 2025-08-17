@@ -3,7 +3,7 @@ import re
 
 INPUT_FILE = "course/Redstone-University.md"
 OUTPUT_FILE = "course/Redstone-University-for-pdf.md"
-APPENDIX_FILE = "course/Z-Appendices/Appendix-B_Solutions.md"
+APPENDIX_FILE = "course/Z-Appendices/Appendix-A_Solutions.md"
 
 
 def extract_solutions_by_module_and_lesson(md):
@@ -11,7 +11,7 @@ def extract_solutions_by_module_and_lesson(md):
     Finds all <details>...</details> blocks and organizes them by module and lesson.
     Returns a nested dict: {module_title: {lesson_title: [(summary, inner, full_block), ...]}}
     """
-    heading_pattern = re.compile(r"^(#{2,3})\s+(.+)$", re.MULTILINE)
+    heading_pattern = re.compile(r"^(#{1,2})\s+(.+)$", re.MULTILINE)
     details_pattern = re.compile(
         r"(<details>\s*<summary>(.*?)</summary>(.*?)</details>)",
         re.DOTALL | re.IGNORECASE,
@@ -72,7 +72,7 @@ def main():
 
     os.makedirs(os.path.dirname(APPENDIX_FILE), exist_ok=True)
 
-    appendix = ['<hr class="pagebreak"/>\n\n### Appendix B: Solutions\n']
+    appendix = ['<hr class="pagebreak"/>\n\n### Appendix A: Solutions\n']
     replaced_md = md
 
     solutions = extract_solutions_by_module_and_lesson(md)
