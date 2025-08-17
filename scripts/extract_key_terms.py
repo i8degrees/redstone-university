@@ -2,12 +2,11 @@ import os
 import re
 from glob import glob
 
-INPUT_FILE = "course/Redstone-University-for-pdf.md"
+SRC_DIR = "src"
 APPENDIX_FILE = "course/Z-Appendices/Appendix-B_Glossary.md"
-COURSE_DIR = "course"
 
 
-def extract_module_titles(md_content):
+def extract_module_titles(md_content, file_path):
     """
     Extracts module numbers and titles from '## Module X: Title' headings.
     Returns a dictionary of {module_num: title}.
@@ -18,20 +17,20 @@ def extract_module_titles(md_content):
         module_num = match.group(1)
         title = match.group(2).strip()
         module_titles[module_num] = title
-        print(f"📋 Found module: Module {module_num}: {title}")
+        print(f"📋 Found module in {file_path}: Module {module_num}: {title}")
     return module_titles
 
 
 def extract_key_terms_from_md(md_content, file_path):
     """
     Extracts key terms and definitions from '### Key Terms (Module X)' sections.
-    Returns a list of (term, definition, module_num) tuples with detailed logging.
+    Returns a list of (term, definition, module_num) tuples with concise logging.
     """
     pattern = re.compile(
-        r"^###\s*Key Terms\s*\(Module (\d+)\)\s*\n((?:-\s*\*\*[^*]+\*\*:[^\n]*(?:\n+[^\n-][^\n]*)*\n*)+)",
+        r"^###\s*Key Terms\s*\(Module (\d+)\)\s*\n((?:-\s*\*\*[^*]+\*\*:[^\n]*(?:\n+(?!\s*-)[^\n]*)*\n*)+)",
         re.MULTILINE | re.DOTALL,
     )
-    term_pattern = re.compile(r"-\s*\*\*([^*]+?)\*\*:\s*((?:[^\n]*(?:\n+(?!\s*-)[^\n]*)*))(?=\s*-|\s*\n|$)", re.DOTALL)
+    term_pattern = re.compile(r"-\s*\*\*([^*]+?)\*\*:\s*((?:[^\n]*(?:\n+(?!\s*-)[^\n]*)*))(?=\s*(?:-|\n|$))", re.DOTALL)
     all_terms = []
 
     matches = pattern.finditer(md_content)
@@ -40,9 +39,7 @@ def extract_key_terms_from_md(md_content, file_path):
         section_count += 1
         module_num = section_match.group(1)
         term_list_str = section_match.group(2).strip()
-        section_start = section_match.start()
-        print(f"📄 Found 'Key Terms (Module {module_num})' section {section_count} at position {section_start}")
-        print(f"📜 Term list content:\n{term_list_str}\n{'-'*50}")
+        print(f"📄 Found 'Key Terms (Module {module_num})' section in {file_path}")
 
         term_matches = term_pattern.finditer(term_list_str)
         term_count = 0
@@ -50,30 +47,25 @@ def extract_key_terms_from_md(md_content, file_path):
             term_count += 1
             term = match.group(1).strip().rstrip(":")
             definition = match.group(2).strip()
-            raw_match = match.group(0).strip()
-            print(f"  - Matched raw term entry:\n{raw_match}\n{'-'*30}")
             if term and definition:
                 all_terms.append((term, definition, module_num))
                 print(f"  - Extracted term: '{term}' (Module {module_num})")
             else:
-                print(
-                    f"  ⚠️ Warning: Skipped invalid term entry in {file_path} at position {section_start + match.start()}: {raw_match}"
-                )
+                print(f"  ⚠️ Warning: Skipped invalid term entry in {file_path}: {match.group(0).strip()}")
 
         print(f"  📝 Extracted {term_count} terms from Module {module_num}")
 
     if section_count == 0:
-        print(f"⚠️ Error: No 'Key Terms (Module X)' sections found in {file_path}")
+        print(f"⚠️ Warning: No 'Key Terms (Module X)' sections found in {file_path}")
 
     return all_terms
 
 
 def collect_markdown_files(directory):
     """
-    Collect all markdown files in the course directory, excluding the output appendix.
+    Collect all markdown files (draft.md, outline.md) in the src directory.
     """
-    files = glob(os.path.join(directory, "**/*.md"), recursive=True)
-    files = [f for f in files if f != APPENDIX_FILE]
+    files = glob(os.path.join(directory, "**/*.{md,draft.md,outline.md}"), recursive=True)
     return sorted(files)
 
 
@@ -83,31 +75,22 @@ def main():
     all_terms = []
     module_titles = {}
 
-    print(f"🔍 Processing input file: '{INPUT_FILE}'...")
-    if os.path.exists(INPUT_FILE):
-        with open(INPUT_FILE, "r", encoding="utf-8") as f:
-            md = f.read()
-        module_titles = extract_module_titles(md)
-        terms = extract_key_terms_from_md(md, INPUT_FILE)
-        all_terms.extend(terms)
-        print(f"📝 Total: Extracted {len(terms)} terms from {INPUT_FILE}")
+    print(f"🔍 Scanning markdown files in '{SRC_DIR}'...")
+    files = collect_markdown_files(SRC_DIR)
+    if not files:
+        print(f"❌ Error: No markdown files found in '{SRC_DIR}'.")
+        return
+    print(f"📜 Found {len(files)} markdown files")
 
-    if len(all_terms) < 10:
-        print(
-            f"⚠️ Warning: Only {len(all_terms)} terms found in {INPUT_FILE}. Scanning all markdown files in '{COURSE_DIR}'..."
-        )
-        files = collect_markdown_files(COURSE_DIR)
-        print(f"📜 Found {len(files)} markdown files: {files}")
-        for file_path in files:
-            with open(file_path, "r", encoding="utf-8") as f:
-                md = f.read()
-            module_titles.update(extract_module_titles(md))
-            terms = extract_key_terms_from_md(md, file_path)
-            all_terms.extend(terms)
-            print(f"📝 Extracted {len(terms)} terms from {file_path}")
+    for file_path in files:
+        with open(file_path, "r", encoding="utf-8") as f:
+            md = f.read()
+        module_titles.update(extract_module_titles(md, file_path))
+        terms = extract_key_terms_from_md(md, file_path)
+        all_terms.extend(terms)
 
     if not all_terms:
-        print("❌ Error: No terms extracted from any files.")
+        print(f"❌ Error: No terms extracted from any files in '{SRC_DIR}'.")
         return
 
     sorted_terms = sorted(all_terms, key=lambda x: x[0].lower())
