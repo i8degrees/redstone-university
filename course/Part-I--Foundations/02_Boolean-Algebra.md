@@ -1,8 +1,8 @@
-### Module 2: The Language of Logic – A Deep Dive into Boolean Algebra
+## Module 2: The Language of Logic – A Deep Dive into Boolean Algebra
 
 ---
 
-#### Module Summary
+### Module Summary
 
 -   **Narrative Beat:** We've built our keyboard, but to make the computer *think*, we need to learn its grammar. This isn't a Minecraft lesson; this is the fundamental language of all digital electronics. Welcome to Boolean Algebra.
 -   **Learning Goals:**
@@ -20,7 +20,7 @@
 
 ---
 
-#### Module Introduction
+### Module Introduction
 
 *For our build philosophy and the story behind this course, see the [main course introduction](../README.md).*
 
@@ -36,7 +36,7 @@ Welcome to Boolean Algebra.
 
 ---
 
-#### Lesson 2.1: The Rules of Thought
+### Lesson 2.1: The Rules of Thought
 
 > **Key Takeaway:** Boolean algebra gives us a precise language for describing and manipulating logical statements, which is the foundation of all digital circuits.
 
@@ -52,10 +52,10 @@ Boolean algebra gives us a set of rules and operators to manipulate these True/F
 
 ---
 
-#### Lesson 2.2: The Core Operators (The Verbs of Logic)
+### Lesson 2.2: The Core Operators (The Verbs of Logic)
 
 
-##### How We Describe Each Gate
+#### How We Describe Each Gate
 
 To ensure a complete understanding, every logic gate is introduced using a consistent structure that moves from the abstract concept to the practical build.
 
@@ -80,7 +80,7 @@ To ensure a complete understanding, every logic gate is introduced using a consi
 
 ---
 
-##### A Note on Our Primitives
+#### A Note on Our Primitives
 
 In the world of computer science, you can build any logic gate from a small set of "primitive" gates. For this course, our primitives are dictated by the game mehanis of Minecraft itself. The game gives us two logical operations right out of the box:
 
@@ -93,7 +93,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
 ---
 
-##### Operator 1: NOT (The Inverter) - A Minecraft Primitive
+#### Operator 1: NOT (The Inverter) - A Minecraft Primitive
 
 > **Key Takeaway:** The NOT gate flips a signal, turning ON to OFF, or 1 to 0. It’s the simplest way to create “opposite” logic in a circuit.
 
@@ -141,7 +141,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
 ---
 
-##### Operator 2: OR (The "At Least One" Gate) - A Minecraft Primitive
+#### Operator 2: OR (The "At Least One" Gate) - A Minecraft Primitive
 
 > **Key Takeaway:** The OR gate outputs 1 if at least one input is 1. It’s how we express “either/or” logic in hardware and software.
 
@@ -184,7 +184,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
 ---
 
-##### Practice Problem: Boolean Expression Evaluation
+#### Practice Problem: Boolean Expression Evaluation
 
 Given the Boolean expression `A OR !B`, evaluate the output for all possible input combinations (A, B = 0,0; 0,1; 1,0; 1,1) and create a truth table. Then, build a Minecraft circuit to verify your results.
 
@@ -205,7 +205,7 @@ Given the Boolean expression `A OR !B`, evaluate the output for all possible inp
 
 ---
 
-##### Operator 3: AND (The "Strict" Gate) - Our First Composite Gate
+#### Operator 3: AND (The "Strict" Gate) - Our First Composite Gate
 
 > **Key Takeaway:** The AND gate only outputs 1 if all its inputs are 1. It’s how we require multiple conditions to be true at once.
 
@@ -248,7 +248,7 @@ To connect the abstract concept of a gate to our physical build, we will use a c
 
 -   **Real-World Connection:** A missile launch might need `TurnKey1=True` AND `PressButton=True`.
 
-##### Practice Problem: Logic Gate Design Challenge
+#### Practice Problem: Logic Gate Design Challenge
 
 Design a circuit that implements the logic `A AND !B` using only the NOT and OR primitives (no direct AND gate). Build it in Minecraft and verify with a truth table.
 
@@ -270,21 +270,21 @@ Design a circuit that implements the logic `A AND !B` using only the NOT and OR 
 </details>
 
 ---
-#### Lesson 2.3: The Laws of Logic & The Power of Simplification
+### Lesson 2.3: The Laws of Logic & The Power of Simplification
 
 > **Key Takeaway:** Boolean laws let us simplify complex circuits and expressions, making our designs more efficient and easier to understand.
 
 Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let us rearrange and simplify expressions. For us, **a simpler expression means a smaller, faster, and more reliable Redstone circuit.** This is a critical engineering skill.
 
 
-##### Boolean Notation: Logical vs Arithmetic
+#### Boolean Notation: Logical vs Arithmetic
 You’ll often see logic written using symbols from regular math. For example, **AND** is sometimes written as multiplication (`A · B` or `AB`), **OR** as addition (`A + B`), and **NOT** as an overbar (`Ā`).
 
 For this course, we will use a specific convention designed for maximum clarity:
 -   We will use the words **`AND`** and **`OR`** in our expressions, as they are unambiguous.
 -   For **negation**, we will use the exclamation mark (**`!`**), as in **`!A`**. This is the standard symbol used in many programming languages and keeps our complex expressions clean and readable.
 
-##### The Laws of Boolean Algebra
+#### The Laws of Boolean Algebra
 Here are the key laws we will be using in our course. There are many more, but these are the most fundamental and useful for circuit design.
 
 -   **Identity Law:** `A OR 0 = A` and `A AND 1 = A`.
@@ -295,7 +295,7 @@ Here are the key laws we will be using in our course. There are many more, but t
 
 ---
 
-##### Lab 1: Proving a Circuit with De Morgan's Law
+#### Lab 1: Proving a Circuit with De Morgan's Law
 
 Let’s use De Morgan’s Law to prove our AND gate design is correct.
 
@@ -308,7 +308,7 @@ Let’s use De Morgan’s Law to prove our AND gate design is correct.
 
 ---
 
-##### Lab 2: Proving a Circuit with the Distributive Law
+#### Lab 2: Proving a Circuit with the Distributive Law
 
 The laws of logic don't just prove that a circuit is correct; they can also make our circuits much simpler. This is a crucial engineering skill called **simplification**.
 
@@ -330,7 +330,7 @@ This looks like it would require two AND gates and one OR gate. Let's use the la
 
 ---
 
-##### Summary Table: Boolean Laws
+#### Summary Table: Boolean Laws
 
 | Law Name | Example(s) | Description |
 |---|---|---|
@@ -348,7 +348,7 @@ This looks like it would require two AND gates and one OR gate. Let's use the la
 
 ---
 
-##### Functional Completeness: Building with Universal Gates
+#### Functional Completeness: Building with Universal Gates
 
 | Universal Gate | To Build a NOT Gate (`!A`) | To Build an AND Gate (`A AND B`) | To Build an OR Gate (`A OR B`) |
 | :--- | :--- | :--- | :--- |
@@ -361,7 +361,7 @@ For real-world chip designers, this is an incredibly powerful concept. Manufactu
 
 Engineers then use the patterns from the table above to wire those identical simple gates together to create all the complex logic they need. The simplicity of manufacturing a single universal gate is a cornerstone of modern, affordable electronics.
 
-##### Practice Problem: Circuit Simplification Challenge
+#### Practice Problem: Circuit Simplification Challenge
 
 Given the expression `(A OR B) AND (!A OR !B)`, simplify it using Boolean laws.
 
@@ -381,7 +381,7 @@ Given the expression `(A OR B) AND (!A OR !B)`, simplify it using Boolean laws.
 
 ---
 
-#### Lesson 2.4: The Special Operator – XOR
+### Lesson 2.4: The Special Operator – XOR
 
 > **Key Takeaway:** XOR outputs 1 only when its inputs are different. It’s essential for circuits like adders and programming tricks.
 
@@ -439,7 +439,7 @@ It's important to understand that this is just one of many ways to build an XOR 
 
 -   **Real-World Connection:** XOR is used in adders, error detection, and two-switch light systems (light toggles if one switch changes).
 
-##### Practice Problem: Two-Switch Light System
+#### Practice Problem: Two-Switch Light System
 
 Design a Minecraft circuit for a two-switch light system where flipping either switch toggles the light’s state (on to off, or off to on). Use only NOT and OR gates to implement the XOR logic.
 
@@ -462,7 +462,7 @@ Design a Minecraft circuit for a two-switch light system where flipping either s
 
 ---
 
-#### Lesson 2.5: Software Superpowers – The XOR Trick for Programmers
+### Lesson 2.5: Software Superpowers – The XOR Trick for Programmers
 
 > **Key Takeaway:** XOR is a “secret weapon” in programming. Its reversible, self-canceling property allows for incredibly efficient solutions to common algorithmic problems.
 
@@ -541,11 +541,11 @@ def missingNumber(nums):
 
 ---
 
-#### Lesson 2.6: The Negated Gates – NAND, NOR, and XNOR
+### Lesson 2.6: The Negated Gates – NAND, NOR, and XNOR
 
 > **Key Takeaway:** Negated gates combine basic operations with NOT. NAND and NOR are “functionally complete.” You can build anything with just one of them!
 
-##### Operator 4: NOR (The "Neither" Gate)
+#### Operator 4: NOR (The "Neither" Gate)
 
 <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_NOR-gate_circuitverse.png" alt="NOR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the NOR gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if both inputs A and B are inactive.</em></div><br/>
 
@@ -577,7 +577,7 @@ def missingNumber(nums):
 
 -   **Real-World Connection:** NOR gates are used in logic circuits needing a “neither” condition and are also functionally complete.
 
-##### Operator 5: NAND (The "Not Both" Gate)
+#### Operator 5: NAND (The "Not Both" Gate)
 
 <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_NAND-gate_circuitverse.png" alt="NAND Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the NAND gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active unless both inputs A and B are active.</em></div><br/>
 
@@ -612,7 +612,7 @@ def missingNumber(nums):
 
 -   **Real-World Connection:** NAND gates are key in hardware (e.g., memory circuits) due to their functional completeness.
 
-##### Operator 6: XNOR (The "Equality Detector")
+#### Operator 6: XNOR (The "Equality Detector")
 
 <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_XNOR-gate_circuitverse.png" alt="XNOR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the Exclusive NOR (XNOR) gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if the inputs are the same.</em></div><br/>
 
@@ -657,7 +657,7 @@ def missingNumber(nums):
 
 -   **Real-World Connection:** XNOR gates are used in equality checks, like comparators in computing.
 
-##### Practice Problem: Universal Gate Challenge with NOR Gates
+#### Practice Problem: Universal Gate Challenge with NOR Gates
 
 Build an AND gate using only NOR gates. Verify it with a truth table in Minecraft.
 
@@ -680,13 +680,13 @@ Build an AND gate using only NOR gates. Verify it with a truth table in Minecraf
 
 ---
 
-#### Lesson 2.7: Module 2 Summary
+### Lesson 2.7: Module 2 Summary
 
 > You have reached the end of the learning portion of this module. You started with the basic idea of True and False and have now built a complete toolkit of the seven fundamental logic gates. You've learned how to describe them with truth tables and Boolean expressions, how to build them from our primitives, and how they connect to both real-world hardware and software.
 >
 > This summary table provides a single place to review all the gates at a glance.
 
-##### Logic Gates Summary Table
+#### Logic Gates Summary Table
 
 |  Gate   |                       Symbol                             |             Core Logic Rule             |    Primitive Boolean Expression              |
 | :------ | :---------------------------------------------------------------- | :-------------------------------------- | :--------------------------------------------|
@@ -700,7 +700,7 @@ Build an AND gate using only NOR gates. Verify it with a truth table in Minecraf
 
 ---
 
-#### Lesson 2.8: Module 2 Checkpoint
+### Lesson 2.8: Module 2 Checkpoint
 
 > **Module Summary:** You have reached the end of the most theory-intensive module in this course. You began with simple on/off switches and have now mastered the seven fundamental logic gates, the Boolean laws that govern them, the power of simplification, and the bridge between hardware logic and software problem-solving. It is time to test your newfound knowledge.
 
@@ -711,7 +711,7 @@ This checkpoint is divided into three parts to test the different skills you've 
 
 ---
 
-##### Part 1: Knowledge Check
+#### Part 1: Knowledge Check
 
 Test your core understanding with these rapid-fire questions.
 
@@ -730,11 +730,11 @@ Test your core understanding with these rapid-fire questions.
 
 ---
 
-##### Part 2: Logic Puzzles
+#### Part 2: Logic Puzzles
 
 Apply the laws of Boolean algebra to solve these challenges on paper.
 
-###### Puzzle 1: The Word Problem
+##### Puzzle 1: The Word Problem
 
 A greenhouse has an automated climate control system. An alarm `Y` should sound if the following conditions are met:
 *   The system is in "Manual Override" mode (`M` is `True`), **OR**
@@ -755,7 +755,7 @@ The parentheses are crucial to ensure the `AND` condition is evaluated before be
 
 <br>
 
-###### Puzzle 2: The Simplification
+##### Puzzle 2: The Simplification
 
 An engineer has designed a circuit with the expression: `Y = (A AND B) OR (A AND !B) OR (!A AND B)`.
 
@@ -783,7 +783,7 @@ The entire complex circuit simplifies down to a single OR gate!
 
 ---
 
-##### Part 3: The Debug Challenge (In-Game)
+#### Part 3: The Debug Challenge (In-Game)
 
 > In the world download for this module, you will find a section labeled "Module 2 Debug Challenge." I have built a circuit that is *supposed* to implement the logic for the greenhouse alarm from Part 2: `M OR (T AND !W)`.
 >
@@ -791,7 +791,7 @@ The entire complex circuit simplifies down to a single OR gate!
 
 ---
 
-#### Module 2 Conclusion
+### Module 2 Conclusion
 
 This was a huge module! But you now have the most powerful tool an engineer can possess: a formal language to describe, design, and simplify complex systems. You know the "verbs" of logic, have built them from Minecraft's true primitives, and seen how that physical logic directly empowers elegant software solutions.
 
@@ -805,7 +805,7 @@ This was a huge module! But you now have the most powerful tool an engineer can 
 
 ---
 
-#### Key Terms (Module 2)
+### Key Terms (Module 2)
 
 -   **Boolean Algebra**: A branch of mathematics for working with true/false values (1/0), using operators like AND, OR, and NOT.
 -   **Logic Gate**: A physical or virtual device that implements a Boolean operation.

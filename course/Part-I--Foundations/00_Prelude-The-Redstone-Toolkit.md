@@ -1,8 +1,8 @@
-### Module 0: The Redstone Toolkit – Orientation Day (Optional)
+## Module 0: The Redstone Toolkit – Orientation Day (Optional)
 
 ---
 
-#### Module Summary
+### Module Summary
 
 -   Narrative Beat: Before we can speak to our computer, we need to learn how to hold the pen. This module equips you with the minimum viable skills in Minecraft’s Redstone so you can confidently follow along with the rest of the course.
 -   Learning Goals:
@@ -17,7 +17,7 @@
 
 ---
 
-#### Module Introduction
+### Module Introduction
 
 Welcome to Redstone University’s Orientation Day!
 
@@ -32,11 +32,11 @@ If you’ve built with Redstone before, you can likely skim this. But if you’v
 
 ---
 
-#### Lesson 0.1: The Engineer's Toolkit
+### Lesson 0.1: The Engineer's Toolkit
 
 These are the pieces you’ll see over and over. They are the alphabet we will use to write our computer into existence.
 
-> #### Note on Texture Packs:
+> ### Note on Texture Packs:
 > For clarity, I use a texture pack that enhances Redstone visibility (e.g., showing dust lines clearly). I highly recommend you find a similar one for your version of the game (such as "Vanilla Tweaks" or others). It makes debugging much easier.
 
 | Component | Game Icon | Role in this Course | Description |
@@ -52,18 +52,18 @@ These are the pieces you’ll see over and over. They are the alphabet we will u
 
 ---
 
-#### Lesson 0.2: How Redstone Thinks: The Rules of Power
+### Lesson 0.2: How Redstone Thinks: The Rules of Power
 
 Understanding how power travels is the single most important skill for a Redstone engineer. It can be non-intuitive, so let's establish the core rules.
 
-##### Rule 1: Signal Strength & Range
+#### Rule 1: Signal Strength & Range
 A Redstone signal has a "strength" from 15 (full power) down to 0 (off).
 -   A signal source (like a Lever or Torch) outputs a signal of strength **15**.
 -   For every block of Redstone Dust the signal travels, its strength decreases by **1**.
 -   After 15 blocks of dust, the signal strength is 0, and the wire goes dead.
 -   A **Redstone Repeater** takes any signal strength from 1 to 15 and outputs a fresh, full-strength signal of 15.
 
-##### Rule 2: Strong vs. Weak Powering
+#### Rule 2: Strong vs. Weak Powering
 This is a critical concept. Blocks can be powered in two ways, and what they can do depends on how they are powered.
 
 | | **Strong Power** | **Weak Power** |
@@ -76,7 +76,7 @@ Understanding this difference is the key to creating compact vertical circuits l
 
 ---
 
-#### Lesson 0.3: Lab: The Fundamental Circuit
+### Lesson 0.3: Lab: The Fundamental Circuit
 
 Let’s combine these concepts to build a simple input to process to output circuit. This is the core pattern of every device we’ll make, from simple gates to a full CPU.
 
@@ -94,7 +94,7 @@ You’ve just built your first working circuit and verified the core rules of Re
 
 ---
 
-#### Module 0 Checkpoint
+### Module 0 Checkpoint
 
 1.  What two essential functions does a Redstone Repeater perform?
 2.  An engineer powers a block with a line of Redstone Dust. Will a piece of dust placed on top of that block receive power? Why or why not?
@@ -109,7 +109,7 @@ You’ve just built your first working circuit and verified the core rules of Re
 
 </details>
 
-#### Key Terms (Module 0)
+### Key Terms (Module 0)
 -   **Signal Strength**: The power level of a Redstone signal, ranging from 15 (full) down to 0 (off). A signal loses 1 strength for every block of dust it travels.
 -   **Power Source**: A component, like a Redstone Torch or Lever, that outputs a full-strength (15) signal.
 -   **Wire**: Our term for any component, usually Redstone Dust, that transmits a signal from one point to another.

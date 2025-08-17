@@ -1,7 +1,7 @@
-### Interlude I (B): The Art of Compact Design (Optional)
+## Interlude I (B): The Art of Compact Design (Optional)
 **note:** This is one potential versin of this interlude. I haven't decided which approach to take yet.
 
-#### A Note from the Instructor
+### A Note from the Instructor
 
 Congratulations on finishing Module 2! You have mastered the theoretical foundation of our entire computer.
 
@@ -9,7 +9,7 @@ Before we begin our next major project, we have this special, optional section. 
 
 We will analyze some common, space-saving designs used by the Redstone community. Understanding them is not required for the rest of the course, but it will empower you to make your own builds smaller and faster. This is your first step from being a student of logic to becoming a true Redstone engineer.
 
-#### The Engineering Trade-Off: Size, Speed, and Readability
+### The Engineering Trade-Off: Size, Speed, and Readability
 
 Every engineering decision is a compromise. When you compact a circuit, you are usually trading **readability** for **efficiency**.
 
@@ -23,11 +23,12 @@ Every engineering decision is a compromise. When you compact a circuit, you are 
 
 ---
 
-#### Case Studies in Compact Design
+
+### Case Studies in Compact Design
 
 Let's analyze a few classic compact designs. For each one, we'll compare the **Verbose Teaching Version** you already built with a **Compact Practical Version** and break down how it works.
 
-##### Case Study 1: The AND Gate
+#### Case Study 1: The AND Gate
 
 First, recall our verbose AND gate. It's a perfect physical representation of De Morgan's Law, `!(!A OR !B)`, but it takes up a lot of room.
 
@@ -44,7 +45,7 @@ This compact build is a brilliant physical implementation of the same logic.
 *   The torch on the front of the central block is the final **NOT** gate, inverting the signal from the dust.
 The logic is identical: `!(!A OR !B)`. It's just cleverly folded into a smaller space by using how torches and dust interact.
 
-##### Case Study 2: The XOR Gate
+#### Case Study 2: The XOR Gate
 
 Our educational XOR gate is large because the logic is complex. It's designed to be read.
 
@@ -59,7 +60,7 @@ This design is a masterclass in efficiency. It cleverly uses torch burnout and b
 
 ---
 
-#### Conclusion: Your Journey Into Optimization
+### Conclusion: Your Journey Into Optimization
 
 You now see the difference between a circuit designed for teaching and one designed for a practical machine. Compact designs aren't magic; they are just clever physical implementations of the same Boolean logic you have already mastered.
 
@@ -69,5 +70,5 @@ From Module 3 onward, we will follow the **Rule of Abstraction**:
 
 This freedom is a major step in your journey from student to engineer.
 
-> #### Explore More: The Gate Museum
+> ### Explore More: The Gate Museum
 > In the world download provided for the course, you will find a section labeled "Gate Museum" which showcases these and many other community-tested compact designs for each logic gate. I encourage you to explore, build, and test them to expand your engineering toolkit.

@@ -1,11 +1,11 @@
 <hr class="pagebreak"/>
 
-### Appendix B: Solutions
+### Appendix A: Solutions
 
 
-## Part I: The Foundations - Laying the Groundwork
+## Module 0: The Redstone Toolkit – Orientation Day (Optional)
 
-### Module 0: The Redstone Toolkit – Orientation Day (Optional)
+### Unknown Lesson
 
 #### Solution: <strong></strong>
 
@@ -15,7 +15,10 @@
 
 ---
 
-### Module 2: The Language of Logic – A Deep Dive into Boolean Algebra
+
+## Module 2: The Language of Logic – A Deep Dive into Boolean Algebra
+
+### Unknown Lesson
 
 #### Solution: <strong>Solution: Boolean Expression Evaluation</strong>
 
@@ -166,7 +169,10 @@ The entire complex circuit simplifies down to a single OR gate!
 
 ---
 
-### Module 3: From Binary to Pictures - Building a Digital Display
+
+## Module 3: From Binary to Pictures - Building a Digital Display
+
+### Unknown Lesson
 
 #### Solution: <strong>Solution: Taps for L6 (`0110`)</strong>
 

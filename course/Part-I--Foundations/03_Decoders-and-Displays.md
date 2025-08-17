@@ -1,8 +1,8 @@
-### Module 3: From Binary to Pictures - Building a Digital Display
+## Module 3: From Binary to Pictures - Building a Digital Display
 
 ---
 
-#### Module Summary
+### Module Summary
 
 -   **Narrative Beat:** We've learned the computer's language. Now, let's build a translator so it can talk back to us. This is our first major engineering project, where we'll turn abstract binary signals into a number we can actually read.
 -   **Learning Goals:**
@@ -22,7 +22,7 @@
 
 ---
 
-#### Module Introduction
+### Module Introduction
 
 In the previous modules, you learned how to speak to your computer in binary and how to manipulate those signals with logic gates. But a computer that can only listen isn't very satisfying. We want it to talk back! This is our first large-scale engineering project, and with it comes a new way of thinking about building.
 
@@ -42,7 +42,7 @@ In the previous modules, you learned how to speak to your computer in binary and
 
 ---
 
-#### Lesson 3.1: The Goal: Building Our 7-Segment Display
+### Lesson 3.1: The Goal: Building Our 7-Segment Display
 
 > **Key Takeaway:** A 7-segment display is a standard output device that uses seven independent segments to form numbers. Understanding how to control it manually is the first step to controlling it automatically.
 
@@ -82,7 +82,7 @@ Before we build the complex logic to control this display automatically, let's g
 
 ---
 
-#### Lesson 3.2: The Master Plan: A Two-Stage Translation
+### Lesson 3.2: The Master Plan: A Two-Stage Translation
 
 > **Key Takeaway:** Complex engineering problems are best solved by breaking them down into smaller, simpler, manageable stages. The "plan" for our encoder is essentially a lookup table.
 
@@ -100,7 +100,7 @@ This modular, two-stage approach is the heart of good engineering. It's easier t
 
 ---
 
-#### Lesson 3.3: The Decoder Lab: A Simple "Brute-Force" Build
+### Lesson 3.3: The Decoder Lab: A Simple "Brute-Force" Build
 
 > **Key Takeaway:** A decoder can be built by assigning one AND gate to recognize each unique binary input. This "brute-force" method is clear but does not scale well.
 
@@ -490,7 +490,7 @@ This points to a catastrophic failure in the "programming" of the `L2` line in y
 </details>
 
 ---
-#### Module 3 Conclusion
+### Module 3 Conclusion
 
 This was a massive milestone. You didn't just build a circuit; you engineered a complete system. By breaking a complex problem down into distinct, logical stages, you built something complex in a way that was manageable, testable, and understandable. You have now mastered the concepts of binary-to-decimal decoding and using a hardware ROM to drive an output, two fundamental building blocks of digital electronics.
 
@@ -498,7 +498,7 @@ This was a massive milestone. You didn't just build a circuit; you engineered a 
 You have successfully completed Part I of this course. You can now take a binary input and display it as a number humans can read. But what happens when we try to do math? In the next module, you’ll discover a critical flaw in our simple translator when we try to count past 9. You’ll learn about the hexadecimal system and how our modular design makes upgrading our system a breeze.
 
 ---
-#### Key Terms (Module 3)
+### Key Terms (Module 3)
 
 -   **7-Segment Display**: An arrangement of seven light segments that can be combined to display numbers and some letters.
 -   **Active-Low Logic**: A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal.
