@@ -1,4 +1,4 @@
-### **Module 6: The "Overflow" Bug & The Carry Bit**
+## **Module 6: The "Overflow" Bug & The Carry Bit**
 
 **(Learning Goals:** Discover and understand the concept of arithmetic **overflow**. Engineer a solution using the adder's **carry-out** bit to create a two-digit display. Appreciate the physical limits of a fixed-size computer.)
 
@@ -6,7 +6,7 @@
 
 ---
 
-#### **Lesson 6.1: The Theory - Hitting the Wall**
+### **Lesson 6.1: The Theory - Hitting the Wall**
 
 Congratulations on completing the Hexadecimal upgrade! Our display system is now robust, capable of showing any 4-bit number from `0` to `F`. It feels like our machine is unstoppable. But every machine, no matter how powerful, has its limits. In this lesson, we're going to find ours.
 
@@ -20,7 +20,7 @@ The `Carry-Out` wire on our 4-bit adder isn't an error light. It's the 5th bit o
 
 ---
 
-#### **Lesson 6.2: The Lab - Discovering the Overflow Bug**
+### **Lesson 6.2: The Lab - Discovering the Overflow Bug**
 
 **Goal:** To intentionally create an overflow error and observe the adder's behavior.
 
@@ -44,7 +44,7 @@ Your computer should still be set up from the end of Module 5.
 
 ---
 
-#### **Lesson 6.3: The Lab - Engineering the 5-Bit Display**
+### **Lesson 6.3: The Lab - Engineering the 5-Bit Display**
 
 Our Carry-Out lamp is the missing piece of our answer. Let's give it the display it deserves.
 
@@ -70,7 +70,7 @@ This is a simple 1-bit decoder. Let the Carry-Out wire be `C`.
 
 ---
 
-#### **Lesson 6.4: The Final Test & Payoff**
+### **Lesson 6.4: The Final Test & Payoff**
 
 Let's rerun our "failed" test with our newly upgraded, two-digit display system.
 
@@ -82,7 +82,7 @@ Let's rerun our "failed" test with our newly upgraded, two-digit display system.
 
 ---
 
-#### **Module 6 Checkpoint**
+### **Module 6 Checkpoint**
 
 *   **Quiz:**
     1.  What is an "overflow error" in the context of our 4-bit adder?

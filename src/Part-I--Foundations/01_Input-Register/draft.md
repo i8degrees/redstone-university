@@ -1,8 +1,8 @@
-### Module 1: Speaking in 1s and 0s – The Input Interface
+## Module 1: Speaking in 1s and 0s – The Input Interface
 
 ---
 
-#### Module Summary
+### Module Summary
 
 - **Narrative Beat:** Before we can build a computer, we need a way to talk to it. Our language will be binary, and our input interface will be a set of simple levers.
 - **Learning Goals:**
@@ -18,7 +18,7 @@
 
 ---
 
-#### Module Introduction
+### Module Introduction
 
 Welcome to your first day at Redstone University!
 
@@ -30,7 +30,7 @@ Let’s get started!
 
 ---
 
-#### Lesson 1.1: The Theory – Why Computers Use Binary
+### Lesson 1.1: The Theory – Why Computers Use Binary
 
 Think about how you count. You probably use ten symbols: `0, 1, 2, 3, 4, 5, 6, 7, 8, 9`. This is the **decimal** (base-10) system. It feels natural to us, likely because humans evolved with ten fingers. When we get past `9`, we don't invent a new symbol; we just add a new column to the left, the "tens" column, and start over. The number `12` is really just our way of saying "one ten, plus two ones."
 
@@ -69,11 +69,11 @@ So, the value is `8 + 4 + 1 = 13`. We've just translated from the computer's lan
 
 ---
 
-#### Lesson 1.2: The Lab – Building and Using Our 4-Bit Input Interface
+### Lesson 1.2: The Lab – Building and Using Our 4-Bit Input Interface
 
 It’s time to stop talking and start building! Our **4-bit input interface** will act as a simple “keyboard,” letting us manually input any number from 0 to 15 in binary. Using levers, we will set the bits by flipping them up for `1` and down for `0`. A simple setup that will enable us to create binary numbers we can see and use.
 
-##### Materials Needed
+#### Materials Needed
 
 - 4 standard building blocks<sup>*</sup>
 - 4 Levers
@@ -86,7 +86,7 @@ It’s time to stop talking and start building! Our **4-bit input interface** wi
 
 This input bus will serve as the starting point for our future circuits. In later modules, we’ll process these binary inputs and display the results on a 7-segment display—a device that lights up segments to show numbers, like on a digital clock.
 
-##### The Build Guide
+#### The Build Guide
 
 ![Minecraft Input Interface](./images/input_minecraft.png)
 *Figure: The input interface in Minecraft, set to `0110` (binary for 6). The levers are flipped to represent the bits, and the dust is connected to the back. Using redstone lamps makes it easy to see the current state of each bit.*
@@ -105,7 +105,7 @@ Before we test our new input interface, I want to introduce you to the same inpu
 
 
 
-##### CircuitVerse Version
+#### CircuitVerse Version
 
 ![CircuitVerse Input Interface](./images/input_circuitverse.png)
 *Figure: The same 4-bit input interface, built in CircuitVerse. It is also set to `0110` (6 in decimal).*
@@ -116,19 +116,19 @@ Don't worry, we will be building more interesting circuits very soon.
 
 ---
 
-#### Lesson 1.3: Drills & Games – Strengthening Your Binary Intuition
+### Lesson 1.3: Drills & Games – Strengthening Your Binary Intuition
 
 Let's get a feel for our new device. Binary feels weird at first, but it will become second nature with just a little practice.
 
 > **Takeaway:** Practicing will make binary numbers feel as natural as decimal. The more you practice, the faster you'll get!
 
-##### Drill 1: Binary to Decimal
+#### Drill 1: Binary to Decimal
 
 - **Goal:** What decimal number is `1011`?
 - **Action:** Go to your input interface and set the levers: `ON, OFF, ON, ON`.
 - **Calculation:** `8 + 0 + 2 + 1 = 11`. So, `1011` is `11`.
 
-##### Drill 2: Decimal to Binary (The "Greedy" Method)
+#### Drill 2: Decimal to Binary (The "Greedy" Method)
 
 - **Goal:** Let's represent the number `6`.
 - **Thought Process:** Always start with your biggest bit and work your way down.
@@ -138,31 +138,31 @@ Let's get a feel for our new device. Binary feels weird at first, but it will be
     4. Is `0` greater than or equal to `1`? **No.** Leave the `1` lever OFF.
 - **Result:** The levers are `OFF, ON, ON, OFF`, which is the binary number `0110`.
 
-##### The Binary "Game"
+#### The Binary "Game"
 
 While not the ideal version of a game, this is a great way to build speed. Pick a random number between `0` and `15` and see how quickly you can represent it on your input interface. This will burn the powers of two (`1`, `2`, `4`, `8`) into your memory.
 
 ---
 
-#### Lesson 1.4: Module 1 Checkpoint
+### Lesson 1.4: Module 1 Checkpoint
 
 Let's check our understanding before moving on.
 
 > **Takeaway:** If you can answer these questions, you’re ready to move on to the next big idea: logic!
 
-##### Quiz
+#### Quiz
 
 1. What is the largest number a `5`-bit input interface could input? (Hint: The next bit would be the `16`s place).
 2. What is the decimal value of the binary number `1100`?
 3. How would you represent the number `10` in binary?
 
-##### Real-World Connection: CPU Registers
+#### Real-World Connection: CPU Registers
 
 Your **4-bit input interface** is a simplified version of how real computers get information from the world. In everyday life, devices like keyboards, mice, and sensors act as input interfaces, turning your actions (like typing or clicking) into binary signals the computer understands. Our Minecraft build uses four levers to input a 4-bit number (0 to 15), but imagine scaling that up. Modern computers often handle **64-bit data**, meaning their circuits can process 64 bits at once, enough to represent numbers bigger than 18 quintillion!
 
 Here’s how it connects: once an input device sends binary data, the computer stores it in **registers**, tiny, super-fast storage units inside the CPU. A “64-bit processor” has registers that hold 64 bits, letting it crunch huge numbers or instructions in a single step. Your 4-bit interface is just the beginning, it’s how we “talk” to the machine. Later, we’ll build a register and see how they use that input to make the computer think!
 
-##### Software Connection (LeetCode): Counting Bits
+#### Software Connection (LeetCode): Counting Bits
 
 How does a programmer "look at" the individual bits you just set with your levers? They use bitwise operations! This is a sneak peek of what we'll learn in Module 2, but it's too cool not to share.
 
@@ -187,7 +187,7 @@ print(countSetBits(13)) # Output: 3
 
 ---
 
-#### Module 1 Conclusion
+### Module 1 Conclusion
 
 Fantastic work! You've now mastered the most fundamental concept in all of computing: how information is physically represented in a binary system. You have a working input device, and you've seen how this physical concept directly connects to both real-world hardware and clever software algorithms.
 
@@ -196,7 +196,7 @@ Your input bus is ready to carry these binary signals to the next stage where lo
 The basic building blocks of our computer are about to take shape. Get ready for the world of logic gates and circuits!
 
 
-#### Key Terms (Module 1)
+### Key Terms (Module 1)
 -   **Binary**: A base-2 number system that uses only two symbols, 0 and 1, to represent information. It is the fundamental language of all digital computers.
 -   **Bit**: A single "binary digit," which can be either a 0 or a 1. It is the smallest possible unit of data in computing.
 -   **Decimal**: The base-10 number system that humans commonly use, with ten unique symbols (0-9).

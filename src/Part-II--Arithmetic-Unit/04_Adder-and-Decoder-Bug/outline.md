@@ -1,4 +1,4 @@
-### **Module 4: The Adder & The First "Bug"**
+## **Module 4: The Adder & The First "Bug"**
 
 **(Learning Goals:** Understand how binary addition works. Build a functional 4-bit adder from basic logic gates. Discover and diagnose an "out of range" error through system integration.)
 
@@ -6,7 +6,7 @@
 
 ---
 
-#### **Lesson 4.1: The Theory of Binary Addition**
+### **Lesson 4.1: The Theory of Binary Addition**
 
 Before we build, we must understand. How do we add `5+3` in binary?
 
@@ -30,7 +30,7 @@ Notice that for each column, we need to know two things: the **Sum** bit and the
 
 ---
 
-#### **Lesson 4.2: The Lab - Building the 4-Bit Ripple-Carry Adder**
+### **Lesson 4.2: The Lab - Building the 4-Bit Ripple-Carry Adder**
 
 **Goal:** To build a circuit that implements binary addition using the logic gates from Module 2.
 
@@ -52,7 +52,7 @@ Notice that for each column, we need to know two things: the **Sum** bit and the
 
 ---
 
-#### **Lesson 4.3: The Integration Test & The Failure**
+### **Lesson 4.3: The Integration Test & The Failure**
 
 **Goal:** To connect our new "Processor" (the Adder) to our "Display" (the BCD system) and test its functionality.
 
@@ -79,7 +79,7 @@ Notice that for each column, we need to know two things: the **Sum** bit and the
 
 ---
 
-#### **Module 4 Checkpoint**
+### **Module 4 Checkpoint**
 
 *   **Quiz:**
     1.  In binary, what is `101` + `010`?

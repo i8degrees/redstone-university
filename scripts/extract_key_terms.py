@@ -2,26 +2,23 @@ import os
 import re
 
 INPUT_FILE = "course/Redstone-University-for-pdf.md"
-APPENDIX_FILE = "course/Z-Appendices/Appendix-C_Key-Terms.md"
+APPENDIX_FILE = "course/Z-Appendices/Appendix-B_Glossary.md"
 
 
 def extract_key_terms_from_md(md_content):
     """Extracts all key terms and their definitions from markdown content."""
-    # Pattern to find a list of terms under a "Key Terms" heading
-    pattern = re.compile(r"#### Key Terms(?: \(Module \d+\))?\s*\n((?:- .+\n?)+)", re.MULTILINE)
-    # Pattern to extract individual terms and definitions from a list
-    term_pattern = re.compile(r"- \s*\*\*([^*]+)\*\*: \s*(.+)")
+    pattern = re.compile(r"^(#{3,4})\s+Key Terms.*\n((?:- .+\n?)+)", re.MULTILINE)
+    term_pattern = re.compile(r"-\s+\*\*([^*]+)\*\*([:\s]+)(.+)")
 
     all_terms = {}
 
     for section_match in pattern.finditer(md_content):
-        term_list_str = section_match.group(1)
-        for term_match in term_pattern.finditer(term_list_str):
-            term = term_match.group(1).strip()
-            definition = term_match.group(2).strip()
-            if term not in all_terms:
+        term_list_str = section_match.group(2)
+        for match in term_pattern.finditer(term_list_str):
+            term = match.group(1).strip().rstrip(":")
+            definition = match.group(3).strip()
+            if term and term not in all_terms:
                 all_terms[term] = definition
-
     return all_terms
 
 
@@ -39,7 +36,7 @@ def main():
 
     sorted_terms = sorted(key_terms.items())
 
-    appendix_content = ['<hr class="pagebreak"/>\n\n### Appendix C: Key Terms\n']
+    appendix_content = ['<hr class="pagebreak"/>\n\n### Appendix B: Glossary\n']
 
     for term, definition in sorted_terms:
         appendix_content.append(f"**{term}**\n: {definition}\n")
