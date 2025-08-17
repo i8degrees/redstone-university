@@ -1,8 +1,10 @@
 import os
 import re
+from glob import glob
 
 INPUT_FILE = "course/Redstone-University-for-pdf.md"
 APPENDIX_FILE = "course/Z-Appendices/Appendix-B_Glossary.md"
+COURSE_DIR = "course"
 
 
 def extract_module_titles(md_content):
@@ -26,12 +28,10 @@ def extract_key_terms_from_md(md_content, file_path):
     Returns a list of (term, definition, module_num) tuples with detailed logging.
     """
     pattern = re.compile(
-        r"^###\s*Key Terms\s*\(Module (\d+)\)\s*\n((?:-\s*\*\*[^*]+\*\*:[^\n]*(?:\n(?!\s*-|\s*\n)[^\n]*)*)+)",
+        r"^###\s*Key Terms\s*\(Module (\d+)\)\s*\n((?:-\s*\*\*[^*]+\*\*:[^\n]*(?:\n+[^\n-][^\n]*)*\n*)+)",
         re.MULTILINE | re.DOTALL,
     )
-    term_pattern = re.compile(
-        r"-\s*\*\*([^*]+?)\*\*:\s*((?:[^\n]*(?:\n(?!\s*-|\s*\n)[^\n]*)*))(?=\s*-|\s*\n|$)", re.DOTALL
-    )
+    term_pattern = re.compile(r"-\s*\*\*([^*]+?)\*\*:\s*((?:[^\n]*(?:\n+(?!\s*-)[^\n]*)*))(?=\s*-|\s*\n|$)", re.DOTALL)
     all_terms = []
 
     matches = pattern.finditer(md_content)
@@ -50,42 +50,67 @@ def extract_key_terms_from_md(md_content, file_path):
             term_count += 1
             term = match.group(1).strip().rstrip(":")
             definition = match.group(2).strip()
+            raw_match = match.group(0).strip()
+            print(f"  - Matched raw term entry:\n{raw_match}\n{'-'*30}")
             if term and definition:
                 all_terms.append((term, definition, module_num))
                 print(f"  - Extracted term: '{term}' (Module {module_num})")
             else:
                 print(
-                    f"  ⚠️ Warning: Skipped invalid term entry in {file_path} at position {section_start + match.start()}: {match.group(0)}"
+                    f"  ⚠️ Warning: Skipped invalid term entry in {file_path} at position {section_start + match.start()}: {raw_match}"
                 )
 
         print(f"  📝 Extracted {term_count} terms from Module {module_num}")
 
     if section_count == 0:
         print(f"⚠️ Error: No 'Key Terms (Module X)' sections found in {file_path}")
-    else:
-        print(f"📝 Total: Extracted {len(all_terms)} terms from {section_count} sections")
 
     return all_terms
+
+
+def collect_markdown_files(directory):
+    """
+    Collect all markdown files in the course directory, excluding the output appendix.
+    """
+    files = glob(os.path.join(directory, "**/*.md"), recursive=True)
+    files = [f for f in files if f != APPENDIX_FILE]
+    return sorted(files)
 
 
 def main():
     os.makedirs(os.path.dirname(APPENDIX_FILE), exist_ok=True)
 
+    all_terms = []
+    module_titles = {}
+
     print(f"🔍 Processing input file: '{INPUT_FILE}'...")
-    if not os.path.exists(INPUT_FILE):
-        print(f"❌ Error: {INPUT_FILE} does not exist. Please run course_concat.py and extract_solutions.py first.")
+    if os.path.exists(INPUT_FILE):
+        with open(INPUT_FILE, "r", encoding="utf-8") as f:
+            md = f.read()
+        module_titles = extract_module_titles(md)
+        terms = extract_key_terms_from_md(md, INPUT_FILE)
+        all_terms.extend(terms)
+        print(f"📝 Total: Extracted {len(terms)} terms from {INPUT_FILE}")
+
+    if len(all_terms) < 10:
+        print(
+            f"⚠️ Warning: Only {len(all_terms)} terms found in {INPUT_FILE}. Scanning all markdown files in '{COURSE_DIR}'..."
+        )
+        files = collect_markdown_files(COURSE_DIR)
+        print(f"📜 Found {len(files)} markdown files: {files}")
+        for file_path in files:
+            with open(file_path, "r", encoding="utf-8") as f:
+                md = f.read()
+            module_titles.update(extract_module_titles(md))
+            terms = extract_key_terms_from_md(md, file_path)
+            all_terms.extend(terms)
+            print(f"📝 Extracted {len(terms)} terms from {file_path}")
+
+    if not all_terms:
+        print("❌ Error: No terms extracted from any files.")
         return
 
-    with open(INPUT_FILE, "r", encoding="utf-8") as f:
-        md = f.read()
-
-    module_titles = extract_module_titles(md)
-    if not module_titles:
-        print(f"⚠️ Warning: No module titles found in {INPUT_FILE}")
-
-    terms = extract_key_terms_from_md(md, INPUT_FILE)
-
-    sorted_terms = sorted(terms, key=lambda x: x[0].lower())
+    sorted_terms = sorted(all_terms, key=lambda x: x[0].lower())
 
     appendix_content = [
         '<hr class="pagebreak"/>\n\n'
