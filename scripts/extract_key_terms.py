@@ -63,9 +63,9 @@ def extract_key_terms_from_md(md_content, file_path):
 
 def collect_markdown_files(directory):
     """
-    Collect all markdown files (draft.md, outline.md) in the src directory.
+    Collect all markdown files (*.md) in the src directory.
     """
-    files = glob(os.path.join(directory, "**/*.{md,draft.md,outline.md}"), recursive=True)
+    files = glob(os.path.join(directory, "**/*.md"), recursive=True)
     return sorted(files)
 
 
@@ -80,7 +80,7 @@ def main():
     if not files:
         print(f"❌ Error: No markdown files found in '{SRC_DIR}'.")
         return
-    print(f"📜 Found {len(files)} markdown files")
+    print(f"📜 Found {len(files)} markdown files: {files}")
 
     for file_path in files:
         with open(file_path, "r", encoding="utf-8") as f:
