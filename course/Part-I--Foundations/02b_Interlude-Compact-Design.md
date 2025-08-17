@@ -1,4 +1,5 @@
-### Interlude I: The Art of Compact Design (Optional)
+### Interlude I (A): The Art of Compact Design (Optional)
+**note:** This is one potential versin of this interlude. I haven't decided which approach to take yet.
 
 ---
 

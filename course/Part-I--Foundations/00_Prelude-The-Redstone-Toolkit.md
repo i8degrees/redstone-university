@@ -110,13 +110,13 @@ You’ve just built your first working circuit and verified the core rules of Re
 </details>
 
 #### Key Terms (Module 0)
--   **Signal Strength:** The power level of a Redstone signal, ranging from 15 (full) down to 0 (off). A signal loses 1 strength for every block of dust it travels.
--   **Power Source:** A component, like a Redstone Torch or Lever, that outputs a full-strength (15) signal.
--   **Wire:** Our term for any component, usually Redstone Dust, that transmits a signal from one point to another.
--   **Input:** A component, like a Lever, that allows a user to manually control a circuit.
--   **Output:** A component, like a Redstone Lamp, that displays the result or state of a circuit.
--   **Strong Power:** A type of power provided by components like Repeaters or Torches directly to a block. It can activate all adjacent Redstone components, including dust.
--   **Weak Power:** A type of power provided by Redstone Dust to a block. It can activate components like lamps and repeaters, but not adjacent Redstone dust.
--   **Repeater:** A component that acts as a signal booster (refreshing signal strength to 15) and a diode.
--   **Diode:** A component that allows a signal to flow in only one direction, preventing back-powering. The Redstone Repeater is our primary diode.
--   **Inverter (NOT Gate):** A circuit or component that flips a signal from ON to OFF, or OFF to ON. The Redstone Torch is our primitive inverter.
+-   **Signal Strength**: The power level of a Redstone signal, ranging from 15 (full) down to 0 (off). A signal loses 1 strength for every block of dust it travels.
+-   **Power Source**: A component, like a Redstone Torch or Lever, that outputs a full-strength (15) signal.
+-   **Wire**: Our term for any component, usually Redstone Dust, that transmits a signal from one point to another.
+-   **Input**: A component, like a Lever, that allows a user to manually control a circuit.
+-   **Output**: A component, like a Redstone Lamp, that displays the result or state of a circuit.
+-   **Strong Power**: A type of power provided by components like Repeaters or Torches directly to a block. It can activate all adjacent Redstone components, including dust.
+-   **Weak Power**: A type of power provided by Redstone Dust to a block. It can activate components like lamps and repeaters, but not adjacent Redstone dust.
+-   **Repeater**: A component that acts as a signal booster (refreshing signal strength to 15) and a diode.
+-   **Diode**: A component that allows a signal to flow in only one direction, preventing back-powering. The Redstone Repeater is our primary diode.
+-   **Inverter (NOT Gate)**: A circuit or component that flips a signal from ON to OFF, or OFF to ON. The Redstone Torch is our primitive inverter.
