@@ -188,23 +188,24 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
 ---
 
-#### Practice Problem: Boolean Expression Evaluation
+#### Practice Problem 2.2.1: Boolean Expression Evaluation
 
-Given the Boolean expression `A OR !B`, evaluate the output for all possible input combinations (A, B = 0,0; 0,1; 1,0; 1,1) and create a truth table. Then, build a Minecraft circuit to verify your results.
+Given the Boolean expression $A \text{ OR } \text{NOT } B$ ($A \lor \neg B$), evaluate the output for all possible input combinations (`A`, `B` = `0,0`; `0,1`; `1,0`; `1,1`) and create a truth table. Then, build a Minecraft circuit to verify your results.
 
 <details>
-<summary><strong>Solution: Boolean Expression Evaluation</strong></summary>
+<summary><strong>Show Solution</strong></summary>
 
-**Truth Table for A OR !B**:
+**Truth Table for $A \text{ OR } \text{NOT } B$ ($A \lor \neg B$):**
 
 | A | B | !B | A OR !B |
+| $A$ | $B$ | $\neg B$ | $A \lor \neg B$ |
 |---|---|----|---------|
-| 0 | 0 |  1 |    1    |
-| 0 | 1 |  0 |    0    |
-| 1 | 0 |  1 |    1    |
-| 1 | 1 |  0 |    1    |
+| `0` | `0` |  `1` |    `1`    |
+| `0` | `1` |  `0` |    `0`    |
+| `1` | `0` |  `1` |    `1`    |
+| `1` | `1` |  `0` |    `1`    |
 
-**Minecraft Circuit**: Use a lever for A, a lever for B, a redstone torch on B’s block for !B, merge A and !B with dust for OR, and connect to a lamp for output. Test all combinations to verify.
+**Minecraft Circuit**: Use a lever for `A`, a lever for `B`, a redstone torch on `B`’s block for `!B`, merge `A` and `!B` with dust for OR, and connect to a lamp for output. Test all combinations to verify.
 </details>
 
 ---
@@ -255,25 +256,26 @@ To connect the abstract concept of a gate to our physical build, we will use a c
 
 -   **Real-World Connection:** A missile launch might need `TurnKey1=True` AND `PressButton=True`.
 
-#### Practice Problem: Logic Gate Design Challenge
+#### Practice Problem 2.2.2: Logic Gate Design Challenge
 
-Design a circuit that implements the logic `A AND !B` using only the NOT and OR primitives (no direct AND gate). Build it in Minecraft and verify with a truth table.
+Design a circuit that implements the logic $A \text{ AND } \text{NOT } B$ ($A \land \neg B$) using only the NOT and OR primitives (no direct AND gate). Build it in Minecraft and verify with a truth table for all input combinations (`A`, `B` = `0,0`; `0,1`; `1,0`; `1,1`).
 
 <details>
-<summary><strong>Solution: A AND !B Circuit</strong></summary>
+<summary><strong>Show Solution</strong></summary>
 
-**Truth Table for A AND !B**:
+**Truth Table for $A \text{ AND } \text{NOT } B$ ($A \land \neg B$):**
 
 | A | B | !B | A AND !B |
+| $A$ | $B$ | $\neg B$ | $A \land \neg B$ |
 |---|---|----|----------|
-| 0 | 0 |  1 |    0     |
-| 0 | 1 |  0 |    0     |
-| 1 | 0 |  1 |    1     |
-| 1 | 1 |  0 |    0     |
+| `0` | `0` |  `1` |    `0`     |
+| `0` | `1` |  `0` |    `0`     |
+| `1` | `0` |  `1` |    `1`     |
+| `1` | `1` |  `0` |    `0`     |
 
-**Boolean Expression**: `A AND !B = !(!A OR B)` (by De Morgan’s Law).
+**Boolean Expression**: $A \text{ AND } \text{NOT } B = \text{NOT } (\text{NOT } A \text{ OR } B)$ ($A \land \neg B = \neg(\neg A \lor B)$) (by De Morgan’s Law).
 
-**Minecraft Circuit**: Invert A to get !A. Then, take !A and the original B and feed them into an OR gate. Finally, invert the result of that OR gate.
+**Minecraft Circuit**: Invert `A` to get `!A`. Then, take `!A` and the original `B` and feed them into an OR gate. Finally, invert the result of that OR gate.
 </details>
 
 ---
@@ -288,8 +290,7 @@ Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let u
 You’ll often see logic written using symbols from regular math. For example, **AND** is sometimes written as multiplication (`A · B` or `AB`), **OR** as addition (`A + B`), and **NOT** as an overbar (`Ā`).
 
 For this course, we will use a specific convention designed for maximum clarity:
--   We will use the words **`AND`** and **`OR`** in our expressions, as they are unambiguous.
--   For **negation**, we will use the exclamation mark (**`!`**), as in **`!A`**. This is the standard symbol used in many programming languages and keeps our complex expressions clean and readable.
+- We will use both text (`AND`, `OR`, `NOT`, `XOR`) and mathematical symbols ($A \land B$, $A \lor B$, $\neg A$, $A \oplus B$) for Boolean expressions to ensure clarity while introducing standard notation. Text is used for intuitiveness, and symbols prepare you for advanced study.
 
 #### The Laws of Boolean Algebra
 Here are the key laws we will be using in our course. There are many more, but these are the most fundamental and useful for circuit design.
@@ -368,22 +369,22 @@ For real-world chip designers, this is an incredibly powerful concept. Manufactu
 
 Engineers then use the patterns from the table above to wire those identical simple gates together to create all the complex logic they need. The simplicity of manufacturing a single universal gate is a cornerstone of modern, affordable electronics.
 
-#### Practice Problem: Circuit Simplification Challenge
+#### Practice Problem 2.3.1: Circuit Simplification Challenge
 
-Given the expression `(A OR B) AND (!A OR !B)`, simplify it using Boolean laws.
+Given the expression $(A \text{ OR } B) \text{ AND } (\text{NOT } A \text{ OR } \text{NOT } B)$ [$(A \lor B) \land (\neg A \lor \neg B)$], simplify it using Boolean laws. Show all steps.
 
 <details>
-<summary><strong>Solution: Simplifying (A OR B) AND (NOT A OR NOT B)</strong></summary>
+<summary><strong>Show Solution</strong></summary>
 
 **Simplification Steps:**
-1. Start with `(A OR B) AND (!A OR !B)`.
-2. Apply De Morgan’s Law to the second term: `!A OR !B = !(A AND B)`.
-3. The expression becomes `(A OR B) AND !(A AND B)`.
-4. Distribute: `(A AND !(A AND B)) OR (B AND !(A AND B))`.
+1. Start with $(A \lor B) \land (\neg A \lor \neg B)$.
+2. Apply De Morgan’s Law to the second term: $\neg A \lor \neg B = \neg(A \land B)$.
+3. The expression becomes $(A \lor B) \land \neg(A \land B)$.
+4. Distribute: $(A \land \neg(A \land B)) \lor (B \land \neg(A \land B))$.
 5. Simplify each term:
-   - `A AND !(A AND B) = A AND (!A OR !B) = (A AND !A) OR (A AND !B) = 0 OR (A AND !B) = A AND !B`.
-   - Similarly, `B AND !(A AND B) = B AND !A`.
-6. Final expression: `(A AND !B) OR (!A AND B)`, which is `A XOR B`.
+   - $A \land \neg(A \land B) = A \land (\neg A \lor \neg B) = (A \land \neg A) \lor (A \land \neg B) = 0 \lor (A \land \neg B) = A \land \neg B$.
+   - Similarly, $B \land \neg(A \land B) = B \land \neg A$.
+6. Final expression: $(A \land \neg B) \lor (\neg A \land B)$, which is $A \text{ XOR } B$ ($A \oplus B$).
 </details>
 
 ---
@@ -449,25 +450,26 @@ It's important to understand that this is just one of many ways to build an XOR 
 
 -   **Real-World Connection:** XOR is used in adders, error detection, and two-switch light systems (light toggles if one switch changes).
 
-#### Practice Problem: Two-Switch Light System
+#### Practice Problem 2.4.1: Two-Switch Light System
 
-Design a Minecraft circuit for a two-switch light system where flipping either switch toggles the light’s state (on to off, or off to on). Use only NOT and OR gates to implement the XOR logic.
+Design a Minecraft circuit for a two-switch light system where flipping either switch toggles the light’s state (on to off, or off to on). Use only `NOT` and `OR` gates to implement the $A \text{ XOR } B$ ($A \oplus B$) logic.
 
 <details>
-<summary><strong>Solution: Two-Switch Light System</strong></summary>
+<summary><strong>Show Solution</strong></summary>
 
-**Logic:** The light should be ON when exactly one switch is ON (A XOR B).
+**Logic:** The light should be ON when exactly one switch is ON ($A \text{ XOR } B$).
 
 **Truth Table:**
 
 | A | B | Light (A XOR B) |
+| $A$ | $B$ | Light ($A \oplus B$) |
 |---|---|-----------------|
-| 0 | 0 |        0        |
-| 0 | 1 |        1        |
-| 1 | 0 |        1        |
-| 1 | 1 |        0        |
+| `0` | `0` |        `0`        |
+| `0` | `1` |        `1`        |
+| `1` | `0` |        `1`        |
+| `1` | `1` |        `0`        |
 
-**Minecraft Circuit:** Build the XOR circuit from Lesson 2.4 (using NOT and OR gates). Connect levers for A and B, and a lamp for the output. Test by flipping each lever and verifying the lamp toggles.
+**Minecraft Circuit:** Build the XOR circuit from Lesson 2.4 (using `NOT` and `OR` gates). Connect levers for `A` and `B`, and a lamp for the output. Test by flipping each lever and verifying the lamp toggles.
 </details>
 
 ---
@@ -500,7 +502,7 @@ def singleNumber(nums):
     return result
 ```
 
-**Your Turn: The "Missing Number" Challenge**
+#### Practice Problem 2.5.1: The Missing Number Challenge
 
 Now that you've seen how the XOR trick works, try applying the same core principle to solve a different, but related, problem.
 
@@ -509,15 +511,13 @@ Now that you've seen how the XOR trick works, try applying the same core princip
 > You are given a list of numbers that contains every number from `0` to `n` exactly once, except for one number which is missing. Your task is to find that missing number.
 >
 > -   **Example List:** `nums = [3, 0, 1]`
-> -   In this example, `n` would be 3. The full range of numbers should be `[0, 1, 2, 3]`. The missing number is `2`.
+> -   In this example, `n` would be `3`. The full range of numbers should be `[0, 1, 2, 3]`. The missing number is `2`.
 >
-> **The Hint:**
+> **Hint:**
 > Think about the two groups of numbers you're dealing with: the list you *have* and the complete list you *should have*. How can you use XOR's self-canceling property to find the single difference between these two groups?
 
-<br>
-
 <details>
-<summary><strong>Click here for the solution and explanation</strong></summary>
+<summary><strong>Show Solution</strong></summary>
 
 ---
 
@@ -676,25 +676,26 @@ def missingNumber(nums):
 
 -   **Real-World Connection:** XNOR gates are used in equality checks, like comparators in computing.
 
-#### Practice Problem: Universal Gate Challenge with NOR Gates
+#### Practice Problem 2.6.1: Universal Gate Challenge with NOR Gates
 
-Build an AND gate using only NOR gates. Verify it with a truth table in Minecraft.
+Build an $A \text{ AND } B$ ($A \land B$) gate using only NOR gates. Verify it with a truth table in Minecraft for all input combinations (`A`, `B` = `0,0`; `0,1`; `1,0`; `1,1`).
 
 <details>
-<summary><strong>Solution: AND Gate Using NOR Gates</strong></summary>
+<summary><strong>Show Solution</strong></summary>
 
-**Logic:** `A AND B = (A NOR A) NOR (B NOR B)`
+**Logic:** $A \land B = (A \text{ NOR } A) \text{ NOR } (B \text{ NOR } B)$
 
 **Truth Table:**
 
 | A | B | A NOR A | B NOR B | (A NOR A) NOR (B NOR B) |
+| $A$ | $B$ | $A \text{ NOR } A$ | $B \text{ NOR } B$ | $(A \text{ NOR } A) \text{ NOR } (B \text{ NOR } B)$ |
 |---|---|---------|---------|-------------------------|
-| 0 | 0 |    1    |    1    |            0            |
-| 0 | 1 |    1    |    0    |            0            |
-| 1 | 0 |    0    |    1    |            0            |
-| 1 | 1 |    0    |    0    |            1            |
+| `0` | `0` |    `1`    |    `1`    |            `0`            |
+| `0` | `1` |    `1`    |    `0`    |            `0`            |
+| `1` | `0` |    `0`    |    `1`    |            `0`            |
+| `1` | `1` |    `0`    |    `0`    |            `1`            |
 
-**Minecraft Circuit:** Build three NOR gates using redstone dust mergers and torches. Connect levers for A and B, and a lamp for the output. Test all combinations to verify AND behavior.
+**Minecraft Circuit:** Build three NOR gates using redstone dust mergers and torches. Connect levers for `A` and `B`, and a lamp for the output. Test all combinations to verify AND behavior.
 </details>
 
 ---
@@ -730,16 +731,16 @@ This checkpoint is divided into three parts to test the different skills you've 
 
 ---
 
-#### Part 1: Knowledge Check
+#### Practice Problem 2.8.1: Knowledge Check
 
 Test your core understanding with these rapid-fire questions.
 
-1.  What is the key difference in the output of an OR gate versus an XOR gate?
+1.  What is the key difference in the output of an `OR` gate versus an `XOR` gate?
 2.  Which two gates are considered "universal," and what is the name of this property?
 3.  Using De Morgan's Law, what is the equivalent expression for `!(A OR B)`?
 
 <details>
-<summary><strong>Click for answers</strong></summary>
+<summary><strong>Show Solution</strong></summary>
 
 1.  An **OR** gate outputs `1` if *at least one* input is `1`. An **XOR** gate outputs `1` only if the inputs are *different*.
 2.  The **NAND** gate and the **NOR** gate. The property is called **Functional Completeness**.
@@ -749,20 +750,18 @@ Test your core understanding with these rapid-fire questions.
 
 ---
 
-#### Part 2: Logic Puzzles
+#### Practice Problem 2.8.2: The Word Problem
 
 Apply the laws of Boolean algebra to solve these challenges on paper.
 
-##### Puzzle 1: The Word Problem
-
 A greenhouse has an automated climate control system. An alarm `Y` should sound if the following conditions are met:
-*   The system is in "Manual Override" mode (`M` is `True`), **OR**
-*   The Temperature `T` is too high **AND** the Water Sprinklers `W` have failed to turn on (`W` is `False`).
+*   The system is in "Manual Override" mode (`M` is True), **OR**
+*   The Temperature `T` is too high **AND** the Water Sprinklers `W` have failed to turn on (`W` is False).
 
-Write the single Boolean expression for the alarm `Y`.
+Write the single Boolean expression for the alarm $Y$ using dual notation.
 
 <details>
-<summary><strong>Click for the solution</strong></summary>
+<summary><strong>Show Solution</strong></summary>
 
 The expression translates directly from the requirements:
 
@@ -774,27 +773,27 @@ The parentheses are crucial to ensure the `AND` condition is evaluated before be
 
 <br>
 
-##### Puzzle 2: The Simplification
+#### Practice Problem 2.8.3: The Simplification
 
 An engineer has designed a circuit with the expression: `Y = (A AND B) OR (A AND !B) OR (!A AND B)`.
 
 This seems to require three AND gates and two OR gates. Simplify this expression to its most efficient form using Boolean laws.
 
 <details>
-<summary><strong>Click for the step-by-step proof</strong></summary>
+<summary><strong>Show Solution</strong></summary>
 
-1.  **Start with the expression:** `Y = (A AND B) OR (A AND !B) OR (!A AND B)`
-2.  **Look for common terms to factor:** The first two terms both contain `A`. Let's factor it out using the Distributive Law.
-    *   `A AND (B OR !B)`
-3.  **Apply the Inverse Law:** We know that `B OR !B` is always `1`.
-    *   So, the first part simplifies to `A AND 1`, which is just `A`.
-4.  **Rewrite the expression:** Our expression is now much simpler: `Y = A OR (!A AND B)`
-5.  **Apply the Distributive Law again (in a less obvious way):** The law `(X OR Y) AND (X OR Z) = X OR (Y AND Z)` can be applied here. Let `X = A`.
-    *   We can expand `A OR (!A AND B)` into `(A OR !A) AND (A OR B)`.
-6.  **Apply the Inverse Law again:** We know that `A OR !A` is always `1`.
-    *   The expression becomes: `Y = 1 AND (A OR B)`
-7.  **Apply the Identity Law:** `1 AND` anything is just the anything.
-    *   The final, simplified expression is: `Y = A OR B`.
+1.  **Start with the expression:** $Y = (A \land B) \lor (A \land \neg B) \lor (\neg A \land B)$
+2.  **Look for common terms to factor:** The first two terms both contain $A$. Let's factor it out using the Distributive Law.
+    *   $A \land (B \lor \neg B)$
+3.  **Apply the Inverse Law:** We know that $B \lor \neg B$ is always $1$.
+    *   So, the first part simplifies to $A \land 1$, which is just $A$.
+4.  **Rewrite the expression:** Our expression is now much simpler: $Y = A \lor (\neg A \land B)$
+5.  **Apply the Distributive Law again (in a less obvious way):** The law $(X \lor Y) \land (X \lor Z) = X \lor (Y \land Z)$ can be applied here. Let $X = A$.
+    *   We can expand $A \lor (\neg A \land B)$ into $(A \lor \neg A) \land (A \lor B)$.
+6.  **Apply the Inverse Law again:** We know that $A \lor \neg A$ is always $1$.
+    *   The expression becomes: $Y = 1 \land (A \lor B)$
+7.  **Apply the Identity Law:** $1 \land$ anything is just the anything.
+    *   The final, simplified expression is: $Y = A \text{ OR } B$ ($A \lor B$).
 
 The entire complex circuit simplifies down to a single OR gate!
 
@@ -802,11 +801,25 @@ The entire complex circuit simplifies down to a single OR gate!
 
 ---
 
-#### Part 3: The Debug Challenge (In-Game)
+#### Practice Problem 2.8.4: Debug Challenge
 
-> In the world download for this module, you will find a section labeled "Module 2 Debug Challenge." I have built a circuit that is *supposed* to implement the logic for the greenhouse alarm from Part 2: `M OR (T AND !W)`.
+> In the world download for this module, you will find a section labeled "Module 2 Debug Challenge." I have built a circuit that is *supposed* to implement the logic for the greenhouse alarm from Part 2: $M \text{ OR } (T \text{ AND } \text{NOT } W)$ [$M \lor (T \land \neg W)$].
 >
 > However, it's giving the wrong output for some input combinations! Your mission is to use your knowledge of truth tables and circuit tracing to diagnose the mistake in the Redstone wiring and fix it so it functions correctly. Good luck!
+
+---
+
+#### Key Terms (Module 2)
+
+-   **Boolean Algebra**: A branch of mathematics for working with true/false values (1/0), using operators like AND, OR, and NOT.
+-   **Logic Gate**: A physical or virtual device that implements a Boolean operation.
+-   **Primitive Gate**: A basic, indivisible logic gate from which more complex gates are built. In our course, these are NOT and OR.
+-   **Composite Gate**: A logic gate constructed by combining primitive gates (e.g., an AND gate built from NOT and OR gates).
+-   **Truth Table**: A chart showing all possible input/output combinations for a logic gate or circuit.
+-   **Diode**: A component that allows an electrical signal to pass in only one direction. In Minecraft, the Redstone Repeater acts as a perfect diode.
+-   **Functionally Complete**: A set of gates from which any Boolean function can be built (e.g., just NAND or just NOR).
+-   **Bitwise Operation**: A software operation that manipulates individual bits of a number.
+-   **XOR (Exclusive OR)**: Outputs 1 if inputs are different; used in both hardware and software for unique logic tricks.
 
 ---
 
@@ -823,15 +836,3 @@ This was a huge module! But you now have the most powerful tool an engineer can 
 > Think of it as your first engineering deep-dive. You can read it now, or you can come back to it at any time. The choice is yours.
 
 ---
-
-### Key Terms (Module 2)
-
--   **Boolean Algebra**: A branch of mathematics for working with true/false values (1/0), using operators like AND, OR, and NOT.
--   **Logic Gate**: A physical or virtual device that implements a Boolean operation.
--   **Primitive Gate**: A basic, indivisible logic gate from which more complex gates are built. In our course, these are NOT and OR.
--   **Composite Gate**: A logic gate constructed by combining primitive gates (e.g., an AND gate built from NOT and OR gates).
--   **Truth Table**: A chart showing all possible input/output combinations for a logic gate or circuit.
--   **Diode**: A component that allows an electrical signal to pass in only one direction. In Minecraft, the Redstone Repeater acts as a perfect diode.
--   **Functionally Complete**: A set of gates from which any Boolean function can be built (e.g., just NAND or just NOR).
--   **Bitwise Operation**: A software operation that manipulates individual bits of a number.
--   **XOR (Exclusive OR)**: Outputs 1 if inputs are different; used in both hardware and software for unique logic tricks.

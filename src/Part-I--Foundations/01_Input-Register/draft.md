@@ -84,7 +84,7 @@ It’s time to stop talking and start building! Our **4-bit input interface** wi
 
 ---
 
-This input bus will serve as the starting point for our future circuits. In later modules, we’ll process these binary inputs and display the results on a 7-segment display—a device that lights up segments to show numbers, like on a digital clock.
+This input bus will serve as the starting point for our future circuits. In later modules, we’ll process these binary inputs and display the results on a 7-segment display. This device lights up segments to show numbers, like on a digital clock.
 
 #### The Build Guide
 
@@ -125,18 +125,18 @@ Let's get a feel for our new device. Binary feels weird at first, but it will be
 #### Drill 1: Binary to Decimal
 
 - **Goal:** What decimal number is `1011`?
-- **Action:** Go to your input interface and set the levers: `ON, OFF, ON, ON`.
-- **Calculation:** `8 + 0 + 2 + 1 = 11`. So, `1011` is `11`.
+- **Action:** Go to your input interface and set the levers: ON, OFF, ON, ON.
+- **Calculation:** $8 + 0 + 2 + 1 = 11$. So, `1011` is `11`.
 
 #### Drill 2: Decimal to Binary (The "Greedy" Method)
 
 - **Goal:** Let's represent the number `6`.
 - **Thought Process:** Always start with your biggest bit and work your way down.
     1. Is `6` greater than or equal to `8`? **No.** Leave the `8` lever OFF.
-    2. Is `6` greater than or equal to `4`? **Yes.** Flip the `4` lever ON. We have `6 - 4 = 2` left to account for.
-    3. Is `2` greater than or equal to `2`? **Yes.** Flip the `2` lever ON. We have `2 - 2 = 0` left.
+    2. Is `6` greater than or equal to `4`? **Yes.** Flip the `4` lever ON. We have $6 - 4 = 2$ left to account for.
+    3. Is `2` greater than or equal to `2`? **Yes.** Flip the `2` lever ON. We have $2 - 2 = 0$ left.
     4. Is `0` greater than or equal to `1`? **No.** Leave the `1` lever OFF.
-- **Result:** The levers are `OFF, ON, ON, OFF`, which is the binary number `0110`.
+- **Result:** The levers are OFF, ON, ON, OFF, which is the binary number `0110`.
 
 #### The Binary "Game"
 
@@ -150,11 +150,20 @@ Let's check our understanding before moving on.
 
 > **Takeaway:** If you can answer these questions, you’re ready to move on to the next big idea: logic!
 
-#### Quiz
+#### Practice Problem 1.4.1: Knowledge Check
 
 1. What is the largest number a `5`-bit input interface could input? (Hint: The next bit would be the `16`s place).
 2. What is the decimal value of the binary number `1100`?
 3. How would you represent the number `10` in binary?
+
+<details>
+<summary><strong>Show Solution</strong></summary>
+
+1. The largest number a `5`-bit input interface could input is **31**. (In binary: `11111`, which is $16 + 8 + 4 + 2 + 1 = 31$.)
+2. The decimal value of the binary number `1100` is **12**. (`8 + 4 + 0 + 0 = 12`.)
+3. The number `10` in binary is **`1010`**. (`8 + 0 + 2 + 0 = 10`.)
+
+</details>
 
 #### Real-World Connection: CPU Registers
 
@@ -187,16 +196,8 @@ print(countSetBits(13)) # Output: 3
 
 ---
 
-### Module 1 Conclusion
 
-Fantastic work! You've now mastered the most fundamental concept in all of computing: how information is physically represented in a binary system. You have a working input device, and you've seen how this physical concept directly connects to both real-world hardware and clever software algorithms.
-
-Your input bus is ready to carry these binary signals to the next stage where logic gates will turn them into calculations and decisions. Now that you’ve built your input interface and practiced working with binary, you’re ready to learn how to manipulate these binary signals using logic gates in the next module. These gates will process the inputs you’ve set here into meaningful outputs.
-
-The basic building blocks of our computer are about to take shape. Get ready for the world of logic gates and circuits!
-
-
-### Key Terms (Module 1)
+#### Key Terms (Module 1)
 -   **Binary**: A base-2 number system that uses only two symbols, 0 and 1, to represent information. It is the fundamental language of all digital computers.
 -   **Bit**: A single "binary digit," which can be either a 0 or a 1. It is the smallest possible unit of data in computing.
 -   **Decimal**: The base-10 number system that humans commonly use, with ten unique symbols (0-9).
@@ -204,3 +205,13 @@ The basic building blocks of our computer are about to take shape. Get ready for
 -   **Interface (Input Interface)**: A device that allows a user or system to provide information to a machine. Our 4-lever setup is a manual input interface.
 -   **Bitwise Operation**: An operation in software that manipulates numbers at the level of their individual bits, rather than their decimal value.
 -   **Register**: A small, extremely fast storage location inside a computer's central processing unit (CPU) that holds data for immediate use.
+
+---
+
+### Module 1 Conclusion
+
+Fantastic work! You've now mastered the most fundamental concept in all of computing: how information is physically represented in a binary system. You have a working input device, and you've seen how this physical concept directly connects to both real-world hardware and clever software algorithms.
+
+Your input bus is ready to carry these binary signals to the next stage where logic gates will turn them into calculations and decisions. Now that you’ve built your input interface and practiced working with binary, you’re ready to learn how to manipulate these binary signals using logic gates in the next module. These gates will process the inputs you’ve set here into meaningful outputs.
+
+The basic building blocks of our computer are about to take shape. Get ready for the world of logic gates and circuits!

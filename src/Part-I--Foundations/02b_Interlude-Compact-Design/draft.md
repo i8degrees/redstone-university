@@ -58,10 +58,10 @@ Now, look at the design below. It performs the exact same logic, but in a much s
 *Figure: A classic, space-efficient compact AND gate.*
 
 #### Logical Deconstruction
-This compact build still follows the logic of `!(!A OR !B)`. The components are just cleverly merged.
--   The two torches on the sides are the first `NOT` gates, creating `!A` and `!B`.
--   The central Redstone dust on top of the block acts as the `OR` gate, collecting the signals from the torches. If `!A` is on, OR `!B` is on, this dust becomes powered.
--   The torch on the back of the central block is the final `NOT` gate, inverting the `OR` signal to produce the final AND output.
+This compact build still follows the logic of $A \text{ AND } B$ ($A \land B$), implemented as $\text{NOT } (\text{NOT } A \text{ OR } \text{NOT } B)$ ($\neg(\neg A \lor \neg B)$). The components are just cleverly merged.
+-   The two torches on the sides are the first $\text{NOT}$ gates, creating $\text{NOT } A$ ($\neg A$) and $\text{NOT } B$ ($\neg B$).
+-   The central Redstone dust on top of the block acts as the $\text{OR}$ gate, collecting the signals from the torches. If either $\neg A$ or $\neg B$ is on, this dust becomes powered.
+-   The torch on the back of the central block is the final $\text{NOT}$ gate, inverting the $\text{OR}$ signal to produce the final AND output.
 
 #### Build Steps
 1.  Place three solid blocks in a row.
@@ -82,7 +82,7 @@ This compact build still follows the logic of `!(!A OR !B)`. The components are 
 *Figure: A compact NAND gate, created by tapping the output of the compact AND gate before the final inversion.*
 
 #### Logical Deconstruction
-This is the beauty of understanding the logic. A NAND gate is simply `!(A AND B)`. In our compact AND gate build, the final component is a torch that performs the last inversion. To get a NAND output, we just need to take the signal from *before* that final torch. The signal on the central dust is `!A OR !B`, which De Morgan's Law proves is logically identical to `A NAND B`.
+This is the beauty of understanding the logic. A NAND gate is simply $A \text{ NAND } B$ ($\neg(A \land B)$). In our compact AND gate build, the final component is a torch that performs the last inversion. To get a NAND output, we just need to take the signal from *before* that final torch. The signal on the central dust is $\text{NOT } A \text{ OR } \text{NOT } B$ ($\neg A \lor \neg B$), which De Morgan's Law proves is logically identical to $A \text{ NAND } B$.
 
 #### Build Steps
 1.  Build the compact AND gate exactly as described above.
@@ -104,10 +104,10 @@ Now, observe a classic compact XOR design. It is much smaller but harder to read
 *Figure: A very common and tileable compact XOR gate design.*
 
 #### Logical Deconstruction
-This design is more complex and relies on how torches interact. The logic effectively creates the two conditions for an XOR (`A AND !B` and `!A AND B`) in parallel and merges their outputs.
--   The torches on top of the input blocks create `!A` and `!B`.
+This design is more complex and relies on how torches interact. The logic effectively creates the two conditions for an XOR, $A \text{ XOR } B$ ($A \oplus B$), which is true when $A \text{ AND } \text{NOT } B$ ($A \land \neg B$) or $\text{NOT } A \text{ AND } B$ ($\neg A \land B$) is true, and merges their outputs.
+-   The torches on top of the input blocks create $\text{NOT } A$ ($\neg A$) and $\text{NOT } B$ ($\neg B$).
 -   The torches on the sides of the output block are each controlled by a combination of a direct input and an inverted input.
--   The final Redstone dust on top acts as an OR gate, combining the outputs of the side torches.
+-   The final Redstone dust on top acts as an $\text{OR}$ gate, combining the outputs of the side torches.
 
 #### Build Steps
 1.  Place two solid blocks for your inputs, side-by-side. Place levers on the front.
@@ -129,7 +129,7 @@ This design is more complex and relies on how torches interact. The logic effect
 *Figure: A compact XNOR gate, built by simply inverting one input to the compact XOR gate.*
 
 #### Logical Deconstruction
-Just as we learned in Module 2, the simplest way to create an XNOR (equality detector) is to invert one of the inputs to an XOR gate. The logic `A XNOR B` is identical to `A XOR !B`. We can apply this exact same principle to our compact build. This is the art of the engineer: modifying an existing component instead of reinventing the wheel.
+Just as we learned in Module 2, the simplest way to create an XNOR (equality detector) is to invert one of the inputs to an XOR gate. The logic $A \text{ XNOR } B$ ($A \leftrightarrow B$) is identical to $A \text{ XOR } \text{NOT } B$ ($A \oplus \neg B$). We can apply this exact same principle to our compact build. This is the art of the engineer: modifying an existing component instead of reinventing the wheel.
 
 #### Build Steps
 1.  Build the compact XOR gate exactly as described above.

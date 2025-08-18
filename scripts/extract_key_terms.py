@@ -23,11 +23,11 @@ def extract_module_titles(md_content, file_path):
 
 def extract_key_terms_from_md(md_content, file_path):
     """
-    Extracts key terms and definitions from '### Key Terms (Module X)' sections.
+    Extracts key terms and definitions from '#### Key Terms (Module X)' sections.
     Returns a list of (term, definition, module_num) tuples with concise logging.
     """
     pattern = re.compile(
-        r"^###\s*Key Terms\s*\(Module (\d+)\)\s*\n((?:-\s*\*\*[^*]+\*\*:[^\n]*(?:\n+(?!\s*-)[^\n]*)*\n*)+)",
+        r"^####\s*Key Terms\s*\(Module (\d+)\)\s*\n((?:-\s*\*\*[^*]+\*\*:[^\n]*(?:\n+(?!\s*-)[^\n]*)*\n*)+)",
         re.MULTILINE | re.DOTALL,
     )
     term_pattern = re.compile(r"-\s*\*\*([^*]+?)\*\*:\s*((?:[^\n]*(?:\n+(?!\s*-)[^\n]*)*))(?=\s*(?:-|\n|$))", re.DOTALL)
