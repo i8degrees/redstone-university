@@ -1,28 +1,46 @@
 import os
 import re
+from glob import glob
 
-INPUT_FILE = "course/Redstone-University.md"
+SRC_DIR = "src"
 OUTPUT_FILE = "course/Redstone-University-for-pdf.md"
 APPENDIX_FILE = "course/Z-Appendices/Appendix-A_Solutions.md"
 
 
-def extract_solutions_by_module_and_lesson(md):
+def extract_module_titles(md_content, file_path):
+    """
+    Extracts module numbers and titles from '## Module X: Title' headings.
+    Returns a dictionary of {module_num: title}.
+    """
+    module_pattern = re.compile(r"^##\s+Module (\d+):\s*(.+)$", re.MULTILINE)
+    module_titles = {}
+    for match in module_pattern.finditer(md_content):
+        module_num = match.group(1)
+        title = match.group(2).strip()
+        module_titles[module_num] = title
+        print(f"📋 Found module in {file_path}: Module {module_num}: {title}")
+    return module_titles
+
+
+def extract_solutions_by_module_and_lesson(md, file_path):
     """
     Finds all <details>...</details> blocks and organizes them by module and lesson.
-    Returns a nested dict: {module_title: {lesson_title: [(summary, inner, full_block), ...]}}
+    Assigns Problem X.Y.Z IDs based on module, lesson, and order.
+    Returns a nested dict: {module_title: {lesson_title: [(problem_id, summary, inner, full_block, module_num, lesson_num), ...]}}
     """
-    heading_pattern = re.compile(r"^(#{1,2})\s+(.+)$", re.MULTILINE)
-    details_pattern = re.compile(
-        r"(<details>\s*<summary>(.*?)</summary>(.*?)</details>)",
-        re.DOTALL | re.IGNORECASE,
-    )
+    module_pattern = re.compile(r"^##\s+Module (\d+):\s*(.+)$", re.MULTILINE)
+    lesson_pattern = re.compile(r"^###\s+Lesson (\d+\.\d+):\s*(.+)$", re.MULTILINE)
+    details_pattern = re.compile(r"(<details>\s*<summary>\s*([^<]+)</summary>(.*?)</details>)", re.DOTALL)
 
     headings = []
-    for m in heading_pattern.finditer(md):
-        level = len(m.group(1))
-        title = m.group(2).strip()
-        pos = m.start()
-        headings.append((pos, level, title))
+    for m in module_pattern.finditer(md):
+        module_num = m.group(1)
+        module_title = m.group(2).strip()
+        headings.append((m.start(), 2, module_title, module_num))
+    for m in lesson_pattern.finditer(md):
+        lesson_num = m.group(1)
+        lesson_title = m.group(2).strip()
+        headings.append((m.start(), 3, lesson_title, lesson_num))
 
     solutions = {}
     for match in details_pattern.finditer(md):
@@ -30,75 +48,167 @@ def extract_solutions_by_module_and_lesson(md):
         summary = match.group(2).strip()
         inner = match.group(3).strip()
         pos = match.start()
+        module_title = "Unknown Module"
+        module_num = "Unknown"
+        lesson_title = "Unknown Lesson"
+        lesson_num = "Unknown"
 
-        module = "Unknown Module"
-        lesson = "Unknown Lesson"
-        for hpos, hlevel, htitle in reversed(headings):
+        for hpos, hlevel, htitle, hnum in reversed(headings):
             if hpos < pos:
-                if hlevel == 2 and module == "Unknown Module":
-                    module = htitle
-                if hlevel == 3 and lesson == "Unknown Lesson":
-                    lesson = htitle
-                if module != "Unknown Module" and lesson != "Unknown Lesson":
+                if hlevel == 2 and module_title == "Unknown Module":
+                    module_title = htitle
+                    module_num = hnum
+                if hlevel == 3 and lesson_title == "Unknown Lesson":
+                    lesson_title = htitle
+                    lesson_num = hnum
+                if module_title != "Unknown Module" and lesson_title != "Unknown Lesson":
                     break
 
-        if module not in solutions:
-            solutions[module] = {}
-        if lesson not in solutions[module]:
-            solutions[module][lesson] = []
-        solutions[module][lesson].append((summary, inner, full_block))
+        if module_title not in solutions:
+            solutions[module_title] = {}
+        if lesson_title not in solutions[module_title]:
+            solutions[module_title][lesson_title] = []
+
+        # Assign Problem X.Y.Z ID based on order
+        problem_count = len(solutions[module_title][lesson_title]) + 1
+        problem_id = (
+            f"{module_num}.{lesson_num}.{problem_count}"
+            if module_num != "Unknown" and lesson_num != "Unknown"
+            else "Unknown"
+        )
+        solutions[module_title][lesson_title].append((problem_id, summary, inner, full_block, module_num, lesson_num))
+        print(f"📄 Extracted solution: Problem {problem_id} in {module_title}, {lesson_title} ({file_path})")
+
     return solutions
 
 
-def clean_summary(summary):
+def clean_summary(summary, problem_id):
     """
-    Clean up the summary for the appendix.
+    Clean up the summary for the appendix, removing boilerplate text.
+    Returns only the problem ID if the summary is generic, otherwise keeps the cleaned title.
     """
-    cleaned = summary.replace("Click for the solution and explanation", "")
-    cleaned = cleaned.replace("Click for answers", "")
-    cleaned = cleaned.strip()
-    if not cleaned.lower().startswith("solution"):
-        cleaned = f"Solution: {cleaned}"
-    return cleaned
+    cleaned = (
+        summary.replace("Click for the solution and explanation", "")
+        .replace("Click for answers", "")
+        .replace("Click for the step-by-step proof", "")
+        .replace("<strong>", "")
+        .replace("</strong>", "")
+        .strip()
+    )
+    if not cleaned or cleaned.lower() in ["solution", "solution:"]:
+        return problem_id
+    if cleaned.lower().startswith("solution:"):
+        cleaned = cleaned[8:].strip()
+    return f"{problem_id}: {cleaned}" if cleaned else problem_id
+
+
+def collect_markdown_files(directory):
+    """
+    Collect all markdown files (*.md) in the src directory.
+    """
+    files = glob(os.path.join(directory, "**/*.md"), recursive=True)
+    return sorted(files)
 
 
 def main():
-    if not os.path.exists(INPUT_FILE):
-        print(f"Input file '{INPUT_FILE}' not found. Please run course_concat.py first.")
+    os.makedirs(os.path.dirname(APPENDIX_FILE), exist_ok=True)
+    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+
+    all_solutions = {}
+    module_titles = {}
+    replaced_contents = []
+
+    print(f"🔍 Scanning markdown files in '{SRC_DIR}'...")
+    files = collect_markdown_files(SRC_DIR)
+    if not files:
+        print(f"❌ Error: No markdown files found in '{SRC_DIR}'.")
+        return
+    print(f"📜 Found {len(files)} markdown files")
+
+    for file_path in files:
+        with open(file_path, "r", encoding="utf-8") as f:
+            md = f.read()
+        module_titles.update(extract_module_titles(md, file_path))
+        solutions = extract_solutions_by_module_and_lesson(md, file_path)
+        for module_title, lessons in solutions.items():
+            if module_title not in all_solutions:
+                all_solutions[module_title] = {}
+            for lesson_title, solution_list in lessons.items():
+                if lesson_title not in all_solutions[module_title]:
+                    all_solutions[module_title][lesson_title] = []
+                all_solutions[module_title][lesson_title].extend(solution_list)
+
+        replaced_md = md
+        for module_title, lessons in solutions.items():
+            for lesson_title, solution_list in lessons.items():
+                for problem_id, _, _, full_block, _, _ in solution_list:
+                    reference = (
+                        f"> **(Solution for Problem {problem_id} is in Appendix A)**\n"
+                        if problem_id != "Unknown"
+                        else "> **(Solution is in Appendix A)**\n"
+                    )
+                    replaced_md = replaced_md.replace(full_block, reference)
+        replaced_contents.append((file_path, replaced_md))
+
+    if not all_solutions:
+        print(f"❌ Error: No solutions extracted from any files in '{SRC_DIR}'.")
         return
 
-    with open(INPUT_FILE, "r", encoding="utf-8") as f:
-        md = f.read()
+    appendix = [
+        '<hr class="pagebreak"/>\n\n'
+        "## Appendix A: Solutions\n\n"
+        "This appendix provides solutions to the quizzes, logic puzzles, and debug challenges "
+        "in the Redstone University curriculum, organized by module and lesson. "
+        "Each solution is labeled with its problem ID (Module.Lesson.Problem) for easy reference, "
+        "with a footnote indicating the module where it appears.\n"
+    ]
 
-    os.makedirs(os.path.dirname(APPENDIX_FILE), exist_ok=True)
+    used_modules = sorted(
+        set(
+            module_num
+            for module_title in all_solutions
+            for _, _, _, _, module_num, _ in sum(all_solutions[module_title].values(), [])
+            if module_num != "Unknown"
+        )
+    )
 
-    appendix = ['<hr class="pagebreak"/>\n\n### Appendix A: Solutions\n']
-    replaced_md = md
-
-    solutions = extract_solutions_by_module_and_lesson(md)
     solution_count = 0
-
-    for module, lessons in sorted(solutions.items()):
-        appendix.append(f"\n## {module}\n")
-        for lesson, items in sorted(lessons.items()):
-            appendix.append(f"### {lesson}\n")
-            for summary, inner, full_block in items:
+    for module_title in sorted(all_solutions.keys()):
+        module_num = next(
+            (
+                mnum
+                for mtitle, lessons in all_solutions.items()
+                for _, _, _, _, mnum, _ in sum(lessons.values(), [])
+                if mtitle == module_title
+            ),
+            "Unknown",
+        )
+        if module_num == "Unknown":
+            continue
+        appendix.append(f"\n## {module_title} [{module_num}]\n")
+        for lesson_title in sorted(all_solutions[module_title].keys()):
+            appendix.append(f"### {lesson_title}\n")
+            for problem_id, summary, inner, _, _, _ in sorted(
+                all_solutions[module_title][lesson_title], key=lambda x: x[0]
+            ):
                 solution_count += 1
-
-                cleaned_summary = clean_summary(summary)
-
-                reference = "> **(Solution for this exercise is in Appendix B)**\n"
-                replaced_md = replaced_md.replace(full_block, reference)
-
+                cleaned_summary = clean_summary(summary, problem_id)
                 appendix.append(f"#### {cleaned_summary}\n\n{inner}\n\n---\n")
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        f.write(replaced_md)
+    appendix.append("\n---\n")
+    for module in sorted(module_titles.keys(), key=int):
+        title = module_titles.get(module, f"Module {module}")
+        appendix.append(f"[{module}]: Module {module}: {title}\n")
 
     with open(APPENDIX_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(appendix))
 
-    print(f"Processed {solution_count} solutions. Output written to {OUTPUT_FILE} and {APPENDIX_FILE}")
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        for _, content in sorted(replaced_contents, key=lambda x: x[0]):
+            f.write(content)
+            f.write('\n\n<hr class="pagebreak"/>\n\n')
+
+    print(f"✅ Processed {solution_count} solutions. Output written to {OUTPUT_FILE} and {APPENDIX_FILE}")
 
 
 if __name__ == "__main__":

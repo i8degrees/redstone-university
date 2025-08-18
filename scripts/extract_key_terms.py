@@ -97,7 +97,7 @@ def main():
 
     appendix_content = [
         '<hr class="pagebreak"/>\n\n'
-        "### Appendix B: Glossary\n\n"
+        "## Appendix B: Glossary\n\n"
         "This glossary compiles key terms from the Redstone University curriculum, "
         "organized alphabetically. Each term’s definition is followed by a footnote "
         "indicating the module where it is introduced.\n"
