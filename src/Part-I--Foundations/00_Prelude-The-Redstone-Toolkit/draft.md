@@ -97,12 +97,14 @@ You’ve just built your first working circuit and verified the core rules of Re
 
 ### Module 0 Checkpoint
 
+#### Practice Problem 0.3.1: Knowledge Check
+
 1.  What two essential functions does a Redstone Repeater perform?
 2.  An engineer powers a block with a line of Redstone Dust. Will a piece of dust placed on top of that block receive power? Why or why not?
-3.  What Redstone component is our primitive **NOT gate**?
+3.  What Redstone component is our primitive NOT gate?
 
 <details>
-<summary><strong>Click for answers</strong></summary>
+<summary><strong>Show Solution</strong></summary>
 
 1.  It boosts a signal back to strength 15 and acts as a one-way diode.
 2.  No. The dust only weakly powers the block, which cannot transmit power to adjacent dust.
@@ -110,7 +112,7 @@ You’ve just built your first working circuit and verified the core rules of Re
 
 </details>
 
-### Key Terms (Module 0)
+#### Key Terms (Module 0)
 -   **Signal Strength**: The power level of a Redstone signal, ranging from 15 (full) down to 0 (off). A signal loses 1 strength for every block of dust it travels.
 -   **Power Source**: A component, like a Redstone Torch or Lever, that outputs a full-strength (15) signal.
 -   **Wire**: Our term for any component, usually Redstone Dust, that transmits a signal from one point to another.
