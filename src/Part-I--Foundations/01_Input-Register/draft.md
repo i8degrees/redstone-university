@@ -201,7 +201,6 @@ print(countSetBits(13)) # Output: 3
 -   **Interface (Input Interface)**: A device that allows a user or system to provide information to a machine. Our `4`-lever setup is a manual input interface.
 -   **Register**: A small, extremely fast storage location inside a computer's central processing unit (CPU) that holds data for immediate use.
 
----
 
 ### Module 1 Conclusion
 
