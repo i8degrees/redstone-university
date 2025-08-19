@@ -21,13 +21,14 @@ def extract_module_titles(md_content, file_path):
     return module_titles
 
 
-def extract_key_terms_from_md(md_content, file_path):
+def extract_key_terms_from_md(md_content, file_path, module_num=None):
     """
-    Extracts key terms and definitions from '#### Key Terms (Module X)' sections.
+    Extracts key terms and definitions from '#### Key Terms' sections.
     Returns a list of (term, definition, module_num) tuples with concise logging.
+    Uses provided module_num if available.
     """
     pattern = re.compile(
-        r"^####\s*Key Terms\s*\(Module (\d+)\)\s*\n((?:-\s*\*\*[^*]+\*\*:[^\n]*(?:\n+(?!\s*-)[^\n]*)*\n*)+)",
+        r"^####\s*Key Terms\s*\n((?:-\s*\*\*[^*]+\*\*:[^\n]*(?:\n+(?!\s*-)[^\n]*)*\n*)+)",
         re.MULTILINE | re.DOTALL,
     )
     term_pattern = re.compile(r"-\s*\*\*([^*]+?)\*\*:\s*((?:[^\n]*(?:\n+(?!\s*-)[^\n]*)*))(?=\s*(?:-|\n|$))", re.DOTALL)
@@ -37,9 +38,12 @@ def extract_key_terms_from_md(md_content, file_path):
     section_count = 0
     for section_match in matches:
         section_count += 1
-        module_num = section_match.group(1)
-        term_list_str = section_match.group(2).strip()
-        print(f"📄 Found 'Key Terms (Module {module_num})' section in {file_path}")
+        term_list_str = section_match.group(1).strip()
+        print(f"📄 Found 'Key Terms' section in {file_path}")
+
+        if module_num is None:
+            print(f"⚠️ Warning: No module number provided for {file_path}. Skipping terms.")
+            continue
 
         term_matches = term_pattern.finditer(term_list_str)
         term_count = 0
@@ -56,7 +60,7 @@ def extract_key_terms_from_md(md_content, file_path):
         print(f"  📝 Extracted {term_count} terms from Module {module_num}")
 
     if section_count == 0:
-        print(f"⚠️ Warning: No 'Key Terms (Module X)' sections found in {file_path}")
+        print(f"⚠️ Warning: No 'Key Terms' sections found in {file_path}")
 
     return all_terms
 
@@ -85,8 +89,16 @@ def main():
     for file_path in files:
         with open(file_path, "r", encoding="utf-8") as f:
             md = f.read()
-        module_titles.update(extract_module_titles(md, file_path))
-        terms = extract_key_terms_from_md(md, file_path)
+        current_modules = extract_module_titles(md, file_path)
+        module_titles.update(current_modules)
+
+        if current_modules:
+            module_num = list(current_modules.keys())[0]
+            terms = extract_key_terms_from_md(md, file_path, module_num)
+        else:
+            terms = []
+            print(f"⚠️ No module found in {file_path}, skipping key terms extraction.")
+
         all_terms.extend(terms)
 
     if not all_terms:
