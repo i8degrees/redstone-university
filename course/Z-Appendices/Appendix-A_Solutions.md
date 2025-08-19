@@ -63,7 +63,7 @@ Applying our rule:
 
 #### 3.4.2: Debug Challenge
 
-**The Logic:** The $L_8$ lamp should turn OFF when the input is $1001$. For $L_8$ to turn off, its wire needs to be powered. This means one of its "mismatch" taps must have activated.
+**The Logic:** The $L_8$ lamp should turn OFF when the input is `1001`. For $L_8$ to turn off, its wire needs to be powered. This means one of its "mismatch" taps must have activated.
 
 **The Identity of `L8` is `1000`.** Let's compare this to the input `1001`.
 -   `B3` is `1`, `L8` expects `1`. No mismatch.
@@ -98,8 +98,8 @@ If a segment that should be ON is OFF, it means it is not receiving power. The m
 
 #### 1.4.1: Knowledge Check
 
-1. The largest number a `5`-bit input interface could input is **31**. (In binary: `11111`, which is $16 + 8 + 4 + 2 + 1 = 31$.)
-2. The decimal value of the binary number `1100` is **12**. (`8 + 4 + 0 + 0 = 12`.)
+1. The largest number a `5`-bit input interface could input is **`31`**. (In binary: `11111`, which is `$16 + 8 + 4 + 2 + 1 = 31$`.)
+2. The decimal value of the binary number `1100` is **`12`**. (`8 + 4 + 0 + 0 = 12`.)
 3. The number `10` in binary is **`1010`**. (`8 + 0 + 2 + 0 = 10`.)
 
 ---
@@ -279,7 +279,7 @@ def missingNumber(nums):
 
 #### 0.3.1: Knowledge Check
 
-1.  It boosts a signal back to strength 15 and acts as a one-way diode.
+1.  It boosts a signal back to strength `15` and acts as a one-way diode.
 2.  No. The dust only weakly powers the block, which cannot transmit power to adjacent dust.
 3.  The Redstone Torch.
 

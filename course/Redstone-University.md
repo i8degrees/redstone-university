@@ -30,7 +30,6 @@ If you’ve built with Redstone before, you can likely skim this. But if you’v
 > #### A Note on Controls & Game Setup
 > This course assumes you know the basic Minecraft controls for placing and breaking blocks. For an optimal learning experience, we highly recommend playing in **Creative Mode** on a **Superflat** world, which gives you unlimited resources and space to build.
 
----
 
 ### Lesson 0.1: The Engineer's Toolkit
 
@@ -41,11 +40,11 @@ These are the pieces you’ll see over and over. They are the alphabet we will u
 
 | Component | Game Icon | Role in this Course | Description |
 | :--- | :--- | :--- | :--- |
-| **Redstone Dust** | ![Redstone Dust Icon](./images/icon_redstone-dust.png) | **Wire:** The foundation of all circuits. | Carries a power signal up to 15 blocks before fading. Can be placed on most solid, opaque blocks. |
+| **Redstone Dust** | ![Redstone Dust Icon](./images/icon_redstone-dust.png) | **Wire:** The foundation of all circuits. | Carries a power signal up to `15` blocks before fading. Can be placed on most solid, opaque blocks. |
 | **Redstone Torch** | ![Redstone Torch Icon](./images/icon_redstone-torch.png) | **Power Source & Inverter (NOT Gate):** Our most versatile tool. | Acts as a constant power source. When powered by another source, it turns OFF, inverting the signal. This is our primitive **NOT gate**. |
 | **Lever** | ![Lever Icon](./images/icon_lever.png) | **Stable Input:** Our primary way to give commands. | A simple, manual on/off switch. Perfect for setting the inputs to our computer. |
 | **Redstone Lamp** | ![Redstone Lamp Icon](./images/icon_redstone-lamp.png) | **Output Indicator:** Lets us see the result of a calculation. | A block that lights up when powered. We use it to visualize the state of our circuits. |
-| **Redstone Repeater** | ![Redstone Repeater Icon](./images/icon_redstone-repeater.png) | **Signal Booster & Diode:** Essential for complex builds. | Extends a Redstone signal back to full strength (15) and acts as a one-way **diode** to prevent signals from flowing backward. |
+| **Redstone Repeater** | ![Redstone Repeater Icon](./images/icon_redstone-repeater.png) | **Signal Booster & Diode:** Essential for complex builds. | Extends a Redstone signal back to full strength (`15`) and acts as a one-way **diode** to prevent signals from flowing backward. |
 | **Solid Block** | ![Solid Block Icon](./images/icon_solid-block.png) | **Conductor & Insulator:** The physical structure of our machine. | A non-transparent block like Stone or Wool. It can be powered by Redstone components and transmit that power to adjacent components. |
 | **Sign** | ![Sign Icon](./images/icon_sign.png) | **Documentation:** A simple but vital tool for clarity. | Labeling your inputs, outputs, and different sections of a large build is crucial for understanding and debugging your own work. |
 | **Redstone Comparator** | ![Redstone Comparator Icon](./images/icon_redstone-comparator.png) | **Advanced Tool (Later Modules)** | We will introduce this component later when we build memory. For now, you just need to know it exists. |
@@ -57,13 +56,15 @@ These are the pieces you’ll see over and over. They are the alphabet we will u
 Understanding how power travels is the single most important skill for a Redstone engineer. It can be non-intuitive, so let's establish the core rules.
 
 #### Rule 1: Signal Strength & Range
-A Redstone signal has a "strength" from 15 (full power) down to 0 (off).
--   A signal source (like a Lever or Torch) outputs a signal of strength **15**.
--   For every block of Redstone Dust the signal travels, its strength decreases by **1**.
--   After 15 blocks of dust, the signal strength is 0, and the wire goes dead.
--   A **Redstone Repeater** takes any signal strength from 1 to 15 and outputs a fresh, full-strength signal of 15.
+
+A Redstone signal has a "strength" from `15` (full power) down to `0` (off).
+-   A signal source (like a Lever or Torch) outputs a signal of strength `15`.
+-   For every block of Redstone Dust the signal travels, its strength decreases by `1`.
+-   After `15` blocks of dust, the signal strength is `0`, and the wire goes dead.
+-   A **Redstone Repeater** takes any signal strength from `1` to `15` and outputs a fresh, full-strength signal of `15`.
 
 #### Rule 2: Strong vs. Weak Powering
+
 This is a critical concept. Blocks can be powered in two ways, and what they can do depends on how they are powered.
 
 | | **Strong Power** | **Weak Power** |
@@ -73,8 +74,6 @@ This is a critical concept. Blocks can be powered in two ways, and what they can
 | **Example** | ![Strongly powered block](./images/strongly-powered-block_minecraft.png) | ![Weakly powered block](./images/weakly-powered-block_minecraft.png) |
 
 Understanding this difference is the key to creating compact vertical circuits later in the course.
-
----
 
 ### Lesson 0.3: Lab: The Fundamental Circuit
 
@@ -89,11 +88,9 @@ Let’s combine these concepts to build a simple input to process to output circ
 4.  **Test:** Flip the lever. The lamp should turn on and off.
 5.  **Experiment:** Now, modify your circuit to test your understanding.
     -   **Invert the signal:** Insert a **Redstone Torch** somewhere in the path. How does the lamp's behavior change? (Hint: The torch acts as a NOT gate).
-    -   **Extend the signal:** Make your Redstone Dust wire 20 blocks long. The signal will not reach. Now, place a **Repeater** after block 14. Observe how it refreshes the signal.
+    -   **Extend the signal:** Make your Redstone Dust wire `20` blocks long. The signal will not reach. Now, place a **Repeater** after block `14`. Observe how it refreshes the signal.
 
 You’ve just built your first working circuit and verified the core rules of Redstone. Every single build in this course is just a more complex version of this fundamental pattern.
-
----
 
 ### Module 0 Checkpoint
 
@@ -106,17 +103,17 @@ You’ve just built your first working circuit and verified the core rules of Re
 > **(Solution for Problem 0.3.1 is in Appendix A)**
 
 
-#### Key Terms (Module 0)
--   **Signal Strength**: The power level of a Redstone signal, ranging from 15 (full) down to 0 (off). A signal loses 1 strength for every block of dust it travels.
--   **Power Source**: A component, like a Redstone Torch or Lever, that outputs a full-strength (15) signal.
--   **Wire**: Our term for any component, usually Redstone Dust, that transmits a signal from one point to another.
+#### Key Terms
+-   **Diode**: A component that allows a signal to flow in only one direction, preventing back-powering. The Redstone Repeater is our primary diode.
 -   **Input**: A component, like a Lever, that allows a user to manually control a circuit.
+-   **Inverter (NOT Gate)**: A circuit or component that flips a signal from ON to OFF, or OFF to ON. The Redstone Torch is our primitive inverter.
 -   **Output**: A component, like a Redstone Lamp, that displays the result or state of a circuit.
+-   **Power Source**: A component, like a Redstone Torch or Lever, that outputs a full-strength (`15`) signal.
+-   **Repeater**: A component that acts as a signal booster (refreshing signal strength to `15`) and a diode.
+-   **Signal Strength**: The power level of a Redstone signal, ranging from `15` (full) down to `0` (off). A signal loses `1` strength for every block of dust it travels.
 -   **Strong Power**: A type of power provided by components like Repeaters or Torches directly to a block. It can activate all adjacent Redstone components, including dust.
 -   **Weak Power**: A type of power provided by Redstone Dust to a block. It can activate components like lamps and repeaters, but not adjacent Redstone dust.
--   **Repeater**: A component that acts as a signal booster (refreshing signal strength to 15) and a diode.
--   **Diode**: A component that allows a signal to flow in only one direction, preventing back-powering. The Redstone Repeater is our primary diode.
--   **Inverter (NOT Gate)**: A circuit or component that flips a signal from ON to OFF, or OFF to ON. The Redstone Torch is our primitive inverter.
+-   **Wire**: Our term for any component, usually Redstone Dust, that transmits a signal from one point to another.
 
 
 <hr class="pagebreak"/>
@@ -147,7 +144,7 @@ Welcome to your first day at Redstone University!
 
 Our grand adventure is to build a complete, working computer from scratch. But like any great journey, we need to start with the basics. The very first thing we need is a way to talk to our machine. We need a way to give it information.
 
-In this module, we’re going to build a **4-bit input interface**, a simple set of switches that lets us speak the computer’s native language: **binary**. In Minecraft, levers hold their state, making them perfect for this job. By flipping them, we can set a 4-bit binary number (any value from 0 to 15) and see it in action. This isn’t a true register (a storage device we’ll build later), but it’s a hands-on way to input binary data and understand how computers start processing information. As we move forward, you’ll see how this simple setup connects to the bigger picture.
+In this module, we’re going to build a **4-bit input interface**, a simple set of switches that lets us speak the computer’s native language: **binary**. In Minecraft, levers hold their state, making them perfect for this job. By flipping them, we can set a `4`-bit binary number (any value from `0` to `15`) and see it in action. This isn’t a true register (a storage device we’ll build later), but it’s a hands-on way to input binary data and understand how computers start processing information. As we move forward, you’ll see how this simple setup connects to the bigger picture.
 
 Let’s get started!
 
@@ -155,7 +152,7 @@ Let’s get started!
 
 ### Lesson 1.1: The Theory – Why Computers Use Binary
 
-Think about how you count. You probably use ten symbols: `0, 1, 2, 3, 4, 5, 6, 7, 8, 9`. This is the **decimal** (base-10) system. It feels natural to us, likely because humans evolved with ten fingers. When we get past `9`, we don't invent a new symbol; we just add a new column to the left, the "tens" column, and start over. The number `12` is really just our way of saying "one ten, plus two ones."
+Think about how you count. You probably use ten symbols: `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`. This is the **decimal** (base-`10`) system. It feels natural to us, likely because humans evolved with ten fingers. When we get past `9`, we don't invent a new symbol; we just add a new column to the left, the "tens" column, and start over. The number `12` is really just our way of saying "one ten, plus two ones."
 
 Computers are different. They don't have fingers. Deep down, they are made of billions of microscopic electronic switches called transistors. A switch is a very simple device. It can only ever be in one of two states: **ON** or **OFF**. There is no "halfway on."
 
@@ -168,14 +165,14 @@ That's it! Every single thing your computer does, from displaying this text, to 
 
 So, how can we possibly represent a big number like `13` with just `1`s and `0`s? We use the same trick as our decimal system: we use columns with different values. But instead of ones, tens, and hundreds, our binary columns simply double each time.
 
-| Bit Position | 3   | 2   | 1   | 0   |
+| Bit Position | `3`   | `2`   | `1`   | `0`   |
 |--------------|-----|-----|-----|-----|
-| Power of 2   | 2³  | 2²  | 2¹  | 2⁰  |
-| Place Value  | 8   | 4   | 2   | 1   |
-| Binary       | 1   | 1   | 0   | 1   |
+| Power of 2   | `2³`  | `2²`  | `2¹`  | `2⁰`  |
+| Place Value  | `8`   | `4`   | `2`   | `1`   |
+| Binary       | `1`   | `1`   | `0`   | `1`   |
 
-- **Bit Position:** The rightmost bit is position 0, then 1, 2, and so on to the left.
-- **Power of 2:** Each position represents a power of two.
+- **Bit Position:** The rightmost bit is position `0`, then `1`, `2`, and so on to the left.
+- **Power of 2:** Each position represents a power of `2`.
 - **Place Value:** The actual value for each bit.
 - **Binary:** The value of each bit for the number `1101`.
 
@@ -194,13 +191,13 @@ So, the value is `8 + 4 + 1 = 13`. We've just translated from the computer's lan
 
 ### Lesson 1.2: The Lab – Building and Using Our 4-Bit Input Interface
 
-It’s time to stop talking and start building! Our **4-bit input interface** will act as a simple “keyboard,” letting us manually input any number from 0 to 15 in binary. Using levers, we will set the bits by flipping them up for `1` and down for `0`. A simple setup that will enable us to create binary numbers we can see and use.
+It’s time to stop talking and start building! Our **4-bit input interface** will act as a simple “keyboard,” letting us manually input any number from `0` to `15` in binary. Using levers, we will set the bits by flipping them up for `1` and down for `0`. A simple setup that will enable us to create binary numbers we can see and use.
 
 #### Materials Needed
 
-- 4 standard building blocks<sup>*</sup>
-- 4 Levers
-- 4 Signs
+- `4` standard building blocks<sup>*</sup>
+- `4` Levers
+- `4` Signs
 - A few pieces of Redstone Dust
 
 <sup>*You can use any solid block, but for the input interface, I recommend a redstone lamp. It doubles as a visual indicator of the current state of each bit.</sup>
@@ -224,7 +221,7 @@ This input bus will serve as the starting point for our future circuits. In late
 
 ---
 
-Before we test our new input interface, I want to introduce you to the same input interface represented in CircuitVerse, a free online digital logic circuit simulator. Moving forward, every circuit we build will be introduced in theory with the circuitverse version first, and then we will build it in Minecraft. This is primarily due to being able to easily represent the circuit in a clear and concise way, something that isn't always possible with Minecraft screenshots. Everything you build is included in the [circuitverse project for this course](https://circuitverse.org/users/323134/projects/redstone-university).
+Before we test our new input interface, I want to introduce you to the same input interface represented in CircuitVerse, a free online digital logic circuit simulator. Moving forward, every circuit we build will be introduced in theory with the CircuitVerse version first, and then we will build it in Minecraft. This is primarily due to being able to easily represent the circuit in a clear and concise way, something that isn't always possible with Minecraft screenshots. Everything you build is included in the [CircuitVerse project for this course](https://circuitverse.org/users/323134/projects/redstone-university).
 
 
 
@@ -243,21 +240,23 @@ Don't worry, we will be building more interesting circuits very soon.
 
 Let's get a feel for our new device. Binary feels weird at first, but it will become second nature with just a little practice.
 
-> **Takeaway:** Practicing will make binary numbers feel as natural as decimal. The more you practice, the faster you'll get!
+#### Takeaway
+
+Practicing will make binary numbers feel as natural as decimal. The more you practice, the faster you'll get!
 
 #### Drill 1: Binary to Decimal
 
 - **Goal:** What decimal number is `1011`?
 - **Action:** Go to your input interface and set the levers: ON, OFF, ON, ON.
-- **Calculation:** $8 + 0 + 2 + 1 = 11$. So, `1011` is `11`.
+- **Calculation:** `$8 + 0 + 2 + 1 = 11$`. So, `1011` is `11`.
 
 #### Drill 2: Decimal to Binary (The "Greedy" Method)
 
 - **Goal:** Let's represent the number `6`.
 - **Thought Process:** Always start with your biggest bit and work your way down.
     1. Is `6` greater than or equal to `8`? **No.** Leave the `8` lever OFF.
-    2. Is `6` greater than or equal to `4`? **Yes.** Flip the `4` lever ON. We have $6 - 4 = 2$ left to account for.
-    3. Is `2` greater than or equal to `2`? **Yes.** Flip the `2` lever ON. We have $2 - 2 = 0$ left.
+    2. Is `6` greater than or equal to `4`? **Yes.** Flip the `4` lever ON. We have `$6 - 4 = 2$` left to account for.
+    3. Is `2` greater than or equal to `2`? **Yes.** Flip the `2` lever ON. We have `$2 - 2 = 0$` left.
     4. Is `0` greater than or equal to `1`? **No.** Leave the `1` lever OFF.
 - **Result:** The levers are OFF, ON, ON, OFF, which is the binary number `0110`.
 
@@ -268,10 +267,6 @@ While not the ideal version of a game, this is a great way to build speed. Pick 
 ---
 
 ### Lesson 1.4: Module 1 Checkpoint
-
-Let's check our understanding before moving on.
-
-> **Takeaway:** If you can answer these questions, you’re ready to move on to the next big idea: logic!
 
 #### Practice Problem 1.4.1: Knowledge Check
 
@@ -284,13 +279,13 @@ Let's check our understanding before moving on.
 
 #### Real-World Connection: CPU Registers
 
-Your **4-bit input interface** is a simplified version of how real computers get information from the world. In everyday life, devices like keyboards, mice, and sensors act as input interfaces, turning your actions (like typing or clicking) into binary signals the computer understands. Our Minecraft build uses four levers to input a 4-bit number (0 to 15), but imagine scaling that up. Modern computers often handle **64-bit data**, meaning their circuits can process 64 bits at once, enough to represent numbers bigger than 18 quintillion!
+Your **4-bit input interface** is a simplified version of how real computers get information from the world. In everyday life, devices like keyboards, mice, and sensors act as input interfaces, turning your actions (like typing or clicking) into binary signals the computer understands. Our Minecraft build uses four levers to input a 4-bit number (`0` to `15`), but imagine scaling that up. Modern computers often handle **64-bit data**, meaning their circuits can process `64` bits at once, enough to represent numbers bigger than `18` quintillion!
 
-Here’s how it connects: once an input device sends binary data, the computer stores it in **registers**, tiny, super-fast storage units inside the CPU. A “64-bit processor” has registers that hold 64 bits, letting it crunch huge numbers or instructions in a single step. Your 4-bit interface is just the beginning, it’s how we “talk” to the machine. Later, we’ll build a register and see how they use that input to make the computer think!
+Here’s how it connects: once an input device sends binary data, the computer stores it in **registers**, tiny, super-fast storage units inside the CPU. A “64-bit processor” has registers that hold `64` bits, letting it crunch huge numbers or instructions in a single step. Your 4-bit interface is just the beginning, it’s how we “talk” to the machine. Later, we’ll build a register and see how they use that input to make the computer think!
 
 #### Software Connection (LeetCode): Counting Bits
 
-How does a programmer "look at" the individual bits you just set with your levers? They use bitwise operations! This is a sneak peek of what we'll learn in Module 2, but it's too cool not to share.
+How does a programmer "look at" the individual bits you just set with your levers? They use bitwise operations! This is a sneak peek of what we'll learn in Module `2`, but it's too cool not to share.
 
 A classic LeetCode problem is **"Number of 1 Bits"**: count how many `1`s are in a number's binary representation. Programmers solve this by checking each bit of the number one by one. It also gives a sneak peek at the concept of bitwise operations, which are essential for low-level programming and optimization.
 
@@ -311,16 +306,13 @@ print(countSetBits(13)) # Output: 3
 
 **Software Analogy:** In most programming languages, you can use bitwise operators to manipulate numbers at the binary level. For example, in Python, `n & 1` checks the lowest bit, and `n >>= 1` shifts all bits to the right. This is just like flipping levers and reading wires from your input interface!
 
----
-
-
-#### Key Terms (Module 1)
--   **Binary**: A base-2 number system that uses only two symbols, 0 and 1, to represent information. It is the fundamental language of all digital computers.
--   **Bit**: A single "binary digit," which can be either a 0 or a 1. It is the smallest possible unit of data in computing.
--   **Decimal**: The base-10 number system that humans commonly use, with ten unique symbols (0-9).
--   **Bus (Input Bus)**: A collection of parallel wires that carry a complete piece of binary information. Our 4-bit input interface creates a 4-bit bus.
--   **Interface (Input Interface)**: A device that allows a user or system to provide information to a machine. Our 4-lever setup is a manual input interface.
+#### Key Terms
+-   **Binary**: A base-`2` number system that uses only two symbols, `0` and `1`, to represent information. It is the fundamental language of all digital computers.
+-   **Bit**: A single "binary digit," which can be either a `0` or a `1`. It is the smallest possible unit of data in computing.
 -   **Bitwise Operation**: An operation in software that manipulates numbers at the level of their individual bits, rather than their decimal value.
+-   **Bus (Input Bus)**: A collection of parallel wires that carry a complete piece of binary information. Our `4`-bit input interface creates a `4`-bit bus.
+-   **Decimal**: The base-`10` number system that humans commonly use, with ten unique symbols (`0`-`9`).
+-   **Interface (Input Interface)**: A device that allows a user or system to provide information to a machine. Our `4`-lever setup is a manual input interface.
 -   **Register**: A small, extremely fast storage location inside a computer's central processing unit (CPU) that holds data for immediate use.
 
 ---
@@ -366,7 +358,7 @@ The basic building blocks of our computer are about to take shape. Get ready for
 
 Welcome back to Redstone University!
 
-In our last module, we built an input interface to send binary numbers as a signal over 4 wires forming a bus. Now we’ll learn how to process that signal using Boolean algebra and logic gates.
+In our last module, we built an input interface to send binary numbers as a signal over `4` wires forming a bus. Now we’ll learn how to process that signal using Boolean algebra and logic gates.
 
 In this module, we're going to give our computer a mind. We're going to take a crucial journey into theory to learn the fundamental grammar of all digital logic. This isn't just a Minecraft lesson; this is the language that powers every computer chip ever made.
 
@@ -378,7 +370,7 @@ Welcome to Boolean Algebra.
 
 > **Key Takeaway:** Boolean algebra gives us a precise language for describing and manipulating logical statements, which is the foundation of all digital circuits.
 
-In the mid-1800s, a mathematician named George Boole developed a new kind of algebra. Unlike the algebra you might know from school, where variables like `x` and `y` can be any number, Boole's variables were much simpler. They could only have two possible values: **True** or **False**.
+In the mid-1800s, a mathematician named George Boole developed a new kind of algebra. Unlike the algebra you might know from school, where variables like `x` and `y` can be any number, Boole's variables were much simpler. They could only have two possible values: **True** or **False** (sometimes written as `1` and `0`).
 
 This system, now called **Boolean Algebra**, was initially a mathematical curiosity. But a century later, when engineers started building the first electronic computers with on/off switches, they realized Boole had already invented the perfect mathematical system to describe them.
 
@@ -397,30 +389,30 @@ Boolean algebra gives us a set of rules and operators to manipulate these True/F
 
 To ensure a complete understanding, every logic gate is introduced using a consistent structure that moves from the abstract concept to the practical build.
 
--   **Visual Introduction:**
+**Visual Introduction:**
 
-    -   **Abstract Symbol & Function:** We begin with an image showing the gate's standard engineering symbol alongside a simple circuit demonstrating its basic function.
-    -   **Composite Diagram (For Composite Gates Only):** For gates built from our primitives, we then show a detailed CircuitVerse diagram of how they are constructed using only NOT and OR gates.
-    -   **Minecraft Build:** Finally, we show a screenshot of the gate built in Minecraft, reflecting our "primitives-only" design philosophy.
+-   **Abstract Symbol & Function:** We begin with an image showing the gate's standard engineering symbol alongside a simple circuit demonstrating its basic function.
+-   **Composite Diagram (For Composite Gates Only):** For gates built from our primitives, we then show a detailed CircuitVerse diagram of how they are constructed using only NOT and OR gates.
+-   **Minecraft Build:** Finally, we show a screenshot of the gate built in Minecraft, reflecting our "primitives-only" design philosophy.
 
--  **Formal Definition & Rules:**
+**Formal Definition & Rules:**
 
-    -   **Formal Definition:** The high-level concept and official terminology (e.g., "Conjunction").
-    -   **Symbols:** Common ways the operator is written in logic (`∧`) and programming (`&&`).
-    -   **The Rule:** A plain-English sentence describing what the gate does.
-    -   **Truth Table:** A complete chart defining all possible input/output combinations. This is the ultimate "source of truth."
-    -   **Primitive Boolean Expression:** The specific algebraic expression that represents our composite build using only `NOT` and `OR`.
+-   **Formal Definition:** The high-level concept and official terminology (e.g., "Conjunction").
+-   **Symbols:** Common ways the operator is written in logic (`∧`) and programming (`&&`).
+-   **The Rule:** A plain-English sentence describing what the gate does.
+-   **Truth Table:** A complete chart defining all possible input/output combinations. This is the ultimate "source of truth."
+-   **Primitive Boolean Expression:** The specific algebraic expression that represents our composite build using only `NOT` and `OR`.
 
--   **Practical Application:**
+**Practical Application:**
 
-    -   **Lab & Experiment:** A hands-on test to verify your Minecraft build against the gate's truth table.
-    -   **Real-World Connection:** An example of where this logic is used in real technology.
+-   **Lab & Experiment:** A hands-on test to verify your Minecraft build against the gate's truth table.
+-   **Real-World Connection:** An example of where this logic is used in real technology.
 
 ---
 
 #### A Note on Our Primitives
 
-In the world of computer science, you can build any logic gate from a small set of "primitive" gates. For this course, our primitives are dictated by the game mehanis of Minecraft itself. The game gives us two logical operations right out of the box:
+In the world of computer science, you can build any logic gate from a small set of "primitive" gates. For this course, our primitives are dictated by the game mechanics of Minecraft itself. The game gives us two logical operations right out of the box:
 
 1.  **NOT:** A Redstone Torch naturally inverts a signal. This is our primitive NOT gate.
 2.  **OR:** Redstone Dust naturally merges signals. If any line powering a central wire is ON, the whole wire becomes ON. This is our primitive OR gate.
@@ -433,7 +425,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
 #### Operator 1: NOT (The Inverter) - A Minecraft Primitive
 
-> **Key Takeaway:** The NOT gate flips a signal, turning ON to OFF, or 1 to 0. It’s the simplest way to create “opposite” logic in a circuit.
+> **Key Takeaway:** The NOT gate flips a signal, turning ON to OFF, or `1` to `0`. It’s the simplest way to create “opposite” logic in a circuit.
 
 ![NOT Gate in CircuitVerse](./images/NOT-gate_circuitverse.png)
 *Figure: The abstract symbol for the NOT gate (left) and its function in a basic circuit (right), taking a single input A and producing an inverted output Y.*
@@ -444,8 +436,8 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 -   **Truth Table: NOT Gate**
     | `A` | `!A` |
     |:---:|:----:|
-    |  0  |  1   |
-    |  1  |  0   |
+    | `0` | `1`  |
+    | `1` | `0`  |
 -   **The Boolean Expression:** The output `Y` is simply `Y = !A`.
 
 -   **Lab & Experiment:**
@@ -464,8 +456,8 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
     2.  Test the circuit:
 
-        1.  Set lever A to ON (1). Observe that the lamp is OFF (0).
-        2.  Set lever A to OFF (0). Observe that the lamp is ON (1).
+        1.  Set lever A to ON (`1`). Observe that the lamp is OFF (`0`).
+        2.  Set lever A to OFF (`0`). Observe that the lamp is ON (`1`).
 
     3.  **Verification:** The physical results perfectly match the truth table. You've built a working inverter! The extra lamps and dust we added should help visualize the NOT gate's function, but remember that the torch itself is the core component.
 
@@ -483,7 +475,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
 #### Operator 2: OR (The "At Least One" Gate) - A Minecraft Primitive
 
-> **Key Takeaway:** The OR gate outputs 1 if at least one input is 1. It’s how we express “either/or” logic in hardware and software.
+> **Key Takeaway:** The OR gate outputs `1` if at least one input is `1`. It’s how we express “either/or” logic in hardware and software.
 
 ![OR Gate in CircuitVerse](./images/OR-gate_circuitverse.png)
 *Figure: The abstract symbol for the OR gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active if at least one input is active.*
@@ -495,10 +487,10 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 -   **Truth Table: OR Gate**
   | `A` | `B` | `A OR B` |
   |:---:|:---:|:--------:|
-  |  0  |  0  |    0     |
-  |  0  |  1  |    1     |
-  |  1  |  0  |    1     |
-  |  1  |  1  |    1     |
+  | `0` | `0` |    `0`   |
+  | `0` | `1` |    `1`   |
+  | `1` | `0` |    `1`   |
+  | `1` | `1` |    `1`   |
 -   **The Boolean Expression:** The output `Y` is `Y = A OR B`.
 -   **Lab & Experiment:**
     ![OR Gate in Minecraft](./images/OR_gate_minecraft.png)
@@ -555,10 +547,10 @@ To connect the abstract concept of a gate to our physical build, we will use a c
 - **Truth Table: AND Gate**
   | `A` | `B` | `A AND B` |
   |:---:|:---:|:---------:|
-  |  0  |  0  |     0     |
-  |  0  |  1  |     0     |
-  |  1  |  0  |     0     |
-  |  1  |  1  |     1     |
+  | `0` | `0` |     `0`   |
+  | `0` | `1` |     `0`   |
+  | `1` | `0` |     `0`   |
+  | `1` | `1` |     `1`   |
 - **The Boolean Expression:** The output `Y` is `Y = A AND B`. (Our build uses `!(!A OR !B)`, which we’ll prove equivalent in Lesson 2.3.)
 - **Lab & Experiment:**
     > **Note on Screenshots and Color Coding:**
@@ -593,11 +585,11 @@ Design a circuit that implements the logic $A \text{ AND } \text{NOT } B$ ($A \l
 
 > **Key Takeaway:** Boolean laws let us simplify complex circuits and expressions, making our designs more efficient and easier to understand.
 
-Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let us rearrange and simplify expressions. For us, **a simpler expression means a smaller, faster, and more reliable Redstone circuit.** This is a critical engineering skill.
+Just like ``2 + x = x + 2`` in normal algebra, Boolean algebra has laws that let us rearrange and simplify expressions. For us, **a simpler expression means a smaller, faster, and more reliable Redstone circuit.** This is a critical engineering skill.
 
 
 #### Boolean Notation: Logical vs Arithmetic
-You’ll often see logic written using symbols from regular math. For example, **AND** is sometimes written as multiplication (`A · B` or `AB`), **OR** as addition (`A + B`), and **NOT** as an overbar (`Ā`).
+You’ll often see logic written using symbols from regular math. For example, **AND** is sometimes written as multiplication (`A · B` or `AB`), **OR** as addition (`A + B`), and **NOT** as an overbar (`Ā`). All numbers in Boolean algebra are either `0` or `1`.
 
 For this course, we will use a specific convention designed for maximum clarity:
 - We will use both text (`AND`, `OR`, `NOT`, `XOR`) and mathematical symbols ($A \land B$, $A \lor B$, $\neg A$, $A \oplus B$) for Boolean expressions to ensure clarity while introducing standard notation. Text is used for intuitiveness, and symbols prepare you for advanced study.
@@ -653,12 +645,12 @@ This looks like it would require two AND gates and one OR gate. Let's use the la
 | Law Name | Example(s) | Description |
 |---|---|---|
 | Identity | `A OR 0 = A`<br>`A AND 1 = A` | Leaves value unchanged |
-| Annihilator | `A OR 1 = 1`<br>`A AND 0 = 0` | Output is always 1 (OR) or 0 (AND) |
+| Annihilator | `A OR 1 = 1`<br>`A AND 0 = 0` | Output is always `1` (OR) or `0` (AND) |
 | Idempotent | `A OR A = A`<br>`A AND A = A` | Repeating input doesn't change output |
-| Inverse | `A OR !A = 1`<br>`A AND !A = 0` | Input and its ! always produce 1 (OR) or 0 (AND)|
+| Inverse | `A OR !A = 1`<br>`A AND !A = 0` | Input and its ! always produce `1` (OR) or `0` (AND)|
 | Commutative | `A OR B = B OR A`<br>`A AND B = B AND A` | Order doesn't matter |
 | Associative | `(A OR B) OR C = A OR (B OR C)`<br>`(A AND B) AND C = A AND (B AND C)` | Grouping doesn't matter |
-| Distributive | `A AND (B OR C) = (A AND B) OR (A AND C)` <br>A OR (B AND C) = (A OR B) AND (A OR C) | AND distributes over OR, OR distributes over AND |
+| Distributive | `A AND (B OR C) = (A AND B) OR (A AND C)` <br>`A OR (B AND C) = (A OR B) AND (A OR C)` | AND distributes over OR, OR distributes over AND |
 | De Morgan's Laws | `!(A AND B) = !A OR !B`<br>`!(A OR B) = !A AND !B` | Converts between AND/OR with ! |
 
 > **A Special Note on the Distributive Law:**
@@ -690,7 +682,7 @@ Given the expression $(A \text{ OR } B) \text{ AND } (\text{NOT } A \text{ OR } 
 
 ### Lesson 2.4: The Special Operator – XOR
 
-> **Key Takeaway:** XOR outputs 1 only when its inputs are different. It’s essential for circuits like adders and programming tricks.
+> **Key Takeaway:** XOR outputs `1` only when its inputs are different. It’s essential for circuits like adders and programming tricks.
 
 ![XOR Gate in CircuitVerse](./images/XOR-gate_circuitverse.png)
 *Figure: The abstract symbol for the Exclusive OR (XOR) gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if the inputs are different.*
@@ -709,10 +701,10 @@ It's important to understand that this is just one of many ways to build an XOR 
 
     | `A` | `B` | `A XOR B` |
     |:---:|:---:|:---------:|
-    | 0 | 0 | 0 |
-    | 0 | 1 | 1 |
-    | 1 | 0 | 1 |
-    | 1 | 1 | 0 |
+    | `0` | `0` | `0` |
+    | `0` | `1` | `1` |
+    | `1` | `0` | `1` |
+    | `1` | `1` | `0` |
 
 -   **The Boolean Expression**: `Y = !(A OR !(A OR B)) OR !(B OR !(A OR B))`.
 
@@ -823,10 +815,10 @@ Now that you've seen how the XOR trick works, try applying the same core princip
 -   **Truth Table: NOR Gate**
     | `A` | `B` | `A NOR B` |
     |:---:|:---:|:---------:|
-    | 0 | 0 | 1 |
-    | 0 | 1 | 0 |
-    | 1 | 0 | 0 |
-    | 1 | 1 | 0 |
+    | `0` | `0` | `1` |
+    | `0` | `1` | `0` |
+    | `1` | `0` | `0` |
+    | `1` | `1` | `0` |
 -   **The Boolean Expression:** The output `Y` is `Y = !(A OR B)`.
 -   **Lab & Experiment:**
 
@@ -858,10 +850,10 @@ Now that you've seen how the XOR trick works, try applying the same core princip
 -   **Truth Table: NAND Gate**
     | `A` | `B` | `A NAND B` |
     |:---:|:---:|:----------:|
-    | 0 | 0 | 1 |
-    | 0 | 1 | 1 |
-    | 1 | 0 | 1 |
-    | 1 | 1 | 0 |
+    | `0` | `0` | `1` |
+    | `0` | `1` | `1` |
+    | `1` | `0` | `1` |
+    | `1` | `1` | `0` |
 -   **The Boolean Expression:** `Y = !A OR !B`
 
     > **A Note on De Morgan's Law in Action**: This is one of the most powerful tricks in digital logic. We know that NAND is !(A AND B). We also know from De Morgan's Law that !(A AND B) is perfectly equivalent to !A OR !B. Our composite AND gate was built as !(!A OR !B). To create a NAND gate, we simply remove the final ! (the last torch), which leaves us with the physical circuit for !A OR !B. This is a perfect physical proof of a fundamental logic law!
@@ -896,10 +888,10 @@ Now that you've seen how the XOR trick works, try applying the same core princip
 -   **Truth Table: XNOR Gate**
     | `A` | `B` | `A XNOR B` |
     |:---:|:---:|:----------:|
-    | 0 | 0 | 1 |
-    | 0 | 1 | 0 |
-    | 1 | 0 | 0 |
-    | 1 | 1 | 1 |
+    | `0` | `0` | `1` |
+    | `0` | `1` | `0` |
+    | `1` | `0` | `0` |
+    | `1` | `1` | `1` |
 -   **The Boolean Expression:** `Y = !( !(A OR !(A OR B)) OR !(B OR !(A OR B)) )`
 
 -   **Lab & Experiment:**
@@ -950,25 +942,16 @@ Build an $A \text{ AND } B$ ($A \land B$) gate using only NOR gates. Verify it w
 |  Gate   |                       Symbol                             |             Core Logic Rule             |    Primitive Boolean Expression              |
 | :------ | :---------------------------------------------------------------- | :-------------------------------------- | :--------------------------------------------|
 | **NOT** | ![NOT Gate](./images/NOT.png)                                     | Inverts a single input.                 | `!A`                                         |
-| **OR**  | ![OR Gate](./images/OR.png)                                       | True if **at least one** input is True. | `A OR B`                                     |
-| **AND** | ![AND Gate](./images/AND.png)                                     | True only if **all** inputs are True.   | `!(!A OR !B)`                                |
+| **OR**  | ![OR Gate](./images/OR.png)                                       | True if **at least one** input is `True`. | `A OR B`                                     |
+| **AND** | ![AND Gate](./images/AND.png)                                     | True only if **all** inputs are `True`.   | `!(!A OR !B)`                                |
 | **XOR** | ![XOR Gate](./images/XOR.png)                                     | True only if inputs are **different**.  |`!(A OR !(A OR B)) OR !(B OR !(A OR B))`      |
-| **NAND**| ![NAND Gate](./images/NAND.png)                                   | True unless **all** inputs are True.    | `!A OR !B`                                   |
-| **NOR** | ![NOR Gate](./images/NOR.png)                                     | True only if **all** inputs are False.  | `!(A OR B)`                                  |
+| **NAND**| ![NAND Gate](./images/NAND.png)                                   | True unless **all** inputs are `True`.    | `!A OR !B`                                   |
+| **NOR** | ![NOR Gate](./images/NOR.png)                                     | True only if **all** inputs are `False`.  | `!(A OR B)`                                  |
 | **XNOR**| ![XNOR Gate](./images/XNOR.png)                                   | True only if inputs are the **same**.   | `!(!(A OR !(A OR B)) OR !(B OR !(A OR B)))`  |
 
 ---
 
 ### Lesson 2.8: Module 2 Checkpoint
-
-> **Module Summary:** You have reached the end of the most theory-intensive module in this course. You began with simple on/off switches and have now mastered the seven fundamental logic gates, the Boolean laws that govern them, the power of simplification, and the bridge between hardware logic and software problem-solving. It is time to test your newfound knowledge.
-
-This checkpoint is divided into three parts to test the different skills you've acquired:
-*   **Part 1: Knowledge Check** - Quick questions to test your memory and understanding of core concepts.
-*   **Part 2: Logic Puzzles** - "On-paper" challenges requiring you to apply the laws of Boolean algebra.
-*   **Part 3: The Debug Challenge** - A practical, in-game challenge to test your troubleshooting skills.
-
----
 
 #### Practice Problem 2.8.1: Knowledge Check
 
@@ -981,15 +964,13 @@ Test your core understanding with these rapid-fire questions.
 > **(Solution for Problem 2.8.1 is in Appendix A)**
 
 
----
-
 #### Practice Problem 2.8.2: The Word Problem
 
 Apply the laws of Boolean algebra to solve these challenges on paper.
 
 A greenhouse has an automated climate control system. An alarm `Y` should sound if the following conditions are met:
-*   The system is in "Manual Override" mode (`M` is True), **OR**
-*   The Temperature `T` is too high **AND** the Water Sprinklers `W` have failed to turn on (`W` is False).
+*   The system is in "Manual Override" mode (`M` is `True`), **OR**
+*   The Temperature `T` is too high **AND** the Water Sprinklers `W` have failed to turn on (`W` is `False`).
 
 Write the single Boolean expression for the alarm $Y$ using dual notation.
 
@@ -1007,27 +988,24 @@ This seems to require three AND gates and two OR gates. Simplify this expression
 > **(Solution for Problem 2.8.3 is in Appendix A)**
 
 
----
-
 #### Practice Problem 2.8.4: Debug Challenge
 
 > In the world download for this module, you will find a section labeled "Module 2 Debug Challenge." I have built a circuit that is *supposed* to implement the logic for the greenhouse alarm from Part 2: $M \text{ OR } (T \text{ AND } \text{NOT } W)$ [$M \lor (T \land \neg W)$].
 >
 > However, it's giving the wrong output for some input combinations! Your mission is to use your knowledge of truth tables and circuit tracing to diagnose the mistake in the Redstone wiring and fix it so it functions correctly. Good luck!
 
----
 
-#### Key Terms (Module 2)
+#### Key Terms
 
--   **Boolean Algebra**: A branch of mathematics for working with true/false values (1/0), using operators like AND, OR, and NOT.
--   **Logic Gate**: A physical or virtual device that implements a Boolean operation.
--   **Primitive Gate**: A basic, indivisible logic gate from which more complex gates are built. In our course, these are NOT and OR.
+-   **Bitwise Operation**: A software operation that manipulates individual bits of a number.
+-   **Boolean Algebra**: A branch of mathematics for working with true/false values (`1`/`0`), using operators like AND, OR, and NOT.
 -   **Composite Gate**: A logic gate constructed by combining primitive gates (e.g., an AND gate built from NOT and OR gates).
--   **Truth Table**: A chart showing all possible input/output combinations for a logic gate or circuit.
 -   **Diode**: A component that allows an electrical signal to pass in only one direction. In Minecraft, the Redstone Repeater acts as a perfect diode.
 -   **Functionally Complete**: A set of gates from which any Boolean function can be built (e.g., just NAND or just NOR).
--   **Bitwise Operation**: A software operation that manipulates individual bits of a number.
--   **XOR (Exclusive OR)**: Outputs 1 if inputs are different; used in both hardware and software for unique logic tricks.
+-   **Logic Gate**: A physical or virtual device that implements a Boolean operation.
+-   **Primitive Gate**: A basic, indivisible logic gate from which more complex gates are built. In our course, these are NOT and OR.
+-   **Truth Table**: A chart showing all possible input/output combinations for a logic gate or circuit.
+-   **XOR (Exclusive OR)**: Outputs `1` if inputs are different; used in both hardware and software for unique logic tricks.
 
 ---
 
@@ -1048,16 +1026,17 @@ This was a huge module! But you now have the most powerful tool an engineer can 
 
 <hr class="pagebreak"/>
 
-## Interlude I (B): The Art of Compact Design (Optional)
-**note:** This is one potential versin of this interlude. I haven't decided which approach to take yet.
+## Interlude I: The Art of Compact Design (Optional)
+
+**Note:** This is one potential version of this interlude. I haven't decided which approach to take yet.
 
 ---
 
 ### A Note from the Instructor
 
-Congratulations on finishing Module 2! You have mastered the theoretical foundation of our entire computer.
+Congratulations on finishing Module `2`! You have mastered the theoretical foundation of our entire computer.
 
-Before we begin our next major project, we have this special, optional section. Think of it as an engineering deep dive. The goal of Module 2 was to build for **clarity**, making our gates large so the logic was easy to trace. This Interlude introduces the art of building for **efficiency**.
+Before we begin our next major project, we have this special, optional section. Think of it as an engineering deep dive. The goal of Module `2` was to build for **clarity**, making our gates large so the logic was easy to trace. This Interlude introduces the art of building for **efficiency**.
 
 We will analyze some common, space-saving designs used by the Redstone community. Understanding them is not required for the rest of the course, but it will empower you to make your own builds smaller and faster. This is your first step from being a student of logic to becoming a true Redstone engineer.
 
@@ -1071,7 +1050,9 @@ Every engineering decision is a compromise. When you compact a circuit, you are 
 | **Speed / Tick Delay**| Often slightly slower due to longer wire paths. | Can be faster with shorter signal paths. |
 | **Readability** | Very easy for a human to trace and debug. | Can be cryptic and difficult to troubleshoot. |
 
-> **Guideline:** For learning and debugging, verbose is best. For final builds where space and resources matter, compact is essential.
+#### Guideline
+
+For learning and debugging, verbose is best. For final builds where space and resources matter, compact is essential.
 
 ---
 
@@ -1087,12 +1068,13 @@ First, recall our verbose AND gate. It's a perfect physical representation of De
 ![Verbose AND Gate in Minecraft](./images/AND-gate-composite_minecraft.png)
 *Figure: Our easy-to-read, but large, educational AND gate.*
 
-Now, observe a classic compact AND gate. It performs the exact same function in a tiny 3x2 footprint.
+Now, observe a classic compact AND gate. It performs the exact same function in a tiny `3`x`2` footprint.
 
 ![Compact AND Gate in Minecraft](./images/AND-gate_minecraft.png)
 *Figure: A classic, space-efficient compact AND gate.*
 
-**Logical Deconstruction:**
+#### Logical Deconstruction
+
 This compact build is a brilliant physical implementation of the same logic.
 *   The two torches on the sides of the input blocks are your first **NOT** gates, creating `!A` and `!B`.
 *   The central Redstone dust is the **OR** gate. It gets powered if *either* of the side torches turns off.
@@ -1111,7 +1093,8 @@ The community has created many compact XOR designs. Here is one of the most comm
 ![Compact XOR Gate in Minecraft](./images/XOR-gate_minecraft.png)
 *Figure: A very common and tileable compact XOR gate design.*
 
-**Logical Deconstruction:**
+#### Logical Deconstruction
+
 This design is a masterclass in efficiency. It cleverly uses torch burnout and block power states to create the two conditions for an XOR (`A AND !B` or `!A AND B`) and merges their outputs. While tracing the exact path is advanced, the key takeaway is that it perfectly matches the XOR truth table in a minimal amount of space, which is critical when you need to build dozens of them for an arithmetic unit.
 
 ---
@@ -1120,169 +1103,15 @@ This design is a masterclass in efficiency. It cleverly uses torch burnout and b
 
 You now see the difference between a circuit designed for teaching and one designed for a practical machine. Compact designs aren't magic; they are just clever physical implementations of the same Boolean logic you have already mastered.
 
-From Module 3 onward, we will follow the **Rule of Abstraction**:
+From Module `3` onward, we will follow the **Rule of Abstraction**:
 
 > A logic gate is defined by its **truth table** (its inputs and outputs), not by its internal layout. You are now free to use the verbose educational builds, the compact practical builds, or any other design that functions correctly.
 
 This freedom is a major step in your journey from student to engineer.
 
-> ### Explore More: The Gate Museum
-> In the world download provided for the course, you will find a section labeled "Gate Museum" which showcases these and many other community-tested compact designs for each logic gate. I encourage you to explore, build, and test them to expand your engineering toolkit.
+#### Explore More: The Gate Museum
 
-
-<hr class="pagebreak"/>
-
-## Interlude I (A): The Art of Compact Design (Optional)
-**note:** This is one potential versin of this interlude. I haven't decided which approach to take yet.
-
----
-
-### A Note from the Instructor
-
-Congratulations on finishing Module 2! You have mastered the theoretical foundation of our entire computer.
-
-Before we begin our next major project, we have this special, optional section. Think of it as an engineering deep dive. The goal of Module 2 was to build for **clarity**, making our gates large so the logic was easy to trace. This Interlude introduces the art of building for **efficiency**.
-
-We will analyze some common, space-saving designs used by the Redstone community. Understanding them is not required, but it will empower you to make your own builds smaller and faster. This is your first step into true Redstone engineering. From Module 3 onward, we will follow the **Rule of Abstraction**: a gate is defined by its function, not its layout. You are free to use these new designs or the verbose ones from Module 2. As long as it works, it is correct.
-
----
-
-### Interlude Summary
-
--   Narrative Beat: You have mastered the language of logic. Now, let's learn the art of the Redstone engineer: how to shrink those textbook examples into sleek components ready for a real machine.
--   Learning Goals:
-    -   Understand the engineering trade-offs between a circuit's size, speed, and readability.
-    -   Learn common techniques Redstone engineers use to make circuits more compact.
-    -   Analyze classic compact gate designs to see these principles in action.
--   Minecraft Artifact: A toolkit of compact logic gate designs.
-
----
-
-### The Engineering Trade-Off: Size, Speed, and Readability
-
-Every Redstone design is a compromise. When you compact a circuit, you are usually trading **readability** for **efficiency**.
-
-| Factor | Verbose (Educational) Builds | Compact (Practical) Builds |
-| :--- | :--- | :--- |
-| **Size / Footprint** | Large and sprawling for clarity. | Small and dense to save space. |
-| **Speed / Tick Delay**| Often slower due to longer wiring. | Can be faster with shorter signal paths. |
-| **Readability** | Very easy to trace and debug. | Can be difficult to read, making errors harder to find. |
-
-> ### Guideline:
-> For learning and debugging, verbose is best. For large-scale builds where space is a concern, compact is essential.
-
----
-
-### Case Studies in Compact Design
-
-Each case study compares the **Verbose Teaching Version** you learned in Module 2 with a **Compact Practical Version** designed for efficiency. Both obey the same truth table, the only difference is the implementation.
-
----
-
-#### Case Study: The Compact AND Gate
-
-First, recall our verbose AND gate, built from our primitives to be easy to understand.
-
-![Verbose AND Gate in Minecraft](./images/AND-gate-composite_minecraft.png)
-*Figure: Our easy-to-read, but large, educational AND gate.*
-
-Now, look at the design below. It performs the exact same logic, but in a much smaller space.
-
-![Compact AND Gate in Minecraft](./images/AND-gate_minecraft.png)
-*Figure: A classic, space-efficient compact AND gate.*
-
-#### Logical Deconstruction
-This compact build still follows the logic of $A \text{ AND } B$ ($A \land B$), implemented as $\text{NOT } (\text{NOT } A \text{ OR } \text{NOT } B)$ ($\neg(\neg A \lor \neg B)$). The components are just cleverly merged.
--   The two torches on the sides are the first $\text{NOT}$ gates, creating $\text{NOT } A$ ($\neg A$) and $\text{NOT } B$ ($\neg B$).
--   The central Redstone dust on top of the block acts as the $\text{OR}$ gate, collecting the signals from the torches. If either $\neg A$ or $\neg B$ is on, this dust becomes powered.
--   The torch on the back of the central block is the final $\text{NOT}$ gate, inverting the $\text{OR}$ signal to produce the final AND output.
-
-#### Build Steps
-1.  Place three solid blocks in a row.
-2.  Place input levers on the front of the two outer blocks.
-3.  Place a Redstone Torch on the top of each of the two outer blocks. These are your `!A` and `!B` inverters.
-4.  Place a single piece of Redstone Dust on top of the central block. This dust will be powered by either of the torches. This is your `OR` gate.
-5.  Place a Redstone Torch on the back face of the central block. This is your final inverter.
-6.  The output from this final torch is `A AND B`. Connect it to a lamp to test.
-
----
-
-#### Case Study: The Compact NAND Gate
-
-![Verbose NAND Gate in Minecraft](./images/NAND-gate-composite_minecraft.png)
-*Figure: Our educational NAND gate, built by removing the final inverter from the verbose AND gate.*
-
-![Compact NAND Gate in Minecraft](./images/NAND-gate-compact_minecraft.png)
-*Figure: A compact NAND gate, created by tapping the output of the compact AND gate before the final inversion.*
-
-#### Logical Deconstruction
-This is the beauty of understanding the logic. A NAND gate is simply $A \text{ NAND } B$ ($\neg(A \land B)$). In our compact AND gate build, the final component is a torch that performs the last inversion. To get a NAND output, we just need to take the signal from *before* that final torch. The signal on the central dust is $\text{NOT } A \text{ OR } \text{NOT } B$ ($\neg A \lor \neg B$), which De Morgan's Law proves is logically identical to $A \text{ NAND } B$.
-
-#### Build Steps
-1.  Build the compact AND gate exactly as described above.
-2.  Instead of taking the output from the final torch, connect your output wire directly to the Redstone Dust on top of the central block.
-3.  This signal is your NAND output. Connect it to a lamp to verify.
-
----
-
-#### Case Study: The Compact XOR Gate
-
-Recall our large, easy-to-read XOR gate from Module 2.
-
-![Verbose XOR Gate in Minecraft](./images/XOR-gate-composite_minecraft.png)
-*Figure: Our educational XOR gate, built for clarity.*
-
-Now, observe a classic compact XOR design. It is much smaller but harder to read at a glance.
-
-![Compact XOR Gate in Minecraft](./images/XOR-gate_minecraft.png)
-*Figure: A very common and tileable compact XOR gate design.*
-
-#### Logical Deconstruction
-This design is more complex and relies on how torches interact. The logic effectively creates the two conditions for an XOR, $A \text{ XOR } B$ ($A \oplus B$), which is true when $A \text{ AND } \text{NOT } B$ ($A \land \neg B$) or $\text{NOT } A \text{ AND } B$ ($\neg A \land B$) is true, and merges their outputs.
--   The torches on top of the input blocks create $\text{NOT } A$ ($\neg A$) and $\text{NOT } B$ ($\neg B$).
--   The torches on the sides of the output block are each controlled by a combination of a direct input and an inverted input.
--   The final Redstone dust on top acts as an $\text{OR}$ gate, combining the outputs of the side torches.
-
-#### Build Steps
-1.  Place two solid blocks for your inputs, side-by-side. Place levers on the front.
-2.  Place a third solid block one block away from and between the inputs. This will be your output block.
-3.  On the input blocks, place Redstone Dust on top.
-4.  On the output block, place Redstone Torches on the two sides facing the input blocks.
-5.  On top of the output block, place a piece of Redstone Dust.
-6.  Place Redstone Torches on the faces of the input blocks that face the central output block.
-7.  The final output is taken from the Redstone Dust on top of the output block. Connect it to a lamp. It will be on only when the inputs differ.
-
----
-
-#### Case Study: The Compact XNOR Gate
-
-![Verbose XNOR Gate in Minecraft](./images/XNOR-gate-composite_minecraft.png)
-*Figure: The educational XNOR, built by inverting an input to the verbose XOR gate.*
-
-![Compact XNOR Gate in Minecraft](./images/XNOR-gate-compact_minecraft.png)
-*Figure: A compact XNOR gate, built by simply inverting one input to the compact XOR gate.*
-
-#### Logical Deconstruction
-Just as we learned in Module 2, the simplest way to create an XNOR (equality detector) is to invert one of the inputs to an XOR gate. The logic $A \text{ XNOR } B$ ($A \leftrightarrow B$) is identical to $A \text{ XOR } \text{NOT } B$ ($A \oplus \neg B$). We can apply this exact same principle to our compact build. This is the art of the engineer: modifying an existing component instead of reinventing the wheel.
-
-#### Build Steps
-1.  Build the compact XOR gate exactly as described above.
-2.  Choose one input, for example, input B.
-3.  To invert it, place a Redstone Torch between the lever for B and the input block of the XOR gate.
-4.  Now, flipping the B lever will send an inverted signal into the compact XOR circuit. The entire circuit will now behave as an XNOR gate, lighting up only when the two levers are in the same state.
-
----
-
-### Conclusion: Your Journey Into Optimization
-
-You now know the difference between a circuit designed for teaching and one designed for practical builds. This is a major step in your engineering journey. You understand that compact designs are not magic; they are just clever physical implementations of the same Boolean logic you have already mastered.
-
-From Module 3 onward, we follow the **Rule of Abstraction**:
--   A gate is defined by its **truth table** and interface, not by its internal layout.
--   You are free to use verbose or compact designs as you prefer.
-
-> ### Explore More: The Gate Museum
-> In the world download provided for the course, you will find a section labeled "Gate Museum" which showcases these and many other community-tested compact designs for each logic gate. I encourage you to explore, build, and test them to expand your engineering toolkit.
+In the world download provided for the course, you will find a section labeled "Gate Museum" which showcases these and many other community-tested compact designs for each logic gate. I encourage you to explore, build, and test them to expand your engineering toolkit.
 
 
 <hr class="pagebreak"/>
@@ -1300,7 +1129,7 @@ From Module 3 onward, we follow the **Rule of Abstraction**:
     -   Master "active-low" logic and its practical application in Redstone.
     -   Build a functional Diode Matrix and understand its role as a form of Read-Only Memory (ROM).
 -   **Lesson Overview:**
-    -   **Lesson 3.1:** The Goal: Building Our 7-Segment Display
+    -   **Lesson 3.1:** The Goal: Building Our 7-segment display
     -   **Lesson 3.2:** The Master Plan: A Two-Stage Translation
     -   **Lesson 3.3:** The Decoder Lab: A Simple "Brute-Force" Build
     -   **Lesson 3.4:** The Decoder Solution: An Elegant, Compact Design
@@ -1331,28 +1160,28 @@ In the previous modules, you learned how to speak to your computer in binary and
 
 ---
 
-### Lesson 3.1: The Goal: Building Our 7-Segment Display
+### Lesson 3.1: The Goal: Building Our 7-segment display
 
 > **Key Takeaway:** A 7-segment display is a standard output device that uses seven independent segments to form numbers. Understanding how to control it manually is the first step to controlling it automatically.
 
-![7-Segment Display in CircuitVerse](./images/7-segment-display.png)
-*Figure: The symbol for a 7-Segment Display on CircuitVerse (left) and its function in a basic circuit (right), taking seven inputs and lighting up the segments based.*
+![7-segment display in CircuitVerse](./images/7-segment-display.png)
+*Figure: The symbol for a 7-segment display on CircuitVerse (left) and its function in a basic circuit (right), taking seven inputs and lighting up the segments based.*
 
 Our computer can hear us, but it can’t talk back. So far, all our work is invisible, buried in wires and circuits. How do we make our computer show us numbers in a way we understand?
 
 The answer is the **7-segment display**, a classic output device found in everything from digital clocks to microwaves. It uses seven independently controlled segments, labeled `a` through `g`, arranged in an '8' pattern.
 
-![7-Segment Display labeled](./images/7-segment-display_labeled.png)
-*Figure: The standard labeling for the segments of a 7-Segment Display..*
+![7-segment display labeled](./images/7-segment-display_labeled.png)
+*Figure: The standard labeling for the segments of a 7-segment display.*
 
 
-By lighting up specific combinations of these seven segments, we can display any digit from 0 to 9.
+By lighting up specific combinations of these seven segments, we can display any digit from `0` to `9`.
 
 **Lab: Building the Physical Display**
 
 Let’s start by building the physical canvas for our numbers.
 
-1.  **Construct the Segments:** In Minecraft, place Redstone Lamps in the "8" shape shown above. For good visibility, making each segment 3 lamps long is a great choice.
+1.  **Construct the Segments:** In Minecraft, place Redstone Lamps in the "8" shape shown above. For good visibility, making each segment `3` lamps long is a great choice.
 2.  **Isolate the Segments:** Carefully surround the lamp segments with a non-conductive block like Wool or Concrete. I use black concrete to make the segments stand out.
 3.  **Create Manual Controls:** To power each segment, run a Redstone Repeater into the middle lamp. For now, place a solid block behind each repeater and attach a Lever to it. This gives you manual control for testing.
 
@@ -1382,8 +1211,8 @@ Now that we have our display, how do we control it? Our computer thinks in 4-bit
 
 Instead, let’s think like engineers and break the problem into two much simpler, more manageable stages:
 
-1.  **Decoder:** This first stage will act as an "identifier". Its only job is to look at the 4-bit binary input and determine *which* number (0-9) it represents. It will then activate a single, unique output line corresponding to that number.
-2.  **Encoder:** This second stage is will act as the "mapper". It receives the simple signal from the decoder (e.g., "the number is 3!") and "maps" the signal, and the number it represents, to the correct combination of the 7 segments.
+1.  **Decoder:** This first stage will act as an "identifier". Its only job is to look at the 4-bit binary input and determine *which* number (`0`-`9`) it represents. It will then activate a single, unique output line corresponding to that number.
+2.  **Encoder:** This second stage is will act as the "mapper". It receives the simple signal from the decoder (e.g., "the number is `3`!") and "maps" the signal, and the number it represents, to the correct combination of the 7 segments.
 
 This modular, two-stage approach is the heart of good engineering. It's easier to build, easier to test, and far easier to fix if something goes wrong.
 
@@ -1396,7 +1225,7 @@ This modular, two-stage approach is the heart of good engineering. It's easier t
 
 > **Key Takeaway:** A decoder can be built by assigning one AND gate to recognize each unique binary input. This "brute-force" method is clear but does not scale well.
 
-Before we tackle our full 4-bit to 10-line decoder, let's build a smaller, simpler version to prove the concept. We are going to build a **2-bit to 4-line decoder**. This circuit will take a 2-bit binary input (00, 01, 10, 11) and light up one of four corresponding output lamps (L1, L2, L3) representing those values in decimal (0, 1, 2, 3).
+Before we tackle our full 4-bit to 10-line decoder, let's build a smaller, simpler version to prove the concept. We are going to build a **2-bit to 4-line decoder**. This circuit will take a 2-bit binary input (`00`, `01`, `10`, `11`) and light up one of four corresponding output lamps (`L0`, `L1`, `L2`, `L3`) representing those values in decimal (`0`, `1`, `2`, `3`).
 
 By scaling down the problem, we can focus on the core logic without getting overwhelmed. This is a common engineering practice: start small, prove the concept, then scale up. I'm calling this a "brute-force" method because we will build a separate AND gate for each output, rather than using a more elegant design, which we will learn in the next lesson.
 
@@ -1461,7 +1290,7 @@ In the next lesson, we will learn a far more elegant and compact solution.
 
 > **Key Takeaway:** By using an "active-low" design and two clever types of "taps" (Repeater and Torch), we can build a decoder that is vastly smaller and more efficient.
 
-Welcome to the engineer's solution. Instead of an "active-high" design, we will build an **"active-low"** design where the correct line turns **OFF**.
+Welcome to the engineer's solution. Instead of an "active-high" design, we will build an **active-low** design where the correct line turns **OFF**.
 
 #### The Core Concept: The Mismatch Detector
 Each output line will function as a **"mismatch detector."** Its job is to power its own wire (turning its lamp OFF) if the input does **not** match the line's identity. The only time a lamp stays ON is when the input is a perfect match. A "tap" is simply our term for a connection that reads, or "taps into," the signal from one of the main bus lines.
@@ -1485,12 +1314,12 @@ We use two different methods to tap the bus. This clever approach allows a singl
 ##### The Setup: Building the Physical Structure
 This design relies on a two-layer structure to keep the input and output lines separate.
 
-1.  **Output Layer (Ground Level):** Lay out 10 parallel lines of Redstone dust for your output lines (`L0` through `L9`). Leave at least one empty block between each line to prevent interference. At the end of each line, place a solid block, a Redstone torch on top, and a Redstone Lamp on top of the torch. All 10 lamps should be ON by default.
+1.  **Output Layer (Ground Level):** Lay out `10` parallel lines of Redstone dust for your output lines (`L0` through `L9`). Leave at least one empty block between each line to prevent interference. At the end of each line, place a solid block, a Redstone torch on top, and a Redstone Lamp on top of the torch. All `10` lamps should be ON by default.
 
 ![Compact 4-to-10 Decoder Step 1](./images/4-to-10-decoder-compact-1_minecraft.png)
 *Figure: Screenshot showing the 10 output lines on the ground, step 1 of the compact 4-to-10 decoder*
 
-2.  **Input Layer (Floating):** Now, build a platform for your input bus two blocks off the ground (leaving a 1-block high air gap). On this platform, run your four parallel input bus lines (`B3` to `B0`) so they run perpendicularly across all 10 output lines below.
+2.  **Input Layer (Floating):** Now, build a platform for your input bus two blocks off the ground (leaving a 1-block high air gap). On this platform, run your four parallel input bus lines (`B3` to `B0`) so they run perpendicularly across all `10` output lines below.
 
 ![Compact 4-to-10 Decoder Step 2](./images/4-to-10-decoder-compact-2_minecraft.png)
 *Figure: The two-tiered structure with four input bus lines (`B3` to `B0`) floating above the 10 output lines.*
@@ -1504,7 +1333,7 @@ Now we will place our taps to connect the input and output layers, “programmin
 Let’s apply this to one line to see it in action, then you’ll program the rest using the reference chart.
 
 ##### Programming Example: Line `L3` (Identity: `0011`)
-To make the `L3` line detect the binary input `0011` (decimal 3), we need to place taps according to its identity:
+To make the `L3` line detect the binary input `0011` (decimal `3`), we need to place taps according to its identity:
 -   `B3` is `0`: Place a **Repeater Tap** (checks for a `1`, powers the wire if mismatched).
 -   `B2` is `0`: Place a **Repeater Tap**.
 -   `B1` is `1`: Place a **Torch Tap** (checks for a `0`, powers the wire if mismatched).
@@ -1532,7 +1361,7 @@ To verify the `L3` line works as intended, you can add levers to test it indepen
 In this test, the levers mimic the input `0011`. The `L3` lamp lights up because no taps activate (no mismatches), leaving the wire unpowered. Try flipping any lever (for example, `0010`), and the lamp should turn OFF as a tap detects a mismatch. This hands-on test builds confidence before scaling to all 10 lines.
 
 ##### Complete All Lines: Using the Reference Chart
-Apply the rule and build methods to the remaining 9 lines. Use the chart below to verify your placements. This is your blueprint.
+Apply the rule and build methods to the remaining `9` lines. Use the chart below to verify your placements. This is your blueprint.
 
 | Bus Line | `L0` | `L1` | `L2` | `L3` | `L4` | `L5` | `L6` | `L7` | `L8` | `L9` |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1557,7 +1386,7 @@ Before you build, an engineer must be able to plan. For output line **`L6` (Iden
 
 
 #### Practice Problem 3.4.2: Debug Challenge
-You've built your decoder, but something is wrong. When you set the input levers to **`1001`** (for the number 9), you notice that the lamp for `L9` is on (which is correct), but the lamp for **`L8`** is *also* on (which is incorrect).
+You've built your decoder, but something is wrong. When you set the input levers to **`1001`** (for the number `9`), you notice that the lamp for `L9` is on (which is correct), but the lamp for **`L8`** is *also* on (which is incorrect).
 
 What is the single most likely mistake in your build that would cause this specific error?
 
@@ -1608,7 +1437,7 @@ This gives us a very simple rule: to turn a segment ON for a given number, we ju
 ##### 1. The Setup: The Output Layer
 Start by building the foundation for your Diode Matrix: the output lines that will control the 7-segment display.
 
--   **Segment Output Layer (Ground Level):** Lay out 7 parallel lines of Redstone dust, one for each segment (`a` through `g`). These will carry signals to the display. Leave a 1-block gap between each line to prevent interference. Add Redstone Repeaters every 15 blocks to keep the signals strong, as these lines may need to travel to your display.
+-   **Segment Output Layer (Ground Level):** Lay out 7 parallel lines of Redstone dust, one for each segment (`a` through `g`). These will carry signals to the display. Leave a 1-block gap between each line to prevent interference. Add Redstone Repeaters every `15` blocks to keep the signals strong, as these lines may need to travel to your display.
 
 ![Encoder Output Layer](./images/10-to-7-encoder-1_minecraft.png)
 *Figure: The 7 parallel segment output lines (`a` through `g`) on the ground, with repeaters for signal strength.*
@@ -1632,7 +1461,7 @@ Now, you’ll “burn” the lookup table into the hardware by placing torch tap
 -   **How to Build the Tap:** At the correct intersection, place a **Redstone Torch on the side of the block** that the horizontal input line (`LN`) rests on. Position the torch to power the segment line on the ground below.
 
 ##### Programming Example: Line `L9`
-Let’s program the `L9` line (digit 9) as an example. According to the lookup table, digit `9` needs segments `a, b, c, d, f, g` to be ON. Place six torch taps along the `L9` line, one at each intersection with those segment lines.
+Let’s program the `L9` line (digit `9`) as an example. According to the lookup table, digit `9` needs segments `a, b, c, d, f, g` to be ON. Place six torch taps along the `L9` line, one at each intersection with those segment lines.
 
 Here’s a close-up of the `L9` line with its taps in place:
 
@@ -1648,7 +1477,7 @@ Repeat this process for all 10 lines (`L0`–`L9`), using the lookup table to pl
 > You might wonder if we need repeaters to isolate the segment lines from each other like we did in our basic OR gate. In this specific design, we don’t! The Redstone Torches we use as taps are naturally **one-way devices**. They send power *out* to the segment line, but power from another torch cannot flow *backwards* through them. The torches act as the diodes in our “Diode Matrix,” making the design incredibly elegant and efficient.
 
 ##### 4. Test Your Work
-Before connecting the encoder to the decoder, test all lines (`L0`–`L9`) independently, as you did for `L9`. Place a lever at the start of each line, set all others to ON, and turn the tested line OFF. Verify that the segment patterns match the lookup table (e.g., `L3` should light `a, b, c, d, g` for digit 3). Here’s what the fully programmed Diode Matrix looks like:
+Before connecting the encoder to the decoder, test all lines (`L0`–`L9`) independently, as you did for `L9`. Place a lever at the start of each line, set all others to ON, and turn the tested line OFF. Verify that the segment patterns match the lookup table (e.g., `L3` should light `a, b, c, d, g` for digit `3`). Here’s what the fully programmed Diode Matrix looks like:
 
 ![Complete 10-to-7 Encoder](./images/10-to-7-encoder-complete_minecraft.png)
 *Figure: The complete 10-to-7 encoder with all torch taps placed, showing the `L3` line active (input `0011`) and segments `a, b, c, d, g` powered for digit 3.*
@@ -1680,15 +1509,15 @@ When you test your encoder by providing a LOW signal to the `L4` line, you expec
 
 > **Key Takeaway**
 > Connecting individual, tested modules into a complete, working system is the final and most rewarding step of any engineering project.
-
-The moment of truth has arrived. You’ve built and tested the decoder to identify numbers, the encoder to map them to segment patterns, and the 7-segment display to show the results. Now, it’s time to connect these modules and watch your digital display come to life, transforming binary inputs into human-readable digits. Taking modular pieces and creating a cohesive system, this is engineering at it's finest!
+ 
+The moment of truth has arrived. You’ve built and tested the decoder to identify numbers, the encoder to map them to segment patterns, and the 7-segment display to show the results. Now, it’s time to connect these modules and watch your digital display come to life, transforming binary inputs into human-readable digits. Taking modular pieces and creating a cohesive system, this is engineering at its finest!
 
 #### Lab & Experiment: The Final Connection
 
 This final step is all about making the connections between all of the components from this module. The wiring may get a bit messy, but as long as the signals flow correctly, you are good to go!
 
-1. **Connect Decoder to Encoder**: Carefully connect the 10 active-low output lines from your **Decoder** (`L0`–`L9`) to the 10 horizontal input lines of your **Encoder/ROM**. Use Redstone Repeaters as needed to ensure the signals remain strong over long distances. Label your lines (e.g., with colored wool) to avoid mix-ups.
-2. **Connect Encoder to Display**: Connect the 7 output lines from your **Encoder/ROM** (`a`–`g`) to the control inputs of the **7-Segment Display** you built in Lesson 3.1. This may require creative wiring to route signals to the display’s repeaters, but ensure each segment line connects to its corresponding input (e.g., `a` to the `a` segment). Test each connection with a temporary lever to confirm the segment lights up.
+1. **Connect Decoder to Encoder**: Carefully connect the `10` active-low output lines from your **Decoder** (`L0`–`L9`) to the `10` horizontal input lines of your **Encoder/ROM**. Use Redstone Repeaters as needed to ensure the signals remain strong over long distances. Label your lines (e.g., with colored wool) to avoid mix-ups.
+2. **Connect Encoder to Display**: Connect the `7` output lines from your **Encoder/ROM** (`a`–`g`) to the control inputs of the **7-segment Display** you built in Lesson 3.1. This may require creative wiring to route signals to the display’s repeaters, but ensure each segment line connects to its corresponding input (e.g., `a` to the `a` segment). Test each connection with a temporary lever to confirm the segment lights up.
 
 Here’s what your fully connected system should look like, with the input set to `0011` to display a “3”:
 
@@ -1698,9 +1527,9 @@ Here’s what your fully connected system should look like, with the input set t
 Take a moment to admire this masterpiece! Your modular design has paid off, making this complex system manageable and functional.
 
 ##### Let’s Trace the Signal: `3` (`0011`)
-To solidify your understanding, let’s trace the signal through the entire system with the input set to `0011` (decimal 3):
+To solidify your understanding, let’s trace the signal through the entire system with the input set to `0011` (decimal `3`):
 
-1. You flip the input levers to `0011` (B3=0, B2=0, B1=1, B0=1).
+1. You flip the input levers to `0011` (`B3=0`, `B2=0`, `B1=1`, `B0=1`).
 2. **In the Decoder**: The mismatch detector for the `L3` line (identity `0011`) finds a perfect match. All its taps (Repeaters on `B3`, `B2`; Torches on `B1`, `B0`) are OFF, so the `L3` wire becomes **unpowered (LOW)**. Every other line (`L0`–`L2`, `L4`–`L9`) has at least one tap activated, powering their wires HIGH.
 3. **In the Encoder**: The HIGH lines keep their torches off. The `L3` line, being LOW, turns ON the torches at its intersections with segments `a, b, c, d, g` (per the Lesson 3.5 lookup table).
 4. Those five torches send power down their respective segment lines.
@@ -1731,7 +1560,7 @@ This checkpoint is divided into three parts to test the different skills you've 
 
 
 #### Practice Problem 3.7.2: Decoder Design
-You want to add a special output line, `LE`, that lights up only for even numbers (`0, 2, 4, 6, 8`). You realize that for all even numbers, the `B0` bit is always `0`. What is the single tap you would need to build a simple detector for this?
+You want to add a special output line, `LE`, that lights up only for even numbers (`0`, `2`, `4`, `6`, `8`). You realize that for all even numbers, the `B0` bit is always `0`. What is the single tap you would need to build a simple detector for this?
 
 > **(Solution for Problem 3.7.2 is in Appendix A)**
 
@@ -1764,20 +1593,23 @@ What is the single most likely point of failure in the system that would cause t
 
 #### Key Terms
 
-- **7-Segment Display**: An arrangement of seven light segments that can be combined to display numbers and some letters.
 - **Active-Low Logic**: A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal.
-- **BCD (Binary-Coded Decimal)**: A method of representing the decimal digits 0-9 using a 4-bit binary code.
+- **BCD (Binary-Coded Decimal)**: A method of representing the decimal digits `0`-`9` using a `4`-bit binary code.
 - **Decoder**: A circuit that takes a multi-bit binary input and activates a single, corresponding output line. Our decoder acts as an **Identifier**.
 - **Diode Matrix**: A grid of input and output lines where components (like our taps) are placed at intersections to create a programmable logic device, often used as a ROM.
 - **Encoder**: A circuit that takes a single active input line and translates it into a multi-bit coded output. Our encoder acts as a **Mapper**.
 - **Modularity**: The engineering practice of designing a system in independent, interchangeable components. This makes the system easier to design, test, and upgrade.
 - **ROM (Read-Only Memory)**: A type of storage where data is permanently programmed into the hardware's structure.
 - **Tap (Repeater/Torch)**: Our term for a connection that reads a signal from a bus line to control another wire.
+- **7-segment display**: An arrangement of seven light segments that can be combined to display numbers and some letters.
 
 ---
 ### Module 3 Conclusion
 
 This was a massive milestone. You didn't just build a circuit; you engineered a complete system. By breaking a complex problem down into distinct, logical stages, you built something complex in a way that was manageable, testable, and understandable. You have now mastered the concepts of binary-to-decimal decoding and using a hardware ROM to drive an output, two fundamental building blocks of digital electronics.
+
+> ### Explore More: The Gate Museum
+> In the world download provided for the course, you will find a section labeled "Gate Museum" which showcases these and many other community-tested compact designs for each logic gate. I encourage you to explore, build, and test them to expand your engineering toolkit.
 
 **What’s Next?**
 You have successfully completed Part I of this course. You can now take a binary input and display it as a number humans can read. But what happens when we try to do math? In the next module, you’ll discover a critical flaw in our simple translator when we try to count past 9. You’ll learn about the hexadecimal system and how our modular design makes upgrading our system a breeze.
@@ -1789,7 +1621,11 @@ You have successfully completed Part I of this course. You can now take a binary
 
 ## Part I: The Foundations - Laying the Groundwork
 
+---
+
 Welcome to Part I of our journey to build a working computer from scratch! Every masterpiece starts with a strong foundation. In this part, we’re going to master the fundamental tools, concepts, and components that will allow us (as humans) to communicate with our digital creation.
+
+---
 
 By the end of Part I, our computer won’t be thinking on its own yet, but we will have a complete input and output system. You’ll be able to give it a number in its native language, and it will translate that number back into a format you can instantly understand. This is where the magic begins!
 
