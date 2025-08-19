@@ -30,7 +30,6 @@ If you’ve built with Redstone before, you can likely skim this. But if you’v
 > #### A Note on Controls & Game Setup
 > This course assumes you know the basic Minecraft controls for placing and breaking blocks. For an optimal learning experience, we highly recommend playing in **Creative Mode** on a **Superflat** world, which gives you unlimited resources and space to build.
 
----
 
 ### Lesson 0.1: The Engineer's Toolkit
 
@@ -41,11 +40,11 @@ These are the pieces you’ll see over and over. They are the alphabet we will u
 
 | Component | Game Icon | Role in this Course | Description |
 | :--- | :--- | :--- | :--- |
-| **Redstone Dust** | ![Redstone Dust Icon](./images/icon_redstone-dust.png) | **Wire:** The foundation of all circuits. | Carries a power signal up to 15 blocks before fading. Can be placed on most solid, opaque blocks. |
+| **Redstone Dust** | ![Redstone Dust Icon](./images/icon_redstone-dust.png) | **Wire:** The foundation of all circuits. | Carries a power signal up to `15` blocks before fading. Can be placed on most solid, opaque blocks. |
 | **Redstone Torch** | ![Redstone Torch Icon](./images/icon_redstone-torch.png) | **Power Source & Inverter (NOT Gate):** Our most versatile tool. | Acts as a constant power source. When powered by another source, it turns OFF, inverting the signal. This is our primitive **NOT gate**. |
 | **Lever** | ![Lever Icon](./images/icon_lever.png) | **Stable Input:** Our primary way to give commands. | A simple, manual on/off switch. Perfect for setting the inputs to our computer. |
 | **Redstone Lamp** | ![Redstone Lamp Icon](./images/icon_redstone-lamp.png) | **Output Indicator:** Lets us see the result of a calculation. | A block that lights up when powered. We use it to visualize the state of our circuits. |
-| **Redstone Repeater** | ![Redstone Repeater Icon](./images/icon_redstone-repeater.png) | **Signal Booster & Diode:** Essential for complex builds. | Extends a Redstone signal back to full strength (15) and acts as a one-way **diode** to prevent signals from flowing backward. |
+| **Redstone Repeater** | ![Redstone Repeater Icon](./images/icon_redstone-repeater.png) | **Signal Booster & Diode:** Essential for complex builds. | Extends a Redstone signal back to full strength (`15`) and acts as a one-way **diode** to prevent signals from flowing backward. |
 | **Solid Block** | ![Solid Block Icon](./images/icon_solid-block.png) | **Conductor & Insulator:** The physical structure of our machine. | A non-transparent block like Stone or Wool. It can be powered by Redstone components and transmit that power to adjacent components. |
 | **Sign** | ![Sign Icon](./images/icon_sign.png) | **Documentation:** A simple but vital tool for clarity. | Labeling your inputs, outputs, and different sections of a large build is crucial for understanding and debugging your own work. |
 | **Redstone Comparator** | ![Redstone Comparator Icon](./images/icon_redstone-comparator.png) | **Advanced Tool (Later Modules)** | We will introduce this component later when we build memory. For now, you just need to know it exists. |
@@ -57,13 +56,15 @@ These are the pieces you’ll see over and over. They are the alphabet we will u
 Understanding how power travels is the single most important skill for a Redstone engineer. It can be non-intuitive, so let's establish the core rules.
 
 #### Rule 1: Signal Strength & Range
-A Redstone signal has a "strength" from 15 (full power) down to 0 (off).
--   A signal source (like a Lever or Torch) outputs a signal of strength **15**.
--   For every block of Redstone Dust the signal travels, its strength decreases by **1**.
--   After 15 blocks of dust, the signal strength is 0, and the wire goes dead.
--   A **Redstone Repeater** takes any signal strength from 1 to 15 and outputs a fresh, full-strength signal of 15.
+
+A Redstone signal has a "strength" from `15` (full power) down to `0` (off).
+-   A signal source (like a Lever or Torch) outputs a signal of strength `15`.
+-   For every block of Redstone Dust the signal travels, its strength decreases by `1`.
+-   After `15` blocks of dust, the signal strength is `0`, and the wire goes dead.
+-   A **Redstone Repeater** takes any signal strength from `1` to `15` and outputs a fresh, full-strength signal of `15`.
 
 #### Rule 2: Strong vs. Weak Powering
+
 This is a critical concept. Blocks can be powered in two ways, and what they can do depends on how they are powered.
 
 | | **Strong Power** | **Weak Power** |
@@ -73,8 +74,6 @@ This is a critical concept. Blocks can be powered in two ways, and what they can
 | **Example** | ![Strongly powered block](./images/strongly-powered-block_minecraft.png) | ![Weakly powered block](./images/weakly-powered-block_minecraft.png) |
 
 Understanding this difference is the key to creating compact vertical circuits later in the course.
-
----
 
 ### Lesson 0.3: Lab: The Fundamental Circuit
 
@@ -89,11 +88,9 @@ Let’s combine these concepts to build a simple input to process to output circ
 4.  **Test:** Flip the lever. The lamp should turn on and off.
 5.  **Experiment:** Now, modify your circuit to test your understanding.
     -   **Invert the signal:** Insert a **Redstone Torch** somewhere in the path. How does the lamp's behavior change? (Hint: The torch acts as a NOT gate).
-    -   **Extend the signal:** Make your Redstone Dust wire 20 blocks long. The signal will not reach. Now, place a **Repeater** after block 14. Observe how it refreshes the signal.
+    -   **Extend the signal:** Make your Redstone Dust wire `20` blocks long. The signal will not reach. Now, place a **Repeater** after block `14`. Observe how it refreshes the signal.
 
 You’ve just built your first working circuit and verified the core rules of Redstone. Every single build in this course is just a more complex version of this fundamental pattern.
-
----
 
 ### Module 0 Checkpoint
 
@@ -106,20 +103,20 @@ You’ve just built your first working circuit and verified the core rules of Re
 <details>
 <summary><strong>Show Solution</strong></summary>
 
-1.  It boosts a signal back to strength 15 and acts as a one-way diode.
+1.  It boosts a signal back to strength `15` and acts as a one-way diode.
 2.  No. The dust only weakly powers the block, which cannot transmit power to adjacent dust.
 3.  The Redstone Torch.
 
 </details>
 
-#### Key Terms (Module 0)
--   **Signal Strength**: The power level of a Redstone signal, ranging from 15 (full) down to 0 (off). A signal loses 1 strength for every block of dust it travels.
--   **Power Source**: A component, like a Redstone Torch or Lever, that outputs a full-strength (15) signal.
--   **Wire**: Our term for any component, usually Redstone Dust, that transmits a signal from one point to another.
+#### Key Terms
+-   **Diode**: A component that allows a signal to flow in only one direction, preventing back-powering. The Redstone Repeater is our primary diode.
 -   **Input**: A component, like a Lever, that allows a user to manually control a circuit.
+-   **Inverter (NOT Gate)**: A circuit or component that flips a signal from ON to OFF, or OFF to ON. The Redstone Torch is our primitive inverter.
 -   **Output**: A component, like a Redstone Lamp, that displays the result or state of a circuit.
+-   **Power Source**: A component, like a Redstone Torch or Lever, that outputs a full-strength (`15`) signal.
+-   **Repeater**: A component that acts as a signal booster (refreshing signal strength to `15`) and a diode.
+-   **Signal Strength**: The power level of a Redstone signal, ranging from `15` (full) down to `0` (off). A signal loses `1` strength for every block of dust it travels.
 -   **Strong Power**: A type of power provided by components like Repeaters or Torches directly to a block. It can activate all adjacent Redstone components, including dust.
 -   **Weak Power**: A type of power provided by Redstone Dust to a block. It can activate components like lamps and repeaters, but not adjacent Redstone dust.
--   **Repeater**: A component that acts as a signal booster (refreshing signal strength to 15) and a diode.
--   **Diode**: A component that allows a signal to flow in only one direction, preventing back-powering. The Redstone Repeater is our primary diode.
--   **Inverter (NOT Gate)**: A circuit or component that flips a signal from ON to OFF, or OFF to ON. The Redstone Torch is our primitive inverter.
+-   **Wire**: Our term for any component, usually Redstone Dust, that transmits a signal from one point to another.
