@@ -28,7 +28,7 @@
 
 Welcome back to Redstone University!
 
-In our last module, we built an input interface to send binary numbers as a signal over 4 wires forming a bus. Now we’ll learn how to process that signal using Boolean algebra and logic gates.
+In our last module, we built an input interface to send binary numbers as a signal over `4` wires forming a bus. Now we’ll learn how to process that signal using Boolean algebra and logic gates.
 
 In this module, we're going to give our computer a mind. We're going to take a crucial journey into theory to learn the fundamental grammar of all digital logic. This isn't just a Minecraft lesson; this is the language that powers every computer chip ever made.
 
@@ -40,7 +40,7 @@ Welcome to Boolean Algebra.
 
 > **Key Takeaway:** Boolean algebra gives us a precise language for describing and manipulating logical statements, which is the foundation of all digital circuits.
 
-In the mid-1800s, a mathematician named George Boole developed a new kind of algebra. Unlike the algebra you might know from school, where variables like `x` and `y` can be any number, Boole's variables were much simpler. They could only have two possible values: **True** or **False**.
+In the mid-1800s, a mathematician named George Boole developed a new kind of algebra. Unlike the algebra you might know from school, where variables like `x` and `y` can be any number, Boole's variables were much simpler. They could only have two possible values: **True** or **False** (sometimes written as `1` and `0`).
 
 This system, now called **Boolean Algebra**, was initially a mathematical curiosity. But a century later, when engineers started building the first electronic computers with on/off switches, they realized Boole had already invented the perfect mathematical system to describe them.
 
@@ -59,30 +59,30 @@ Boolean algebra gives us a set of rules and operators to manipulate these True/F
 
 To ensure a complete understanding, every logic gate is introduced using a consistent structure that moves from the abstract concept to the practical build.
 
--   **Visual Introduction:**
+**Visual Introduction:**
 
-    -   **Abstract Symbol & Function:** We begin with an image showing the gate's standard engineering symbol alongside a simple circuit demonstrating its basic function.
-    -   **Composite Diagram (For Composite Gates Only):** For gates built from our primitives, we then show a detailed CircuitVerse diagram of how they are constructed using only NOT and OR gates.
-    -   **Minecraft Build:** Finally, we show a screenshot of the gate built in Minecraft, reflecting our "primitives-only" design philosophy.
+-   **Abstract Symbol & Function:** We begin with an image showing the gate's standard engineering symbol alongside a simple circuit demonstrating its basic function.
+-   **Composite Diagram (For Composite Gates Only):** For gates built from our primitives, we then show a detailed CircuitVerse diagram of how they are constructed using only NOT and OR gates.
+-   **Minecraft Build:** Finally, we show a screenshot of the gate built in Minecraft, reflecting our "primitives-only" design philosophy.
 
--  **Formal Definition & Rules:**
+**Formal Definition & Rules:**
 
-    -   **Formal Definition:** The high-level concept and official terminology (e.g., "Conjunction").
-    -   **Symbols:** Common ways the operator is written in logic (`∧`) and programming (`&&`).
-    -   **The Rule:** A plain-English sentence describing what the gate does.
-    -   **Truth Table:** A complete chart defining all possible input/output combinations. This is the ultimate "source of truth."
-    -   **Primitive Boolean Expression:** The specific algebraic expression that represents our composite build using only `NOT` and `OR`.
+-   **Formal Definition:** The high-level concept and official terminology (e.g., "Conjunction").
+-   **Symbols:** Common ways the operator is written in logic (`∧`) and programming (`&&`).
+-   **The Rule:** A plain-English sentence describing what the gate does.
+-   **Truth Table:** A complete chart defining all possible input/output combinations. This is the ultimate "source of truth."
+-   **Primitive Boolean Expression:** The specific algebraic expression that represents our composite build using only `NOT` and `OR`.
 
--   **Practical Application:**
+**Practical Application:**
 
-    -   **Lab & Experiment:** A hands-on test to verify your Minecraft build against the gate's truth table.
-    -   **Real-World Connection:** An example of where this logic is used in real technology.
+-   **Lab & Experiment:** A hands-on test to verify your Minecraft build against the gate's truth table.
+-   **Real-World Connection:** An example of where this logic is used in real technology.
 
 ---
 
 #### A Note on Our Primitives
 
-In the world of computer science, you can build any logic gate from a small set of "primitive" gates. For this course, our primitives are dictated by the game mehanis of Minecraft itself. The game gives us two logical operations right out of the box:
+In the world of computer science, you can build any logic gate from a small set of "primitive" gates. For this course, our primitives are dictated by the game mechanics of Minecraft itself. The game gives us two logical operations right out of the box:
 
 1.  **NOT:** A Redstone Torch naturally inverts a signal. This is our primitive NOT gate.
 2.  **OR:** Redstone Dust naturally merges signals. If any line powering a central wire is ON, the whole wire becomes ON. This is our primitive OR gate.
@@ -95,7 +95,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
 #### Operator 1: NOT (The Inverter) - A Minecraft Primitive
 
-> **Key Takeaway:** The NOT gate flips a signal, turning ON to OFF, or 1 to 0. It’s the simplest way to create “opposite” logic in a circuit.
+> **Key Takeaway:** The NOT gate flips a signal, turning ON to OFF, or `1` to `0`. It’s the simplest way to create “opposite” logic in a circuit.
 
 <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_NOT-gate_circuitverse.png" alt="NOT Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the NOT gate (left) and its function in a basic circuit (right), taking a single input A and producing an inverted output Y.</em></div><br/>
 
@@ -105,8 +105,8 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 -   **Truth Table: NOT Gate**
     | `A` | `!A` |
     |:---:|:----:|
-    |  0  |  1   |
-    |  1  |  0   |
+    | `0` | `1`  |
+    | `1` | `0`  |
 -   **The Boolean Expression:** The output `Y` is simply `Y = !A`.
 
 -   **Lab & Experiment:**
@@ -124,8 +124,8 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
     2.  Test the circuit:
 
-        1.  Set lever A to ON (1). Observe that the lamp is OFF (0).
-        2.  Set lever A to OFF (0). Observe that the lamp is ON (1).
+        1.  Set lever A to ON (`1`). Observe that the lamp is OFF (`0`).
+        2.  Set lever A to OFF (`0`). Observe that the lamp is ON (`1`).
 
     3.  **Verification:** The physical results perfectly match the truth table. You've built a working inverter! The extra lamps and dust we added should help visualize the NOT gate's function, but remember that the torch itself is the core component.
 
@@ -143,7 +143,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
 #### Operator 2: OR (The "At Least One" Gate) - A Minecraft Primitive
 
-> **Key Takeaway:** The OR gate outputs 1 if at least one input is 1. It’s how we express “either/or” logic in hardware and software.
+> **Key Takeaway:** The OR gate outputs `1` if at least one input is `1`. It’s how we express “either/or” logic in hardware and software.
 
 <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_OR-gate_circuitverse.png" alt="OR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the OR gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active if at least one input is active.</em></div><br/>
 
@@ -154,10 +154,10 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 -   **Truth Table: OR Gate**
   | `A` | `B` | `A OR B` |
   |:---:|:---:|:--------:|
-  |  0  |  0  |    0     |
-  |  0  |  1  |    1     |
-  |  1  |  0  |    1     |
-  |  1  |  1  |    1     |
+  | `0` | `0` |    `0`   |
+  | `0` | `1` |    `1`   |
+  | `1` | `0` |    `1`   |
+  | `1` | `1` |    `1`   |
 -   **The Boolean Expression:** The output `Y` is `Y = A OR B`.
 -   **Lab & Experiment:**
     <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_OR_gate_minecraft.png" alt="OR Gate in Minecraft" width="512px"/><br/><em>Figure: A Minecraft OR gate built by merging two Redstone Dust lines. The output lamp lights up if either lever (input A or B) is switched on, visually demonstrating the "at least one" logic of the OR operation.</em></div><br/>
@@ -224,10 +224,10 @@ To connect the abstract concept of a gate to our physical build, we will use a c
 - **Truth Table: AND Gate**
   | `A` | `B` | `A AND B` |
   |:---:|:---:|:---------:|
-  |  0  |  0  |     0     |
-  |  0  |  1  |     0     |
-  |  1  |  0  |     0     |
-  |  1  |  1  |     1     |
+  | `0` | `0` |     `0`   |
+  | `0` | `1` |     `0`   |
+  | `1` | `0` |     `0`   |
+  | `1` | `1` |     `1`   |
 - **The Boolean Expression:** The output `Y` is `Y = A AND B`. (Our build uses `!(!A OR !B)`, which we’ll prove equivalent in Lesson 2.3.)
 - **Lab & Experiment:**
     > **Note on Screenshots and Color Coding:**
@@ -276,11 +276,11 @@ Design a circuit that implements the logic $A \text{ AND } \text{NOT } B$ ($A \l
 
 > **Key Takeaway:** Boolean laws let us simplify complex circuits and expressions, making our designs more efficient and easier to understand.
 
-Just like `2 + x = x + 2` in normal algebra, Boolean algebra has laws that let us rearrange and simplify expressions. For us, **a simpler expression means a smaller, faster, and more reliable Redstone circuit.** This is a critical engineering skill.
+Just like ``2 + x = x + 2`` in normal algebra, Boolean algebra has laws that let us rearrange and simplify expressions. For us, **a simpler expression means a smaller, faster, and more reliable Redstone circuit.** This is a critical engineering skill.
 
 
 #### Boolean Notation: Logical vs Arithmetic
-You’ll often see logic written using symbols from regular math. For example, **AND** is sometimes written as multiplication (`A · B` or `AB`), **OR** as addition (`A + B`), and **NOT** as an overbar (`Ā`).
+You’ll often see logic written using symbols from regular math. For example, **AND** is sometimes written as multiplication (`A · B` or `AB`), **OR** as addition (`A + B`), and **NOT** as an overbar (`Ā`). All numbers in Boolean algebra are either `0` or `1`.
 
 For this course, we will use a specific convention designed for maximum clarity:
 - We will use both text (`AND`, `OR`, `NOT`, `XOR`) and mathematical symbols ($A \land B$, $A \lor B$, $\neg A$, $A \oplus B$) for Boolean expressions to ensure clarity while introducing standard notation. Text is used for intuitiveness, and symbols prepare you for advanced study.
@@ -336,12 +336,12 @@ This looks like it would require two AND gates and one OR gate. Let's use the la
 | Law Name | Example(s) | Description |
 |---|---|---|
 | Identity | `A OR 0 = A`<br>`A AND 1 = A` | Leaves value unchanged |
-| Annihilator | `A OR 1 = 1`<br>`A AND 0 = 0` | Output is always 1 (OR) or 0 (AND) |
+| Annihilator | `A OR 1 = 1`<br>`A AND 0 = 0` | Output is always `1` (OR) or `0` (AND) |
 | Idempotent | `A OR A = A`<br>`A AND A = A` | Repeating input doesn't change output |
-| Inverse | `A OR !A = 1`<br>`A AND !A = 0` | Input and its ! always produce 1 (OR) or 0 (AND)|
+| Inverse | `A OR !A = 1`<br>`A AND !A = 0` | Input and its ! always produce `1` (OR) or `0` (AND)|
 | Commutative | `A OR B = B OR A`<br>`A AND B = B AND A` | Order doesn't matter |
 | Associative | `(A OR B) OR C = A OR (B OR C)`<br>`(A AND B) AND C = A AND (B AND C)` | Grouping doesn't matter |
-| Distributive | `A AND (B OR C) = (A AND B) OR (A AND C)` <br>A OR (B AND C) = (A OR B) AND (A OR C) | AND distributes over OR, OR distributes over AND |
+| Distributive | `A AND (B OR C) = (A AND B) OR (A AND C)` <br>`A OR (B AND C) = (A OR B) AND (A OR C)` | AND distributes over OR, OR distributes over AND |
 | De Morgan's Laws | `!(A AND B) = !A OR !B`<br>`!(A OR B) = !A AND !B` | Converts between AND/OR with ! |
 
 > **A Special Note on the Distributive Law:**
@@ -384,7 +384,7 @@ Given the expression $(A \text{ OR } B) \text{ AND } (\text{NOT } A \text{ OR } 
 
 ### Lesson 2.4: The Special Operator – XOR
 
-> **Key Takeaway:** XOR outputs 1 only when its inputs are different. It’s essential for circuits like adders and programming tricks.
+> **Key Takeaway:** XOR outputs `1` only when its inputs are different. It’s essential for circuits like adders and programming tricks.
 
 <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_XOR-gate_circuitverse.png" alt="XOR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the Exclusive OR (XOR) gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if the inputs are different.</em></div><br/>
 
@@ -401,10 +401,10 @@ It's important to understand that this is just one of many ways to build an XOR 
 
     | `A` | `B` | `A XOR B` |
     |:---:|:---:|:---------:|
-    | 0 | 0 | 0 |
-    | 0 | 1 | 1 |
-    | 1 | 0 | 1 |
-    | 1 | 1 | 0 |
+    | `0` | `0` | `0` |
+    | `0` | `1` | `1` |
+    | `1` | `0` | `1` |
+    | `1` | `1` | `0` |
 
 -   **The Boolean Expression**: `Y = !(A OR !(A OR B)) OR !(B OR !(A OR B))`.
 
@@ -557,10 +557,10 @@ def missingNumber(nums):
 -   **Truth Table: NOR Gate**
     | `A` | `B` | `A NOR B` |
     |:---:|:---:|:---------:|
-    | 0 | 0 | 1 |
-    | 0 | 1 | 0 |
-    | 1 | 0 | 0 |
-    | 1 | 1 | 0 |
+    | `0` | `0` | `1` |
+    | `0` | `1` | `0` |
+    | `1` | `0` | `0` |
+    | `1` | `1` | `0` |
 -   **The Boolean Expression:** The output `Y` is `Y = !(A OR B)`.
 -   **Lab & Experiment:**
 
@@ -589,10 +589,10 @@ def missingNumber(nums):
 -   **Truth Table: NAND Gate**
     | `A` | `B` | `A NAND B` |
     |:---:|:---:|:----------:|
-    | 0 | 0 | 1 |
-    | 0 | 1 | 1 |
-    | 1 | 0 | 1 |
-    | 1 | 1 | 0 |
+    | `0` | `0` | `1` |
+    | `0` | `1` | `1` |
+    | `1` | `0` | `1` |
+    | `1` | `1` | `0` |
 -   **The Boolean Expression:** `Y = !A OR !B`
 
     > **A Note on De Morgan's Law in Action**: This is one of the most powerful tricks in digital logic. We know that NAND is !(A AND B). We also know from De Morgan's Law that !(A AND B) is perfectly equivalent to !A OR !B. Our composite AND gate was built as !(!A OR !B). To create a NAND gate, we simply remove the final ! (the last torch), which leaves us with the physical circuit for !A OR !B. This is a perfect physical proof of a fundamental logic law!
@@ -624,10 +624,10 @@ def missingNumber(nums):
 -   **Truth Table: XNOR Gate**
     | `A` | `B` | `A XNOR B` |
     |:---:|:---:|:----------:|
-    | 0 | 0 | 1 |
-    | 0 | 1 | 0 |
-    | 1 | 0 | 0 |
-    | 1 | 1 | 1 |
+    | `0` | `0` | `1` |
+    | `0` | `1` | `0` |
+    | `1` | `0` | `0` |
+    | `1` | `1` | `1` |
 -   **The Boolean Expression:** `Y = !( !(A OR !(A OR B)) OR !(B OR !(A OR B)) )`
 
 -   **Lab & Experiment:**
@@ -692,25 +692,16 @@ Build an $A \text{ AND } B$ ($A \land B$) gate using only NOR gates. Verify it w
 |  Gate   |                       Symbol                             |             Core Logic Rule             |    Primitive Boolean Expression              |
 | :------ | :---------------------------------------------------------------- | :-------------------------------------- | :--------------------------------------------|
 | **NOT** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_NOT.png" alt="NOT Gate" width="64px">                                     | Inverts a single input.                 | `!A`                                         |
-| **OR**  | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_OR.png" alt="OR Gate" width="64px">                                       | True if **at least one** input is True. | `A OR B`                                     |
-| **AND** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_AND.png" alt="AND Gate" width="64px">                                     | True only if **all** inputs are True.   | `!(!A OR !B)`                                |
+| **OR**  | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_OR.png" alt="OR Gate" width="64px">                                       | True if **at least one** input is `True`. | `A OR B`                                     |
+| **AND** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_AND.png" alt="AND Gate" width="64px">                                     | True only if **all** inputs are `True`.   | `!(!A OR !B)`                                |
 | **XOR** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_XOR.png" alt="XOR Gate" width="64px">                                     | True only if inputs are **different**.  |`!(A OR !(A OR B)) OR !(B OR !(A OR B))`      |
-| **NAND**| <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_NAND.png" alt="NAND Gate" width="64px">                                   | True unless **all** inputs are True.    | `!A OR !B`                                   |
-| **NOR** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_NOR.png" alt="NOR Gate" width="64px">                                     | True only if **all** inputs are False.  | `!(A OR B)`                                  |
+| **NAND**| <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_NAND.png" alt="NAND Gate" width="64px">                                   | True unless **all** inputs are `True`.    | `!A OR !B`                                   |
+| **NOR** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_NOR.png" alt="NOR Gate" width="64px">                                     | True only if **all** inputs are `False`.  | `!(A OR B)`                                  |
 | **XNOR**| <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_XNOR.png" alt="XNOR Gate" width="64px">                                   | True only if inputs are the **same**.   | `!(!(A OR !(A OR B)) OR !(B OR !(A OR B)))`  |
 
 ---
 
 ### Lesson 2.8: Module 2 Checkpoint
-
-> **Module Summary:** You have reached the end of the most theory-intensive module in this course. You began with simple on/off switches and have now mastered the seven fundamental logic gates, the Boolean laws that govern them, the power of simplification, and the bridge between hardware logic and software problem-solving. It is time to test your newfound knowledge.
-
-This checkpoint is divided into three parts to test the different skills you've acquired:
-*   **Part 1: Knowledge Check** - Quick questions to test your memory and understanding of core concepts.
-*   **Part 2: Logic Puzzles** - "On-paper" challenges requiring you to apply the laws of Boolean algebra.
-*   **Part 3: The Debug Challenge** - A practical, in-game challenge to test your troubleshooting skills.
-
----
 
 #### Practice Problem 2.8.1: Knowledge Check
 
@@ -729,15 +720,13 @@ Test your core understanding with these rapid-fire questions.
 
 </details>
 
----
-
 #### Practice Problem 2.8.2: The Word Problem
 
 Apply the laws of Boolean algebra to solve these challenges on paper.
 
 A greenhouse has an automated climate control system. An alarm `Y` should sound if the following conditions are met:
-*   The system is in "Manual Override" mode (`M` is True), **OR**
-*   The Temperature `T` is too high **AND** the Water Sprinklers `W` have failed to turn on (`W` is False).
+*   The system is in "Manual Override" mode (`M` is `True`), **OR**
+*   The Temperature `T` is too high **AND** the Water Sprinklers `W` have failed to turn on (`W` is `False`).
 
 Write the single Boolean expression for the alarm $Y$ using dual notation.
 
@@ -780,27 +769,24 @@ The entire complex circuit simplifies down to a single OR gate!
 
 </details>
 
----
-
 #### Practice Problem 2.8.4: Debug Challenge
 
 > In the world download for this module, you will find a section labeled "Module 2 Debug Challenge." I have built a circuit that is *supposed* to implement the logic for the greenhouse alarm from Part 2: $M \text{ OR } (T \text{ AND } \text{NOT } W)$ [$M \lor (T \land \neg W)$].
 >
 > However, it's giving the wrong output for some input combinations! Your mission is to use your knowledge of truth tables and circuit tracing to diagnose the mistake in the Redstone wiring and fix it so it functions correctly. Good luck!
 
----
 
-#### Key Terms (Module 2)
+#### Key Terms
 
--   **Boolean Algebra**: A branch of mathematics for working with true/false values (1/0), using operators like AND, OR, and NOT.
--   **Logic Gate**: A physical or virtual device that implements a Boolean operation.
--   **Primitive Gate**: A basic, indivisible logic gate from which more complex gates are built. In our course, these are NOT and OR.
+-   **Bitwise Operation**: A software operation that manipulates individual bits of a number.
+-   **Boolean Algebra**: A branch of mathematics for working with true/false values (`1`/`0`), using operators like AND, OR, and NOT.
 -   **Composite Gate**: A logic gate constructed by combining primitive gates (e.g., an AND gate built from NOT and OR gates).
--   **Truth Table**: A chart showing all possible input/output combinations for a logic gate or circuit.
 -   **Diode**: A component that allows an electrical signal to pass in only one direction. In Minecraft, the Redstone Repeater acts as a perfect diode.
 -   **Functionally Complete**: A set of gates from which any Boolean function can be built (e.g., just NAND or just NOR).
--   **Bitwise Operation**: A software operation that manipulates individual bits of a number.
--   **XOR (Exclusive OR)**: Outputs 1 if inputs are different; used in both hardware and software for unique logic tricks.
+-   **Logic Gate**: A physical or virtual device that implements a Boolean operation.
+-   **Primitive Gate**: A basic, indivisible logic gate from which more complex gates are built. In our course, these are NOT and OR.
+-   **Truth Table**: A chart showing all possible input/output combinations for a logic gate or circuit.
+-   **XOR (Exclusive OR)**: Outputs `1` if inputs are different; used in both hardware and software for unique logic tricks.
 
 ---
 
