@@ -1481,7 +1481,7 @@ Before connecting the encoder to the decoder, test all lines (`L0`–`L9`) indep
 ![Complete 10-to-7 Encoder](./images/10-to-7-encoder-complete_minecraft.png)
 *Figure: The complete 10-to-7 encoder with all torch taps placed, showing the `L3` line active (input `0011`) and segments `a, b, c, d, g` powered for digit 3.*
 
-This is your finished ROM, with every line programmed to map decoder inputs to segment outputs. The `L3` line is active here (LOW), lighting up the correct segments for a “3.” Cycle through inputs `L0`–`L9` to confirm each digit’s pattern. If any segments don’t light as expected, revisit your torch placements using the lookup table. You’ve just built a physical memory that “stores” the display patterns for all 10 digits!
+This is your finished ROM, with every line programmed to map decoder inputs to segment outputs. The `L3` line is active here (LOW), lighting up the correct segments for a `3`. Cycle through inputs `L0`–`L9` to confirm each digit’s pattern. If any segments don’t light as expected, revisit your torch placements using the lookup table. You’ve just built a physical memory that “stores” the display patterns for all 10 digits!
 
 ---
 
@@ -1617,7 +1617,6 @@ You have successfully completed Part I of this course. You can now take a binary
 <hr class="pagebreak"/>
 
 ## Part I: The Foundations - Laying the Groundwork
-
 ---
 
 Welcome to Part I of our journey to build a working computer from scratch! Every masterpiece starts with a strong foundation. In this part, we’re going to master the fundamental tools, concepts, and components that will allow us (as humans) to communicate with our digital creation.
