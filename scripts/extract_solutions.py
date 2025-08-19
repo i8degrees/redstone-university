@@ -33,46 +33,36 @@ def extract_solutions_by_module_and_lesson(md, file_path):
     lesson_pattern = re.compile(r"^###\s+(Lesson (\d+\.\d+):\s*(.+)|Module (\d+) Checkpoint)$", re.MULTILINE)
     problem_pattern = re.compile(r"^####\s+Practice Problem (\d+\.\d+\.\d+):\s*(.+)$", re.MULTILINE)
     details_pattern = re.compile(r"(<details>\s*<summary>(.*?)</summary>\s*(.*?)</details>)", re.DOTALL)
-
     headings = []
     for m in module_pattern.finditer(md):
         module_num = m.group(1)
         module_title = m.group(2).strip()
         headings.append((m.start(), 2, module_title, module_num))
-
     for m in lesson_pattern.finditer(md):
-        if m.group(2):  # Standard lesson match
+        if m.group(2):
             lesson_num = m.group(2)
             lesson_title = m.group(3).strip()
-        else:  # Checkpoint match
+        else:
             module_num = m.group(4)
-            lesson_num = f"{module_num}.checkpoint"  # Placeholder; we'll override with explicit problem_id later
+            lesson_num = f"{module_num}.checkpoint"
             lesson_title = f"Module {module_num} Checkpoint"
         headings.append((m.start(), 3, lesson_title, lesson_num))
-
-    # Find all problems and their following details
     solutions = {}
     problem_matches = list(problem_pattern.finditer(md))
     details_matches = list(details_pattern.finditer(md))
-
     for i, prob_match in enumerate(problem_matches):
         problem_id = prob_match.group(1)
         problem_title = prob_match.group(2).strip()
         prob_pos = prob_match.start()
-
-        # Find the next <details> after this problem header
         full_block = inner = summary = None
         for det_match in details_matches:
             if det_match.start() > prob_pos:
                 full_block = det_match.group(1)
                 summary = det_match.group(2).strip()
                 inner = det_match.group(3).strip()
-                break  # Assume one <details> per problem
-
+                break
         if not full_block:
-            continue  # No associated <details>
-
-        # Determine module and lesson from headings
+            continue
         module_title = "Unknown Module"
         module_num = "Unknown"
         lesson_title = "Unknown Lesson"
@@ -87,13 +77,10 @@ def extract_solutions_by_module_and_lesson(md, file_path):
                     lesson_num = hnum
                 if module_title != "Unknown Module" and lesson_title != "Unknown Lesson":
                     break
-
-        # Override lesson_num from problem_id (X.Y.Z -> Y)
         if "." in problem_id:
             parts = problem_id.split(".")
             if len(parts) == 3:
                 lesson_num = parts[1]
-
         if module_title not in solutions:
             solutions[module_title] = {}
         if lesson_title not in solutions[module_title]:
@@ -104,7 +91,6 @@ def extract_solutions_by_module_and_lesson(md, file_path):
         print(
             f"📄 Extracted solution: Problem {problem_id} ({problem_title}) in {module_title}, {lesson_title} ({file_path})"
         )
-
     return solutions
 
 
@@ -170,24 +156,33 @@ def main():
             if module_num != "Unknown"
         )
     )
-    solution_count = 0
-    for module_title in sorted(all_solutions.keys()):
+    module_to_num = {}
+    for module_title in all_solutions:
         module_num = next(
-            (
-                mnum
-                for mtitle, lessons in all_solutions.items()
-                for _, _, _, _, _, mnum, _ in sum(lessons.values(), [])
-                if mtitle == module_title
-            ),
+            (mnum for lessons in all_solutions[module_title].values() for _, _, _, _, _, mnum, _ in lessons),
             "Unknown",
         )
-        if module_num == "Unknown":
-            continue
-        appendix.append(f"\n## {module_title} [{module_num}]\n")
-        for lesson_title in sorted(all_solutions[module_title].keys()):
+        if module_num != "Unknown":
+            module_to_num[module_title] = module_num
+    sorted_module_titles = sorted(module_to_num.keys(), key=lambda t: int(module_to_num[t]))
+    solution_count = 0
+    for module_title in sorted_module_titles:
+        module_num = module_to_num[module_title]
+        appendix.append(f"\n## Module {module_num}: {module_title}\n")
+        lesson_to_num = {}
+        for lesson_title in all_solutions[module_title]:
+            lesson_num = next(
+                (lnum for _, _, _, _, _, _, lnum in all_solutions[module_title][lesson_title]),
+                "Unknown",
+            )
+            if lesson_num != "Unknown":
+                lesson_to_num[lesson_title] = lesson_num
+        sorted_lesson_titles = sorted(lesson_to_num.keys(), key=lambda t: float(lesson_to_num[t]))
+        for lesson_title in sorted_lesson_titles:
             appendix.append(f"### {lesson_title}\n")
             for problem_id, problem_title, _, inner, _, _, _ in sorted(
-                all_solutions[module_title][lesson_title], key=lambda x: x[0]
+                all_solutions[module_title][lesson_title],
+                key=lambda x: tuple(map(int, x[0].split("."))),
             ):
                 solution_count += 1
                 appendix.append(f"#### {problem_id}: {problem_title}\n\n{inner}\n\n---\n")
