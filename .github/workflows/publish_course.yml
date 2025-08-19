@@ -24,15 +24,15 @@ jobs:
         run: python scripts/publish.py
       - name: Concatenate markdown files for PDF
         run: python scripts/course_concat.py
-      - name: Normalize line endings for Redstone-University.md
-        run: sed -i 's/\r\n/\n/g' course/Redstone-University.md
+      # - name: Normalize line endings for Redstone-University.md
+      #   run: sed -i 's/\r\n/\n/g' course/Redstone-University.md
       - name: Fix image paths in concatenated markdown
         run: |
           sed -i 's|\.\./\.\./assets/images/|assets/images/|g' course/Redstone-University.md
       - name: Extract solutions for PDF and build appendix
         run: python scripts/extract_solutions.py
-      - name: Normalize line endings for Redstone-University-for-pdf.md
-        run: sed -i 's/\r\n/\n/g' course/Redstone-University-for-pdf.md
+      # - name: Normalize line endings for Redstone-University-for-pdf.md
+      #   run: sed -i 's/\r\n/\n/g' course/Redstone-University-for-pdf.md
       - name: Extract key terms for appendix
         run: python scripts/extract_key_terms.py
       - name: Combine appendices for PDF
