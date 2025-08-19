@@ -401,7 +401,7 @@ If a segment that should be ON is OFF, it means it is not receiving power. The m
 
 > **Key Takeaway**
 > Connecting individual, tested modules into a complete, working system is the final and most rewarding step of any engineering project.
- 
+
 The moment of truth has arrived. You’ve built and tested the decoder to identify numbers, the encoder to map them to segment patterns, and the 7-segment display to show the results. Now, it’s time to connect these modules and watch your digital display come to life, transforming binary inputs into human-readable digits. Taking modular pieces and creating a cohesive system, this is engineering at its finest!
 
 #### Lab & Experiment: The Final Connection
@@ -411,7 +411,7 @@ This final step is all about making the connections between all of the component
 1. **Connect Decoder to Encoder**: Carefully connect the `10` active-low output lines from your **Decoder** (`L0`–`L9`) to the `10` horizontal input lines of your **Encoder/ROM**. Use Redstone Repeaters as needed to ensure the signals remain strong over long distances. Label your lines (e.g., with colored wool) to avoid mix-ups.
 2. **Connect Encoder to Display**: Connect the `7` output lines from your **Encoder/ROM** (`a`–`g`) to the control inputs of the **7-segment Display** you built in Lesson 3.1. This may require creative wiring to route signals to the display’s repeaters, but ensure each segment line connects to its corresponding input (e.g., `a` to the `a` segment). Test each connection with a temporary lever to confirm the segment lights up.
 
-Here’s what your fully connected system should look like, with the input set to `0011` to display a “3”:
+Here’s what your fully connected system should look like, with the input set to `0011` to display a `3`:
 
 <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_complete-digital-display_minecraft.png" alt="Complete Digital Display Isometric" width="512px"/><br/><em>Figure: The complete digital display system in action, with input `0011` activating the `L3` line and lighting segments `a, b, c, d, g` to form a glowing “3”.</em></div><br/>
 
@@ -424,7 +424,7 @@ To solidify your understanding, let’s trace the signal through the entire syst
 2. **In the Decoder**: The mismatch detector for the `L3` line (identity `0011`) finds a perfect match. All its taps (Repeaters on `B3`, `B2`; Torches on `B1`, `B0`) are OFF, so the `L3` wire becomes **unpowered (LOW)**. Every other line (`L0`–`L2`, `L4`–`L9`) has at least one tap activated, powering their wires HIGH.
 3. **In the Encoder**: The HIGH lines keep their torches off. The `L3` line, being LOW, turns ON the torches at its intersections with segments `a, b, c, d, g` (per the Lesson 3.5 lookup table).
 4. Those five torches send power down their respective segment lines.
-5. **At the Display**: The signals reach the 7-segment display, lighting up segments `a, b, c, d, g` to form a perfect “3”.
+5. **At the Display**: The signals reach the 7-segment display, lighting up segments `a, b, c, d, g` to form a perfect `3`.
 
 From above, you can see how compactly your system fits together:
 
@@ -437,8 +437,6 @@ Congratulations! You’ve engineered a complete system that translates 4-bit bin
 ---
 
 ### Lesson 3.7: Module 3 Checkpoint
-
-This checkpoint is divided into three parts to test the different skills you've acquired.
 
 #### Practice Problem 3.7.1: Knowledge Check
 1.  Why is a two-stage (Decoder $\rightarrow$ Encoder) design generally better than a single, complex circuit?
@@ -522,6 +520,6 @@ This was a massive milestone. You didn't just build a circuit; you engineered a 
 > In the world download provided for the course, you will find a section labeled "Gate Museum" which showcases these and many other community-tested compact designs for each logic gate. I encourage you to explore, build, and test them to expand your engineering toolkit.
 
 **What’s Next?**
-You have successfully completed Part I of this course. You can now take a binary input and display it as a number humans can read. But what happens when we try to do math? In the next module, you’ll discover a critical flaw in our simple translator when we try to count past 9. You’ll learn about the hexadecimal system and how our modular design makes upgrading our system a breeze.
+You have successfully completed Part I of this course. You can now take a binary input and display it as a number humans can read. But what happens when we try to do math? In the next module, you’ll discover a critical flaw in our simple translator when we try to count past `9`. You’ll learn about the hexadecimal system and how our modular design makes upgrading our system a breeze.
 
 ---
