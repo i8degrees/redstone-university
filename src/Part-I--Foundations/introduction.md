@@ -1,5 +1,4 @@
 ## Part I: The Foundations - Laying the Groundwork
-
 ---
 
 Welcome to Part I of our journey to build a working computer from scratch! Every masterpiece starts with a strong foundation. In this part, we’re going to master the fundamental tools, concepts, and components that will allow us (as humans) to communicate with our digital creation.
