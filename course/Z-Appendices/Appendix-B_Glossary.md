@@ -11,7 +11,7 @@ This glossary compiles key terms from the Redstone University curriculum, organi
 : A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal. [3]
 
 **BCD (Binary-Coded Decimal)**
-: A method of representing the decimal digits `0`-`9` using a `4`-bit binary code. [3]
+: A method of representing the decimal digits `0`–`9` using a 4-bit binary code. [3]
 
 **Binary**
 : A base-`2` number system that uses only two symbols, `0` and `1`, to represent information. It is the fundamental language of all digital computers. [1]
@@ -121,4 +121,4 @@ The basic building blocks of our computer are about to take shape. Get ready for
 
 [2]: Module 2: The Language of Logic – A Deep Dive into Boolean Algebra
 
-[3]: Module 3: From Binary to Pictures - Building a Digital Display
+[3]: Module 3: From Binary to Pictures: Building a Digital Display
