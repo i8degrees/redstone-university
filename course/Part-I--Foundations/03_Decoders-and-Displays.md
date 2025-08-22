@@ -46,7 +46,7 @@ In the previous modules, you learned how to speak to your computer in binary and
 
 > **Key Takeaway**: A 7-segment display is a standard output device that uses seven independent segments to form numbers. Understanding how to control it manually is the first step to controlling it automatically.
 
-<div align="center"><img src="./images/7-Segment-Display.png" alt="7-segment display in CircuitVerse" width="512px"/><br/><em>Figure: The symbol for a 7-segment display on CircuitVerse (left) and its function in a basic circuit (right), taking seven inputs and lighting up the segments based on the pattern.</em></div><br/>
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_7-segment-display.png" alt="7-segment display in CircuitVerse" width="512px"/><br/><em>Figure: The symbol for a 7-segment display on CircuitVerse (left) and its function in a basic circuit (right), taking seven inputs and lighting up the segments based on the pattern.</em></div><br/>
 
 Our computer can hear us, but it can’t talk back. So far, all our work is invisible, buried in wires and circuits. How do we make our computer show us numbers in a way we understand?
 
@@ -506,7 +506,13 @@ From above, you can see how compactly your system fits together:
 
 <div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_complete-digital-display-aerial_minecraft.png" alt="Complete Digital Display Aerial" width="512px"/><br/><em>Figure: Aerial view of the compact digital display system, with input `0011` producing a “3”. The modular layout connects the decoder, encoder, and display efficiently.</em></div><br/>
 
-This top-down view highlights the elegance of your modular design. The decoder’s input bus, the encoder’s torch matrix, and the display’s segments are tightly packed yet clearly organized. While the torches in the encoder grid are less visible from this angle, refer to the Lesson 3.5 lookup table to confirm their placements. Cycle through inputs `0000` to `1001` and watch the display light up each digit perfectly.
+This top-down view highlights the elegance of your modular design. The decoder’s input bus, the encoder’s torch matrix, and the display’s segments are tightly packed yet clearly organized. While the torches in the encoder grid are less visible from this angle, refer to the Lesson 3.5 lookup table to confirm their placements.
+
+Here is the full schematic in CircuitVerse without subcircuit abstractions, showing the detailed wiring from 4-bit input through decoder and encoder to the 7-segment display. The layout and implementation aligns with our minecraft build and the input is currently set to `0011` making the instructions to trace the signal above directly applicable.
+
+<div align="center"><img src="./images/full-digital-display_circuitverse.png" alt="Full System in CircuitVerse" width="512px"/><br/><em>Figure: The end-to-end binary-to-display system in CircuitVerse, integrating all components from this module and displaying '3' for input `0011`.</em></div><br/>
+
+Cycle through inputs `0000` to `1001` and watch the display light up each digit perfectly.
 
 Congratulations! You’ve engineered a complete system that translates 4-bit binary into human-readable digits. This is a massive milestone in digital electronics, and you should be proud of your work. Your ability to break down a complex problem into modular components and wire them together is a hallmark of great engineering.
 
