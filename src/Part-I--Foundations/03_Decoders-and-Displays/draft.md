@@ -46,8 +46,8 @@ In the previous modules, you learned how to speak to your computer in binary and
 
 > **Key Takeaway:** A 7-segment display is a standard output device that uses seven independent segments to form numbers. Understanding how to control it manually is the first step to controlling it automatically.
 
-![7-segment display in CircuitVerse](./images/7-segment-display.png)
-*Figure: The symbol for a 7-segment display on CircuitVerse (left) and its function in a basic circuit (right), taking seven inputs and lighting up the segments based.*
+![7-segment display in CircuitVerse](./images/7-Segment-Display.png)
+*Figure: The symbol for a 7-segment display on CircuitVerse (left) and its function in a basic circuit (right), taking seven inputs and lighting up the segments based on the pattern.*
 
 Our computer can hear us, but it can’t talk back. So far, all our work is invisible, buried in wires and circuits. How do we make our computer show us numbers in a way we understand?
 
@@ -94,12 +94,15 @@ Now that we have our display, how do we control it? Our computer thinks in 4-bit
 Instead, let’s think like engineers and break the problem into two much simpler, more manageable stages:
 
 1.  **Decoder:** This first stage will act as an "identifier". Its only job is to look at the 4-bit binary input and determine *which* number (`0`-`9`) it represents. It will then activate a single, unique output line corresponding to that number.
-2.  **Encoder:** This second stage is will act as the "mapper". It receives the simple signal from the decoder (e.g., "the number is `3`!") and "maps" the signal, and the number it represents, to the correct combination of the 7 segments.
+2.  **Encoder:** This second stage will act as the "mapper". It receives the simple signal from the decoder (e.g., "the number is `3`!") and "maps" the signal, and the number it represents, to the correct combination of the 7 segments.
 
 This modular, two-stage approach is the heart of good engineering. It's easier to build, easier to test, and far easier to fix if something goes wrong.
 
 **Our Signal Flow:**
 `[4-bit Input] → [**Decoder**] → [1 of 10 Lines] → [**Encoder/ROM**] → [7 Segment Signals] → [Display]`
+
+![Digital Display Subcircuit Abstractions](./images/digital-display-subcircuit-abstractions_circuitverse.png)
+*Figure: The overall system in CircuitVerse, using subcircuit abstractions for the decoder, encoder, and display to show the high-level signal flow.*
 
 ---
 
@@ -110,6 +113,9 @@ This modular, two-stage approach is the heart of good engineering. It's easier t
 Before we tackle our full 4-bit to 10-line decoder, let's build a smaller, simpler version to prove the concept. We are going to build a **2-bit to 4-line decoder**. This circuit will take a 2-bit binary input (`00`, `01`, `10`, `11`) and light up one of four corresponding output lamps (`L0`, `L1`, `L2`, `L3`) representing those values in decimal (`0`, `1`, `2`, `3`).
 
 By scaling down the problem, we can focus on the core logic without getting overwhelmed. This is a common engineering practice: start small, prove the concept, then scale up. I'm calling this a "brute-force" method because we will build a separate AND gate for each output, rather than using a more elegant design, which we will learn in the next lesson.
+
+![2-to-4 Decoder in CircuitVerse](./images/2-to-4-decder_circuitverse.png)
+*Figure: The brute-force 2-to-4 decoder in CircuitVerse, using AND gates to recognize each binary pattern.*
 
 **The Logic on Paper**
 
@@ -139,7 +145,7 @@ By scaling down the problem, we can focus on the core logic without getting over
 4.  **Test it!** Set your input levers to `00` (`B1`=OFF, `B0`=OFF). The `L0` lamp should turn ON. Now, flip either lever. The lamp should turn OFF. This proves your first gate is wired correctly.
 
 ![2-to-4 Decoder Step 2](./images/2-to-4-decoder-2_minecraft.png)
-*Figure: Single AND gate connected to the `!B1` and `!B0` lines of the bus. The input is set to `11`, so the `LO` lamp is OFF. It would be on if the input were `00`.*
+*Figure: Single AND gate connected to the `!B1` and `!B0` lines of the bus. The input is set to `11`, so the `L0` lamp is OFF. It would be on if the input were `00`.*
 
 **Step 3: Build the Remaining Gates**
 1.  Build three more identical 2-input AND gates next to the first one.
@@ -173,6 +179,9 @@ In the next lesson, we will learn a far more elegant and compact solution.
 > **Key Takeaway:** By using an "active-low" design and two clever types of "taps" (Repeater and Torch), we can build a decoder that is vastly smaller and more efficient.
 
 Welcome to the engineer's solution. Instead of an "active-high" design, we will build an **active-low** design where the correct line turns **OFF**.
+
+![4-to-10 Decoder in CircuitVerse](./images/4-to-10-decoder_circuitverse.png)
+*Figure: The compact 4-to-10 decoder in CircuitVerse, mirroring the Minecraft build with dual buses and NOR-like logic for efficiency.*
 
 #### The Core Concept: The Mismatch Detector
 Each output line will function as a **"mismatch detector."** Its job is to power its own wire (turning its lamp OFF) if the input does **not** match the line's identity. The only time a lamp stays ON is when the input is a perfect match. A "tap" is simply our term for a connection that reads, or "taps into," the signal from one of the main bus lines.
@@ -305,6 +314,9 @@ The tap for `B0` on the `L8` line is supposed to detect this mismatch and power 
 > An encoder can be built as a physical Read-Only Memory (ROM) using a "diode matrix," where the layout of the wiring permanently stores the data for how to draw each number.
 
 We now have a working decoder that gives us a single **unpowered** (active-low) line for any given number. The next step is to build our "mapper", the encoder that will take this single signal and draw the correct digit on our display.
+
+![10-to-7 Encoder in CircuitVerse](./images/10-to-7-encoder_circuitverse.png)
+*Figure: The 10-to-7 encoder in CircuitVerse, using a diode matrix structure to map the active input line to the correct segment pattern.*
 
 #### The Concept: A Physical Lookup Table
 This stage is effectively a physical **Read-Only Memory (ROM)**. The "address" is the active-low line from the decoder, and the "data" that it looks up is the pattern of segments for that number. We will build this using a structure called a **Diode Matrix**.
