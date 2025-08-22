@@ -1,4 +1,4 @@
-## Module 3: From Binary to Pictures — Building a Digital Display
+## Module 3: From Binary to Pictures: Building a Digital Display
 
 ---
 
@@ -66,7 +66,6 @@ Let’s start by building the physical canvas for our numbers.
 2.  **Isolate the Segments**: Carefully surround the lamp segments with a non-conductive block like Wool or Concrete. I use black concrete to make the segments stand out.
 3.  **Create Manual Controls**: To power each segment, run a Redstone Repeater into the middle lamp. For now, place a solid block behind each repeater and attach a Lever to it. This gives you manual control for testing.
 
-
 ![7 Segment Display in Minecraft](./images/7-segment-display_minecraft.png)
 *Figure: The display's construction stages. From left to right: the basic lamp layout, the layout isolated with concrete, powering the middle lamps of each segment, and a close-up of the repeater and lever used to control a single segment.*
 
@@ -81,7 +80,6 @@ Before we build the complex logic to control this display automatically, let's g
 3.  Next, create the digit **`4`**. (This requires segments `f`, `g`, `b`, and `c`).
 4.  **Challenge**: Try to form the digit **`8`**. What do you notice? Now try to form the digit **`2`**.
 
-
 ---
 
 ### Lesson 3.2: The Master Plan: A Two-Stage Translation
@@ -93,7 +91,7 @@ Now that we have our display, how do we control it? Our computer thinks in 4-bit
 Instead, let’s think like engineers and break the problem into two much simpler, more manageable stages:
 
 1.  **Decoder**: This first stage will act as an "identifier". Its only job is to look at the 4-bit binary input and determine *which* number (`0`-`9`) it represents. It will then activate a single, unique output line corresponding to that number.
-2.  **Encoder**: This second stage will act as the "mapper". It receives the simple signal from the decoder (e.g., "the number is `3`!") and "maps" the signal, and the number it represents, to the correct combination of the 7 segments.
+2.  **Encoder**: This second stage will act as the "mapper". It receives the simple signal from the decoder (e.g., "the number is `3`!") and "maps" the signal to the correct combination of the 7 segments.
 
 This modular, two-stage approach is the heart of good engineering. It's easier to build, easier to test, and far easier to fix if something goes wrong.
 
@@ -121,25 +119,25 @@ By scaling down the problem, we can focus on the core logic without getting over
 -   **Inputs**: `B1` (the "2s" place), `B0` (the "1s" place)
 -   **Outputs**: `L0`, `L1`, `L2`, `L3`
 -   **Logic Gates**: We need one 2-input AND gate for each output.
-    -   `L0` (for `00` or `0`) = $(\neg B_1) \land (\neg B_0)$
-    -   `L1` (for `01` or `1`) = $(\neg B_1) \land B_0$
-    -   `L2` (for `10` or `2`) = $B_1 \land (\neg B_0)$
-    -   `L3` (for `11` or `3`) = $B_1 \land B_0$
+    -   `L0` (for `00` or `0`) = `NOT B1 AND NOT B0` ($ \neg B_1 \land \neg B_0 $)
+    -   `L1` (for `01` or `1`) = `NOT B1 AND B0` ($ \neg B_1 \land B_0 $)
+    -   `L2` (for `10` or `2`) = `B1 AND NOT B0` ($ B_1 \land \neg B_0 $)
+    -   `L3` (for `11` or `3`) = `B1 AND B0` ($ B_1 \land B_0 $)
 
 **Lab: Building the 2-to-4 Decoder**
 
 **Step 1: The 2-Bit Bus**
 
-1. Set up two the standard inputs we've been using throughout the course, the redstone lamp with a lever on one side. Label them `B1` and `B0`.
-2. From these levers, create a **4-line bus**. Run redstone dust from the back of each lamp to a central point and then split each line into two parallel lines. On one line of each pair, place a NOT gate (a block with a torch on the opposite side that the dust runs into).
-3. You now have four parallel lines carrying the signals `B1`, `!B1`, `B0`, and `!B0`.
+1.  Set up two standard inputs using a Redstone Lamp with a lever on one side. Label them `B1` and `B0`.
+2.  From these levers, create a **4-line bus**. For each input, run one line of Redstone dust from the back of the lamp (for the true signal, e.g., `B1`) and another line into a NOT gate (for the inverted signal, e.g., `!B1`).
+3.  You now have four parallel lines carrying the signals `B1`, `!B1`, `B0`, and `!B0`. Use colored wool to keep them organized.
 
 ![2-to-4 Decoder Step 1](./images/2-to-4-decoder-1_minecraft.png)
 *Figure: 4-line bus with inputs `B1` and `B0` and their inversions.*
 
 **Step 2: Build and Test the First Gate (`L0`)**
 
-1.  Choose your favorite 2-input AND gate design from Module 2 or the Interlude. Build one of these gates.
+1.  Choose your favorite 2-input AND gate design from Module 2 or the Interlude and build it.
 2.  Connect the gate's two inputs to the `!B1` line and the `!B0` line on your bus. Be careful with your wiring!
 3.  Place a Redstone Lamp at the output of the AND gate. This is your `L0` output.
 4.  **Test it!** Set your input levers to `00` (`B1`=OFF, `B0`=OFF). The `L0` lamp should turn ON. Now, flip either lever. The lamp should turn OFF. This proves your first gate is wired correctly.
@@ -245,9 +243,7 @@ To make the `L3` line detect the binary input `0011` (decimal `3`), we need to p
 Here’s what it looks like once you’ve added the taps for `L3`:
 
 ![Compact 4-to-10 Decoder L3 Tapped](./images/4-to-10-decoder-compact-3_minecraft.png)
-*Figure: The two-tiered structure with taps added for the `L3` line, set to input `0000`. All lamps are lit except `L3`, which is off due to its mismatch detectors activating.*
-
-With the taps in place, test the `L3` line by setting the input to `0000` (all levers OFF). Every output line except `L3` should have at least one tap activated (powering the wire, turning the lamp OFF). For `L3`, all taps are inactive because the input doesn’t match `0011`, so its lamp stays ON. This confirms your mismatch detector is working!
+*Figure: The `L3` line is now tapped for its `0011` identity. With the input set to `0000`, the Torch Taps on `B1` and `B0` activate, correctly detecting a mismatch, powering the `L3` wire and turning its lamp OFF. The `L0` lamp remains ON, as it's a perfect match.*
 
 To get a closer look at how the taps are placed, check out this isolated view of the `L3` line:
 
@@ -261,7 +257,7 @@ To verify the `L3` line works as intended, you can add levers to test it indepen
 ![Testable L3 Line](./images/4-to-10-decoder-L3-test_minecraft.png)
 *Figure: Isolated `L3` line with levers set to `0011`, lighting the `L3` lamp to confirm correct tap placement.*
 
-In this test, the levers mimic the input `0011`. The `L3` lamp lights up because no taps activate (no mismatches), leaving the wire unpowered. Try flipping any lever (for example, `0010`), and the lamp should turn OFF as a tap detects a mismatch. This hands-on test builds confidence before scaling to all 10 lines.
+In this test, the levers mimic the input `0011`. The `L3` lamp lights up because no taps activate (no mismatches), leaving the wire unpowered. Try flipping any lever (for example, to `0010`), and the lamp should turn OFF as a tap detects a mismatch. This hands-on test builds confidence before scaling to all 10 lines.
 
 ##### Complete All Lines: Using the Reference Chart
 
@@ -632,7 +628,7 @@ This points to a catastrophic failure in the "programming" of the `L2` line in y
 This was a massive milestone. You didn't just build a circuit; you engineered a complete system. By breaking a complex problem down into distinct, logical stages, you built something complex in a way that was manageable, testable, and understandable. You have now mastered the concepts of binary-to-decimal decoding and using a hardware ROM to drive an output, two fundamental building blocks of digital electronics.
 
 > ### Explore More: The Gate Museum
-> In the world download provided for the course, you will find a section labeled "Gate Museum" which showcases these and many other community-tested compact designs for each logic gate. I encourage you to explore, build, and test them to expand your engineering toolkit.
+> In the world download for this course, you will find a section labeled "Gate Museum" which showcases these and many other community-tested compact designs for each logic gate. I encourage you to explore, build, and test them to expand your engineering toolkit.
 
 **What’s Next?**
 You have successfully completed Part I of this course. You can now take a binary input and display it as a number humans can read. But what happens when we try to do math? In the next module, you’ll discover a critical flaw in our simple translator when we try to count past `9`. You’ll learn about the hexadecimal system and how our modular design makes upgrading our system a breeze.
