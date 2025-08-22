@@ -199,7 +199,7 @@ The entire complex circuit simplifies down to a single OR gate!
 ---
 
 
-## Module 3: From Binary to Pictures - Building a Digital Display
+## Module 3: From Binary to Pictures: Building a Digital Display
 
 ### The Decoder Lab, Part 2: An Elegant, Compact Solution
 
@@ -215,7 +215,7 @@ Applying our rule:
 
 #### 3.4.2: Debug Challenge
 
-**The Logic:** The $L_8$ lamp should turn OFF when the input is `1001`. For $L_8$ to turn off, its wire needs to be powered. This means one of its "mismatch" taps must have activated.
+**The Logic**: The $L_8$ lamp should turn OFF when the input is `1001`. For $L_8$ to turn off, its wire needs to be powered. This means one of its "mismatch" taps must have activated.
 
 **The Identity of `L8` is `1000`.** Let's compare this to the input `1001`.
 -   `B3` is `1`, `L8` expects `1`. No mismatch.
@@ -225,7 +225,7 @@ Applying our rule:
 
 The tap for `B0` on the `L8` line is supposed to detect this mismatch and power the `L8` wire. Since `L8` expects a `0` for `B0`, the rule says it must have a **Repeater Tap**.
 
-**The Conclusion:** The fact that the `L8` lamp is still ON means its mismatch detector for the `B0` bit failed. The most likely cause is that you **forgot to place the Repeater Tap** from the `B0` bus line to the `L8` output wire. Without that tap, the wire never gets powered, and the lamp stays on.
+**The Conclusion**: The fact that the `L8` lamp is still ON means its mismatch detector for the `B0` bit failed. The most likely cause is that you **forgot to place the Repeater Tap** from the `B0` bus line to the `L8` output wire. Without that tap, the wire never gets powered, and the lamp stays on.
 
 ---
 
@@ -273,12 +273,12 @@ Torches are for `1`s, Repeaters are for `0`s. So the identity is `0110`. This is
 
 #### 3.7.5: Debug Challenge
 
-**The Logic:**
+**The Logic**:
 When the input is `2`, the `L2` line from the decoder correctly goes LOW. This is supposed to activate the torches for segments `a, b, d, e, g`.
 
 The display shows a `6`, meaning segments `c` and `f` are ON when they should be OFF, and segment `b` is OFF when it should be ON.
 
-**The Conclusion:**
+**The Conclusion**:
 This points to a catastrophic failure in the "programming" of the `L2` line in your Diode Matrix. You have wired it incorrectly.
 -   You have likely **accidentally placed** torch taps from the `L2` line to the segment lines for `c` and `f`.
 -   You have likely **forgotten to place** the torch tap from the `L2` line to the segment line for `b`.
@@ -294,4 +294,4 @@ This points to a catastrophic failure in the "programming" of the `L2` line in y
 
 [2]: Module 2: The Language of Logic – A Deep Dive into Boolean Algebra
 
-[3]: Module 3: From Binary to Pictures - Building a Digital Display
+[3]: Module 3: From Binary to Pictures: Building a Digital Display
