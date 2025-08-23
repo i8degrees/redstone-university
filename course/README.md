@@ -46,9 +46,8 @@ You’ll find:
     -   **Module 0 (Optional):** The Redstone Toolkit
     -   **Module 1:** The 4-Bit Input Interface
     -   **Module 2:** The Language of Logic
-    -   **Interlude I (Optional):** The Art of Compact Design
+    -   **Interlude (Optional):** The Art of Compact Design
     -   **Module 3:** Decoders & Digital Displays
-    -   **Interlude II (Optional):** Engineering with Black Boxes
 
 -   **Part II: Engineering a Robust Arithmetic Unit.** Here, we will build the mathematical core of our machine. We'll engineer an adder and subtractor, discover our machine's natural limitations through "bugs" like overflow, and upgrade our system to solve them, just like real engineers.
 
