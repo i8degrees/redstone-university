@@ -9,7 +9,7 @@ By the end of Part I, our computer won’t be thinking on its own yet, but we wi
 
 ### Our Mission for Part I
 
-We’ll conquer this foundation in four modules and an interlude, blending hands-on building with powerful theory and culminating in a show-stopping application:
+We’ll conquer this foundation in four modules and two optional interludes, blending hands-on building with powerful theory and culminating in a show-stopping application:
 
 -   **Module 0 (Optional Prelude): The Redstone Toolkit**
     Learn the absolute essentials of Redstone. We'll cover the core components and the rules of power that govern every circuit we'll ever build.
@@ -20,11 +20,14 @@ We’ll conquer this foundation in four modules and an interlude, blending hands
 -   **Module 2: The Language of Logic**
     Take a crucial dive into the theory that powers all digital logic. This is the course’s most important lecture, where you’ll master the grammar of NOT, AND, OR, and XOR.
 
--   **Interlude (Optional): The Art of Compact Design**
+-   **Interlude I (Optional): The Art of Compact Design**
     Bridge the gap between building for clarity and building for efficiency. A short but powerful lesson on Redstone engineering best practices.
 
 -   **Module 3: Decoders and Digital Displays**
     Apply your new skills to a major challenge: creating a two-stage translator that converts binary into human-readable numbers on a stunning 7-segment display.
+
+-   **Interlude II (Optional): The Power of Abstraction in Practice**
+    Learn how to package complex circuits into simple "black boxes" using the subcircuit feature in CircuitVerse, a key skill for managing large-scale designs.
 
 This part is crafted to deliver a thrilling payoff. You’ll start with basic switches and end with a device that feels alive. These concepts are the bedrock (pun intended) for everything to come.
 
