@@ -24,8 +24,9 @@ If you'd like to directly fix a typo or make an improvement yourself, that's fan
 6.  **Open a Pull Request** back to this repository.
 
 ### Style Guide
-*   **Writing:** Try to maintain a clear, encouraging, and narrative tone.
-*   **Minecraft Builds:** When adding or modifying circuits, try to keep them well-organized and labeled with signs where appropriate.
+To ensure all course content is consistent, professional, and easy to follow, we have a detailed style guide. It covers everything from heading levels and formatting to the tone of the course.
+
+**➡️ Please read the full [Style Guide](STYLE_GUIDE.md) before making any content changes.**
 
 ## Code of Conduct
 To ensure this is a welcoming and inclusive space for everyone, this project adheres to a Code of Conduct. Please read it [here](CODE_OF_CONDUCT.md).
