@@ -510,7 +510,7 @@ This top-down view highlights the elegance of your modular design. The decoderâ€
 
 Here is the full schematic in CircuitVerse without subcircuit abstractions, showing the detailed wiring from 4-bit input through decoder and encoder to the 7-segment display. The layout and implementation aligns with our minecraft build and the input is currently set to `0011` making the instructions to trace the signal above directly applicable.
 
-<div align="center"><img src="./images/full-digital-display_circuitverse.png" alt="Full System in CircuitVerse" width="512px"/><br/><em>Figure: The end-to-end binary-to-display system in CircuitVerse, integrating all components from this module and displaying '3' for input `0011`.</em></div><br/>
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_complete-digital-display_circuitverse.png" alt="Full System in CircuitVerse" width="512px"/><br/><em>Figure: The end-to-end binary-to-display system in CircuitVerse, integrating all components from this module and displaying '3' for input `0011`.</em></div><br/>
 
 Cycle through inputs `0000` to `1001` and watch the display light up each digit perfectly.
 
