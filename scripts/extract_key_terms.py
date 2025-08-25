@@ -5,6 +5,26 @@ from glob import glob
 SRC_DIR = "src"
 APPENDIX_FILE = "course/Z-Appendices/Appendix-B_Glossary.md"
 
+GITHUB_USER = "fielding"
+GITHUB_REPO = "redstone-university"
+GITHUB_BRANCH = "main"
+RAW_BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{GITHUB_REPO}/{GITHUB_BRANCH}/"
+ASSETS_IMG_DIR = "assets/images"
+
+
+def rewrite_image_paths(md_content):
+    import re
+
+    def replacer(match):
+        alt_text, rel_path = match.groups()
+        if rel_path.startswith("./images/") or rel_path.startswith("images/"):
+            image_name = rel_path.split("/")[-1]
+            abs_url = RAW_BASE_URL + ASSETS_IMG_DIR + "/" + image_name
+            return f"![{alt_text}]({abs_url})"
+        return match.group(0)
+
+    return re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", replacer, md_content)
+
 
 def extract_module_titles(md_content, file_path):
     """
@@ -129,8 +149,10 @@ def main():
         title = module_titles.get(module, f"Module {module}")
         appendix_content.append(f"[{module}]: Module {module}: {title}\n")
 
+    appendix_markdown = "\n".join(appendix_content)
+    appendix_markdown = rewrite_image_paths(appendix_markdown)
     with open(APPENDIX_FILE, "w", encoding="utf-8") as f:
-        f.write("\n".join(appendix_content))
+        f.write(appendix_markdown)
 
     print(f"✅ Extracted and alphabetized {len(unique_terms)} unique key terms into {APPENDIX_FILE}")
 
