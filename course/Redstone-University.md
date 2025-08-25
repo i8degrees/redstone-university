@@ -133,14 +133,14 @@ These are the pieces you’ll see over and over. They are the alphabet we will u
 
 | Component | Game Icon | Role in this Course | Description |
 | :--- | :--- | :--- | :--- |
-| **Redstone Dust** | ![Redstone Dust Icon](./images/icon_redstone-dust.png) | **Wire:** The foundation of all circuits. | Carries a power signal up to `15` blocks before fading. Can be placed on most solid, opaque blocks. |
-| **Redstone Torch** | ![Redstone Torch Icon](./images/icon_redstone-torch.png) | **Power Source & Inverter (NOT Gate):** Our most versatile tool. | Acts as a constant power source. When powered by another source, it turns OFF, inverting the signal. This is our primitive **NOT gate**. |
-| **Lever** | ![Lever Icon](./images/icon_lever.png) | **Stable Input:** Our primary way to give commands. | A simple, manual on/off switch. Perfect for setting the inputs to our computer. |
-| **Redstone Lamp** | ![Redstone Lamp Icon](./images/icon_redstone-lamp.png) | **Output Indicator:** Lets us see the result of a calculation. | A block that lights up when powered. We use it to visualize the state of our circuits. |
-| **Redstone Repeater** | ![Redstone Repeater Icon](./images/icon_redstone-repeater.png) | **Signal Booster & Diode:** Essential for complex builds. | Extends a Redstone signal back to full strength (`15`) and acts as a one-way **diode** to prevent signals from flowing backward. |
-| **Solid Block** | ![Solid Block Icon](./images/icon_solid-block.png) | **Conductor & Insulator:** The physical structure of our machine. | A non-transparent block like Stone or Wool. It can be powered by Redstone components and transmit that power to adjacent components. |
-| **Sign** | ![Sign Icon](./images/icon_sign.png) | **Documentation:** A simple but vital tool for clarity. | Labeling your inputs, outputs, and different sections of a large build is crucial for understanding and debugging your own work. |
-| **Redstone Comparator** | ![Redstone Comparator Icon](./images/icon_redstone-comparator.png) | **Advanced Tool (Later Modules)** | We will introduce this component later when we build memory. For now, you just need to know it exists. |
+| **Redstone Dust** | ![Redstone Dust Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/icon_redstone-dust.png) | **Wire:** The foundation of all circuits. | Carries a power signal up to `15` blocks before fading. Can be placed on most solid, opaque blocks. |
+| **Redstone Torch** | ![Redstone Torch Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/icon_redstone-torch.png) | **Power Source & Inverter (NOT Gate):** Our most versatile tool. | Acts as a constant power source. When powered by another source, it turns OFF, inverting the signal. This is our primitive **NOT gate**. |
+| **Lever** | ![Lever Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/icon_lever.png) | **Stable Input:** Our primary way to give commands. | A simple, manual on/off switch. Perfect for setting the inputs to our computer. |
+| **Redstone Lamp** | ![Redstone Lamp Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/icon_redstone-lamp.png) | **Output Indicator:** Lets us see the result of a calculation. | A block that lights up when powered. We use it to visualize the state of our circuits. |
+| **Redstone Repeater** | ![Redstone Repeater Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/icon_redstone-repeater.png) | **Signal Booster & Diode:** Essential for complex builds. | Extends a Redstone signal back to full strength (`15`) and acts as a one-way **diode** to prevent signals from flowing backward. |
+| **Solid Block** | ![Solid Block Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/icon_solid-block.png) | **Conductor & Insulator:** The physical structure of our machine. | A non-transparent block like Stone or Wool. It can be powered by Redstone components and transmit that power to adjacent components. |
+| **Sign** | ![Sign Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/icon_sign.png) | **Documentation:** A simple but vital tool for clarity. | Labeling your inputs, outputs, and different sections of a large build is crucial for understanding and debugging your own work. |
+| **Redstone Comparator** | ![Redstone Comparator Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/icon_redstone-comparator.png) | **Advanced Tool (Later Modules)** | We will introduce this component later when we build memory. For now, you just need to know it exists. |
 
 ---
 
@@ -164,7 +164,7 @@ This is a critical concept. Blocks can be powered in two ways, and what they can
 | :--- | :--- | :--- |
 | **What Provides It?** | A **Lever**, **Button**, **Repeater**, or **Torch** directly powering a block. | **Redstone Dust** running into or across a block. |
 | **What Can It Do?** | Powers **all** adjacent Redstone components, including dust above, below, and on all sides. | Powers only **some** adjacent components (like a lamp or repeater), but **NOT** adjacent dust. |
-| **Example** | ![Strongly powered block](./images/strongly-powered-block_minecraft.png) | ![Weakly powered block](./images/weakly-powered-block_minecraft.png) |
+| **Example** | ![Strongly powered block](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/strongly-powered-block_minecraft.png) | ![Weakly powered block](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/weakly-powered-block_minecraft.png) |
 
 Understanding this difference is the key to creating compact vertical circuits later in the course.
 
@@ -172,7 +172,7 @@ Understanding this difference is the key to creating compact vertical circuits l
 
 Let’s combine these concepts to build a simple input to process to output circuit. This is the core pattern of every device we’ll make, from simple gates to a full CPU.
 
-![Basic circuit in Minecraft](./images/basic-circuit_minecraft.png)
+![Basic circuit in Minecraft](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/basic-circuit_minecraft.png)
 *Figure: A Redstone Lamp with a lever (input) connected to a Redstone Lamp (output) through Redstone Dust (wire).*
 
 1.  **Place an Output:** Place a **Redstone Lamp** on the ground.
@@ -301,7 +301,7 @@ This input bus will serve as the starting point for our future circuits. In late
 
 #### The Build Guide
 
-![Minecraft Input Interface](./images/input_minecraft.png)
+![Minecraft Input Interface](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/input_minecraft.png)
 *Figure: The input interface in Minecraft, set to `0110` (binary for 6). The levers are flipped to represent the bits, and the dust is connected to the back. Using redstone lamps makes it easy to see the current state of each bit.*
 
 1. I recommend creating a new world and under the advanced options, set the world type to "Flat". They even have a flat preset called "Redstone Ready" that is perfect for our needs.
@@ -320,7 +320,7 @@ Before we test our new input interface, I want to introduce you to the same inpu
 
 #### CircuitVerse Version
 
-![CircuitVerse Input Interface](./images/input_circuitverse.png)
+![CircuitVerse Input Interface](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/input_circuitverse.png)
 *Figure: The same 4-bit input interface, built in CircuitVerse. It is also set to `0110` (6 in decimal).*
 
 While it has a few stylistic differences, the concept is exactly the same as our Minecraft build. It's an input interface that allows for input of a 4-bit binary number.
@@ -519,7 +519,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
 > **Key Takeaway:** The NOT gate flips a signal, turning ON to OFF, or `1` to `0`. It’s the simplest way to create “opposite” logic in a circuit.
 
-![NOT Gate in CircuitVerse](./images/NOT-gate_circuitverse.png)
+![NOT Gate in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/NOT-gate_circuitverse.png)
 *Figure: The abstract symbol for the NOT gate (left) and its function in a basic circuit (right), taking a single input A and producing an inverted output Y.*
 
 -   **Formal Definition:** The NOT gate, or Inverter, performs **Negation**. It's the simplest possible operation: it takes a single input and outputs its exact opposite.
@@ -534,7 +534,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
 -   **Lab & Experiment:**
 
-    ![NOT Gate in Minecraft](./images/NOT-gate_minecraft.png)
+    ![NOT Gate in Minecraft](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/NOT-gate_minecraft.png)
     *Figure: A NOT gate implemented in Minecraft using a Redstone Torch. The torch inverts the input from the lever, turning the lamp on when the lever is off and vice versa. This is the simplest physical realization of logical negation in the game.*
 
 
@@ -569,7 +569,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
 
 > **Key Takeaway:** The OR gate outputs `1` if at least one input is `1`. It’s how we express “either/or” logic in hardware and software.
 
-![OR Gate in CircuitVerse](./images/OR-gate_circuitverse.png)
+![OR Gate in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/OR-gate_circuitverse.png)
 *Figure: The abstract symbol for the OR gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active if at least one input is active.*
 
 
@@ -585,7 +585,7 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
   | `1` | `1` |    `1`   |
 -   **The Boolean Expression:** The output `Y` is `Y = A OR B`.
 -   **Lab & Experiment:**
-    ![OR Gate in Minecraft](./images/OR_gate_minecraft.png)
+    ![OR Gate in Minecraft](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/OR_gate_minecraft.png)
     *Figure: A Minecraft OR gate built by merging two Redstone Dust lines. The output lamp lights up if either lever (input A or B) is switched on, visually demonstrating the "at least one" logic of the OR operation.*
 
     1.  Build the circuit as shown in the Minecraft screenshot:
@@ -623,14 +623,14 @@ Given the Boolean expression $A \text{ OR } \text{NOT } B$ ($A \lor \neg B$), ev
 
 > **Key Takeaway:** The AND gate only outputs 1 if all its inputs are 1. It’s how we require multiple conditions to be true at once.
 
-![AND Gate in CircuitVerse](./images/AND-gate_circuitverse.png)
+![AND Gate in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/AND-gate_circuitverse.png)
 *Figure: The abstract symbol for the AND gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if inputs A and B are both active.*
 
 Now we reach our first **composite gate**. Unlike NOT and OR, Minecraft does not give us a single block that performs the AND operation. Instead, we must build it from our primitives. This is a fundamental concept in digital engineering: combining simple components to create more complex functions. Our chosen primitives (NOT and OR) are *functionally complete*, meaning any possible logic function, including AND, can be built from them.
 
 To connect the abstract concept of a gate to our physical build, we will use a consistent visual format. Each composite gate will be introduced with its standard, abstract symbol, which is how engineers represent it in high-level diagrams. This will be followed by a detailed composite diagram showing how to construct it from our primitive NOT and OR gates. In these diagrams, a dashed outline will enclose the group of primitives, visually demonstrating how they work together to become equivalent to the single, abstract gate.
 
-![AND Gate Composite in CircuitVerse](./images/AND-gate-composite_circuitverse.png)
+![AND Gate Composite in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/AND-gate-composite_circuitverse.png)
 *Figure: The AND gate constructed from NOT and OR gates in CircuitVerse. This composite diagram shows how two NOT gates and one OR gate are grouped to function as a single AND gate, following the logic Y = !(!A OR !B).*
 
 - **Formal Definition:** The AND gate performs **Conjunction**. It’s the strict gate: output is True only if *all* inputs are True.
@@ -648,7 +648,7 @@ To connect the abstract concept of a gate to our physical build, we will use a c
     > **Note on Screenshots and Color Coding:**
     > Our Minecraft circuit screenshots use a pseudo-isometric view to show as much of the build as possible. However, it can sometimes be hard to tell if a redstone torch is attached to the backside of a block. To make this clear, any block with a torch on its backside is colored red in the screenshot. Blocks with torches only on top are easy to see, so they use the build’s default color unless they also have a backside torch, in which case they’re red. For redstone lamps used as inputs (with a lever on one side and a torch or repeater on the other), we can't color code them obviously, but the instructions clearly indicate when a torch is on the backside of one of these input blocks.
 
-    ![AND Gate Composite in Minecraft](./images/AND-gate-composite_minecraft.png)
+    ![AND Gate Composite in Minecraft](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/AND-gate-composite_minecraft.png)
     *Figure: A composite AND gate in Minecraft, constructed using two Redstone Torches (NOT gates) and a Redstone Dust merger (OR gate), then inverted again. This build demonstrates how to achieve AND logic using only the game's primitive components.*
 
     1.  Build the verbose version as shown:
@@ -776,12 +776,12 @@ Given the expression $(A \text{ OR } B) \text{ AND } (\text{NOT } A \text{ OR } 
 
 > **Key Takeaway:** XOR outputs `1` only when its inputs are different. It’s essential for circuits like adders and programming tricks.
 
-![XOR Gate in CircuitVerse](./images/XOR-gate_circuitverse.png)
+![XOR Gate in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/XOR-gate_circuitverse.png)
 *Figure: The abstract symbol for the Exclusive OR (XOR) gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if the inputs are different.*
 
 Like the AND gate, XOR is a composite gate. For all gates we show the asbtract symbol used in diagrams as we introduce them, but we will continue our practice of building it from our established primitives. Here is a version of an XOR gate built from OR and NOT, our minecraft primitives.
 
-![XOR Gate in (Composite) CircuitVerse](./images/XOR-gate-composite_circuitverse.png)
+![XOR Gate in (Composite) CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/XOR-gate-composite_circuitverse.png)
 *Figure: The XOR gate constructed in CircuitVerse using only OR and NOT gates. This composite design highlights how the XOR function can be achieved by creatively wiring together these basic primitives.*
 
 It's important to understand that this is just one of many ways to build an XOR gate. In Redstone engineering, as in real-world circuit design, there is often no single "correct" answer. Different designs might be bigger but easier to understand, or smaller but more complex. The design above is excellent for visualizing the underlying logic while learning.
@@ -806,7 +806,7 @@ It's important to understand that this is just one of many ways to build an XOR 
 
 -   **Lab & Experiment:**
 
-    ![XOR Gate (Composite) in Minecraft](./images/XOR-gate-composite_minecraft.png)
+    ![XOR Gate (Composite) in Minecraft](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/XOR-gate-composite_minecraft.png)
     *Figure: A composite XOR gate in Minecraft, built by combining Redstone Dust (OR logic) and Redstone Torches (NOT logic). The output lamp lights only when the two input levers are set to different states, illustrating the exclusive nature of XOR.*
 
     1.  Build the XOR gate as shown in the screenshot:
@@ -895,10 +895,10 @@ Now that you've seen how the XOR trick works, try applying the same core princip
 
 #### Operator 4: NOR (The "Neither" Gate)
 
-![NOR Gate in CircuitVerse](./images/NOR-gate_circuitverse.png)
+![NOR Gate in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/NOR-gate_circuitverse.png)
 *Figure: The abstract symbol for the NOR gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if both inputs A and B are inactive.*
 
-![NOR Gate (Composite) in CircuitVerse](./images/NOR-gate-composite_circuitverse.png)
+![NOR Gate (Composite) in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/NOR-gate-composite_circuitverse.png)
 *Figure: A composite NOR gate in CircuitVerse, constructed using only OR and NOT gates. The output is high only when both inputs are low, demonstrating NOR logic using our primitive gates.*
 
 -   **Formal Definition:** The NOR gate performs a **NOT-OR** operation (negation of OR).
@@ -914,7 +914,7 @@ Now that you've seen how the XOR trick works, try applying the same core princip
 -   **The Boolean Expression:** The output `Y` is `Y = !(A OR B)`.
 -   **Lab & Experiment:**
 
-    ![NOR Gate in Minecraft](./images/NOR-gate_minecraft.png)
+    ![NOR Gate in Minecraft](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/NOR-gate_minecraft.png)
     *Figure: A NOR gate in Minecraft, created by merging two Redstone Dust lines (OR logic) and then inverting the result with a Redstone Torch. The output lamp lights up only when both input levers are off, demonstrating the NOR operation.*
 
     1.  Build the NOR gate:
@@ -930,10 +930,10 @@ Now that you've seen how the XOR trick works, try applying the same core princip
 
 #### Operator 5: NAND (The "Not Both" Gate)
 
-![NAND Gate in CircuitVerse](./images/NAND-gate_circuitverse.png)
+![NAND Gate in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/NAND-gate_circuitverse.png)
 *Figure: The abstract symbol for the NAND gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active unless both inputs A and B are active.*
 
-![NAND Gate (Composite) in CircuitVerse](./images/NAND-gate-composite_circuitverse.png)
+![NAND Gate (Composite) in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/NAND-gate-composite_circuitverse.png)
 *Figure: A composite NAND gate in CircuitVerse, constructed using only OR and NOT gates. This diagram shows how the NAND function can be achieved by inverting the output of a composite AND gate built from these primitives, without using a dedicated AND gate block.*
 
 -   **Formal Definition:** The NAND gate performs a **NOT-AND** operation (negation of AND).
@@ -952,7 +952,7 @@ Now that you've seen how the XOR trick works, try applying the same core princip
 
 -   **Lab & Experiment:**
 
-    ![NAND Gate in Minecraft](./images/NAND-gate-composite_minecraft.png)
+    ![NAND Gate in Minecraft](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/NAND-gate-composite_minecraft.png)
     *Figure: A NAND gate in Minecraft, constructed by modifying the composite AND gate and tapping the output before the final inversion. The output lamp turns off only when both input levers are on, matching the NAND truth table.*
 
     1.  Build the NAND gate:
@@ -968,10 +968,10 @@ Now that you've seen how the XOR trick works, try applying the same core princip
 
 #### Operator 6: XNOR (The "Equality Detector")
 
-![XNOR Gate in CircuitVerse](./images/XNOR-gate_circuitverse.png)
+![XNOR Gate in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/XNOR-gate_circuitverse.png)
 *Figure: The abstract symbol for the Exclusive NOR (XNOR) gate (left) and its function in a basic circuit (right), taking two inputs A and B and producing an output Y that is active only if the inputs are the same.*
 
-![XNOR Gate (Composite) in CircuitVerse](./images/XNOR-gate-composite_circuitverse.png)
+![XNOR Gate (Composite) in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/XNOR-gate-composite_circuitverse.png)
 *Figure: Composite XNOR gate in CircuitVerse, constructed using only OR and NOT gates. This diagram shows how XNOR logic can be achieved by inverting one input to a composite XOR gate built from these primitives, demonstrating the equivalence between XOR(A, NOT B) and XNOR(A, B).*
 
 -   **Formal Definition:** The XNOR gate performs a **NOT-XOR** operation (negation of XOR).
@@ -988,7 +988,7 @@ Now that you've seen how the XOR trick works, try applying the same core princip
 
 -   **Lab & Experiment:**
 
-    ![XNOR Gate (Composite) in Minecraft](./images/XNOR-gate-composite_minecraft.png)
+    ![XNOR Gate (Composite) in Minecraft](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/XNOR-gate-composite_minecraft.png)
     *Figure: An XNOR gate in Minecraft, constructed by adding a NOT gate to one input of a composite XOR gate. The output lamp lights up only when both input levers are set to the same state, visually confirming the XNOR truth table.*
 
     > **Verifying the Build: A Proof of Equivalence**
@@ -1033,13 +1033,13 @@ Build an $A \text{ AND } B$ ($A \land B$) gate using only NOR gates. Verify it w
 
 |  Gate   |                       Symbol                             |             Core Logic Rule             |    Primitive Boolean Expression              |
 | :------ | :---------------------------------------------------------------- | :-------------------------------------- | :--------------------------------------------|
-| **NOT** | ![NOT Gate](./images/NOT.png)                                     | Inverts a single input.                 | `!A`                                         |
-| **OR**  | ![OR Gate](./images/OR.png)                                       | True if **at least one** input is `True`. | `A OR B`                                     |
-| **AND** | ![AND Gate](./images/AND.png)                                     | True only if **all** inputs are `True`.   | `!(!A OR !B)`                                |
-| **XOR** | ![XOR Gate](./images/XOR.png)                                     | True only if inputs are **different**.  |`!(A OR !(A OR B)) OR !(B OR !(A OR B))`      |
-| **NAND**| ![NAND Gate](./images/NAND.png)                                   | True unless **all** inputs are `True`.    | `!A OR !B`                                   |
-| **NOR** | ![NOR Gate](./images/NOR.png)                                     | True only if **all** inputs are `False`.  | `!(A OR B)`                                  |
-| **XNOR**| ![XNOR Gate](./images/XNOR.png)                                   | True only if inputs are the **same**.   | `!(!(A OR !(A OR B)) OR !(B OR !(A OR B)))`  |
+| **NOT** | ![NOT Gate](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/NOT.png)                                     | Inverts a single input.                 | `!A`                                         |
+| **OR**  | ![OR Gate](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/OR.png)                                       | True if **at least one** input is `True`. | `A OR B`                                     |
+| **AND** | ![AND Gate](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/AND.png)                                     | True only if **all** inputs are `True`.   | `!(!A OR !B)`                                |
+| **XOR** | ![XOR Gate](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/XOR.png)                                     | True only if inputs are **different**.  |`!(A OR !(A OR B)) OR !(B OR !(A OR B))`      |
+| **NAND**| ![NAND Gate](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/NAND.png)                                   | True unless **all** inputs are `True`.    | `!A OR !B`                                   |
+| **NOR** | ![NOR Gate](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/NOR.png)                                     | True only if **all** inputs are `False`.  | `!(A OR B)`                                  |
+| **XNOR**| ![XNOR Gate](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/XNOR.png)                                   | True only if inputs are the **same**.   | `!(!(A OR !(A OR B)) OR !(B OR !(A OR B)))`  |
 
 ---
 
@@ -1157,12 +1157,12 @@ Let's analyze a few classic compact designs. For each one, we'll compare the **V
 
 First, recall our verbose AND gate. It's a perfect physical representation of De Morgan's Law, `!(!A OR !B)`, but it takes up a lot of room.
 
-![Verbose AND Gate in Minecraft](./images/AND-gate-composite_minecraft.png)
+![Verbose AND Gate in Minecraft](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/AND-gate-composite_minecraft.png)
 *Figure: Our easy-to-read, but large, educational AND gate.*
 
 Now, observe a classic compact AND gate. It performs the exact same function in a tiny `3`x`2` footprint.
 
-![Compact AND Gate in Minecraft](./images/AND-gate_minecraft.png)
+![Compact AND Gate in Minecraft](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/AND-gate_minecraft.png)
 *Figure: A classic, space-efficient compact AND gate.*
 
 #### Logical Deconstruction
@@ -1177,12 +1177,12 @@ The logic is identical: `!(!A OR !B)`. It's just cleverly folded into a smaller 
 
 Our educational XOR gate is large because the logic is complex. It's designed to be read.
 
-![Verbose XOR Gate in Minecraft](./images/XOR-gate-composite_minecraft.png)
+![Verbose XOR Gate in Minecraft](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/XOR-gate-composite_minecraft.png)
 *Figure: Our educational XOR gate, built for clarity.*
 
 The community has created many compact XOR designs. Here is one of the most common "tileable" (meaning you can place them side-by-side) versions.
 
-![Compact XOR Gate in Minecraft](./images/XOR-gate_minecraft.png)
+![Compact XOR Gate in Minecraft](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/XOR-gate_minecraft.png)
 *Figure: A very common and tileable compact XOR gate design.*
 
 #### Logical Deconstruction
@@ -1256,14 +1256,14 @@ In the previous modules, you learned how to speak to your computer in binary and
 
 > **Key Takeaway**: A 7-segment display is a standard output device that uses seven independent segments to form numbers. Understanding how to control it manually is the first step to controlling it automatically.
 
-![7-segment display in CircuitVerse](./images/7-segment-display.png)
+![7-segment display in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/7-segment-display.png)
 *Figure: The symbol for a 7-segment display on CircuitVerse (left) and its function in a basic circuit (right), taking seven inputs and lighting up the segments based on the pattern.*
 
 Our computer can hear us, but it can’t talk back. So far, all our work is invisible, buried in wires and circuits. How do we make our computer show us numbers in a way we understand?
 
 The answer is the **7-segment display**, a classic output device found in everything from digital clocks to microwaves. It uses seven independently controlled segments, labeled `a` through `g`, arranged in an '8' pattern.
 
-![7-segment display labeled](./images/7-segment-display_labeled.png)
+![7-segment display labeled](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/7-segment-display_labeled.png)
 *Figure: The standard labeling for the segments of a 7-segment display.*
 
 By lighting up specific combinations of these seven segments, we can display any digit from `0` to `9`.
@@ -1276,7 +1276,7 @@ Let’s start by building the physical canvas for our numbers.
 2.  **Isolate the Segments**: Carefully surround the lamp segments with a non-conductive block like Wool or Concrete. I use black concrete to make the segments stand out.
 3.  **Create Manual Controls**: To power each segment, run a Redstone Repeater into the middle lamp. For now, place a solid block behind each repeater and attach a Lever to it. This gives you manual control for testing.
 
-![7 Segment Display in Minecraft](./images/7-segment-display_minecraft.png)
+![7 Segment Display in Minecraft](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/7-segment-display_minecraft.png)
 *Figure: The display's construction stages. From left to right: the basic lamp layout, the layout isolated with concrete, powering the middle lamps of each segment, and a close-up of the repeater and lever used to control a single segment.*
 
 **Practice Lab: Becoming a Human Encoder**
@@ -1308,7 +1308,7 @@ This modular, two-stage approach is the heart of good engineering. It's easier t
 **Our Signal Flow**:
 `[4-bit Input] → [**Decoder**] → [1 of 10 Lines] → [**Encoder/ROM**] → [7 Segment Signals] → [Display]`
 
-![Digital Display Subcircuit Abstractions](./images/digital-display-subcircuit-abstractions_circuitverse.png)
+![Digital Display Subcircuit Abstractions](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/digital-display-subcircuit-abstractions_circuitverse.png)
 *Figure: The overall system in CircuitVerse, using subcircuit abstractions for the decoder, encoder, and display to show the high-level signal flow.*
 
 ---
@@ -1321,7 +1321,7 @@ Before we tackle our full 4-bit to 10-line decoder, let's build a smaller, simpl
 
 By scaling down the problem, we can focus on the core logic without getting overwhelmed. This is a common engineering practice: start small, prove the concept, then scale up. I'm calling this a "brute-force" method because we will build a separate AND gate for each output, rather than using a more elegant design, which we will learn in the next lesson.
 
-![2-to-4 Decoder in CircuitVerse](./images/2-to-4-decder_circuitverse.png)
+![2-to-4 Decoder in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/2-to-4-decder_circuitverse.png)
 *Figure: The brute-force 2-to-4 decoder in CircuitVerse, using AND gates to recognize each binary pattern.*
 
 **The Logic on Paper**
@@ -1342,7 +1342,7 @@ By scaling down the problem, we can focus on the core logic without getting over
 2.  From these levers, create a **4-line bus**. For each input, run one line of Redstone dust from the back of the lamp (for the true signal, e.g., `B1`) and another line into a NOT gate (for the inverted signal, e.g., `!B1`).
 3.  You now have four parallel lines carrying the signals `B1`, `!B1`, `B0`, and `!B0`. Use colored wool to keep them organized.
 
-![2-to-4 Decoder Step 1](./images/2-to-4-decoder-1_minecraft.png)
+![2-to-4 Decoder Step 1](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/2-to-4-decoder-1_minecraft.png)
 *Figure: 4-line bus with inputs `B1` and `B0` and their inversions.*
 
 **Step 2: Build and Test the First Gate (`L0`)**
@@ -1352,7 +1352,7 @@ By scaling down the problem, we can focus on the core logic without getting over
 3.  Place a Redstone Lamp at the output of the AND gate. This is your `L0` output.
 4.  **Test it!** Set your input levers to `00` (`B1`=OFF, `B0`=OFF). The `L0` lamp should turn ON. Now, flip either lever. The lamp should turn OFF. This proves your first gate is wired correctly.
 
-![2-to-4 Decoder Step 2](./images/2-to-4-decoder-2_minecraft.png)
+![2-to-4 Decoder Step 2](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/2-to-4-decoder-2_minecraft.png)
 *Figure: Single AND gate connected to the `!B1` and `!B0` lines of the bus. The input is set to `11`, so the `L0` lamp is OFF. It would be on if the input were `00`.*
 
 **Step 3: Build the Remaining Gates**
@@ -1375,7 +1375,7 @@ Now, cycle through all four possible inputs with your levers:
 
 Congratulations, you've built a working decoder!
 
-![2-to-4 Decoder Step 3](./images/2-to-4-decoder-3_minecraft.png)
+![2-to-4 Decoder Step 3](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/2-to-4-decoder-3_minecraft.png)
 *Figure: Final working 2-to-4 decoder, with the input set to `11`, so only the `L3` lamp is ON.*
 
 **Lesson Summary: The Problem of Scale**
@@ -1392,7 +1392,7 @@ In the next lesson, we will learn a far more elegant and compact solution.
 
 Welcome to the engineer's solution. Instead of an "active-high" design, we will build an **active-low** design where the correct line turns **OFF**.
 
-![4-to-10 Decoder in CircuitVerse](./images/4-to-10-decoder_circuitverse.png)
+![4-to-10 Decoder in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/4-to-10-decoder_circuitverse.png)
 *Figure: The compact 4-to-10 decoder in CircuitVerse, mirroring the Minecraft build with dual buses and NOR-like logic for efficiency.*
 
 #### The Core Concept: The Mismatch Detector
@@ -1424,12 +1424,12 @@ This design relies on a two-layer structure to keep the input and output lines s
 
 1.  **Output Layer (Ground Level)**: Lay out `10` parallel lines of Redstone dust for your output lines (`L0` through `L9`). Leave at least one empty block between each line to prevent interference. At the end of each line, place a solid block, a Redstone torch on top, and a Redstone Lamp on top of the torch. All `10` lamps should be ON by default.
 
-![Compact 4-to-10 Decoder Step 1](./images/4-to-10-decoder-compact-1_minecraft.png)
+![Compact 4-to-10 Decoder Step 1](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/4-to-10-decoder-compact-1_minecraft.png)
 *Figure: Screenshot showing the 10 output lines on the ground, step 1 of the compact 4-to-10 decoder.*
 
 2.  **Input Layer (Floating)**: Now, build a platform for your input bus two blocks off the ground (leaving a 1-block high air gap). On this platform, run your four parallel input bus lines (`B3` to `B0`) so they run perpendicularly across all `10` output lines below.
 
-![Compact 4-to-10 Decoder Step 2](./images/4-to-10-decoder-compact-2_minecraft.png)
+![Compact 4-to-10 Decoder Step 2](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/4-to-10-decoder-compact-2_minecraft.png)
 *Figure: The two-tiered structure with four input bus lines (`B3` to `B0`) floating above the 10 output lines.*
 
 ##### Programming the Lines: Placing the Taps
@@ -1452,19 +1452,19 @@ To make the `L3` line detect the binary input `0011` (decimal `3`), we need to p
 
 Here’s what it looks like once you’ve added the taps for `L3`:
 
-![Compact 4-to-10 Decoder L3 Tapped](./images/4-to-10-decoder-compact-3_minecraft.png)
+![Compact 4-to-10 Decoder L3 Tapped](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/4-to-10-decoder-compact-3_minecraft.png)
 *Figure: The `L3` line is now tapped for its `0011` identity. With the input set to `0000`, the Torch Taps on `B1` and `B0` activate, correctly detecting a mismatch, powering the `L3` wire and turning its lamp OFF. The `L0` lamp remains ON, as it's a perfect match.*
 
 To get a closer look at how the taps are placed, check out this isolated view of the `L3` line:
 
-![Isolated L3 Line Close-Up](./images/4-to-10-decoder-L3_minecraft.png)
+![Isolated L3 Line Close-Up](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/4-to-10-decoder-L3_minecraft.png)
 *Figure: Close-up of the `L3` line with two Repeater Taps (`B3`, `B2`) and two Torch Taps (`B1`, `B0`), no inputs active.*
 
 This zoomed-in view shows exactly where to place each tap for `L3`. Notice the “snaking” path of the Repeater Taps, ensuring strong power, and the Torch Taps hanging off the side of the input bus blocks. Precision here is key! Double-check your placements to avoid crossed signals.
 
 To verify the `L3` line works as intended, you can add levers to test it independently before connecting all lines. Set the inputs to `0011` (matching `L3`’s identity):
 
-![Testable L3 Line](./images/4-to-10-decoder-L3-test_minecraft.png)
+![Testable L3 Line](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/4-to-10-decoder-L3-test_minecraft.png)
 *Figure: Isolated `L3` line with levers set to `0011`, lighting the `L3` lamp to confirm correct tap placement.*
 
 In this test, the levers mimic the input `0011`. The `L3` lamp lights up because no taps activate (no mismatches), leaving the wire unpowered. Try flipping any lever (for example, to `0010`), and the lamp should turn OFF as a tap detects a mismatch. This hands-on test builds confidence before scaling to all 10 lines.
@@ -1482,7 +1482,7 @@ Apply the rule and build methods to the remaining `9` lines. Use the chart below
 
 *(R = Repeater Tap, T = Torch Tap)*
 
-![Compact 4-to-10 Decoder](./images/4-to-10-decoder-compact-complete_minecraft.png)
+![Compact 4-to-10 Decoder](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/4-to-10-decoder-compact-complete_minecraft.png)
 *Figure: The complete 4-to-10 compact decoder in action, with input `0011` lighting only the `L3` lamp.*
 
 ##### Test Your Work!
@@ -1515,7 +1515,7 @@ What is the single most likely mistake in your build that would cause this speci
 
 We now have a working decoder that gives us a single **unpowered** (active-low) line for any given number. The next step is to build our "mapper," the encoder that will take this single signal and draw the correct digit on our display.
 
-![10-to-7 Encoder in CircuitVerse](./images/10-to-7-encoder_circuitverse.png)
+![10-to-7 Encoder in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/10-to-7-encoder_circuitverse.png)
 *Figure: The 10-to-7 encoder in CircuitVerse, using a diode matrix structure to map the active input line to the correct segment pattern.*
 
 #### The Concept: A Physical Lookup Table
@@ -1560,7 +1560,7 @@ Start by building the foundation for your Diode Matrix: the output lines that wi
 
 -   **Segment Output Layer (Ground Level)**: Lay out 7 parallel lines of Redstone dust, one for each segment (`a` through `g`). These will carry signals to the display. Leave a 1-block gap between each line to prevent interference. Add Redstone Repeaters every `15` blocks to keep the signals strong, as these lines may need to travel to your display.
 
-![Encoder Output Layer](./images/10-to-7-encoder-1_minecraft.png)
+![Encoder Output Layer](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/10-to-7-encoder-1_minecraft.png)
 *Figure: The 7 parallel segment output lines (`a` through `g`) on the ground, with repeaters for signal strength.*
 
 This ground layer is the backbone of your encoder, carrying the signals that will light up the display segments. Double-check that each line is isolated to avoid crossed signals.
@@ -1571,7 +1571,7 @@ Now, add the input layer to complete the Diode Matrix grid. Eventually these lin
 
 -   **Decoder Input Layer (Floating)**: Build a platform of solid blocks one level directly above the ground layer (no air gap). On this platform, run 10 horizontal lines of Redstone dust for the decoder outputs (`L9` down to `L0`), perpendicular to the 7 segment lines below. Place a Redstone Lamp at the end of each input line to visualize which line is active (LOW).
 
-![Encoder Two-Layer Structure](./images/10-to-7-encoder-2_minecraft.png)
+![Encoder Two-Layer Structure](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/10-to-7-encoder-2_minecraft.png)
 *Figure: The two-layer Diode Matrix structure, with 7 segment output lines on the ground and 10 input lines (`L9`–`L0`) above, lamps showing input activity.*
 
 This two-layer grid is your ROM’s framework. The lamps are optional but give a nice visual for what is happening. When a lamp is ON, its line is LOW (active). Take a moment to admire the clean, perpendicular layout as it is the key to programming the segment patterns efficiently.
@@ -1589,7 +1589,7 @@ Let’s program the `L9` line (digit `9`) as an example. According to the lookup
 
 Here’s a close-up of the `L9` line with its taps in place:
 
-![Encoder L9 Taps Close-Up](./images/10-to-7-encoder-L9_minecraft.png)
+![Encoder L9 Taps Close-Up](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/10-to-7-encoder-L9_minecraft.png)
 *Figure: Close-up of the `L9` line with six torch taps programming segments `a, b, c, d, f, g` for digit 9.*
 
 This zoomed-in view shows exactly where to place the torch taps for `L9`. Each torch is attached to the side of the block supporting the `L9` line, powering the segment lines below (`a, b, c, d, f, g`). These torches are your ROM’s “data” by each representing a specific segment that lights up when `L9` goes LOW. To test it, place a lever at the start of the `L9` line and set all other lines to ON (using levers). When you turn the `L9` lever OFF (simulating the decoder’s active-low signal), the `L9` lamp should light up, and the segment lines `a, b, c, d, f, g` should activate. You can place temporary redstone lamps at the segment line ends to verify. If any segment doesn’t light, double-check your torch placements against the lookup table.
@@ -1605,7 +1605,7 @@ Repeat this process for all 10 lines (`L0`–`L9`), using the lookup table to pl
 
 Before connecting the encoder to the decoder, test all lines (`L0`–`L9`) independently, as you did for `L9`. Place a lever at the start of each line, set all others to ON, and turn the tested line OFF. Verify that the segment patterns match the lookup table (e.g., `L3` should light `a, b, c, d, g` for digit `3`). Here’s what the fully programmed Diode Matrix looks like:
 
-![Complete 10-to-7 Encoder](./images/10-to-7-encoder-complete_minecraft.png)
+![Complete 10-to-7 Encoder](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/10-to-7-encoder-complete_minecraft.png)
 *Figure: The complete 10-to-7 encoder with all torch taps placed, showing the `L3` line active (input `0011`) and segments `a, b, c, d, g` powered for digit 3.*
 
 This is your finished ROM, with every line programmed to map decoder inputs to segment outputs. The `L3` line is active here (LOW), lighting up the correct segments for a `3`. Cycle through inputs `L0`–`L9` to confirm each digit’s pattern. If any segments don’t light as expected, revisit your torch placements using the lookup table. You’ve just built a physical memory that “stores” the display patterns for all 10 digits!
@@ -1688,7 +1688,7 @@ This final step is all about making the connections between all of the component
 
 Here’s what your fully connected system should look like, with the input set to `0011` to display a `3`:
 
-![Complete Digital Display Isometric](./images/complete-digital-display_minecraft.png)
+![Complete Digital Display Isometric](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/complete-digital-display_minecraft.png)
 *Figure: The complete digital display system in action, with input `0011` activating the `L3` line and lighting segments `a, b, c, d, g` to form a glowing “3”.*
 
 Take a moment to admire this masterpiece! Your modular design has paid off, making this complex system manageable and functional.
@@ -1705,14 +1705,14 @@ To solidify your understanding, let’s trace the signal through the entire syst
 
 From above, you can see how compactly your system fits together:
 
-![Complete Digital Display Aerial](./images/complete-digital-display-aerial_minecraft.png)
+![Complete Digital Display Aerial](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/complete-digital-display-aerial_minecraft.png)
 *Figure: Aerial view of the compact digital display system, with input `0011` producing a “3”. The modular layout connects the decoder, encoder, and display efficiently.*
 
 This top-down view highlights the elegance of your modular design. The decoder’s input bus, the encoder’s torch matrix, and the display’s segments are tightly packed yet clearly organized. While the torches in the encoder grid are less visible from this angle, refer to the Lesson 3.5 lookup table to confirm their placements.
 
 Here is the full schematic in CircuitVerse without subcircuit abstractions, showing the detailed wiring from 4-bit input through decoder and encoder to the 7-segment display. The layout and implementation aligns with our minecraft build and the input is currently set to `0011` making the instructions to trace the signal above directly applicable.
 
-![Full System in CircuitVerse](./images/full-digital-display_circuitverse.png)
+![Full System in CircuitVerse](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/full-digital-display_circuitverse.png)
 *Figure: The end-to-end binary-to-display system in CircuitVerse, integrating all components from this module and displaying '3' for input `0011`.*
 
 Cycle through inputs `0000` to `1001` and watch the display light up each digit perfectly.
@@ -1805,7 +1805,7 @@ Welcome back, engineer! You just completed Module 3, our first large-scale, mult
 
 In the introduction to that module, we talked about the **Power of Abstraction**. Now, it's time to see what that looks like in practice, not just in Minecraft, but in the tools real engineers use. In Lesson 3.2, you saw this image:
 
-![Digital Display Subcircuit Abstractions](./images/digital-display-subcircuit-abstractions_circuitverse.png)
+![Digital Display Subcircuit Abstractions](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/digital-display-subcircuit-abstractions_circuitverse.png)
 *Figure: The digital display system represented with subcircuits in CircuitVerse.*
 
 You probably noticed that the decoder and encoder were shown as simple gray boxes, or **"black boxes,"** instead of the complex web of gates we built. This isn't just to make the diagram look clean; it's a fundamental technique in digital logic design.
@@ -1844,7 +1844,7 @@ Let's assume you've built your `4-to-10` Decoder in its own circuit tab.
 
 You will now see your entire decoder collapsed into a single gray block. It's functional, but you'll notice all the input and output pins are in a messy, disorganized cluster. This is not very useful for clean wiring. Let's fix that.
 
-![Default Subcircuit Layout](./images/subcircuit-layout-before.png)
+![Default Subcircuit Layout](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/subcircuit-layout-before.png)
 *Figure: The default, disorganized pin layout after inserting a circuit as a subcircuit.*
 
 #### Step 2: Edit the Layout for Clarity
@@ -1859,7 +1859,7 @@ This is the key to professional-looking diagrams. We need to arrange the input a
 6.  You can also use the **Width** and **Height** controls in the LAYOUT panel to resize the block for a perfect fit.
 7.  Click **Save** when you're done.
 
-![Organized Subcircuit Layout](./images/subcircuit-layout-after.png)
+![Organized Subcircuit Layout](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/subcircuit-layout-after.png)
 *Figure: The edited layout with input and output pins neatly organized for clean wiring.*
 
 > **CRITICAL ENGINEERING TIP:**
