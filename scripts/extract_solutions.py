@@ -6,6 +6,27 @@ SRC_DIR = "src"
 OUTPUT_FILE = "course/Redstone-University-for-pdf.md"
 APPENDIX_FILE = "course/Z-Appendices/Appendix-A_Solutions.md"
 
+GITHUB_USER = "fielding"
+GITHUB_REPO = "redstone-university"
+GITHUB_BRANCH = "main"
+RAW_BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{GITHUB_REPO}/{GITHUB_BRANCH}/"
+ASSETS_IMG_DIR = "assets/images"
+
+
+def rewrite_image_paths(md_content):
+    import re
+
+    def replacer(match):
+        alt_text, rel_path = match.groups()
+        # Only rewrite if path is relative and points to images/
+        if rel_path.startswith("./images/") or rel_path.startswith("images/"):
+            image_name = rel_path.split("/")[-1]
+            abs_url = RAW_BASE_URL + ASSETS_IMG_DIR + "/" + image_name
+            return f"![{alt_text}]({abs_url})"
+        return match.group(0)
+
+    return re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", replacer, md_content)
+
 
 def extract_module_titles(md_content, file_path):
     """
@@ -191,10 +212,10 @@ def main():
         title = module_titles.get(module, f"Module {module}")
         appendix.append(f"[{module}]: Module {module}: {title}\n")
     with open(APPENDIX_FILE, "w", encoding="utf-8") as f:
-        f.write("\n".join(appendix))
+        f.write(rewrite_image_paths("\n".join(appendix)))
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         for _, content in sorted(replaced_contents, key=lambda x: x[0]):
-            f.write(content)
+            f.write(rewrite_image_paths(content))
             f.write('\n\n<hr class="pagebreak"/>\n\n')
     print(f"✅ Processed {solution_count} solutions. Output written to {OUTPUT_FILE} and {APPENDIX_FILE}")
 
