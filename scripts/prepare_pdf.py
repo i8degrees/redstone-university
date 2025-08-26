@@ -5,7 +5,7 @@ from glob import glob
 SRC_DIR = "src"
 COURSE_DIR = "course"
 ASSETS_IMG_DIR = "assets/images"
-PDF_INPUT_FILE = os.path.join(COURSE_DIR, "Redstone-University-for-pdf.md")
+PDF_INPUT_FILE = os.path.join(COURSE_DIR, "Redstone-University.md")
 
 APPENDIX_A = "course/Z-Appendices/Appendix-A_Solutions.md"
 APPENDIX_B = "course/Z-Appendices/Appendix-B_Glossary.md"
