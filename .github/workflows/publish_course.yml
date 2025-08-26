@@ -36,7 +36,6 @@ jobs:
         with:
           input_path: course/Redstone-University.md
           images_dir: assets/images
-          image_import: ../assets/images
           output_dir: course/
           build_html: false
           theme: assets/css/pdf-style.css
