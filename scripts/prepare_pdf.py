@@ -5,10 +5,15 @@ from glob import glob
 SRC_DIR = "src"
 COURSE_DIR = "course"
 ASSETS_IMG_DIR = "assets/images"
-PDF_INPUT_FILE = os.path.join(COURSE_DIR, "Redstone-University.md")
+PDF_INPUT_FILE = os.path.join(COURSE_DIR, "Redstone-University-for-pdf.md")
 
 APPENDIX_A = "course/Z-Appendices/Appendix-A_Solutions.md"
 APPENDIX_B = "course/Z-Appendices/Appendix-B_Glossary.md"
+
+GITHUB_USER = "fielding"
+GITHUB_REPO = "redstone-university"
+GITHUB_BRANCH = "main"
+RAW_BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{GITHUB_REPO}/{GITHUB_BRANCH}/"
 
 
 def get_course_files_in_order():
@@ -25,7 +30,6 @@ def get_course_files_in_order():
         print(f"  - Found main introduction: {main_intro}")
 
     part_dirs = sorted(glob(os.path.join(SRC_DIR, "Part-*/")))
-
     for part_dir in part_dirs:
         part_intro = os.path.join(part_dir, "introduction.md")
         if os.path.exists(part_intro):
@@ -33,7 +37,6 @@ def get_course_files_in_order():
             print(f"  - Found Part introduction: {part_intro}")
 
         lesson_dirs = sorted(glob(os.path.join(part_dir, "[0-9]*_*/")))
-
         for lesson_dir in lesson_dirs:
             draft_file = os.path.join(lesson_dir, "draft.md")
             if os.path.exists(draft_file):
@@ -47,8 +50,9 @@ def process_markdown_content(content, file_path):
     """
     Processes the raw markdown content to make it PDF-ready by:
     1. Removing inline solution <details> blocks.
-    2. Rewriting image paths to be local and relative for the PDF generator.
+    2. Rewriting image paths to be absolute GitHub URLs.
     """
+
     solution_placeholder = "> **(Solution for this problem can be found in Appendix A.)**"
     content = re.sub(r"<details>.*?</details>", solution_placeholder, content, flags=re.DOTALL)
 
@@ -64,9 +68,9 @@ def process_markdown_content(content, file_path):
         image_basename = os.path.basename(original_path)
         new_image_name = f"{module_prefix}_{image_basename}"
 
-        new_path = f"../assets/images/{new_image_name}"
+        absolute_url = RAW_BASE_URL + ASSETS_IMG_DIR + "/" + new_image_name
 
-        return f"![{alt_text}]({new_path})"
+        return f"![{alt_text}]({absolute_url})"
 
     content = re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", image_path_replacer, content)
 
