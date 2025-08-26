@@ -34,17 +34,16 @@ jobs:
       - name: Generate PDF from processed markdown
         uses: baileyjm02/markdown-to-pdf@v1
         with:
-          input_path: course/Redstone-University-for-pdf.md
+          input_path: course/Redstone-University.md
           images_dir: assets/images
           output_dir: course/
-          output_file: Redstone-University.pdf
           build_html: false
           theme: assets/css/pdf-style.css
           extend_default_theme: true
           highlight_theme: assets/css/darcula.css
 
       - name: Clean up intermediate files
-        run: rm -f course/Redstone-University-for-pdf.md
+        run: rm -f course/Redstone-University.md
 
       - name: Commit and push if changed
         run: |
