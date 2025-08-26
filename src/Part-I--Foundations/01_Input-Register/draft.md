@@ -101,7 +101,7 @@ This input bus will serve as the starting point for our future circuits. In late
 
 ---
 
-Before we test our new input interface, I want to introduce you to the same input interface represented in CircuitVerse, a free online digital logic circuit simulator. Moving forward, every circuit we build will be introduced in theory with the CircuitVerse version first, and then we will build it in Minecraft. This is primarily due to being able to easily represent the circuit in a clear and concise way, something that isn't always possible with Minecraft screenshots. Everything you build is included in the [CircuitVerse project for this course](https://circuitverse.org/users/323134/projects/redstone-university).
+Before we test our new input interface, I want to introduce you to the same input interface represented in CircuitVerse, a free online digital logic circuit simulator. Moving forward, every circuit we build will be introduced in theory with the CircuitVerse version first, and then we will build it in Minecraft. This is primarily due to being able to easily represent the circuit in a clear and concise way, something that isn't always possible with Minecraft screenshots. Everything you build is included in the [CircuitVerse project for this course](https://circuitverse.org/users/323134/projects/redstone-university-cafe6ad2-2c4f-41b6-8a91-51fd8fa24698)
 
 
 
