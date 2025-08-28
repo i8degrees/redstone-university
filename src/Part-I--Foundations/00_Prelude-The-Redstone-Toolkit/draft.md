@@ -1,8 +1,6 @@
 ## Module 0: The Redstone Toolkit – Orientation Day (Optional)
 
----
-
-### Module Summary
+### Module 0 Summary
 
 -   Narrative Beat: Before we can speak to our computer, we need to learn how to hold the pen. This module equips you with the minimum viable skills in Minecraft’s Redstone so you can confidently follow along with the rest of the course.
 -   Learning Goals:
@@ -17,7 +15,7 @@
 
 ---
 
-### Module Introduction
+### Module 0 Introduction
 
 Welcome to Redstone University’s Orientation Day!
 
@@ -30,12 +28,13 @@ If you’ve built with Redstone before, you can likely skim this. But if you’v
 > #### A Note on Controls & Game Setup
 > This course assumes you know the basic Minecraft controls for placing and breaking blocks. For an optimal learning experience, we highly recommend playing in **Creative Mode** on a **Superflat** world, which gives you unlimited resources and space to build.
 
+---
 
 ### Lesson 0.1: The Engineer's Toolkit
 
 These are the pieces you’ll see over and over. They are the alphabet we will use to write our computer into existence.
 
-> ### Note on Texture Packs:
+> #### Note on Texture Packs:
 > For clarity, I use a texture pack that enhances Redstone visibility (e.g., showing dust lines clearly). I highly recommend you find a similar one for your version of the game (such as "Vanilla Tweaks" or others). It makes debugging much easier.
 
 | Component | Game Icon | Role in this Course | Description |
@@ -75,6 +74,8 @@ This is a critical concept. Blocks can be powered in two ways, and what they can
 
 Understanding this difference is the key to creating compact vertical circuits later in the course.
 
+---
+
 ### Lesson 0.3: Lab: The Fundamental Circuit
 
 Let’s combine these concepts to build a simple input to process to output circuit. This is the core pattern of every device we’ll make, from simple gates to a full CPU.
@@ -91,6 +92,8 @@ Let’s combine these concepts to build a simple input to process to output circ
     -   **Extend the signal:** Make your Redstone Dust wire `20` blocks long. The signal will not reach. Now, place a **Repeater** after block `14`. Observe how it refreshes the signal.
 
 You’ve just built your first working circuit and verified the core rules of Redstone. Every single build in this course is just a more complex version of this fundamental pattern.
+
+---
 
 ### Module 0 Checkpoint
 

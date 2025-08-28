@@ -1,8 +1,6 @@
 ## Module 3: From Binary to Pictures: Building a Digital Display
 
----
-
-### Module Summary
+### Module 3 Summary
 
 -   **Narrative Beat**: We've learned the computer's language. Now, let's build a translator so it can talk back to us. This is our first major engineering project, where we'll turn abstract binary signals into a number we can actually read.
 -   **Learning Goals**:
@@ -22,7 +20,7 @@
 
 ---
 
-### Module Introduction
+### Module 3 Introduction
 
 In the previous modules, you learned how to speak to your computer in binary and how to manipulate those signals with logic gates. But a computer that can only listen isn't very satisfying. We want it to talk back! This is our first large-scale engineering project, and with it comes a new way of thinking about building.
 
@@ -123,6 +121,8 @@ By scaling down the problem, we can focus on the core logic without getting over
     -   `L1` (for `01` or `1`) = `NOT B1 AND B0` ($ \neg B_1 \land B_0 $)
     -   `L2` (for `10` or `2`) = `B1 AND NOT B0` ($ B_1 \land \neg B_0 $)
     -   `L3` (for `11` or `3`) = `B1 AND B0` ($ B_1 \land B_0 $)
+
+---
 
 **Lab: Building the 2-to-4 Decoder**
 
@@ -422,8 +422,6 @@ Before connecting the encoder to the decoder, test all lines (`L0`–`L9`) indep
 
 This is your finished ROM, with every line programmed to map decoder inputs to segment outputs. The `L3` line is active here (LOW), lighting up the correct segments for a `3`. Cycle through inputs `L0`–`L9` to confirm each digit’s pattern. If any segments don’t light as expected, revisit your torch placements using the lookup table. You’ve just built a physical memory that “stores” the display patterns for all 10 digits!
 
----
-
 #### Real-World Connection: BIOS and Game Cartridges
 
 The "Diode Matrix" you've just built is a simple but powerful form of **Read-Only Memory (ROM)**. The "program" is physically burned into the circuit's layout by the placement of the torches. This exact principle was fundamental to early computing. A computer's **BIOS chip**, which tells it how to boot up, is a form of ROM. Old video game cartridges were also ROMs, with the entire game's data permanently stored in the hardware's structure. You've built the same technology!
@@ -467,8 +465,6 @@ print(hex(substituted))  # Outputs: 0xed
 
 This implementation is authentic and deployed in real-world cryptographic software, prioritizing performance and reliability. The table's fixed nature echoes ROM, as modifications would invalidate the standard. In embedded or hardware-accelerated scenarios, this data may indeed reside in physical ROM for added efficiency.
 
----
-
 #### Practice Problem 3.5.1: Design on Paper
 
 You are programming the line for the digit **`2`**. According to the lookup table, which perpendicular segment lines need a torch tap from the horizontal `L2` line?
@@ -498,6 +494,8 @@ If a segment that should be ON is OFF, it means it is not receiving power. The m
 > **Key Takeaway**: Connecting individual, tested modules into a complete, working system is the final and most rewarding step of any engineering project.
 
 The moment of truth has arrived. You’ve built and tested the decoder to identify numbers, the encoder to map them to segment patterns, and the 7-segment display to show the results. Now, it’s time to connect these modules and watch your digital display come to life, transforming binary inputs into human-readable digits. Taking modular pieces and creating a cohesive system, this is engineering at its finest!
+
+---
 
 #### Lab & Experiment: The Final Connection
 
@@ -542,7 +540,7 @@ Congratulations! You’ve engineered a complete system that translates 4-bit bin
 
 ---
 
-### Lesson 3.7: Module 3 Checkpoint
+### Module 3 Checkpoint
 
 #### Practice Problem 3.7.1: Knowledge Check
 
