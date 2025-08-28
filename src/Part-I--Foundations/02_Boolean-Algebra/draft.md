@@ -1,8 +1,6 @@
 ## Module 2: The Language of Logic – A Deep Dive into Boolean Algebra
 
----
-
-### Module Summary
+### Module 2 Summary
 
 -   **Narrative Beat:** We've built our keyboard, but to make the computer *think*, we need to learn its grammar. This isn't a Minecraft lesson; this is the fundamental language of all digital electronics. Welcome to Boolean Algebra.
 -   **Learning Goals:**
@@ -20,11 +18,9 @@
 
 ---
 
-### Module Introduction
+### Module 2 Introduction
 
 *For our build philosophy and the story behind this course, see the [main course introduction](../README.md).*
-
----
 
 Welcome back to Redstone University!
 
@@ -77,8 +73,6 @@ To ensure a complete understanding, every logic gate is introduced using a consi
 
 -   **Lab & Experiment:** A hands-on test to verify your Minecraft build against the gate's truth table.
 -   **Real-World Connection:** An example of where this logic is used in real technology.
-
----
 
 #### A Note on Our Primitives
 
@@ -185,8 +179,6 @@ While in real-world electronics, gates like NAND or NOR are often used as univer
     3.  **Verification:** Confirm the output lamp matches the truth table for each test.
 
 -   **Real-World Connection:** A security system might sound an alarm if `FrontDoorSensor=True` OR `BackDoorSensor=True`.
-
----
 
 #### Practice Problem 2.2.1: Boolean Expression Evaluation
 
@@ -301,8 +293,6 @@ Here are the key laws we will be using in our course. There are many more, but t
     -   `!(A AND B)` is the same as `!A OR !B`
     -   `!(A OR B)` is the same as `!A AND !B`
 
----
-
 #### Lab 1: Proving a Circuit with De Morgan's Law
 
 Let’s use De Morgan’s Law to prove our AND gate design is correct.
@@ -313,8 +303,6 @@ Let’s use De Morgan’s Law to prove our AND gate design is correct.
 4.  Applying De Morgan’s Law to the part in the parentheses: `!A OR !B` is the same as `!(A AND B)`.
 5.  Substituting that back in, our expression becomes `!(!(A AND B))`.
 6.  The two NOTs (`!!`) cancel each other out, leaving `A AND B`. We just proved our physical circuit is correct!
-
----
 
 #### Lab 2: Proving a Circuit with the Distributive Law
 
@@ -336,8 +324,6 @@ This looks like it would require two AND gates and one OR gate. Let's use the la
 
 **Lab Takeaway:** We have just proven that this entire three-gate circuit can be replaced by a single wire connected to input `A`. This is the power of simplification in action. It saves resources, space, and makes our designs more elegant.
 
----
-
 #### Summary Table: Boolean Laws
 
 | Law Name | Example(s) | Description |
@@ -353,8 +339,6 @@ This looks like it would require two AND gates and one OR gate. Let's use the la
 
 > **A Special Note on the Distributive Law:**
 > Notice that Boolean algebra has two distributive laws. The first one, `A AND (B OR C)`, looks very similar to the distributive law in regular algebra. However, the second one, `A OR (B AND C)`, is unique to Boolean logic. In the algebra you're used to, `a + (b * c)` does NOT equal `(a + b) * (a + c)`. This unique property of duality is one of the things that makes Boolean algebra so powerful for simplifying digital circuits.
-
----
 
 #### Functional Completeness: Building with Universal Gates
 
@@ -519,8 +503,6 @@ Now that you've seen how the XOR trick works, try applying the same core princip
 <details>
 <summary><strong>Show Solution</strong></summary>
 
----
-
 **The Logic:**
 
 The core idea is to XOR all the numbers that *should* be in the list against all the numbers that *are* actually in the list.
@@ -590,6 +572,8 @@ def missingNumber(nums):
 
 -   **Real-World Connection:** NOR gates are used in logic circuits needing a “neither” condition and are also functionally complete.
 
+---
+
 #### Operator 5: NAND (The "Not Both" Gate)
 
 ![NAND Gate in CircuitVerse](./images/NAND-gate_circuitverse.png)
@@ -627,6 +611,8 @@ def missingNumber(nums):
     3.  **Verification:** The output is `0` only when both inputs are `1`.
 
 -   **Real-World Connection:** NAND gates are key in hardware (e.g., memory circuits) due to their functional completeness.
+
+---
 
 #### Operator 6: XNOR (The "Equality Detector")
 
@@ -820,5 +806,3 @@ This was a huge module! But you now have the most powerful tool an engineer can 
 > You have successfully completed Module 2. Congratulations!
 > Before you move on to the next project, we have a special, optional section called an "Interlude." In this module, we focused on building for clarity, making our gates large so the logic was easy to see. The Interlude introduces the art of building for efficiency and compact design.
 > Think of it as your first engineering deep-dive. You can read it now, or you can come back to it at any time. The choice is yours.
-
----

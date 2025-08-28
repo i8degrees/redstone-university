@@ -13,6 +13,7 @@
     -   Lesson 0.1: The Engineer's Toolkit
     -   Lesson 0.2: How Redstone Thinks: The Rules of Power
     -   Lesson 0.3: Lab: The Fundamental Circuit
+    -   Module 0 Checkpoint
 -   **Minecraft Artifact:** A working on/off lamp circuit using a lever, wire, and output lamp.
 
 ### Module 1: Speaking in 1s and 0s - The Input Interface
@@ -22,7 +23,7 @@
     -   Lesson 1.1: The Theory – Why Computers Use Binary
     -   Lesson 1.2: The Lab – Building and Using Our 4-Bit Input Interface
     -   Lesson 1.3: Drills & Games – Strengthening Your Binary Intuition
-    -   Lesson 1.4: Module 1 Checkpoint
+    -   Module 1 Checkpoint
 -   **Minecraft Artifact:** A working 4-bit input interface for binary numbers.
 
 ### Module 2: The Language of Logic - A Deep Dive into Boolean Algebra
