@@ -25,7 +25,10 @@ A consistent structure helps students navigate the material and understand the h
 
 **General Rules**:
 -   Use sentence case for all titles (capitalize the first word and any proper nouns).
--   Use `---` separators between major sections like lessons and checkpoints.
+-   Use `---` separators between major sections (those with ### headings) like lessons, summaries, and checkpoints.
+-   A separator may also be used within a lesson to improve readability under two specific conditions:
+    1. To separate theory from practice: Place a separator before a major, hands-on lab section (e.g., #### Lab & Experiment).
+    2. To separate distinct sub-topics: In a lesson covering multiple similar items, place a separator between each item's dedicated section (e.g., between each logic gate explanation in Module 2).
 -   Do not use `#` level headings; they are reserved for the main `Part` introductions.
 
 ---
