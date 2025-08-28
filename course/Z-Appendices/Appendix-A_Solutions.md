@@ -134,8 +134,6 @@ Now that you've seen how the XOR trick works, try applying the same core princip
 > **Hint:**
 > Think about the two groups of numbers you're dealing with: the list you *have* and the complete list you *should have*. How can you use XOR's self-canceling property to find the single difference between these two groups?
 
----
-
 **The Logic:**
 
 The core idea is to XOR all the numbers that *should* be in the list against all the numbers that *are* actually in the list.

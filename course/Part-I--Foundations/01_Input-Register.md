@@ -1,8 +1,6 @@
 ## Module 1: Speaking in 1s and 0s – The Input Interface
 
----
-
-### Module Summary
+### Module 1 Summary
 
 - **Narrative Beat:** Before we can build a computer, we need a way to talk to it. Our language will be binary, and our input interface will be a set of simple levers.
 - **Learning Goals:**
@@ -18,7 +16,7 @@
 
 ---
 
-### Module Introduction
+### Module 1 Introduction
 
 Welcome to your first day at Redstone University!
 
@@ -144,7 +142,7 @@ While not the ideal version of a game, this is a great way to build speed. Pick 
 
 ---
 
-### Lesson 1.4: Module 1 Checkpoint
+### Module 1 Checkpoint
 
 #### Practice Problem 1.4.1: Knowledge Check
 
