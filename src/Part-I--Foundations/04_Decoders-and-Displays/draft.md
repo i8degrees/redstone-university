@@ -1,6 +1,6 @@
-## Module 3: From Binary to Pictures: Building a Digital Display
+## Module 4: From Binary to Pictures: Building a Digital Display
 
-### Module 3 Summary
+### Module 4 Summary
 
 -   **Narrative Beat**: We've learned the computer's language. Now, let's build a translator so it can talk back to us. This is our first major engineering project, where we'll turn abstract binary signals into a number we can actually read.
 -   **Learning Goals**:
@@ -9,18 +9,18 @@
     -   Master "active-low" logic and its practical application in Redstone.
     -   Build a functional Diode Matrix and understand its role as a form of Read-Only Memory (ROM).
 -   **Lesson Overview**:
-    -   **Lesson 3.1**: The Goal: Building Our 7-segment display
-    -   **Lesson 3.2**: The Master Plan: A Two-Stage Translation
-    -   **Lesson 3.3**: The Decoder Lab: A Simple "Brute-Force" Build
-    -   **Lesson 3.4**: The Decoder Solution: An Elegant, Compact Design
-    -   **Lesson 3.5**: The Encoder: Building a "Diode Matrix" ROM
-    -   **Lesson 3.6**: The Grand Payoff: The Final Connection
-    -   **Lesson 3.7**: Module 3 Checkpoint
+    -   **Lesson 4.1**: The Goal: Building Our 7-segment display
+    -   **Lesson 4.2**: The Master Plan: A Two-Stage Translation
+    -   **Lesson 4.3**: The Decoder Lab: A Simple "Brute-Force" Build
+    -   **Lesson 4.4**: The Decoder Solution: An Elegant, Compact Design
+    -   **Lesson 4.5**: The Encoder: Building a "Diode Matrix" ROM
+    -   **Lesson 4.6**: The Grand Payoff: The Final Connection
+    -   Module 4 Checkpoint
 -   **Minecraft Artifact**: A working two-stage translator: a 4-to-10 BCD decoder and a 7-segment display encoder, forming a complete digital display system.
 
 ---
 
-### Module 3 Introduction
+### Module 4 Introduction
 
 In the previous modules, you learned how to speak to your computer in binary and how to manipulate those signals with logic gates. But a computer that can only listen isn't very satisfying. We want it to talk back! This is our first large-scale engineering project, and with it comes a new way of thinking about building.
 
@@ -30,17 +30,17 @@ In the previous modules, you learned how to speak to your computer in binary and
 >
 > When a diagram or instruction says to "Build an AND gate," **how you choose to build it is now up to you.**
 >
-> -   You can build the verbose, easy-to-read version from Module 2.
+> -   You can build the verbose, easy-to-read version from previous modules.
 > -   You can use a smaller, more efficient version from the Interlude.
 > -   You can design your own!
 >
 > As long as your component functions according to its truth table, it is a valid build. This freedom is a major step in your journey from student to engineer. The preceding Interlude, **The Art of Compact Design**, gives you the foundation for making these choices.
 >
-> If you are ever unsure, the verbose builds from Module 2 are guaranteed to work.
+> If you are ever unsure, the verbose builds from previous versions are guaranteed to work.
 
 ---
 
-### Lesson 3.1: The Goal: Building Our 7-segment display
+### Lesson 4.1: The Goal: Building Our 7-segment display
 
 > **Key Takeaway**: A 7-segment display is a standard output device that uses seven independent segments to form numbers. Understanding how to control it manually is the first step to controlling it automatically.
 
@@ -80,7 +80,7 @@ Before we build the complex logic to control this display automatically, let's g
 
 ---
 
-### Lesson 3.2: The Master Plan: A Two-Stage Translation
+### Lesson 4.2: The Master Plan: A Two-Stage Translation
 
 > **Key Takeaway**: Complex engineering problems are best solved by breaking them down into smaller, simpler, manageable stages. The "plan" for our encoder is essentially a lookup table.
 
@@ -101,7 +101,7 @@ This modular, two-stage approach is the heart of good engineering. It's easier t
 
 ---
 
-### Lesson 3.3: The Decoder Lab: A Simple "Brute-Force" Build
+### Lesson 4.3: The Decoder Lab: A Simple "Brute-Force" Build
 
 > **Key Takeaway**: A decoder can be built by assigning one AND gate to recognize each unique binary input. This "brute-force" method is clear but does not scale well.
 
@@ -176,7 +176,7 @@ In the next lesson, we will learn a far more elegant and compact solution.
 
 ---
 
-### Lesson 3.4: The Decoder Lab, Part 2: An Elegant, Compact Solution
+### Lesson 4.4: The Decoder Lab, Part 2: An Elegant, Compact Solution
 
 > **Key Takeaway**: By using an "active-low" design and two clever types of "taps" (Repeater and Torch), we can build a decoder that is vastly smaller and more efficient.
 
@@ -281,7 +281,7 @@ Cycle through inputs `0000` to `1001`. Verify that only one lamp is lit for each
 
 ---
 
-#### Practice Problem 3.4.1: Design on Paper
+#### Practice Problem 4.4.1: Design on Paper
 
 Before you build, an engineer must be able to plan. For output line **`L6` (Identity: `0110`)**, what taps would you need? List out which type of tap (Repeater or Torch) is required for each of the four bus lines (`B3`, `B2`, `B1`, `B0`).
 
@@ -296,7 +296,7 @@ Applying our rule:
 
 </details>
 
-#### Practice Problem 3.4.2: Debug Challenge
+#### Practice Problem 4.4.2: Debug Challenge
 
 You've built your decoder, but something is wrong. When you set the input levers to **`1001`** (for the number `9`), you notice that the lamp for `L9` is on (which is correct), but the lamp for **`L8`** is *also* on (which is incorrect).
 
@@ -321,7 +321,7 @@ The tap for `B0` on the `L8` line is supposed to detect this mismatch and power 
 
 ---
 
-### Lesson 3.5: The Encoder: Programming a "Diode Matrix" ROM
+### Lesson 4.5: The Encoder: Programming a "Diode Matrix" ROM
 
 > **Key Takeaway**: An encoder can be built as a physical Read-Only Memory (ROM) using a "diode matrix," where the layout of the wiring permanently stores the data for how to draw each number.
 
@@ -465,7 +465,7 @@ print(hex(substituted))  # Outputs: 0xed
 
 This implementation is authentic and deployed in real-world cryptographic software, prioritizing performance and reliability. The table's fixed nature echoes ROM, as modifications would invalidate the standard. In embedded or hardware-accelerated scenarios, this data may indeed reside in physical ROM for added efficiency.
 
-#### Practice Problem 3.5.1: Design on Paper
+#### Practice Problem 4.5.1: Design on Paper
 
 You are programming the line for the digit **`2`**. According to the lookup table, which perpendicular segment lines need a torch tap from the horizontal `L2` line?
 
@@ -476,7 +476,7 @@ The digit `2` uses segments **`a`, `b`, `d`, `e`, and `g`**. Therefore, you woul
 
 </details>
 
-#### Practice Problem 3.5.2: Debug Challenge
+#### Practice Problem 4.5.2: Debug Challenge
 
 When you test your encoder by providing a LOW signal to the `L4` line, you expect to see the digit `4` (segments `b, c, f, g`). Instead, the display shows `b, c, f` but **segment `g` remains dark**. What is the most likely cause of this error?
 
@@ -489,7 +489,7 @@ If a segment that should be ON is OFF, it means it is not receiving power. The m
 
 ---
 
-### Lesson 3.6: The Grand Payoff: System Integration
+### Lesson 4.6: The Grand Payoff: System Integration
 
 > **Key Takeaway**: Connecting individual, tested modules into a complete, working system is the final and most rewarding step of any engineering project.
 
@@ -540,9 +540,9 @@ Congratulations! You’ve engineered a complete system that translates 4-bit bin
 
 ---
 
-### Module 3 Checkpoint
+### Module 4 Checkpoint
 
-#### Practice Problem 3.7.1: Knowledge Check
+#### Practice Problem 4.7.1: Knowledge Check
 
 1.  Why is a two-stage (Decoder → Encoder) design generally better than a single, complex circuit?
 2.  What is the purpose of the **Repeater Tap** in our compact decoder? Why can't we just use Redstone dust?
@@ -557,7 +557,7 @@ Congratulations! You’ve engineered a complete system that translates 4-bit bin
 
 </details>
 
-#### Practice Problem 3.7.2: Decoder Design
+#### Practice Problem 4.7.2: Decoder Design
 
 You want to add a special output line, `LE`, that lights up only for even numbers (`0`, `2`, `4`, `6`, `8`). You realize that for all even numbers, the `B0` bit is always `0`. What is the single tap you would need to build a simple detector for this?
 
@@ -568,7 +568,7 @@ You want the lamp to be ON only when `B0` is `0`. Our active-low system turns th
 
 </details>
 
-#### Practice Problem 3.7.3: Encoder Design
+#### Practice Problem 4.7.3: Encoder Design
 
 The letter 'A' can be made with segments `a, b, c, e, f, g`. According to the design of our ROM, which segment line is the *only one* that would **not** have a torch tap placed on it from the `LA` input line?
 
@@ -579,7 +579,7 @@ The line for the letter 'A' would need to activate every segment *except* for se
 
 </details>
 
-#### Practice Problem 3.7.4: Reverse Engineering
+#### Practice Problem 4.7.4: Reverse Engineering
 
 You see a line in a decoder that has Torch Taps on `B2` and `B1`, and Repeater Taps on `B3` and `B0`. What decimal number is this line designed to detect?
 
@@ -590,7 +590,7 @@ Torches are for `1`s, Repeaters are for `0`s. So the identity is `0110`. This is
 
 </details>
 
-#### Practice Problem 3.7.5: Debug Challenge
+#### Practice Problem 4.7.5: Debug Challenge
 
 In the world download for this module, you will find a section labeled "Module 3 Debug Challenge." The display system is fully connected. When you input **`0010`** (for the number 2), the display incorrectly shows a **`6`**.
 
@@ -629,7 +629,7 @@ This points to a catastrophic failure in the "programming" of the `L2` line in y
 
 ---
 
-### Module 3 Conclusion
+### Module 4 Conclusion
 
 This was a massive milestone. You didn't just build a circuit; you engineered a complete system. By breaking a complex problem down into distinct, logical stages, you built something complex in a way that was manageable, testable, and understandable. You have now mastered the concepts of binary-to-decimal decoding and using a hardware ROM to drive an output, two fundamental building blocks of digital electronics.
 
