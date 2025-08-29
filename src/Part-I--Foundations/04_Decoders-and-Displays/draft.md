@@ -53,7 +53,7 @@ The answer is the **7-segment display**, a classic output device found in everyt
 ![7-segment display labeled](./images/7-segment-display_labeled.png)
 *Figure: The standard labeling for the segments of a 7-segment display.*
 
-By lighting up specific combinations of these seven segments, we can display any digit from `` `0` `` to `` `9` ``.
+By lighting up specific combinations of these seven segments, we can display any digit from `0` to `9`.
 
 ---
 
@@ -74,10 +74,10 @@ Before we build the complex logic to control this display automatically, let's g
 
 > **Note**: The levers are on the back of the display, so keep that in mind when flipping specific segments. It might help to label the segments with a sign by the lever that controls it for this exercise.
 
-1.  Flip the levers for segments **`b`** and **`c`**. You should see the digit **`` `1` ``**.
-2.  Now, try to display the digit **`` `7` ``**. (You'll need segments `a`, `b`, and `c`).
-3.  Next, create the digit **`` `4` ``**. (This requires segments `f`, `g`, `b`, and `c`).
-4.  **Challenge**: Try to form the digit **`` `8` ``**. What do you notice? Now try to form the digit **`` `2` ``**.
+1.  Flip the levers for segments **`b`** and **`c`**. You should see the digit **`1`**.
+2.  Now, try to display the digit **`7`**. (You'll need segments `a`, `b`, and `c`).
+3.  Next, create the digit **`4`**. (This requires segments `f`, `g`, `b`, and `c`).
+4.  **Challenge**: Try to form the digit **`8`**. What do you notice? Now try to form the digit **`2`**.
 
 ---
 
@@ -106,7 +106,7 @@ This modular, two-stage approach is the heart of good engineering. It's easier t
 
 > **Key Takeaway**: A decoder can be built by assigning one AND gate to recognize each unique binary input. This "brute-force" method is clear but does not scale well.
 
-Before we tackle our full 4-bit to 10-line decoder, let's build a smaller, simpler version to prove the concept. We are going to build a **2-bit to 4-line decoder**. This circuit will take a 2-bit binary input (`` `00` ``, `` `01` ``, `` `10` ``, `` `11` ``) and light up one of four corresponding output lamps ($L0$, $L1$, $L2$, $L3$) representing those values in decimal (`` `0` ``, `` `1` ``, `` `2` ``, `` `3` ``).
+Before we tackle our full 4-bit to 10-line decoder, let's build a smaller, simpler version to prove the concept. We are going to build a **2-bit to 4-line decoder**. This circuit will take a 2-bit binary input (`00`, `01`, `10`, `11`) and light up one of four corresponding output lamps ($L0$, $L1$, $L2$, $L3$) representing those values in decimal (`0`, `1`, `2`, `3`).
 
 By scaling down the problem, we can focus on the core logic without getting overwhelmed. This is a common engineering practice: start small, prove the concept, then scale up. I'm calling this a "brute-force" method because we will build a separate AND gate for each output, rather than using a more elegant design, which we will learn in the next lesson.
 
@@ -115,13 +115,13 @@ By scaling down the problem, we can focus on the core logic without getting over
 
 #### The Logic on Paper
 
--   **Inputs**: $B1$ (the "`` `2` ``s" place), $B0$ (the "`` `1` ``s" place)
+-   **Inputs**: $B1$ (the "`2`s" place), $B0$ (the "`1`s" place)
 -   **Outputs**: $L0$, $L1$, $L2$, $L3$
 -   **Logic Gates**: We need one 2-input AND gate for each output.
-    -   $L0$ (for `` `00` `` or `` `0` ``) = $\text{NOT } B1 \text{ AND } \text{NOT } B0$ ($\neg B1 \land \neg B0$)
-    -   $L1$ (for `` `01` `` or `` `1` ``) = $\text{NOT } B1 \text{ AND } B0$ ($\neg B1 \land B0$)
-    -   $L2$ (for `` `10` `` or `` `2` ``) = $B1 \text{ AND } \text{NOT } B0$ ($B1 \land \neg B0$)
-    -   $L3$ (for `` `11` `` or `` `3` ``) = $B1 \text{ AND } B0$ ($B1 \land B0$)
+    -   $L0$ (for `00` or `0`) = $\text{NOT } B1 \text{ AND } \text{NOT } B0$ ($\neg B1 \land \neg B0$)
+    -   $L1$ (for `01` or `1`) = $\text{NOT } B1 \text{ AND } B0$ ($\neg B1 \land B0$)
+    -   $L2$ (for `10` or `2`) = $B1 \text{ AND } \text{NOT } B0$ ($B1 \land \neg B0$)
+    -   $L3$ (for `11` or `3`) = $B1 \text{ AND } B0$ ($B1 \land B0$)
 
 ---
 
