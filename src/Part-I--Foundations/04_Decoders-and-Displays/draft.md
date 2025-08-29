@@ -15,7 +15,6 @@
     -   **Lesson 4.4**: The Decoder Solution: An Elegant, Compact Design
     -   **Lesson 4.5**: The Encoder: Building a "Diode Matrix" ROM
     -   **Lesson 4.6**: The Grand Payoff: The Final Connection
-    -   Module 4 Checkpoint
 -   **Minecraft Artifact**: A working two-stage translator: a 4-to-10 BCD decoder and a 7-segment display encoder, forming a complete digital display system.
 
 ---
