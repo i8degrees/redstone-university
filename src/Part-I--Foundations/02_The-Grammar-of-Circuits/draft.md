@@ -126,7 +126,7 @@ NOT logic is everywhere. It's used to create the oscillating signal in a compute
 ![OR Gate in CircuitVerse](./images/OR-gate_circuitverse.png)
 *Figure: The abstract symbol for the OR gate (left) and its function in a circuit (right). The output $Y$ is active if input $A$, $B$, or both are active.*
 
--   **Formal Definition:** The OR gate performs logical **Disjunction**. Think of it as the optimisitc gate; it checks if *any* of its inputs are True.
+-   **Formal Definition:** The OR gate performs logical **Disjunction**. Think of it as the optimistic gate; it checks if *at least one* of its inputs are True.
 -   **Symbols:** $A \text{ OR } B$ ($A \lor B$), `A || B` (programming).
 -   **The Rule:** The output is True if $A$ is True, OR $B$ is True, or if both are True.
 -   **Truth Table: OR Gate**
@@ -333,6 +333,6 @@ Design and build a Minecraft circuit that implements the logic $A \text{ AND } (
 
 ### Module 2 Conclusion
 
-Huzzah! You've successfully taken your first steps into the world of digital logic. You started with the abstract idea of Boolean Algebra and ended by building physical, working circuits that obey its laws. You now understand the three foundational gates—NOT, OR, and AND—and have experienced the core engineering principle of building complex components from simpler ones.
+Excellent work. You've successfully taken your first steps into the world of digital logic. You started with the abstract idea of Boolean Algebra and ended by building physical, working circuits that obey its laws. You now understand the three foundational gates—NOT, OR, and AND—and have experienced the core engineering principle of building complex components from simpler ones.
 
 You have built the essential "verbs" of our computer's language. In the next module, **The Art of Logic**, we will expand our vocabulary with more specialized gates and learn the powerful techniques of simplification that allow engineers to design circuits that are not only correct, but also elegant and efficient.
