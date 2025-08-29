@@ -8,20 +8,20 @@ This style guide ensures that all content for the Redstone University project is
 
 A consistent structure helps students navigate the material and understand the hierarchy of information.
 
-*   `##` **Module Titles**: Used for the main title of each module.
-    *   **Format**: `## Module X: Title – Subtitle`
-    *   **Example**: `## Module 2: The Language of Logic – A Deep Dive into Boolean Algebra`
-    *   *Note: Use an en dash (–) for subtitles.*
+-   `##` **Module Titles**: Used for the main title of each module.
+    -   **Format**: `## Module X: Title – Subtitle`
+    -   **Example**: `## Module 2: The Language of Logic – A Deep Dive into Boolean Algebra`
+    -   *Note: Use an en dash (–) for subtitles.*
 
-*   `###` **Lesson and Section Titles**: Used for individual lessons and major module sections.
-    *   **Lessons**: `### Lesson X.Y: Title` (e.g., `### Lesson 2.1: The Rules of Thought`)
-    *   **Major Sections**: `### Module Summary`, `### Module Introduction`, `### Module Conclusion`, `### Module X Checkpoint`
+-   `###` **Lesson and Section Titles**: Used for individual lessons and major module sections.
+    -   **Lessons**: `### Lesson X.Y: Title` (e.g., `### Lesson 2.1: The Rules of Thought`)
+    -   **Major Sections**: `### Module Summary`, `### Module Introduction`, `### Module Conclusion`, `### Module X Checkpoint`
 
-*   `####` **Subsections**: Used for all standard sections within a lesson or checkpoint.
-    *   **Standard Subsections**: `#### The Theory`, `#### Lab & Experiment`, `#### Real-World Connection`, `#### Software Connection`, `#### Key Terms`.
-    *   **Practice Problems**: `#### Practice Problem X.Y.Z: Title`
+-   `####` **Subsections**: Used for all standard sections within a lesson or checkpoint.
+    -   **Standard Subsections**: `#### The Theory`, `#### Lab & Experiment`, `#### Real-World Connection`, `#### Software Connection`, `#### Key Terms`.
+    -   **Practice Problems**: `#### Practice Problem X.Y.Z: Title`
 
-*   `#####` **Sub-subsections**: Avoid using this level to maintain a clean structure. Standardize all nested content (like old puzzle headers) to `####`.
+-   `#####` **Sub-subsections**: Avoid using this level to maintain a clean structure. Standardize all nested content (like old puzzle headers) to `####`.
 
 **General Rules**:
 -   Use sentence case for all titles (capitalize the first word and any proper nouns).
@@ -38,21 +38,21 @@ A consistent structure helps students navigate the material and understand the h
 Practice problems are a critical learning tool. Their formatting and placement should be predictable and clear.
 
 **Placement**:
-*   Place individual practice problems directly after the relevant lesson content.
-*   Group cumulative problems under the `### Module X Checkpoint` section at the end of a module.
+-   Place individual practice problems directly after the relevant lesson content.
+-   Group cumulative problems under the `### Module X Checkpoint` section at the end of a module.
 
 **Formatting**:
-*   **Header**: Every problem must have a unique header.
-    *   **Format**: `#### Practice Problem X.Y.Z: Title`
-    *   **Numbering (`X.Y.Z`)**:
-        *   `X`: Module number.
-        *   `Y`: Lesson number.
-        *   `Z`: Sequential order within that lesson.
-    *   **Title**: Give a descriptive title (e.g., *Knowledge Check*, *Debug Challenge*, *The Simplification*).
+-   **Header**: Every problem must have a unique header.
+    -   **Format**: `#### Practice Problem X.Y.Z: Title`
+    -   **Numbering (`X.Y.Z`)**:
+        -   `X`: Module number.
+        -   `Y`: Lesson number.
+        -   `Z`: Sequential order within that lesson.
+    -   **Title**: Give a descriptive title (e.g., *Knowledge Check*, *Debug Challenge*, *The Simplification*).
 
-*   **Solution**: All solutions must be enclosed in a `<details>` block for a clean, toggleable view.
-    *   **Summary Tag**: Always use `<summary><strong>Show Solution</strong></summary>`. This creates a consistent button for all solutions.
-    *   **Content**: Inside the block, use bolding for subsections like **Logic:** or **Truth Table:** to guide the student.
+-   **Solution**: All solutions must be enclosed in a `<details>` block for a clean, toggleable view.
+    -   **Summary Tag**: Always use `<summary><strong>Show Solution</strong></summary>`. This creates a consistent button for all solutions.
+    -   **Content**: Inside the block, use bolding for subsections like **Logic:** or **Truth Table:** to guide the student.
 
 **Example Checkpoint Structure**:
 
@@ -83,12 +83,12 @@ Practice problems are a critical learning tool. Their formatting and placement s
 
 To reinforce learning, key terms are defined and collected at the end of each module's checkpoint.
 
-*   **Placement**: Always the last subsection within a `### Module X Checkpoint`.
-*   **Header**: `#### Key Terms`.
-*   **Format**:
-    *   Use a bulleted list.
-    *   Bold each term, followed by a colon.
-    *   Alphabetize the terms within the list.
+-   **Placement**: Always the last subsection within a `### Module X Checkpoint`.
+-   **Header**: `#### Key Terms`.
+-   **Format**:
+    -   Use a bulleted list.
+    -   Bold each term, followed by a colon.
+    -   Alphabetize the terms within the list.
 
 **Example**:
 ```markdown
@@ -99,60 +99,72 @@ To reinforce learning, key terms are defined and collected at the end of each mo
 
 ---
 
-## 4. Markdown and Formatting Style
+### 4. Markdown and Formatting Style
 
-Consistent formatting creates a professional and readable course.
+... *(previous content from your guide)* ...
 
-*   **Emphasis**:
-    *   **Bold**: Use for key terms, section labels (**Key Takeaway:**), and strong emphasis.
-    *   *Italics*: Use for figure captions (*Figure: A working AND gate.*) and subtle emphasis.
+#### Inline Code and Numbers: A Critical Standard
 
-*   **Images**: `![Alt text](./images/path.png)`, followed by an italicized caption on the next line.
+This is the most detailed formatting rule in the guide. Its purpose is to create a clear, consistent, and professional distinction between abstract mathematical concepts, literal data values, and simple descriptive text.
 
-*   **Blockquotes**: Use `>` for important notes or takeaways that should stand out.
-    *   **Example**: `> **Engineering Note:** The Redstone Repeater acts as a perfect diode.`
+**1. Use LaTeX (`$ ... $`) for Abstract Concepts**
 
-*   **Code Blocks**: Use for all code snippets (Python, etc.) and multi-line Boolean expressions. Specify the language for syntax highlighting (e.g., ` ```python `).
+This applies to all mathematical and logical ideas, including **variables**, full **expressions**, and the formal logical **constants** for True and False.
 
-*   **Lists**:
-    *   Use numbered lists (`1.`) for sequential steps.
-    *   Use bulleted lists (`-`) for non-sequential items.
+-   **Variables:** `$A$`, `$B$`, `$Y$`
+-   **Expressions:** `$A \lor (\neg B \cdot C)`
+-   **Logical Constants:** In the context of a mathematical proof or law, use `$1$` for True and `$0$` for False.
+    -   **Good**: The Identity Law states that $A \land 1 = A$.
+    -   **Good**: We know from the Inverse Law that $B \lor \neg B$ always simplifies to the constant `$1$` (True).
+    -   **Bad**: The law is `A AND 1 = A`. (Hard to read).
 
-*   **Tables**: Use Markdown tables for truth tables and summaries. Always center-align columns (`:---:`).
+**2. Use Backticks (`` ` ``) for Literal Values and Code**
 
-*   **Punctuation**: Use en dashes (`–`) for subtitles and ranges, not em dashes (`—`). Use a single space after periods.
+This applies to all concrete, physical data values and code snippets. It represents the actual state of a wire, a number being input, or a line of code.
 
-### Inline Code and Numbers: A Critical Standard
+-   **Data Values:** `` `1` ``, `` `0` ``
+-   **Binary/Decimal/Hex Strings:** `` `1101` ``, `` `13` ``, `` `0xD` ``
+-   **Code:** `` `if (is_ready)` ``
+    -   **Good**: A Redstone signal can be either `1` (ON) or `0` (OFF).
+    -   **Good**: Set the input levers to `1011` to represent the number `13`.
+    -   **Bad**: A signal can be either $1$ or $0$. (These are values, not constants).
 
-This is the most detailed formatting rule. Its goal is to distinguish between descriptive text and raw data values.
+**3. Do Not Format Descriptive Numbers**
 
-*   **DO** use backticks (`` ` ``) for standalone numbers that represent data values.
-    *   **Good**: The binary value is `1011`. This is equal to `11` in decimal or `0xB` in hex.
-    *   **Good**: Add the numbers `8`, `4`, and `1`.
+If a number is used as part of a descriptive phrase (like an adjective), it should be plain text.
 
-*   **DO NOT** use backticks for numbers that are part of a descriptive phrase.
-    *   **Bad**: Our `4-bit` computer uses a `7-segment` display.
-    *   **Good**: Our 4-bit computer uses a 7-segment display.
+-   **Good**: Our 4-bit computer uses a 7-segment display.
+-   **Bad**: Our `4-bit` computer uses a `7-segment` display.
 
-*   **DO** use LaTeX math mode (`$...$`) for mathematical equations and logical expressions.
-    *   **Good**: The sum is $8 + 4 + 1 = 13$. The value is $2^4$.
-    *   **Good**: The expression is $A \text{ AND } B$ ($A \land B$). Use dual notation for clarity.
+---
 
-*   **Summary Table**:
+**Putting It All Together: The "Universe" Test**
 
-| Context                                | Correct Formatting Example         | Incorrect Formatting Example        |
-| -------------------------------------- | ---------------------------------- | ----------------------------------- |
-| Standalone data value                  | `1101`, `13`, `0xD`                | 1101, $13$                          |
-| Number within a descriptive phrase     | a 4-bit adder, a 2-to-4 decoder    | a `4-bit` adder, a `2-to-4` decoder |
-| Mathematical or logical equation       | $Y = A + (!B \cdot C)$             | `Y = A + (!B * C)`                  |
+The key is to identify if you are talking about the **abstract universe of math** or the **physical universe of the circuit**.
 
+-   **Abstract (Math):** The expression `$A \lor 0$` is governed by the Annihilator Law. The variable `$A$` and the constant `$0$` are mathematical concepts.
+-   **Physical (Circuit):** To test this, we set the lever for input `$A$` to the value `1`. The signal on the wire is now `1`.
+
+This clear separation in formatting makes complex sentences easy to parse and understand.
+
+> **Best Practice for LaTeX:** To prevent conflicts with Markdown's parser, use proper LaTeX commands instead of ambiguous characters. For example, use `\cdot` or `\times` for multiplication instead of `*`. Use `\text{...}` for embedding normal words inside a formula, like in `$A \text{ OR } B$`.
+
+---
+
+**Summary Table:**
+
+| Context | Correct Formatting Example | Incorrect Formatting Example(s) |
+| :--- | :--- | :--- |
+| **Logical/Mathematical Concept**<br>(Variable, Expression, or Constant) | `$A$`, `$A \land B$`, `$1$` | `A`, `` `A` ``, `` `$A$` `` |
+| **Literal Data Value**<br>(Physical state, code, numerical string) | `` `1` ``, `` `0` ``, `` `1011` ``, `` `count = 0` `` | `1`, `$1$` |
+| **Descriptive Number**<br>(Used as an adjective in a sentence) | a 4-bit adder | a `` `4-bit` `` adder, a `$4$`-bit adder |
 ---
 
 ## 5. Content and Tone
 
-*   **Tone**: Maintain an engaging, educational, and narrative-driven voice. The course follows a personal journey of discovery.
-*   **Standard Sections**: Use sections like **Key Takeaway**, **Lab & Experiment**, **Real-World Connection**, and **Software Connection** to frame the content and connect theory to practice.
-*   **Module Flow**: Ensure each module follows the standard structure:
+-   **Tone**: Maintain an engaging, educational, and narrative-driven voice. The course follows a personal journey of discovery.
+-   **Standard Sections**: Use sections like **Key Takeaway**, **Lab & Experiment**, **Real-World Connection**, and **Software Connection** to frame the content and connect theory to practice.
+-   **Module Flow**: Ensure each module follows the standard structure:
     1.  `### Module Summary`
     2.  `### Module Introduction`
     3.  `### Lesson X.Y: Title` (as many as needed)
@@ -165,11 +177,11 @@ This is the most detailed formatting rule. Its goal is to distinguish between de
 
 After applying these standards, perform the following checks:
 
-*   **Manual Review**:
-    *   Confirm every `<details>` block has the correct header and summary format.
-    *   Verify that `#### Key Terms` is the last section in every checkpoint and that its terms are alphabetized.
-*   **Scripted Tests**:
-    *   Run `extract_solutions.py` and `extract_key_terms.py` to ensure the appendices are generated correctly.
-*   **Rendering Checks**:
-    *   Confirm the content renders correctly on the target web platform (e.g., GitHub).
-    *   Generate a PDF using `combine_for_pdf.py` and Pandoc to check for formatting errors.
+-   **Manual Review**:
+    -   Confirm every `<details>` block has the correct header and summary format.
+    -   Verify that `#### Key Terms` is the last section in every checkpoint and that its terms are alphabetized.
+-   **Scripted Tests**:
+    -   Run `extract_solutions.py` and `extract_key_terms.py` to ensure the appendices are generated correctly.
+-   **Rendering Checks**:
+    -   Confirm the content renders correctly on the target web platform (e.g., GitHub).
+    -   Generate a PDF using `combine_for_pdf.py` and Pandoc to check for formatting errors.
