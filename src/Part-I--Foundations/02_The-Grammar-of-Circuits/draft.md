@@ -258,7 +258,11 @@ Design a circuit that implements the logic $A \text{ AND } (\text{NOT } B)$ ($A 
 
 **Boolean Expression**: The expression $A \land (\neg B)$ is equivalent to $\text{NOT}(\text{NOT } A \text{ OR } B)$ ($\neg(\neg A \lor B)$) by De Morgan’s Law.
 
-**Minecraft Circuit**: Invert $A$ to get the signal for $\neg A$. Then, take that $\neg A$ signal and the original $B$ signal and feed them into an OR gate. Finally, invert the result of that OR gate with a final NOT gate.
+**Minecraft Circuit**: This requires building a composite AND gate where one of the inputs is inverted first.
+1. Create inputs for $A$ and $B$.
+2. Use a Redstone Torch on the $B$ input line to create the signal for $\neg B$.
+3. Feed the original $A$ signal and the new $\neg B$ signal into a standard composite AND gate (built from two NOTs and an OR, as shown in the lesson).
+4. Connect the output to a lamp and test all four states.
 
 </details>
 
