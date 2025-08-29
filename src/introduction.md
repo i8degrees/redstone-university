@@ -1,6 +1,5 @@
 ![Redstone University Logo](project_assets/logo.png)
 
-
 ## Welcome to Redstone University!
 
 Have you ever used a computer or a smartphone and wondered what’s *really* happening inside? Not just the software, but the deep, physical magic of a machine that seems to "think"?
@@ -42,12 +41,14 @@ You’ll find:
 
 ### The Journey Ahead
 
--   **Part I: The Foundations - Speaking to the Machine.** We will begin by learning the absolute basics of Redstone and binary. We will then master the grammar of Boolean logic and use it to construct our own "keyboard" and "monitor."
+-   **Part I: The Foundations - Speaking to the Machine.** We will begin by learning the absolute basics of Redstone and binary. We will then master the grammar of Boolean logic and use it to construct a input interface, 4-to-10 decoder, 10-to-7 encoder, and a 7-segment digital display.
     -   **Module 0 (Optional):** The Redstone Toolkit
     -   **Module 1:** The 4-Bit Input Interface
-    -   **Module 2:** The Language of Logic
-    -   **Interlude (Optional):** The Art of Compact Design
-    -   **Module 3:** Decoders & Digital Displays
+    -   **Module 2:** The Grammar of Circuits – Foundational Logic Gates
+    -   **Module 3:** The Art of Logic – Simplification and Special Gates
+    -   **Interlude I (Optional):** The Art of Compact Design
+    -   **Module 4:** Decoders & Digital Displays
+    -   **Interlude II (Optional):** The Power of Abstraction in Practice
 
 -   **Part II: Engineering a Robust Arithmetic Unit.** Here, we will build the mathematical core of our machine. We'll engineer an adder and subtractor, discover our machine's natural limitations through "bugs" like overflow, and upgrade our system to solve them, just like real engineers.
 
