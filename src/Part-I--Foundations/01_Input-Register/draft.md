@@ -11,7 +11,6 @@
     - Lesson 1.1: The Theory – Why Computers Use Binary
     - Lesson 1.2: The Lab – Building and Using Our 4-Bit Input Interface
     - Lesson 1.3: Drills & Games – Strengthening Your Binary Intuition
-    - Module 1 Checkpoint
 - **Minecraft Artifact:** A working 4-bit input interface for binary numbers.
 
 ---
