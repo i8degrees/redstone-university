@@ -27,7 +27,7 @@ COURSE_DIR = "course"
 ASSETS_DIR = "assets"
 ASSETS_IMG_DIR = os.path.join(ASSETS_DIR, "images")
 
-GITHUB_USER = "fielding"
+GITHUB_USER = "i8degrees"
 GITHUB_REPO = "redstone-university"
 GITHUB_BRANCH = "main"
 RAW_BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{GITHUB_REPO}/" f"{GITHUB_BRANCH}/"

@@ -12,7 +12,7 @@ APPENDIX_A = "course/Z-Appendices/Appendix-A_Solutions.md"
 APPENDIX_B = "course/Z-Appendices/Appendix-B_Glossary.md"
 
 # --- GitHub URL Configuration ---
-GITHUB_USER = "fielding"
+GITHUB_USER = "i8degrees"
 GITHUB_REPO = "redstone-university"
 GITHUB_BRANCH = "main"
 RAW_BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{GITHUB_REPO}/{GITHUB_BRANCH}/"
