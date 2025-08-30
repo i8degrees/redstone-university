@@ -176,7 +176,8 @@ def getSum(a, b):
         carry = (a & b) << 1
         a = a ^ b
         b = carry
-    return a & mask if b > 0 else a```
+    return a & mask if b > 0 else a
+```
 
 #### Key Terms
 -   **Adder**: A digital circuit that performs the addition of numbers.
