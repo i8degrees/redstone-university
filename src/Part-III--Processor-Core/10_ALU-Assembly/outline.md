@@ -1,5 +1,8 @@
-### **Module 9: The ALU - The Grand Assembly**
+### **Module 10: The ALU - The Grand Assembly**
 
+> **note:** The numbering of lessons/sections for this module haven't been updated yet. To avoid doing it multiple times I am waiting until I fully write the module to do it.
+
+**(Learning Goals:** U
 **(Learning Goals:** Combine all arithmetic and logic functions into a single, controllable Arithmetic Logic Unit (ALU), the true heart of a CPU. Solidify understanding of the Multiplexer by using it in a large-scale application.)
 
 **(Narrative Beat:** "We have mastered arithmetic and logic. We have built all the individual pieces. Now, we will forge them all into one component. This will be the capstone project of our processor, a single unit that can be commanded to perform a wide variety of calculations. This is the ALU.")

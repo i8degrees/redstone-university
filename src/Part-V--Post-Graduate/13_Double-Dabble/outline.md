@@ -1,5 +1,8 @@
 ### **Module 9: The "Real World" Display - The Double Dabble Algorithm (Post-Graduate Module)**
 
+> **note:** The numbering of lessons/sections for this module haven't been updated yet. To avoid doing it multiple times I am waiting until I fully write the module to do it.
+
+**(Learning Goals:** U
 **(Learning Goals:** Understand the algorithm for converting pure binary to Binary Coded Decimal (BCD). Build a complex, multi-stage combinational circuit. Appreciate the hardware complexity required to cater to human-readable formats.)
 
 **(Narrative Beat:** "Welcome to your post-graduate studies at Redstone University. You've built a complete, working computer. It thinks in binary and speaks in hexadecimal, the efficient language of programmers. But we left one problem unsolved: how do we make our 4-bit computer display the number '13' on two separate decimal displays? The hex 'D' is efficient, but it's not how a digital clock or a pocket calculator works. For that, we need a special, more complex translator. This is the engineer's solution. It will be challenging, but the result is truly impressive.")
