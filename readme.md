@@ -38,22 +38,24 @@ That is the mission of Redstone University.
 ### Who Is This For?
 
 This course is for the curious. It's for:
-*   **My daughter, Ada**, for whom this project was first imagined.
-*   **Students and kids** who want a fun, hands-on introduction to STEM and computer science.
-*   **University CS students** who want a physical way to visualize the concepts from their "Computer Architecture" class.
-*   **Self-taught programmers and professionals** who want to solidify their understanding of what's happening at the hardware level.
+-   **My daughter, Ada**, for whom this project was first imagined.
+-   **Students and kids** who want a fun, hands-on introduction to STEM and computer science.
+-   **University CS students** who want a physical way to visualize the concepts from their "Computer Architecture" class.
+-   **Self-taught programmers and professionals** who want to solidify their understanding of what's happening at the hardware level.
 
 ---
 
 ## Course Structure & Curriculum
 
-This course is structured as a complete curriculum, taking you from zero knowledge to a fully functional, programmable 4-bit computer. We will follow a clear, logical path, broken into five distinct parts:
+This course is structured as a complete curriculum, taking you from zero knowledge to a fully functional, programmable 4-bit computer. We will follow a clear, logical path, broken into four distinct parts:
 
-*   **Part I: The Foundations - Speaking to the Machine.** We will begin by building the essential human-computer interface. We'll learn the language of binary, the grammar of Boolean logic, and construct a input interface, 4-to-10 decoder, 10-to-7 encoder, and a 7-segment digital display.
-*   **Part II: Engineering a Robust Arithmetic Unit.** Here, we will build the mathematical core of our machine. We'll engineer an adder and subtractor, discover our machine's natural limitations through "bugs" like overflow, and upgrade our system to solve them, just like real engineers.
-*   **Part III: The Processor Core.** With our arithmetic unit perfected, we will forge the true brain of our computer: the Arithmetic Logic Unit (ALU). We will combine all our mathematical and logical circuits into one powerful, versatile, and controllable component.
-*   **Part IV: Creating an Automated Computer.** In the final core modules, we'll give our processor a memory to store its thoughts and a clock to act as its heartbeat. We will assemble everything into a single, automated machine that can run a simple program on its own.
-*   **Part V: Post-Graduate Studies.** For those who want to go even further, we'll explore advanced topics, tackling the complex challenge of making our computer display multi-digit decimal numbers, just like a real-world calculator.
+-   **Part I: The Foundations – The Human Interface.** We will begin by building the essential input/output system. We'll learn the language of binary, master the grammar of Boolean logic, and construct a manual input panel and a 7-segment digital display.
+
+-   **Part II: The Thinking Machine – Building the Processor.** Here, we will construct the entire mathematical and logical brain of our computer. We'll engineer an adder and subtractor, give it the ability to make decisions with comparators and status flags, and forge everything into a complete Arithmetic Logic Unit (ALU).
+
+-   **Part III: The Automated Computer – Memory and Control.** In this final core part, we will achieve true automation. We'll build registers and addressable RAM to give our processor a memory, and then construct a Control Unit that can fetch and decode instructions, allowing our machine to run a program with loops and logic all on its own.
+
+-   **Part IV: Post-Graduate Studies (Bonus Content).** For those who want to go even further, we'll explore advanced topics, like building the complex hardware required to display multi-digit decimal numbers, just like a real-world calculator.
 
 
 Please see `curriculum.md` for the full course outline and `structure.md` for details on how the course is organized.
