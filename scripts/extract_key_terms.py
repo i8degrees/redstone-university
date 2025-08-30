@@ -128,7 +128,6 @@ def main():
     sorted_terms = sorted(all_terms, key=lambda x: x[0].lower())
 
     appendix_content = [
-        '<hr class="pagebreak"/>\n\n'
         "## Appendix B: Glossary\n\n"
         "This glossary compiles key terms from the Redstone University curriculum, "
         "organized alphabetically. Each term’s definition is followed by a footnote "
@@ -151,6 +150,8 @@ def main():
 
     appendix_markdown = "\n".join(appendix_content)
     appendix_markdown = rewrite_image_paths(appendix_markdown)
+
+    appendix_content.append('\n\n<hr class="pagebreak"/>\n\n')
     with open(APPENDIX_FILE, "w", encoding="utf-8") as f:
         f.write(appendix_markdown)
 

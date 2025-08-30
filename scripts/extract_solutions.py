@@ -81,6 +81,7 @@ def main():
         appendix_content.append(inner_content)
         appendix_content.append("\n\n---\n\n")
 
+    appendix_content.append('\n\n<hr class="pagebreak"/>\n\n')
     with open(APPENDIX_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(appendix_content))
 
