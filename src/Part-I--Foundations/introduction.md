@@ -1,4 +1,4 @@
-## Part I: The Foundations - Laying the Groundwork
+## Part I: The Foundations – Laying the Groundwork
 
 Welcome to Part I of our journey to build a working computer from scratch! Every masterpiece starts with a strong foundation. In this part, we’re going to master the fundamental tools, concepts, and components that will allow us to communicate with our digital creation.
 
@@ -18,7 +18,7 @@ To build this foundation, we'll progress through five modules and two optional i
     Take the first crucial step into theory by building the three "verbs" of logic: NOT, OR, and AND.
 
 -   **Module 3: The Art of Logic – Simplification and Special Gates**
-    Level up from a builder to an architect. Learn to optimize circuits with the laws of logic and expand your gate toolkit with the powerful XOR, and the negated gates, NAND, NOR, and XNOR.
+    Level up from a builder to an architect. Learn to optimize circuits with the laws of logic and expand your toolkit with advanced gates like XOR, NAND, and NOR.
 
 -   **Interlude I (Optional): The Art of Compact Design**
     Bridge the gap between building for clarity and building for efficiency with a short but powerful lesson on Redstone engineering best practices.
