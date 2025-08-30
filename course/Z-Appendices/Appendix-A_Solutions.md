@@ -477,3 +477,242 @@ This points to a catastrophic failure in the "programming" of the `L2` line in y
 
 ---
 
+
+### Practice Problem 5.6.1: Knowledge Check
+1. In binary, what is `1011` + `0010`?
+2. What is the hexadecimal representation of the binary number `1101`?
+3. What is the decimal value of the hexadecimal number `$B$`?
+
+1. `` `1101` `` (which is $11+2=13$).
+2. `$D$`.
+3. `11`.
+</details>
+
+
+---
+
+
+### Practice Problem 6.5.1: Knowledge Check
+1. What is an "overflow error" in the context of our 4-bit adder?
+2. In 4-bit Two's Complement, what is the binary representation for `-1`?
+3. Which logic gate was the key to creating our controllable inverter?
+
+1. An overflow error occurs when the result of a calculation is a number greater than `15` and requires more than 4 bits to represent.
+2. `1111`. (Start with `0001`, invert to `1110`, add 1 to get `1111`).
+3. The **XOR** gate.
+</details>
+
+
+---
+
+
+### Practice Problem 6.5.2: The Word Problem
+You perform the calculation `$D - 5$` (hex) which is $13 - 5$ (decimal).
+1. What is the 4-bit Two's Complement representation of `-5`?
+2. What is the 5-bit binary result when you add `1101` (13) and your answer from part 1?
+3. What is the final 4-bit answer after discarding the carry?
+
+1. `-5` is `1011`. (Start with `0101`, invert to `1010`, add 1).
+2. `1101` + `1011` = `11000`.
+3. The final answer is `1000`, which is `8` in decimal.
+</details>
+
+
+---
+
+
+### Practice Problem 7.5.1: Knowledge Check
+1. Why are status flags generally more efficient than dedicated comparator circuits in a real CPU?
+2. What calculation would a CPU perform to check if `$A > B$`? What flag would it look at?
+3. What is the logic gate used to create the Zero Flag circuit?
+
+1. Status flags allow the CPU to get many pieces of information (zero, negative, carry, overflow) from a single arithmetic operation (like subtraction), rather than needing separate, bulky hardware for every possible comparison.
+2. It would calculate `$B - A$`. If the **Negative Flag** is `1`, it means the result was negative, which means that $A$ must have been greater than $B$.
+3. A **NOR** gate.
+</details>
+
+
+---
+
+
+### Practice Problem 7.5.2: Design Challenge
+Design a circuit that detects if a 4-bit number is the specific value `` `1111` `` (`15` decimal). What single logic gate can accomplish this?
+
+To check if all four bits ($Y_3, Y_2, Y_1, Y_0$) are `1`, you would need a single **4-input AND gate**. Its output will only be `1` if all of its inputs are `1`.
+</details>
+
+
+---
+
+
+### Practice Problem 8.4.1: Knowledge Check
+1. In plain English, what does a Multiplexer do?
+2. If we want to build a MUX that can select between *four* different 4-bit buses, how many select lines would we need?
+3. What is the Boolean expression for a 2-to-1 MUX?
+
+1. A Multiplexer (or MUX) selects one of several data inputs and forwards it to a single output.
+2. We would need **two** select lines. To represent four choices (0, 1, 2, 3), you need 2 bits (`` `00` ``, `` `01` ``, `` `10` ``, `` `11` ``).
+3. $Y = (A \land \neg S) \lor (B \land S)$
+</details>
+
+
+---
+
+
+### Practice Problem 8.4.2: The Demultiplexer
+A **Demultiplexer (DEMUX)** does the opposite of a MUX. It takes one data input and routes it to one of many possible outputs, based on a select line. Sketch out a logic diagram for a 1-to-2 DEMUX with one data input ($D$), one select line ($S$), and two outputs ($Y_0$ and $Y_1$).
+
+**Logic:**
+- If $S=0$, then $Y_0$ should equal $D$, and $Y_1$ should be `0`. The expression is $Y_0 = D \land \neg S$.
+- If $S=1$, then $Y_1$ should equal $D$, and $Y_0$ should be `0`. The expression is $Y_1 = D \land S$.
+
+**Diagram:**
+![1-to-2 DEMUX CircuitVerse Diagram](./images/demux-circuitverse.png)
+*Figure: A 1-to-2 DEMUX. The data input D is sent to two AND gates. The select line S (and its inverse) determines which of the AND gates opens to let the data through to its corresponding output.*
+
+</details>
+
+
+---
+
+
+### Practice Problem 9.5.1: Knowledge Check
+1. In a bitwise ALU, why are all calculations performed in parallel?
+2. What is the purpose of the decoder in the MUX control circuit?
+3. If our ALU result is `` `1000` ``, what will the state of the Z and N flags be?
+
+1. It's simpler to have all units working at once and then select the desired output, rather than trying to build complex logic to turn the different units on and off.
+2. The decoder takes the binary "opcode" from the select lines and turns it into a single "active" line to open the correct AND gatekeepers in the multiplexer.
+3. The Z (Zero) flag will be `0` because the result is not `0000`. The N (Negative) flag will be `1` because the most significant bit is `1`.
+</details>
+
+
+---
+
+
+### Practice Problem 9.5.2: The Expansion
+You want to add a new function to your ALU: `NOT A`. You assign it the opcode `` `11` ``. Describe the steps you would need to take to add this new lane.
+
+1. **Build the Lane:** Build a new "calculation lane" that consists of four NOT gates, taking its input from the 4-bit Bus A.
+2. **Expand the MUX:** For each of the four output bits, you would need to add a fifth AND gate to the final OR gate.
+3. **Connect the Lane:** This new AND gate would take its data input from one bit of your new `NOT A` lane, and its control input from the `` `11` `` output of your 2-to-4 decoder.
+</details>
+
+
+---
+
+
+### Practice Problem 10.3.1: Knowledge Check
+1. What is the key difference between a combinational circuit and a sequential circuit?
+2. What is the purpose of a "feedback loop" in memory circuits?
+3. What is the role of the "Write Enable" line on a Gated D-Latch?
+
+1. A **combinational** circuit's output depends only on its current inputs. A **sequential** circuit's output depends on its current inputs *and* its previous state (it has memory).
+2. A feedback loop, where a gate's output is connected back to its input, is what allows a circuit to hold its state and "remember" a value even after the initial input is gone.
+3. The "Write Enable" line acts as a gatekeeper. When it is ON, the latch is "open" and copies its data input. When it is OFF, the latch is "closed" and holds its current value, ignoring the data input.
+</details>
+
+
+---
+
+
+### Practice Problem 10.3.2: The RS Latch
+The circuit that forms the core of our D-Latch is often an **RS Latch**, built from two cross-coupled NOR gates. It has two inputs: $S$ (Set) and $R$ (Reset). Pulsing $S$ forces the output $Q$ to `1`. Pulsing $R$ forces $Q$ to `0`. What do you think happens if you pulse both $S$ and $R$ at the same time? Why might this be considered an "invalid" or "forbidden" state?
+
+If both $S$ and $R$ inputs on a NOR-based RS Latch are set to `1`, both NOR gates will be forced to output `0`. This means both the $Q$ and $\neg Q$ outputs would be `0`, which violates the rule that they must be opposites. When the inputs are then returned to `0`, the latch enters an unpredictable "race condition," and it's impossible to know what state it will settle in. This is why the Gated D-Latch is a safer, more predictable design.
+</details>
+
+
+---
+
+
+### Practice Problem 11.3.1: Knowledge Check
+1. In the term "16x4-bit RAM," what does the "16" represent, and what does the "4" represent?
+2. What is the role of the decoder in a RAM module?
+3. Why is the `Write Enable` signal necessary? What problem does it solve?
+
+1. The "16" represents the number of unique memory locations or addresses. The "4" represents the number of bits that can be stored at each of those locations.
+2. The decoder takes the binary address from the Address Bus and activates a single "select line" to choose which of the many registers will be active for a read or write operation.
+3. The `Write Enable` signal is necessary to differentiate between reading from and writing to a memory address. When it's OFF, the selected register outputs its data but doesn't change it. When it's ON, the selected register overwrites its current data with the data from the Data In bus.
+</details>
+
+
+---
+
+
+### Practice Problem 11.3.2: The Expansion
+You want to upgrade your computer's memory from 16x4-bit to **256x4-bit**.
+1. How many registers would you need to build?
+2. How many bits would your Address Bus need to be to select one of 256 unique addresses?
+3. What kind of decoder would you need?
+
+1. You would need **256** individual 4-bit registers.
+2. To represent 256 unique values ($2^8$), your Address Bus would need to be **8 bits** wide.
+3. You would need an **8-to-256 decoder**.
+</details>
+
+
+---
+
+
+### Practice Problem 12.5.1: Knowledge Check
+1. What are the three steps of the Fetch-Decode-Execute cycle?
+2. What is the difference between the Program Counter and the Instruction Register?
+3. What is the key hardware component that makes a conditional jump (like `JIZ`) possible?
+
+1. **Fetch:** Get the instruction from memory. **Decode:** Determine what the instruction means. **Execute:** Activate the correct components to perform the instruction.
+2. The **Program Counter (PC)** holds the address of the *next* instruction to be fetched. The **Instruction Register (IR)** holds the *current* instruction that is being decoded and executed.
+3. The **Status Flags** (specifically, the Zero Flag in this case). The Control Unit's decision to jump is based on the state of this flag.
+</details>
+
+
+---
+
+
+### Practice Problem 12.5.2: The Programmer
+Write the RU-v1 assembly code for a program that calculates `$5 - 3$` and stores the result in RAM address `10`.
+
+```assembly
+LDI A, 5     // Load the number 5 into Register A
+LDI B, 3     // Load the number 3 into Register B
+SUB          // Subtract B from A
+STA     // Store the result in RAM address 10 (0xA)
+HLT          // Halt
+```
+</details>
+
+
+---
+
+
+### Practice Problem 13.4.1: Knowledge Check
+1. What is the core problem that a Binary-to-BCD converter solves?
+2. What is Binary Coded Decimal (BCD)?
+3. Why is a ROM-based approach a good choice for this problem in Minecraft, even if it's not the most component-efficient?
+
+1. It solves the problem of converting a pure binary number (like `` `1101` ``) into a format where each decimal digit is represented by its own separate binary code (like `0001` and `0011`).
+2. BCD is a system where each decimal digit (`0`-`9`) is encoded with its own dedicated 4-bit binary number.
+3. The ROM-based approach is a "brute-force" lookup table. While large, its logic is extremely simple and repetitive, making it much easier to design, build, and debug in a block-based environment like Minecraft compared to a complex, multi-stage sequential circuit.
+</details>
+
+
+---
+
+
+### Practice Problem 13.4.2: The Programmer
+If you had a 4-bit binary number stored in a variable in Python, how could you calculate the TENS and ONES digits using software?
+
+You would use the integer division (`//`) and modulo (`%`) operators. These are the software equivalents of the complex hardware you just built.
+```python
+binary_input = 13 # This is the decimal value of `1101`
+
+tens_digit = binary_input // 10
+ones_digit = binary_input % 10
+
+print(f"Tens: {tens_digit}, Ones: {ones_digit}") # Output: Tens: 1, Ones: 3
+```
+</details>
+
+
+---
+
