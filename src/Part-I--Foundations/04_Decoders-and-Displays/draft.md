@@ -30,10 +30,10 @@ In the previous modules, you learned how to speak to your computer in binary and
 > When a diagram or instruction says to "Build an AND gate," **how you choose to build it is now up to you.**
 >
 > -   You can build the verbose, easy-to-read version from the previous modules.
-> -   You can use a smaller, more efficient version from the Interlude.
+> -   You can use a smaller, more efficient version from Interlude I.
 > -   You can design your own!
 >
-> As long as your component functions according to its truth table, it is a valid build. This freedom is a major step in your journey from student to engineer. The preceding Interlude, **The Art of Compact Design**, gives you the foundation for making these choices.
+> As long as your component functions according to its truth table, it is a valid build. This freedom is a major step in your journey from student to engineer. The preceding **Interlude I: The Art of Compact Design**, gives you the foundation for making these choices.
 >
 > If you are ever unsure, the verbose builds from the previous modules are guaranteed to work.
 
@@ -61,7 +61,7 @@ By lighting up specific combinations of these seven segments, we can display any
 
 Let’s start by building the physical canvas for our numbers.
 
-1.  **Construct the Segments**: In Minecraft, place Redstone Lamps in the "`8`" shape shown above. For good visibility, making each segment 3 lamps long is a great choice.
+1.  **Construct the Segments**: In Minecraft, place Redstone Lamps in the "8" shape shown above. For good visibility, making each segment 3 lamps long is a great choice.
 2.  **Isolate the Segments**: Carefully surround the lamp segments with a non-conductive block like Wool or Concrete. I use black concrete to make the segments stand out.
 3.  **Create Manual Controls**: To power each segment, run a Redstone Repeater into the middle lamp. For now, place a solid block behind each repeater and attach a Lever to it. This gives you manual control for testing.
 
@@ -633,8 +633,8 @@ This points to a catastrophic failure in the "programming" of the `L2` line in y
 
 This was a massive milestone. You didn't just build a circuit; you engineered a complete system. By breaking a complex problem down into distinct, logical stages, you built something complex in a way that was manageable, testable, and understandable. You have now mastered the concepts of binary-to-decimal decoding and using a hardware ROM to drive an output, two fundamental building blocks of digital electronics.
 
-> ### Explore More: The Gate Museum
-> In the world download for this course, you will find a section labeled "Gate Museum" which showcases these and many other community-tested compact designs for each logic gate. I encourage you to explore, build, and test them to expand your engineering toolkit.
-
 **What’s Next?**
-You have successfully completed Part I of this course. You can now take a binary input and display it as a number humans can read. But what happens when we try to do math? In the next module, you’ll discover a critical flaw in our simple translator when we try to count past `9`. You’ll learn about the hexadecimal system and how our modular design makes upgrading our system a breeze.
+
+You have successfully completed **Part I** of this course! You possess a complete input and output system, and you are fluent in the language of logic.
+
+In **Part II: The Thinking Machine**, we will take our first steps into building the brain of our computer. We'll start in **Module 5**, where we will construct a 4-bit adder to perform our first real mathematical calculation. But as you'll soon discover, making our display show the answer will present a fascinating new bug to solve, leading us to our first major system upgrade.
