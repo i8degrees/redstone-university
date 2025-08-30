@@ -4,11 +4,11 @@
 
 ### A Note from the Instructor
 
-Welcome back, engineer! You just completed Module 3, our first large-scale, multi-part system. You connected a decoder to an encoder to a display, and you saw how breaking a big problem into smaller modules was the key to success.
+Welcome back, engineer! You just completed **Module 4**, our first large-scale, multi-part system. You connected a decoder to an encoder to a display, and you saw how breaking a big problem into smaller modules was the key to success.
 
-In the introduction to that module, we talked about the **Power of Abstraction**. Now, it's time to see what that looks like in practice, not just in Minecraft, but in the tools real engineers use. In Lesson 3.2, you saw this image:
+In the introduction to that module, we talked about the **Power of Abstraction**. Now, it's time to see what that looks like in practice, not just in Minecraft, but in the tools real engineers use. In **Lesson 4.2**, you saw this image:
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03b_digital-display-subcircuit-abstractions_circuitverse.png" alt="Digital Display Subcircuit Abstractions" width="512px"/><br/><em>Figure: The digital display system represented with subcircuits in CircuitVerse.</em></div><br/>
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/04b_digital-display-subcircuit-abstractions_circuitverse.png" alt="Digital Display Subcircuit Abstractions" width="512px"/><br/><em>Figure: The digital display system represented with subcircuits in CircuitVerse.</em></div><br/>
 
 You probably noticed that the decoder and encoder were shown as simple gray boxes, or **"black boxes,"** instead of the complex web of gates we built. This isn't just to make the diagram look clean; it's a fundamental technique in digital logic design.
 
@@ -34,7 +34,7 @@ By turning our complex 4-to-10 Decoder into a single subcircuit block, we can hi
 
 ### The Lab: Using Circuit Tabs as Subcircuits in CircuitVerse
 
-In CircuitVerse, any circuit you build in a separate tab within your project is already a potential subcircuit. Let's package our `4-to-10` Decoder into a clean, reusable component.
+In CircuitVerse, any circuit you build in a separate tab within your project is already a potential subcircuit. Let's package our 4-to-10 Decoder into a clean, reusable component.
 
 #### Step 1: Insert Your Circuit as a Subcircuit
 
@@ -46,7 +46,7 @@ Let's assume you've built your 4-to-10 Decoder in its own circuit tab.
 
 You will now see your entire decoder collapsed into a single gray block. While functional, the default pin layout is often disorganized, making clean wiring difficult. Let's fix that!
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03b_subcircuit-layout-before.png" alt="Default Subcircuit Layout" width="512px"/><br/><em>Figure: The default, disorganized pin layout after inserting a circuit as a subcircuit.</em></div><br/>
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/04b_subcircuit-layout-before.png" alt="Default Subcircuit Layout" width="512px"/><br/><em>Figure: The default, disorganized pin layout after inserting a circuit as a subcircuit.</em></div><br/>
 
 #### Step 2: Edit the Layout for Clarity
 
@@ -55,10 +55,10 @@ This is the key to professional-looking diagrams. We need to arrange the input a
 1.  **Navigate to the Original Circuit Tab.** You must edit the layout from the source. The easiest way to do this is to simply **double-click** the subcircuit block you just placed on your canvas. This will jump you to the correct tab.
 2.  **Open the Layout Editor.** With nothing selected on the original circuit's canvas, look at the **Properties Panel** on the right side of the screen. Find and click the **Edit Layout** button.
 3.  **Arrange the Pins.** A new editor window will pop up showing the black box version of your circuit. You can now **click and drag** the input and output pins to new positions on the border of the block.
-    > **Pro Tip:** For our 4-to-10 decoder, a clean layout is to place the inputs (`B3` to `B0`) in order on the bottom edge, and the outputs (`L0` to `L9`) in order on the left edge. This will align perfectly with the inputs of our encoder in the final assembly.
+    > **Pro Tip:** For our 4-to-10 decoder, a clean layout is to place the inputs ($B3$ to $B0$) in order on the bottom edge, and the outputs ($L0$ to $L9$) in order on the left edge. This will align perfectly with the inputs of our encoder in the final assembly.
 4.  **Adjust and Save.** Use the **LAYOUT** panel on the right to adjust the block's **Width** and **Height**. Once you are happy with the layout, click **Save**.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03b_subcircuit-layout-after.png" alt="Organized Subcircuit Layout" width="512px"/><br/><em>Figure: The edited layout with input and output pins neatly organized for clean wiring.</em></div><br/>
+<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/04b_subcircuit-layout-after.png" alt="Organized Subcircuit Layout" width="512px"/><br/><em>Figure: The edited layout with input and output pins neatly organized for clean wiring.</em></div><br/>
 
 > **CRITICAL ENGINEERING TIP:**
 > As the CircuitVerse documentation advises, you must finalize your circuit layout **before** you start connecting wires to it. If you change the pin layout after wiring, CircuitVerse may break the connections. Do your layout work first!
