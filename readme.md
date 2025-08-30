@@ -25,6 +25,18 @@
 
 ---
 
+## 🚀 Early Preview: Part I is Ready for Feedback!
+
+> **Welcome to the Redstone University early preview!**
+>
+> The foundational section of the course, **Part I: The Foundations – The Human Interface**, is now complete and ready for you to explore. My goal is to make this the best possible resource it can be, and your feedback is a critical part of that process.
+>
+> Please feel free to dive in, try the builds, and read through the lessons. If you find a typo, have a suggestion, or think a concept is unclear, please **[open an issue on GitHub](https://github.com/fielding/redstone-university/issues)**. All feedback is extremely valuable.
+>
+> *The rest of the course (Parts II, III, and IV) is currently in active development.*
+
+---
+
 ## About The Project
 
 Have you ever used a computer and wondered what’s *really* happening inside? Not just the software, but the deep, physical magic behind it all?
