@@ -4,6 +4,15 @@
 
 This glossary compiles key terms from the Redstone University curriculum, organized alphabetically. Each term’s definition is followed by a footnote indicating the module where it is introduced.
 
+**7-segment display**
+: An arrangement of seven light segments that can be combined to display numbers and some letters. [4]
+
+**Active-Low Logic**
+: A design principle where the "active" or "on" state is represented by a LOW (unpowered) signal. [4]
+
+**BCD (Binary-Coded Decimal)**
+: A method of representing the decimal digits `0`–`9` using a 4-bit binary code. [4]
+
 **Binary**
 : A base-2 number system that uses only two symbols, `0` and `1`, to represent information. It is the fundamental language of all digital computers. [1]
 
@@ -25,8 +34,17 @@ This glossary compiles key terms from the Redstone University curriculum, organi
 **Decimal**
 : The base-10 number system that humans commonly use, with ten unique symbols (`0`-`9`). [1]
 
+**Decoder**
+: A circuit that takes a multi-bit binary input and activates a single, corresponding output line. Our decoder acts as an **Identifier**. [4]
+
 **Diode**
 : A component that allows a signal to flow in only one direction, preventing back-powering. The Redstone Repeater is our primary diode. [0]
+
+**Diode Matrix**
+: A grid of input and output lines where components (like our taps) are placed at intersections to create a programmable logic device, often used as a ROM. [4]
+
+**Encoder**
+: A circuit that takes a single active input line and translates it into a multi-bit coded output. Our encoder acts as a **Mapper**. [4]
 
 **Functionally Complete**
 : A property of a set of logic gates (or a single gate like NAND/NOR) from which any possible Boolean function can be constructed. [3]
@@ -42,6 +60,9 @@ This glossary compiles key terms from the Redstone University curriculum, organi
 
 **Logic Gate**
 : A physical device that performs a Boolean logic operation on one or more inputs to produce a single output. [2]
+
+**Modularity**
+: The engineering practice of designing a system in independent, interchangeable components. This makes the system easier to design, test, and upgrade. [4]
 
 **Output**
 : A component, like a Redstone Lamp, that displays the result or state of a circuit. [0]
@@ -67,6 +88,9 @@ The basic building blocks of our computer are about to take shape. Get ready for
 **Repeater**
 : A component that acts as a signal booster (refreshing signal strength to `15`) and a diode. [0]
 
+**ROM (Read-Only Memory)**
+: A type of storage where data is permanently programmed into the hardware's structure. [4]
+
 **Signal Strength**
 : The power level of a Redstone signal, ranging from `15` (full) down to `0` (off). A signal loses `1` strength for every block of dust it travels. [0]
 
@@ -75,6 +99,9 @@ The basic building blocks of our computer are about to take shape. Get ready for
 
 **Strong Power**
 : A type of power provided by components like Repeaters or Torches directly to a block. It can activate all adjacent Redstone components, including dust. [0]
+
+**Tap (Repeater/Torch)**
+: Our term for a connection that reads a signal from a bus line to control another wire. [4]
 
 **Truth Table**
 : A chart showing every possible input combination for a logic circuit and its corresponding output. [2]
