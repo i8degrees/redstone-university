@@ -1,5 +1,8 @@
-### **Module 10: Memory - Giving Our Computer a Brain to Remember (Enhanced Edition)**
+### **Module 11: Memory - Giving Our Computer a Brain to Remember (Enhanced Edition)**
 
+> **note:** The numbering of lessons/sections for this module haven't been updated yet. To avoid doing it multiple times I am waiting until I fully write the module to do it.
+
+**(Learning Goals:** U
 **(Learning Goals:** Understand the concept of "state" in digital circuits. Learn how to build a basic memory cell (an RS Latch) and then upgrade it to a more useful, controllable Gated D-Latch. Combine these into a 4-bit register that can store and hold a number.)
 
 **(Narrative Beat:** "Our ALU is a powerful calculator, but it has the memory of a goldfish. As soon as we change the inputs, the previous result is gone forever. A computer isn't truly useful if it can't remember things. In this module, we'll build a 'scratchpad' for our computer—a circuit that can latch onto a number and hold it, forming the foundation of computer memory, or RAM.")

@@ -1,5 +1,8 @@
-### **Module 8: The Multiplexer - The Digital Switch**
+### **Module 9: The Multiplexer - The Digital Switch**
 
+> **note:** The numbering of lessons/sections for this module haven't been updated yet. To avoid doing it multiple times I am waiting until I fully write the module to do it.
+
+**(Learning Goals:** U
 **(Learning Goals:** Understand the theory and practical application of a **Multiplexer (MUX)** as a digital selector switch. Build a simple 1-bit 2-to-1 MUX from basic gates. Scale that design up to a 4-bit MUX that will be used in our ALU.)
 
 **(Narrative Beat:** "We've mastered arithmetic. We have components that can add and subtract, and we have logic gates that can perform AND, OR, and XOR. Now we face a new problem: how do we choose which of these operations to perform? Before we can build our final processor, we must first build the component that acts as its 'steering wheel'—the Multiplexer. This is the circuit that lets us make a choice.")
