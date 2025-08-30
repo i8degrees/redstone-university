@@ -1,5 +1,3 @@
-<hr class="pagebreak"/>
-
 ## Appendix B: Glossary
 
 This glossary compiles key terms from the Redstone University curriculum, organized alphabetically. Each term’s definition is followed by a footnote indicating the module where it is introduced.

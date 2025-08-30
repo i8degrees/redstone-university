@@ -716,3 +716,8 @@ print(f"Tens: {tens_digit}, Ones: {ones_digit}") # Output: Tens: 1, Ones: 3
 
 ---
 
+
+
+
+<hr class="pagebreak"/>
+
