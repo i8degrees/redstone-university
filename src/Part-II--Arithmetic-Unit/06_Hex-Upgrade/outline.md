@@ -1,4 +1,6 @@
-## **Module 5: The Programmer's Solution - The Hexadecimal Upgrade**
+## **Module 6: The Programmer's Solution - The Hexadecimal Upgrade**
+
+> **note:** The numbering of lessons/sections for this module haven't been updated yet. To avoid doing it multiple times I am waiting until I fully write the module to do it.
 
 **(Learning Goals:** Learn about hexadecimal (base-16) as the native language for binary. Appreciate the power of modular design by easily expanding an existing circuit. Connect hex to its practical use in software.)
 

@@ -1,5 +1,8 @@
-### **Module 11: The Heartbeat & Conductor - Automating the Machine (Enhanced Edition)**
+### **Module 12: The Heartbeat & Conductor - Automating the Machine (Enhanced Edition)**
 
+> **note:** The numbering of lessons/sections for this module haven't been updated yet. To avoid doing it multiple times I am waiting until I fully write the module to do it.
+
+**(Learning Goals:** U
 **(Learning Goals:** Understand the role of a clock signal in synchronizing a computer's operations. Build a controllable clock. Learn how a Program Counter automatically steps through instructions. Combine all previous modules into a single, automated system that executes a simple, hard-coded program.)
 
 **(Narrative Beat:** "We've built all the organs of our computer: a processor to think, memory to remember, and inputs/outputs to communicate. But it's not alive yet. It waits for us to flip every switch. In this module, we will give our machine two final things: a **heartbeat** to provide a steady rhythm, and a **conductor** to direct the orchestra of components. It's time to take our hands off the levers and watch our creation run on its own.")

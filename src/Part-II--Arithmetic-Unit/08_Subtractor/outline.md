@@ -1,4 +1,6 @@
-## **Module 7: The Subtractor & Negative Numbers**
+## **Module 8: The Subtractor & Negative Numbers**
+
+> **note:** The numbering of lessons/sections for this module haven't been updated yet. To avoid doing it multiple times I am waiting until I fully write the module to do it.
 
 **(Learning Goals:** Understand how negative numbers are represented in binary using **Two's Complement**. Learn how to build a circuit that can perform subtraction using the existing adder. Appreciate the efficiency and elegance of component reuse in hardware design.)
 
