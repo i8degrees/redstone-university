@@ -30,7 +30,7 @@ ASSETS_IMG_DIR = os.path.join(ASSETS_DIR, "images")
 GITHUB_USER = "fielding"
 GITHUB_REPO = "redstone-university"
 GITHUB_BRANCH = "main"
-RAW_BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{GITHUB_REPO}/" f"{GITHUB_BRANCH}/"
+RAW_BASE_URL = f"https://media.githubusercontent.com/media/{GITHUB_USER}/{GITHUB_REPO}/" f"{GITHUB_BRANCH}/"
 
 # A list of gate names used for special image handling in tables.
 GATE_SYMBOLS = ["NOT", "AND", "OR", "NAND", "NOR", "XOR", "XNOR"]
