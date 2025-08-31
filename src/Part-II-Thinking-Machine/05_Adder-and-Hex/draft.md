@@ -16,7 +16,7 @@
     -   Lesson 5.4: The Programmer's Solution – Speaking Hexadecimal
     -   Lesson 5.5: The Lab – The Hexadecimal Upgrade
 -   **Minecraft Artifacts:** A 4-bit adder connected to an upgraded 4-to-16 decoder and hex-capable display.
--   **The Payoff:** The calculation `$8+4$` initially fails, but after the upgrade, it correctly displays a `$C$`.
+-   **The Payoff:** The calculation $8+4$ initially fails, but after the upgrade, it correctly displays a $C$.
 
 ---
 
@@ -32,7 +32,7 @@ But this module is also a story about real-world engineering. We will connect ou
 
 ### Lesson 5.1: The Theory of Binary Addition
 
-> **Key Takeaway:** Binary addition works just like decimal addition, using a sum and a carry for each column. The key rule to remember is `$1+1=0$, carry the `1`$.
+> **Key Takeaway:** Binary addition works just like decimal addition, using a sum and a carry for each column. The key rule to remember is $1+1=0$, carry the `1`.
 
 Before we build, we must understand. How do we add `5+3` in binary?
 
