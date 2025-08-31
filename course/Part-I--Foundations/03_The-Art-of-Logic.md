@@ -84,7 +84,7 @@ This looks like it would require two AND gates and one OR gate. Let's simplify i
 
 **Lab Takeaway:** We have just proven that this entire three-gate circuit can be replaced by a single wire connected to input $A$. This is the power of simplification in action. It saves resources, space, and makes our designs more elegant.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_simplification_circuitverse.png" alt="Circuit Before and After Simplification" width="512px"/><br/><em>Figure: The circuit for $Y = (A \land B) \lor (A \land \neg B)$ before simplification (left) and after (right). Both are functionally identical.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_simplification_circuitverse.png" alt="Circuit Before and After Simplification" width="512px"/><br/><em>Figure: The circuit for $Y = (A \land B) \lor (A \land \neg B)$ before simplification (left) and after (right). Both are functionally identical.</em></div><br/>
 
 #### Summary Table: Boolean Laws
 
@@ -124,11 +124,11 @@ Given the expression $(A \text{ OR } B) \text{ AND } (\text{NOT } A \text{ OR } 
 
 > **Key Takeaway:** The **XOR** (Exclusive OR) gate outputs a `1` only when its inputs are **different**. It’s the heart of binary addition and a powerful tool for programming.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_XOR-gate_circuitverse.png" alt="XOR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the Exclusive OR (XOR) gate (left) and its function, producing an output $Y$ that is active only if inputs $A$ and $B$ are different.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_XOR-gate_circuitverse.png" alt="XOR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the Exclusive OR (XOR) gate (left) and its function, producing an output $Y$ that is active only if inputs $A$ and $B$ are different.</em></div><br/>
 
 Like the AND gate, XOR is a composite gate we must build from our primitives.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_XOR-gate-composite_circuitverse.png" alt="XOR Gate in (Composite) CircuitVerse" width="512px"/><br/><em>Figure: The XOR gate constructed in CircuitVerse using only OR and NOT gates. This composite design shows how the XOR function can be achieved by creatively wiring our primitives.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_XOR-gate-composite_circuitverse.png" alt="XOR Gate in (Composite) CircuitVerse" width="512px"/><br/><em>Figure: The XOR gate constructed in CircuitVerse using only OR and NOT gates. This composite design shows how the XOR function can be achieved by creatively wiring our primitives.</em></div><br/>
 
 -   **Formal Definition:** The **Exclusive OR (XOR)** gate outputs True only when its inputs differ.
 -   **Symbols:** $A \text{ XOR } B$ ($A \oplus B$), `A ^ B` (programming).
@@ -153,7 +153,7 @@ Like the AND gate, XOR is a composite gate we must build from our primitives.
 
 #### Lab & Experiment
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_XOR-gate-composite_minecraft.png" alt="XOR Gate (Composite) in Minecraft" width="512px"/><br/><em>Figure: A composite XOR gate in Minecraft, built by combining Redstone Dust (OR logic) and Redstone Torches (NOT logic). The output lamp lights only when the two input levers are set to different states.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_XOR-gate-composite_minecraft.png" alt="XOR Gate (Composite) in Minecraft" width="512px"/><br/><em>Figure: A composite XOR gate in Minecraft, built by combining Redstone Dust (OR logic) and Redstone Torches (NOT logic). The output lamp lights only when the two input levers are set to different states.</em></div><br/>
 
 1.  **Build the XOR gate as shown in the screenshot:**
     1.  Place two Redstone Lamps with a Lever on the front of each for inputs $A$ and $B$.
@@ -290,9 +290,9 @@ As we build the NAND and NOR gates, keep this table in mind. You're not just bui
 
 > The NOR gate outputs a `1` only if **all** of its inputs are `0`.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_NOR-gate_circuitverse.png" alt="NOR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the NOR gate (left) and its function, producing an output $Y$ that is active only if both inputs $A$ and $B$ are inactive.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_NOR-gate_circuitverse.png" alt="NOR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the NOR gate (left) and its function, producing an output $Y$ that is active only if both inputs $A$ and $B$ are inactive.</em></div><br/>
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_NOR-gate-composite_circuitverse.png" alt="NOR Gate (Composite) in CircuitVerse" width="512px"/><br/><em>Figure: A composite NOR gate in CircuitVerse, constructed from our primitives. This shows how a NOR is simply an OR gate followed by a NOT gate.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_NOR-gate-composite_circuitverse.png" alt="NOR Gate (Composite) in CircuitVerse" width="512px"/><br/><em>Figure: A composite NOR gate in CircuitVerse, constructed from our primitives. This shows how a NOR is simply an OR gate followed by a NOT gate.</em></div><br/>
 
 -   **Formal Definition:** The NOR gate performs a **NOT-OR** operation (the negation of OR).
 -   **Symbols:** $A \text{ NOR } B$ ($\neg(A \lor B)$).
@@ -310,7 +310,7 @@ As we build the NAND and NOR gates, keep this table in mind. You're not just bui
 
 ##### Lab & Experiment
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_NOR-gate_minecraft.png" alt="NOR Gate in Minecraft" width="512px"/><br/><em>Figure: A NOR gate in Minecraft, created by building a standard OR gate and then inverting its output with a Redstone Torch. The lamp lights up only when both input levers are off.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_NOR-gate_minecraft.png" alt="NOR Gate in Minecraft" width="512px"/><br/><em>Figure: A NOR gate in Minecraft, created by building a standard OR gate and then inverting its output with a Redstone Torch. The lamp lights up only when both input levers are off.</em></div><br/>
 
 1.  **Build the NOR gate:**
     1.  Build the OR gate exactly as you did in Lesson 2.2, with inputs $A$ and $B$.
@@ -330,9 +330,9 @@ NOR gates are fundamental in electronics. Because they are a universal gate, ent
 
 > The NAND gate outputs a `0` only if **all** of its inputs are `1`.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_NAND-gate_circuitverse.png" alt="NAND Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the NAND gate (left) and its function, producing an output $Y$ that is active unless both inputs $A$ and $B$ are active.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_NAND-gate_circuitverse.png" alt="NAND Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the NAND gate (left) and its function, producing an output $Y$ that is active unless both inputs $A$ and $B$ are active.</em></div><br/>
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_NAND-gate-composite_circuitverse.png" alt="NAND Gate (Composite) in CircuitVerse" width="512px"/><br/><em>Figure: A composite NAND gate in CircuitVerse. This diagram shows how the NAND function is simply our composite AND gate with the final NOT gate removed.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_NAND-gate-composite_circuitverse.png" alt="NAND Gate (Composite) in CircuitVerse" width="512px"/><br/><em>Figure: A composite NAND gate in CircuitVerse. This diagram shows how the NAND function is simply our composite AND gate with the final NOT gate removed.</em></div><br/>
 
 -   **Formal Definition:** The NAND gate performs a **NOT-AND** operation (the negation of AND).
 -   **Symbols:** $A \text{ NAND } B$ ($\neg(A \land B)$).
@@ -352,7 +352,7 @@ NOR gates are fundamental in electronics. Because they are a universal gate, ent
 
 ##### Lab & Experiment
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_NAND-gate-composite_minecraft.png" alt="NAND Gate in Minecraft" width="512px"/><br/><em>Figure: A NAND gate in Minecraft, constructed by modifying the composite AND gate. The output is tapped before the final inversion, causing the lamp to turn off only when both inputs are on.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_NAND-gate-composite_minecraft.png" alt="NAND Gate in Minecraft" width="512px"/><br/><em>Figure: A NAND gate in Minecraft, constructed by modifying the composite AND gate. The output is tapped before the final inversion, causing the lamp to turn off only when both inputs are on.</em></div><br/>
 
 1.  **Build the NAND gate:**
     1.  Start by building our composite AND gate from Lesson 2.3.
@@ -371,9 +371,9 @@ NAND gates are arguably the most important gate in modern electronics. Because t
 
 > The XNOR gate outputs a `1` only if its inputs are the **same**.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_XNOR-gate_circuitverse.png" alt="XNOR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the Exclusive NOR (XNOR) gate (left) and its function, producing an output $Y$ that is active only if the inputs $A$ and $B$ are the same.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_XNOR-gate_circuitverse.png" alt="XNOR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the Exclusive NOR (XNOR) gate (left) and its function, producing an output $Y$ that is active only if the inputs $A$ and $B$ are the same.</em></div><br/>
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_XNOR-gate-composite_circuitverse.png" alt="XNOR Gate (Composite) in CircuitVerse" width="512px"/><br/><em>Figure: Composite XNOR gate in CircuitVerse. This shows how XNOR logic can be achieved by simply inverting the final output of a composite XOR gate.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_XNOR-gate-composite_circuitverse.png" alt="XNOR Gate (Composite) in CircuitVerse" width="512px"/><br/><em>Figure: Composite XNOR gate in CircuitVerse. This shows how XNOR logic can be achieved by simply inverting the final output of a composite XOR gate.</em></div><br/>
 
 -   **Formal Definition:** The XNOR gate performs a **NOT-XOR** operation (the negation of XOR).
 -   **Symbols:** $A \text{ XNOR } B$ ($\neg(A \oplus B)$).
@@ -391,7 +391,7 @@ NAND gates are arguably the most important gate in modern electronics. Because t
 
 ##### Lab & Experiment
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_XNOR-gate-composite_minecraft.png" alt="XNOR Gate (Composite) in Minecraft" width="512px"/><br/><em>Figure: An XNOR gate in Minecraft, constructed by adding a NOT gate to the output of a composite XOR gate. The output lamp lights up only when both input levers are set to the same state.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_XNOR-gate-composite_minecraft.png" alt="XNOR Gate (Composite) in Minecraft" width="512px"/><br/><em>Figure: An XNOR gate in Minecraft, constructed by adding a NOT gate to the output of a composite XOR gate. The output lamp lights up only when both input levers are set to the same state.</em></div><br/>
 
 > **A Note on the Build:** The simplest way to build an XNOR gate is to take the output of an XOR gate and invert it with a NOT gate. Since we have already designed a complex XOR gate from our primitives, we can simply add one more Redstone Torch to its output to achieve the XNOR function.
 
@@ -538,10 +538,10 @@ With this full toolkit, you are ready to tackle our first major engineering chal
 
 | Gate | Symbol | Core Logic Rule | Composite Boolean Expression (from primitives) |
 | :--- | :--- | :--- | :--- |
-| **NOT** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_NOT.png" alt="NOT Gate" width="64px"> | Inverts a single input. | $\neg A$ (Primitive) |
-| **OR** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_OR.png" alt="OR Gate" width="64px"> | True if **at least one** input is `True`. | $A \lor B$ (Primitive) |
-| **AND** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_AND.png" alt="AND Gate" width="64px"> | True only if **all** inputs are `True`. | $\neg(\neg A \lor \neg B)$ |
-| **XOR** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_XOR.png" alt="XOR Gate" width="64px"> | True only if inputs are **different**. | $\neg(A \lor \neg(A \lor B)) \lor \neg(B \lor \neg(A \lor B))$ |
-| **NAND**| <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_NAND.png" alt="NAND Gate" width="64px"> | True unless **all** inputs are `True`. | $\neg A \lor \neg B$ |
-| **NOR** | <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_NOR.png" alt="NOR Gate" width="64px"> | True only if **all** inputs are `False`. | $\neg(A \lor B)$ |
-| **XNOR**| <img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03_XNOR.png" alt="XNOR Gate" width="64px"> | True only if inputs are the **same**. | $\neg(\text{XOR Expression})$ |
+| **NOT** | <img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_NOT.png" alt="NOT Gate" width="64px"> | Inverts a single input. | $\neg A$ (Primitive) |
+| **OR** | <img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_OR.png" alt="OR Gate" width="64px"> | True if **at least one** input is `True`. | $A \lor B$ (Primitive) |
+| **AND** | <img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_AND.png" alt="AND Gate" width="64px"> | True only if **all** inputs are `True`. | $\neg(\neg A \lor \neg B)$ |
+| **XOR** | <img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_XOR.png" alt="XOR Gate" width="64px"> | True only if inputs are **different**. | $\neg(A \lor \neg(A \lor B)) \lor \neg(B \lor \neg(A \lor B))$ |
+| **NAND**| <img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_NAND.png" alt="NAND Gate" width="64px"> | True unless **all** inputs are `True`. | $\neg A \lor \neg B$ |
+| **NOR** | <img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_NOR.png" alt="NOR Gate" width="64px"> | True only if **all** inputs are `False`. | $\neg(A \lor B)$ |
+| **XNOR**| <img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_XNOR.png" alt="XNOR Gate" width="64px"> | True only if inputs are the **same**. | $\neg(\text{XOR Expression})$ |

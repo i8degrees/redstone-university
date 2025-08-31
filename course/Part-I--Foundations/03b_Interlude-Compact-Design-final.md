@@ -35,11 +35,11 @@ Let's analyze a few classic compact designs. For each one, we'll compare the **V
 
 First, recall our verbose AND gate. It's a perfect physical representation of De Morgan's Law, $\neg(\neg A \lor \neg B)$, but it takes up a lot of room.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03b_AND-gate-composite_minecraft.png" alt="Verbose AND Gate in Minecraft" width="512px"/><br/><em>Figure: Our easy-to-read, but large, educational AND gate.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03b_AND-gate-composite_minecraft.png" alt="Verbose AND Gate in Minecraft" width="512px"/><br/><em>Figure: Our easy-to-read, but large, educational AND gate.</em></div><br/>
 
 Now, observe a classic compact AND gate. It performs the exact same function with a much smaller footprint.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03b_AND-gate_minecraft.png" alt="Compact AND Gate in Minecraft" width="512px"/><br/><em>Figure: A classic, space-efficient compact AND gate.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03b_AND-gate_minecraft.png" alt="Compact AND Gate in Minecraft" width="512px"/><br/><em>Figure: A classic, space-efficient compact AND gate.</em></div><br/>
 
 #### Logical Deconstruction
 
@@ -53,11 +53,11 @@ The logic is identical: $\neg(\neg A \lor \neg B)$. It's just cleverly folded in
 
 Our educational XOR gate is large because the logic is complex. It's designed to be read.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03b_XOR-gate-composite_minecraft.png" alt="Verbose XOR Gate in Minecraft" width="512px"/><br/><em>Figure: Our educational XOR gate, built for clarity.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03b_XOR-gate-composite_minecraft.png" alt="Verbose XOR Gate in Minecraft" width="512px"/><br/><em>Figure: Our educational XOR gate, built for clarity.</em></div><br/>
 
 The community has created many compact XOR designs. Here is one of the most common "tileable" (meaning you can place them side-by-side) versions.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/03b_XOR-gate_minecraft.png" alt="Compact XOR Gate in Minecraft" width="512px"/><br/><em>Figure: A very common and tileable compact XOR gate design.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03b_XOR-gate_minecraft.png" alt="Compact XOR Gate in Minecraft" width="512px"/><br/><em>Figure: A very common and tileable compact XOR gate design.</em></div><br/>
 
 #### Logical Deconstruction
 

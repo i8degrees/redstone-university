@@ -39,14 +39,14 @@ These are the pieces you’ll see over and over. They are the alphabet we will u
 
 | Component | Game Icon | Role in this Course | Description |
 | :--- | :--- | :--- | :--- |
-| **Redstone Dust** | ![Redstone Dust Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/00_icon_redstone-dust.png) | **Wire:** The foundation of all circuits. | Carries a power signal up to `15` blocks before fading. Can be placed on most solid, opaque blocks. |
-| **Redstone Torch** | ![Redstone Torch Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/00_icon_redstone-torch.png) | **Power Source & Inverter (NOT Gate):** Our most versatile tool. | Acts as a constant power source. When powered by another source, it turns OFF, inverting the signal. This is our primitive **NOT gate**. |
-| **Lever** | ![Lever Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/00_icon_lever.png) | **Stable Input:** Our primary way to give commands. | A simple, manual on/off switch. Perfect for setting the inputs to our computer. |
-| **Redstone Lamp** | ![Redstone Lamp Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/00_icon_redstone-lamp.png) | **Output Indicator:** Lets us see the result of a calculation. | A block that lights up when powered. We use it to visualize the state of our circuits. |
-| **Redstone Repeater** | ![Redstone Repeater Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/00_icon_redstone-repeater.png) | **Signal Booster & Diode:** Essential for complex builds. | Extends a Redstone signal back to full strength (`15`) and acts as a one-way **diode** to prevent signals from flowing backward. |
-| **Solid Block** | ![Solid Block Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/00_icon_solid-block.png) | **Conductor & Insulator:** The physical structure of our machine. | A non-transparent block like Stone or Wool. It can be powered by Redstone components and transmit that power to adjacent components. |
-| **Sign** | ![Sign Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/00_icon_sign.png) | **Documentation:** A simple but vital tool for clarity. | Labeling your inputs, outputs, and different sections of a large build is crucial for understanding and debugging your own work. |
-| **Redstone Comparator** | ![Redstone Comparator Icon](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/00_icon_redstone-comparator.png) | **Advanced Tool (Later Modules)** | We will introduce this component later when we build memory. For now, you just need to know it exists. |
+| **Redstone Dust** | ![Redstone Dust Icon](https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/00_icon_redstone-dust.png) | **Wire:** The foundation of all circuits. | Carries a power signal up to `15` blocks before fading. Can be placed on most solid, opaque blocks. |
+| **Redstone Torch** | ![Redstone Torch Icon](https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/00_icon_redstone-torch.png) | **Power Source & Inverter (NOT Gate):** Our most versatile tool. | Acts as a constant power source. When powered by another source, it turns OFF, inverting the signal. This is our primitive **NOT gate**. |
+| **Lever** | ![Lever Icon](https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/00_icon_lever.png) | **Stable Input:** Our primary way to give commands. | A simple, manual on/off switch. Perfect for setting the inputs to our computer. |
+| **Redstone Lamp** | ![Redstone Lamp Icon](https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/00_icon_redstone-lamp.png) | **Output Indicator:** Lets us see the result of a calculation. | A block that lights up when powered. We use it to visualize the state of our circuits. |
+| **Redstone Repeater** | ![Redstone Repeater Icon](https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/00_icon_redstone-repeater.png) | **Signal Booster & Diode:** Essential for complex builds. | Extends a Redstone signal back to full strength (`15`) and acts as a one-way **diode** to prevent signals from flowing backward. |
+| **Solid Block** | ![Solid Block Icon](https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/00_icon_solid-block.png) | **Conductor & Insulator:** The physical structure of our machine. | A non-transparent block like Stone or Wool. It can be powered by Redstone components and transmit that power to adjacent components. |
+| **Sign** | ![Sign Icon](https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/00_icon_sign.png) | **Documentation:** A simple but vital tool for clarity. | Labeling your inputs, outputs, and different sections of a large build is crucial for understanding and debugging your own work. |
+| **Redstone Comparator** | ![Redstone Comparator Icon](https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/00_icon_redstone-comparator.png) | **Advanced Tool (Later Modules)** | We will introduce this component later when we build memory. For now, you just need to know it exists. |
 
 ---
 
@@ -70,7 +70,7 @@ This is a critical concept. Blocks can be powered in two ways, and what they can
 | :--- | :--- | :--- |
 | **What Provides It?** | A **Lever**, **Button**, **Repeater**, or **Torch** directly powering a block. | **Redstone Dust** running into or across a block. |
 | **What Can It Do?** | Powers **all** adjacent Redstone components, including dust above, below, and on all sides. | Powers only **some** adjacent components (like a lamp or repeater), but **NOT** adjacent dust. |
-| **Example** | ![Strongly powered block](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/00_strongly-powered-block_minecraft.png) | ![Weakly powered block](https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/00_weakly-powered-block_minecraft.png) |
+| **Example** | ![Strongly powered block](https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/00_strongly-powered-block_minecraft.png) | ![Weakly powered block](https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/00_weakly-powered-block_minecraft.png) |
 
 Understanding this difference is the key to creating compact vertical circuits later in the course.
 
@@ -80,7 +80,7 @@ Understanding this difference is the key to creating compact vertical circuits l
 
 Let’s combine these concepts to build a simple input to process to output circuit. This is the core pattern of every device we’ll make, from simple gates to a full CPU.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/00_basic-circuit_minecraft.png" alt="Basic circuit in Minecraft" width="512px"/><br/><em>Figure: A Redstone Lamp with a lever (input) connected to a Redstone Lamp (output) through Redstone Dust (wire).</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/00_basic-circuit_minecraft.png" alt="Basic circuit in Minecraft" width="512px"/><br/><em>Figure: A Redstone Lamp with a lever (input) connected to a Redstone Lamp (output) through Redstone Dust (wire).</em></div><br/>
 
 1.  **Place an Output:** Place a **Redstone Lamp** on the ground.
 2.  **Place an Input:** A few blocks away, place a **solid block** with a **Lever** on it. You can use any solid block, but throughout the course I will use a redstone lamp with a lever as the input. This acts as a visual indicator of the input state.

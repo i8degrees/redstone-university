@@ -86,7 +86,7 @@ To ensure a complete understanding, every logic gate in this course is introduce
 
 > **Key Takeaway:** The NOT gate flips a single input, turning a `1` to a `0` or a `0` to a `1`. It's the logical equivalent of the word "opposite."
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_NOT-gate_circuitverse.png" alt="NOT Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the NOT gate (left) and its function in a basic circuit (right), taking a single input $A$ and producing an inverted output $Y$.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/02_NOT-gate_circuitverse.png" alt="NOT Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the NOT gate (left) and its function in a basic circuit (right), taking a single input $A$ and producing an inverted output $Y$.</em></div><br/>
 
 -   **Formal Definition:** The NOT gate, or **Inverter**, performs logical **Negation**. It takes one input and outputs its exact opposite.
 -   **Symbols:** $\text{NOT } A$ ($\neg A$), `!A` (programming).
@@ -100,7 +100,7 @@ To ensure a complete understanding, every logic gate in this course is introduce
 
 ##### Lab & Experiment
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_NOT-gate_minecraft.png" alt="NOT Gate in Minecraft" width="512px"/><br/><em>Figure: A NOT gate in Minecraft using a Redstone Torch. The torch inverts the input, turning the lamp on when the lever is off and vice versa. This is the simplest physical realization of logical negation.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/02_NOT-gate_minecraft.png" alt="NOT Gate in Minecraft" width="512px"/><br/><em>Figure: A NOT gate in Minecraft using a Redstone Torch. The torch inverts the input, turning the lamp on when the lever is off and vice versa. This is the simplest physical realization of logical negation.</em></div><br/>
 
 1.  **Build the circuit:**
     1.  Place a solid block with a Lever on it for input $A$. Using a Redstone Lamp as the solid block here provides a helpful visual indicator.
@@ -121,7 +121,7 @@ NOT logic is everywhere. It's used to create the oscillating signal in a compute
 
 > **Key Takeaway:** The OR gate outputs a `1` if **at least one** of its inputs is a `1`. It’s how we express "either/or" conditions.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_OR-gate_circuitverse.png" alt="OR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the OR gate (left) and its function in a circuit (right). The output $Y$ is active if input $A$, $B$, or both are active.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/02_OR-gate_circuitverse.png" alt="OR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the OR gate (left) and its function in a circuit (right). The output $Y$ is active if input $A$, $B$, or both are active.</em></div><br/>
 
 -   **Formal Definition:** The OR gate performs logical **Disjunction**. Think of it as the optimistic gate; it checks if *at least one* of its inputs are True.
 -   **Symbols:** $A \text{ OR } B$ ($A \lor B$), `A || B` (programming).
@@ -139,7 +139,7 @@ NOT logic is everywhere. It's used to create the oscillating signal in a compute
 
 ##### Lab & Experiment
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_OR_gate_minecraft.png" alt="OR Gate in Minecraft" width="512px"/><br/><em>Figure: A Minecraft OR gate built by merging two Redstone Dust lines. The output lamp lights up if either lever is on, demonstrating "at least one" logic.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/02_OR_gate_minecraft.png" alt="OR Gate in Minecraft" width="512px"/><br/><em>Figure: A Minecraft OR gate built by merging two Redstone Dust lines. The output lamp lights up if either lever is on, demonstrating "at least one" logic.</em></div><br/>
 
 1.  **Build the circuit:**
     1.  Place two input blocks (e.g., Redstone Lamps with Levers) for $A$ and $B$, leaving a space between them.
@@ -187,13 +187,13 @@ Given the Boolean expression $A \text{ OR } (\text{NOT } B)$ ($A \lor (\neg B)$)
 
 > **Key Takeaway:** An AND gate outputs a `1` only if **all** of its inputs are a `1`. We will construct this new function by cleverly combining our primitive NOT and OR gates.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_AND-gate_circuitverse.png" alt="AND Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the AND gate (left) and its function. The output $Y$ is active only if both $A$ and $B$ are active.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/02_AND-gate_circuitverse.png" alt="AND Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the AND gate (left) and its function. The output $Y$ is active only if both $A$ and $B$ are active.</em></div><br/>
 
 Now we reach a pivotal moment. Minecraft doesn't give us a single block that performs the AND operation. We must build it ourselves from the parts we already have. This is the essence of digital engineering: creating complex functions from simple components.
 
 To connect the abstract concept of a gate to our physical build, we will use a consistent visual format. Each composite gate will be introduced with its standard, abstract symbol, which is how engineers represent it in high-level diagrams. This will be followed by a detailed composite diagram showing how to construct it from our primitive NOT and OR gates. In these diagrams, a dashed outline will enclose the group of primitives, visually demonstrating how they work together to become equivalent to the single, abstract gate.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_AND-gate-composite_circuitverse.png" alt="AND Gate Composite in CircuitVerse" width="512px"/><br/><em>Figure: The AND gate constructed from our primitives. This diagram shows how two NOT gates and one OR gate are combined to create the AND function.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/02_AND-gate-composite_circuitverse.png" alt="AND Gate Composite in CircuitVerse" width="512px"/><br/><em>Figure: The AND gate constructed from our primitives. This diagram shows how two NOT gates and one OR gate are combined to create the AND function.</em></div><br/>
 
 
 -   **Formal Definition:** The AND gate performs logical **Conjunction**. It is the strict gate; its output is True only if *all* inputs are True.
@@ -214,7 +214,7 @@ To connect the abstract concept of a gate to our physical build, we will use a c
 
 #### Lab & Experiment
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02_AND-gate-composite_minecraft.png" alt="AND Gate Composite in Minecraft" width="512px"/><br/><em>Figure: A composite AND gate in Minecraft. This build physically demonstrates how to achieve AND logic using only Redstone Torches (NOTs) and Dust (OR).</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/02_AND-gate-composite_minecraft.png" alt="AND Gate Composite in Minecraft" width="512px"/><br/><em>Figure: A composite AND gate in Minecraft. This build physically demonstrates how to achieve AND logic using only Redstone Torches (NOTs) and Dust (OR).</em></div><br/>
 
 > **Note on Screenshots and Color Coding:**
 > Our Minecraft circuit screenshots use a pseudo-isometric view to show as much of the build as possible. However, it can sometimes be hard to tell if a redstone torch is attached to the backside of a block. To make this clear, any block with a torch on its backside is colored red in the screenshot. Blocks with torches only on top are easy to see, so they use the build’s default color unless they also have a backside torch, in which case they’re red. For redstone lamps used as inputs (with a lever on one side and a torch or repeater on the other), we can't color code them obviously, but the instructions clearly indicate when a torch is on the backside of one of these input blocks.
