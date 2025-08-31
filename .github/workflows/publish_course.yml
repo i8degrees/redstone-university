@@ -39,6 +39,7 @@ jobs:
           images_dir: assets/images
           output_dir: course/
           build_html: false
+          image_import: assets/images
           theme: assets/css/pdf-style.css
           extend_default_theme: true
           highlight_theme: assets/css/darcula.css

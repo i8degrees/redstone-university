@@ -52,8 +52,8 @@ def process_markdown_content(content, file_path):
     """
     Processes the raw markdown content to make it PDF-ready by:
     1. Removing inline solution <details> blocks.
-    2. Rewriting image paths to be RELATIVE to the final PDF input file,
-       pointing to the centrally-located 'assets/images' directory.
+    2. Rewriting image paths to be root-relative paths that the PDF
+       generator's 'image_import' can find and replace.
     """
     solution_placeholder = "> **(Solution for this problem can be found in Appendix A.)**"
     content = re.sub(r"<details>.*?</details>", solution_placeholder, content, flags=re.DOTALL)
@@ -73,11 +73,11 @@ def process_markdown_content(content, file_path):
         else:
             new_image_name = image_basename
 
-        relative_path = os.path.join("..", ASSETS_IMG_DIR, new_image_name)
+        new_path = os.path.join(ASSETS_IMG_DIR, new_image_name)
 
-        relative_path = relative_path.replace(os.path.sep, "/")
+        new_path = new_path.replace(os.path.sep, "/")
 
-        return f"![{alt_text}]({relative_path})"
+        return f"![{alt_text}]({new_path})"
 
     content = re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", image_path_replacer, content)
 
