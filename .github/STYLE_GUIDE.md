@@ -149,24 +149,37 @@ This clear separation in formatting makes complex sentences easy to parse and un
 
 ### Using Dual Notation for Logical Expressions
 
-To ensure our content is both intuitive for beginners and academically sound, we use a "dual notation" system for logical expressions. This practice is central to the course's teaching philosophy.
+To ensure our content is both intuitive for beginners and academically sound, we use a "dual notation" system for logical expressions.
 
-**The Core Rule:** Always prioritize clarity by leading with a text-based, human-readable version of an expression, followed immediately by the formal, symbolic notation in parentheses.
--   **Correct:** `$A \text{ AND } B$ ($A \land B$)`
--   **Correct:** `$\text{NOT } A$ ($\neg A$)`
--   **Incorrect:** `$A \land B$` (On first mention, this is too formal for a beginner).
--   **Incorrect:** `A AND B` (This is not formatted as a mathematical expression).
+**The Core Rule:** For inline expressions, always lead with a text-based version, followed immediately by the formal, symbolic notation enclosed in **square brackets**.
 
-**Guideline for Repetition: The "Teach and Trust" Method**
+-   **Correct:** `$A \text{ AND } B \ [A \land B]$`
+-   **Correct:** `$\text{NOT } A \ [\neg A]$`
+-   **Correct (with grouping):** `$A \text{ AND } (B \lor C) \ [A \land (B \lor C)]$`
+-   **Flawed (Old):** `$A \text{ AND } B (A \land B)$`
 
-To avoid excessive repetition and maintain a natural flow, apply the following guideline for repeated use of the same expression:
+**The "Teach and Trust" method for repetition remains the same.** If an expression is used multiple times in the same paragraph, only the first instance requires the full dual notation.
 
-1.  **First Mention:** On the first use of a logical expression within a distinct section (e.g., a lesson, a lab section, or a practice problem solution), **always use the full dual notation.** This is the "teach" moment where you define the term and its symbol.
-2.  **Subsequent Mentions:** For any later use of that same expression *within the same immediate context (such as the same paragraph or list)*, it is preferred to use **only the formal symbol.** This is the "trust" moment, where we trust the student has learned the symbol and can now use it fluently.
+### Inline vs. Block-Level Equations
+
+To improve readability, we will use two types of formatting for our mathematical expressions.
+
+**1. Inline Equations (`$ ... $`)**
+Use single dollar signs for simple expressions, variables, or constants that flow naturally within a sentence.
+-   **Good:** The output `$Y$` is determined by the inputs `$A$` and `$B$`.
+-   **Good:** The expression for this is simply `$Y = A \lor B$`.
+
+**2. Block-Level Equations (`$$ ... $$`)**
+Use double dollar signs to place an expression on its own, centered line. This should be used when:
+-   The expression is complex, with multiple levels of grouping.
+-   The expression is the primary focus of an explanation.
+-   You are presenting a formal law or a key final equation.
 
 **Example in Practice:**
 
-> The goal of this circuit is to implement the expression $A \text{ AND } (\text{NOT } B)$ ($A \land (\neg B)$). To build this, we first need to generate the signal for $\neg B$. Once we have that, we can feed it and the original $A$ signal into a composite AND gate. The final output will then correctly represent $A \land (\neg B)$.
+> The full Boolean expression for an XOR gate is `A AND (NOT B) OR (NOT A) AND B`. We can represent this formally as:
+> $$ Y = (A \land \neg B) \lor (\neg A \land B) $$
+> This block format makes the structure of the equation much clearer than if it were kept inline.
 
 ### Summary Table
 
