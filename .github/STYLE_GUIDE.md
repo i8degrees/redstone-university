@@ -149,45 +149,40 @@ This clear separation in formatting makes complex sentences easy to parse and un
 
 ### Using Dual Notation for Logical Expressions
 
-To ensure our content is both intuitive for beginners and academically sound, we use a "dual notation" system for logical expressions.
+To ensure our content is both intuitive for beginners and academically sound, we use a system that distinguishes between **defining** the notations and **using** them in prose.
 
-**The Core Rule:** For inline expressions, always lead with a text-based version, followed immediately by the formal, symbolic notation enclosed in **square brackets**.
+**1. Defining Notations (in the `Symbols` section of a gate introduction)**
 
--   **Correct:** `$A \text{ AND } B \ [A \land B]$`
--   **Correct:** `$\text{NOT } A \ [\neg A]$`
--   **Correct (with grouping):** `$A \text{ AND } (B \lor C) \ [A \land (B \lor C)]$`
--   **Flawed (Old):** `$A \text{ AND } B (A \land B)$`
+The `Symbols` section serves as a formal definition. Here, we will use a nested, labeled list to explicitly break down the different ways an expression can be written. This provides maximum clarity.
 
-**The "Teach and Trust" method for repetition remains the same.** If an expression is used multiple times in the same paragraph, only the first instance requires the full dual notation.
+**Example for an AND Gate:**
+> -   **Symbols:**
+>     -   **Logical Notations:**
+>         -   *Text-based:* $A \text{ AND } B$
+>         -   *Symbolic:* $A \land B$
+>     -   **Programming Operator:** `A && B`
 
-### Inline vs. Block-Level Equations
+**2. Using Notations (in the main body of the text)**
 
-To improve readability, we will use two types of formatting for our mathematical expressions.
+When an expression is used for the first time within a paragraph or section, we will use the **colon-separated dual notation** to link the text-based and symbolic forms inline. This reinforces the equivalence in a flowing, readable way.
 
-**1. Inline Equations (`$ ... $`)**
-Use single dollar signs for simple expressions, variables, or constants that flow naturally within a sentence.
--   **Good:** The output `$Y$` is determined by the inputs `$A$` and `$B$`.
--   **Good:** The expression for this is simply `$Y = A \lor B$`.
+-   **The Core Rule:** $A \text{ AND } B : A \land B$
 
-**2. Block-Level Equations (`$$ ... $$`)**
-Use double dollar signs to place an expression on its own, centered line. This should be used when:
--   The expression is complex, with multiple levels of grouping.
--   The expression is the primary focus of an explanation.
--   You are presenting a formal law or a key final equation.
+**3. The "Teach and Trust" Method for Repetition**
 
-**Example in Practice:**
+The guideline for repetition remains the same. After the first use of the full dual notation in a section, subsequent mentions should use only the concise, formal symbolic version (e.g., $A \land B$).
 
-> The full Boolean expression for an XOR gate is `A AND (NOT B) OR (NOT A) AND B`. We can represent this formally as:
-> $$ Y = (A \land \neg B) \lor (\neg A \land B) $$
-> This block format makes the structure of the equation much clearer than if it were kept inline.
+**Example of All Rules in Practice:**
+
+> ...as shown in the **Symbols** section above, the text-based form is $A \text{ AND } B$ and the symbolic form is $A \land B$. In this lesson, we will build a circuit for the expression $A \text{ AND } (\text{NOT } B) : A \land (\neg B)$. To build the circuit for $A \land (\neg B)$, we first need to generate the signal for $\neg B$...
 
 ### Summary Table
 
 | Context | Correct Formatting Example | Incorrect Formatting Example(s) |
 | :--- | :--- | :--- |
-| **Logical/Mathematical Concept**<br>(Variable, Expression, or Constant) | `$A$`, `$A \land B$`, `$1$` | `A`, `` `A` ``, `` `$A$` `` |
-| **Literal Data Value**<br>(Physical state, code, numerical string) | `` `1` ``, `` `0` ``, `` `1011` ``, `` `count = 0` `` | `1`, `$1$` |
-| **Descriptive Number**<br>(Used as an adjective in a sentence) | a 4-bit adder | a `` `4-bit` `` adder, a `$4$`-bit adder |
+| **Logical/Mathematical Concept**<br>(Variable, Expression, or Constant) | $A$, $A \land B$, $1$ | `A`, `A`, `$A$` |
+| **Literal Data Value**<br>(Physical state, code, numerical string) | `1` , `0`, `1011`, `count = 0` | `1`, $1$ |
+| **Descriptive Number**<br>(Used as an adjective in a sentence) | a 4-bit adder | a `4-bit` adder, a `$4$`-bit adder |
 
 ---
 
