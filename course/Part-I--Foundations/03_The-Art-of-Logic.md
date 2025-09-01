@@ -7,7 +7,7 @@
     -   Apply the laws of Boolean algebra to simplify circuits on paper, making them more efficient.
     -   Build and understand the unique properties of the XOR, NAND, and NOR gates.
     -   Grasp the concept of universal gates (functional completeness).
-    -   Connect hardware logic to clever software algorithms (the XOR trick).
+    -   Connect hardware logic to clever software algorithms.
 -   **Lesson Overview:**
     -   Lesson 3.1: The Laws of Logic & The Power of Simplification
     -   Lesson 3.2: The Special Operator – Building an XOR Gate
@@ -37,9 +37,9 @@ Just like $2 + x = x + 2$ in normal algebra, Boolean algebra has laws that let u
 
 #### A Note on Notation
 
-You’ll often see logic written using symbols from regular math. For example, **AND** is sometimes written as multiplication ($A \cdot B$ or $AB$), **OR** as addition ($A + B$), and **NOT** as an overbar ($Ā$).
+You’ll often see logic written using symbols from regular math. For example, **AND** is sometimes written as multiplication ($A \cdot B$ or $AB$), **OR** as addition ($A + B$), and **NOT** as an overbar ($\overline{A}$).
 
-For this course, we will continue using the "dual notation" system we introduced in Module 2. We lead with a text-based version for clarity, followed by the formal symbol in parentheses. This makes the concepts both intuitive for beginners and academically sound. For example: $A \text{ AND } B$ ($A \land B$).
+For this course, we will continue using the dual notation system. We lead with a text-based version for clarity, followed by the formal symbol after a colon, like this: $A \text{ AND } B$ : $A \land B$.
 
 #### The Laws of Boolean Algebra
 
@@ -48,8 +48,8 @@ Here are the key laws we will be using in our course. Mastering them is the firs
 -   **Identity Law:** $A \lor 0 = A$ and $A \land 1 = A$.
 -   **Annihilator Law:** $A \lor 1 = 1$ and $A \land 0 = 0$.
 -   **De Morgan's Law:** This is the superstar. It gives us a powerful way to convert between AND and OR logic.
-    -   $\text{NOT}(A \text{ AND } B)$ ($\neg(A \land B)$) is the same as $(\text{NOT } A) \text{ OR } (\text{NOT } B)$ ($\neg A \lor \neg B$).
-    -   $\text{NOT}(A \text{ OR } B)$ ($\neg(A \lor B)$) is the same as $(\text{NOT } A) \text{ AND } (\text{NOT } B)$ ($\neg A \land \neg B$).
+    -   $\text{NOT}(A \text{ AND } B)$ : $\neg(A \land B)$ is the same as $(\text{NOT } A) \text{ OR } (\text{NOT } B)$ : $\neg A \lor \neg B$.
+    -   $\text{NOT}(A \text{ OR } B)$ : $\neg(A \lor B)$ is the same as $(\text{NOT } A) \text{ AND } (\text{NOT } B)$ : $\neg A \land \neg B$.
 
 ---
 
@@ -69,11 +69,8 @@ Let's use De Morgan’s Law to prove that our composite AND gate from Module 2 i
 The laws of logic don't just prove a circuit is correct; they make our circuits *more efficient*. This is a crucial engineering skill called **simplification**.
 
 Consider a circuit that needs to turn on if ($A$ is ON and $B$ is ON) OR if ($A$ is ON and $B$ is OFF). The direct Boolean expression would be:
-
-$Y = (A \text{ AND } B) \text{ OR } (A \text{ AND } (\text{NOT } B))$ ($Y = (A \land B) \lor (A \land (\neg B))$)
-
-This looks like it would require two AND gates and one OR gate. Let's simplify it.
-
+$$ Y = (A \land B) \lor (A \land (\neg B)) $$
+This looks like it would require two AND gates and one OR gate. Let's simplify it step-by-step:
 1.  **Start with the expression:** $Y = (A \land B) \lor (A \land (\neg B))$
 2.  **Apply the Distributive Law:** Notice that $A \land$ is common to both terms. We can "factor it out."
     *   This gives us: $Y = A \land (B \lor \neg B)$
@@ -84,7 +81,7 @@ This looks like it would require two AND gates and one OR gate. Let's simplify i
 
 **Lab Takeaway:** We have just proven that this entire three-gate circuit can be replaced by a single wire connected to input $A$. This is the power of simplification in action. It saves resources, space, and makes our designs more elegant.
 
-<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_simplification_circuitverse.png" alt="Circuit Before and After Simplification" width="512px"/><br/><em>Figure: The circuit for $Y = (A \land B) \lor (A \land \neg B)$ before simplification (left) and after (right). Both are functionally identical.</em></div><br/>
+<div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_simplification_circuitverse.png" alt="Circuit Before and After Simplification" width="512px"/><br/><em>Figure: The circuit for $Y = (A \land B) \lor (A \land \neg B)$ before simplification (left) is logically equivalent (≡) to the circuit for $Y = A$ (right).</em></div><br/>
 
 #### Summary Table: Boolean Laws
 
@@ -104,7 +101,8 @@ This looks like it would require two AND gates and one OR gate. Let's simplify i
 
 #### Practice Problem 3.1.1: Circuit Simplification Challenge
 
-Given the expression $(A \text{ OR } B) \text{ AND } (\text{NOT } A \text{ OR } \text{NOT } B)$ ($(A \lor B) \land (\neg A \lor \neg B)$), simplify it using Boolean laws. Show all steps.
+Given the following expression, simplify it using Boolean laws:
+$$ (A \lor B) \land (\neg A \lor \neg B) $$
 
 <details>
 <summary><strong>Show Solution</strong></summary>
@@ -113,8 +111,8 @@ Given the expression $(A \text{ OR } B) \text{ AND } (\text{NOT } A \text{ OR } 
 1.  **Start with the expression:** $(A \lor B) \land (\neg A \lor \neg B)$
 2.  **Apply De Morgan’s Law to the second term:** $(\neg A \lor \neg B)$ is equivalent to $\neg(A \land B)$.
 3.  **The expression becomes:** $(A \lor B) \land \neg(A \land B)$
-4.  **This expression is the definition of Exclusive OR (XOR):** This logic reads as "(A or B is true) AND (they are not both true)."
-5.  **Final simplified expression:** $A \text{ XOR } B$ ($A \oplus B$)
+4.  **This is the definition of Exclusive OR (XOR).**
+5.  **Final simplified expression:** $A \text{ XOR } B$ : $A \oplus B$
 
 </details>
 
@@ -131,23 +129,26 @@ Like the AND gate, XOR is a composite gate we must build from our primitives.
 <div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_XOR-gate-composite_circuitverse.png" alt="XOR Gate in (Composite) CircuitVerse" width="512px"/><br/><em>Figure: The XOR gate constructed in CircuitVerse using only OR and NOT gates. This composite design shows how the XOR function can be achieved by creatively wiring our primitives.</em></div><br/>
 
 -   **Formal Definition:** The **Exclusive OR (XOR)** gate outputs True only when its inputs differ.
--   **Symbols:** $A \text{ XOR } B$ ($A \oplus B$), `A ^ B` (programming).
+-   **Symbols:**
+    -   **Logical Notations:**
+        -   *Text-based:* $A \text{ XOR } B$
+        -   *Symbolic:* $A \oplus B$
+    -   **Programming Operator:** `A ^ B`
 -   **The Rule:** The output is True if $A$ is True and $B$ is False, or if $A$ is False and $B$ is True.
 -   **Truth Table: XOR Gate**
-
-| $A$ | $B$ | $A \oplus B$ |
+| $A$ | $B$ | $A \text{ XOR } B$ |
 |:---:|:---:|:---------:|
 | `0` | `0` | `0` |
 | `0` | `1` | `1` |
 | `1` | `0` | `1` |
 | `1` | `1` | `0` |
-
--   **The Boolean Expression**: $Y = \text{NOT}(A \text{ OR NOT}(A \text{ OR } B)) \text{ OR NOT}(B \text{ OR NOT}(A \text{ OR } B))$
+-   **The Boolean Expression:** Our build implements the complex expression:
+$$ Y = \neg(A \lor \neg(A \lor B)) \lor \neg(B \lor \neg(A \lor B)) $$
 
 > #### A Note on Our Design
 > It's important to understand that this is just one of many ways to build an XOR gate. In Redstone engineering, as in real-world circuit design, there is often no single "correct" answer. Different designs might be bigger but easier to understand, or smaller but more complex. The design above is excellent for visualizing the underlying logic while learning.
 >
-> The complex Boolean expression is a direct translation of our circuit diagram. It cleverly uses a shared NOR gate (`NOT(A OR B)`) to feed the main logic paths, a common strategy for efficiency. While this expression looks different from the textbook definition ($A \oplus B = (A \land \neg B) \lor (\neg A \land B)$), it is functionally identical. This is a perfect example of how different engineering approaches can lead to the same correct solution.
+> The complex Boolean expression above is a direct translation of our circuit diagram. It cleverly uses a shared NOR gate ($\text{NOT}(A \text{ OR } B)$ : $\neg(A \lor B)$) to feed the main logic paths. While this expression looks different from the textbook definition ($A \oplus B = (A \land \neg B) \lor (\neg A \land B)$), it is functionally identical.
 
 ---
 
@@ -172,16 +173,15 @@ XOR's "difference detector" property is essential. It's the core component of a 
 
 #### Practice Problem 3.2.1: The Two-Switch Light System
 
-Design a Minecraft circuit for a two-switch light system where flipping either switch toggles the light’s state (on to off, or off to on). This requires implementing the logic $A \text{ XOR } B$ ($A \oplus B$) using only NOT and OR gates.
+Design a Minecraft circuit for a two-switch light system where flipping either switch toggles the light’s state. This requires implementing the logic $A \text{ XOR } B : A \oplus B$ using only NOT and OR gates.
 
 <details>
 <summary><strong>Show Solution</strong></summary>
 
-**Logic:** The light should be ON when exactly one switch is ON, which is the definition of $A \oplus B$.
+**Logic:** The light should be ON when exactly one switch is ON, which is the definition of $A \text{ XOR } B : A \oplus B$.
 
 **Truth Table:**
-
-| $A$ | $B$ | Light ($A \oplus B$) |
+| $A$ | $B$ | $A \text{ XOR } B$ |
 |:---:|:---:|:----------------:|
 | `0` | `0` | `0` |
 | `0` | `1` | `1` |
@@ -295,18 +295,20 @@ As we build the NAND and NOR gates, keep this table in mind. You're not just bui
 <div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_NOR-gate-composite_circuitverse.png" alt="NOR Gate (Composite) in CircuitVerse" width="512px"/><br/><em>Figure: A composite NOR gate in CircuitVerse, constructed from our primitives. This shows how a NOR is simply an OR gate followed by a NOT gate.</em></div><br/>
 
 -   **Formal Definition:** The NOR gate performs a **NOT-OR** operation (the negation of OR).
--   **Symbols:** $A \text{ NOR } B$ ($\neg(A \lor B)$).
+-   **Symbols:**
+    -   **Logical Notations:**
+        -   *Text-based:* $A \text{ NOR } B$
+        -   *Symbolic:* $\neg(A \lor B)$
+    -   **Programming Operator:** *(Not commonly available as a single operator)*
 -   **The Rule:** The output is True only when both inputs are False.
 -   **Truth Table: NOR Gate**
-
-| $A$ | $B$ | $\neg(A \lor B)$ |
+| $A$ | $B$ | $A \text{ NOR } B$ |
 |:---:|:---:|:---------:|
 | `0` | `0` | `1` |
 | `0` | `1` | `0` |
 | `1` | `0` | `0` |
 | `1` | `1` | `0` |
-
--   **The Boolean Expression:** The output $Y$ is $Y = \neg(A \lor B)$.
+-   **The Boolean Expression:** Our build implements the expression $\text{NOT}(A \text{ OR } B) : \neg(A \lor B)$.
 
 ##### Lab & Experiment
 
@@ -335,18 +337,20 @@ NOR gates are fundamental in electronics. Because they are a universal gate, ent
 <div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_NAND-gate-composite_circuitverse.png" alt="NAND Gate (Composite) in CircuitVerse" width="512px"/><br/><em>Figure: A composite NAND gate in CircuitVerse. This diagram shows how the NAND function is simply our composite AND gate with the final NOT gate removed.</em></div><br/>
 
 -   **Formal Definition:** The NAND gate performs a **NOT-AND** operation (the negation of AND).
--   **Symbols:** $A \text{ NAND } B$ ($\neg(A \land B)$).
+-   **Symbols:**
+    -   **Logical Notations:**
+        -   *Text-based:* $A \text{ NAND } B$
+        -   *Symbolic:* $\neg(A \land B)$
+    -   **Programming Operator:** *(Not commonly available as a single operator)*
 -   **The Rule:** The output is True unless both inputs are True.
 -   **Truth Table: NAND Gate**
-
-| $A$ | $B$ | $\neg(A \land B)$ |
+| $A$ | $B$ | $A \text{ NAND } B$ |
 |:---:|:---:|:----------:|
 | `0` | `0` | `1` |
 | `0` | `1` | `1` |
 | `1` | `0` | `1` |
 | `1` | `1` | `0` |
-
--   **The Boolean Expression:** $Y = \neg(A \land B)$, which is equivalent to $Y = \neg A \lor \neg B$.
+-   **The Boolean Expression:** Our build implements the expression `$(\text{NOT } A) \text{ OR } (\text{NOT } B) : \neg A \lor \neg B$`, which De Morgan's Law proves is equivalent to $A \text{ NAND } B$.
 
 > **A Note on De Morgan's Law in Action**: This is one of the most powerful tricks in digital logic. We know that NAND is $\neg(A \land B)$. We also know from De Morgan's Law that $\neg(A \land B)$ is perfectly equivalent to $\neg A \lor \neg B$. Our composite AND gate was built as $\neg(\neg A \lor \neg B)$. To create a NAND gate, we simply remove the final NOT gate (the last torch), which leaves us with the physical circuit for $\neg A \lor \neg B$. This is a perfect physical proof of a fundamental logic law!
 
@@ -376,18 +380,21 @@ NAND gates are arguably the most important gate in modern electronics. Because t
 <div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/03_XNOR-gate-composite_circuitverse.png" alt="XNOR Gate (Composite) in CircuitVerse" width="512px"/><br/><em>Figure: Composite XNOR gate in CircuitVerse. This shows how XNOR logic can be achieved by simply inverting the final output of a composite XOR gate.</em></div><br/>
 
 -   **Formal Definition:** The XNOR gate performs a **NOT-XOR** operation (the negation of XOR).
--   **Symbols:** $A \text{ XNOR } B$ ($\neg(A \oplus B)$).
+-   **Symbols:**
+    -   **Logical Notations:**
+        -   *Text-based:* $A \text{ XNOR } B$
+        -   *Symbolic:* $\neg(A \oplus B)$
+    -   **Programming Operator:** *(Not commonly available as a single operator)*
 -   **The Rule:** The output is True when inputs are the same (both `0` or both `1`).
 -   **Truth Table: XNOR Gate**
-
-| $A$ | $B$ | $\neg(A \oplus B)$ |
+| $A$ | $B$ | $A \text{ XNOR } B$ |
 |:---:|:---:|:----------:|
 | `0` | `0` | `1` |
 | `0` | `1` | `0` |
 | `1` | `0` | `0` |
 | `1` | `1` | `1` |
-
--   **The Boolean Expression:** $Y = \neg(\text{NOT}(A \text{ OR NOT}(A \text{ OR } B)) \text{ OR NOT}(B \text{ OR NOT}(A \text{ OR } B)))$
+-   **The Boolean Expression:** Our build implements the negation of our full XOR expression:
+$$ Y = \neg( \neg(A \lor \neg(A \lor B)) \lor \neg(B \lor \neg(A \lor B)) ) $$
 
 ##### Lab & Experiment
 

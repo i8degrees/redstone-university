@@ -36,11 +36,11 @@ This appendix provides solutions to the practice problems in the Redstone Univer
 
 ### Practice Problem 2.2.1: Boolean Expression Evaluation
 
-Given the Boolean expression $A \text{ OR } (\text{NOT } B)$ ($A \lor (\neg B)$), evaluate the output for all possible input combinations and create a truth table. Then, build a Minecraft circuit to verify your results.
+Given the Boolean expression $A \text{ OR } (\text{NOT } B)$ : $A \lor (\neg B)$, evaluate the output for all possible input combinations and create a truth table. Then, build a Minecraft circuit to verify your results.
 
-**Truth Table for $A \lor (\neg B)$:**
+**Truth Table for $A \text{ OR } (\text{ NOT } B)$ : $A \lor (\neg B)$:**
 
-| $A$ | $B$ | $\neg B$ | $A \lor (\neg B)$ |
+| $A$ | $B$ | $\text{ NOT } B$ | $A \text{ OR } (\text{ NOT } B)$ |
 |:---:|:---:|:---:|:---:|
 | `0` | `0` | `1` | `1` |
 | `0` | `1` | `0` | `0` |
@@ -57,18 +57,19 @@ Given the Boolean expression $A \text{ OR } (\text{NOT } B)$ ($A \lor (\neg B)$)
 
 ### Practice Problem 2.3.1: Logic Gate Design Challenge
 
-Design a circuit that implements the logic $A \text{ AND } (\text{NOT } B)$ ($A \land (\neg B)$) using only the NOT and OR primitives. Build it in Minecraft and verify with a truth table for all input combinations ($A$, $B$ = `0,0`; `0,1`; `1,0`; `1,1`).
+Design a circuit that implements the logic $A \text{ AND } (\text{NOT } B)$ : $A \land (\neg B)$ using only the NOT and OR primitives. Build it in Minecraft and verify with a truth table for all input combinations ($A$, $B$ = `0,0`; `0,1`; `1,0`; `1,1`).
 
-**Truth Table for $A \land (\neg B)$:**
+**Truth Table for $A \text{ AND } (\text{NOT } B)$:**
 
-| $A$ | $B$ | $\neg B$ | $A \land (\neg B)$ |
+| $A$ | $B$ | $\text{ NOT } B$ | $A \text{ OR } (\text{ NOT } B)$ |
 |:---:|:---:|:---:|:----------:|
 | `0` | `0` | `1` | `0` |
 | `0` | `1` | `0` | `0` |
 | `1` | `0` | `1` | `1` |
 | `1` | `1` | `0` | `0` |
 
-**Boolean Expression**: The expression $A \land (\neg B)$ is equivalent to $\text{NOT}(\text{NOT } A \text{ OR } B)$ ($\neg(\neg A \lor B)$) by De Morgan’s Law.
+
+**Boolean Expression**: The expression $A \text{ AND } (\text{NOT } B)$ : $A \land (\neg B)$ is equivalent to $\text{NOT}(\text{NOT } A \text{ OR } B)$ : $\neg(\neg A \lor B)$ by De Morgan’s Law.
 
 **Minecraft Circuit**: This requires building a composite AND gate where one of the inputs is inverted first.
 1. Create inputs for $A$ and $B$.
@@ -116,11 +117,11 @@ Write the single Boolean expression for the alarm $Y$. Which gates would you nee
 
 ### Practice Problem 2.4.3: The Build Challenge
 
-Design and build a Minecraft circuit that implements the logic $A \text{ AND } (\text{NOT } B)$ ($A \land (\neg B)$). Use only the primitive NOT and OR gates. Verify its function against a truth table for all four input combinations.
+Design and build a Minecraft circuit that implements the logic $A \text{ AND } (\text{NOT } B)$ : $A \land (\neg B)$. Use only the primitive NOT and OR gates. Verify its function against a truth table for all four input combinations.
 
 **Truth Table:**
 
-| $A$ | $B$ | $\neg B$| $A \land (\neg B)$ |
+| $A$ | $B$ | $\text{ NOT } B$| $A \text{ AND } (\text{ NOT } B)$ |
 |:---:|:---:|:---:|:----------:|
 | `0` | `0` | `1` | `0` |
 | `0` | `1` | `0` | `0` |
@@ -141,14 +142,15 @@ Design and build a Minecraft circuit that implements the logic $A \text{ AND } (
 
 ### Practice Problem 3.1.1: Circuit Simplification Challenge
 
-Given the expression $(A \text{ OR } B) \text{ AND } (\text{NOT } A \text{ OR } \text{NOT } B)$ ($(A \lor B) \land (\neg A \lor \neg B)$), simplify it using Boolean laws. Show all steps.
+Given the following expression, simplify it using Boolean laws:
+$$ (A \lor B) \land (\neg A \lor \neg B) $$
 
 **Simplification Steps:**
 1.  **Start with the expression:** $(A \lor B) \land (\neg A \lor \neg B)$
 2.  **Apply De Morgan’s Law to the second term:** $(\neg A \lor \neg B)$ is equivalent to $\neg(A \land B)$.
 3.  **The expression becomes:** $(A \lor B) \land \neg(A \land B)$
-4.  **This expression is the definition of Exclusive OR (XOR):** This logic reads as "(A or B is true) AND (they are not both true)."
-5.  **Final simplified expression:** $A \text{ XOR } B$ ($A \oplus B$)
+4.  **This is the definition of Exclusive OR (XOR).**
+5.  **Final simplified expression:** $A \text{ XOR } B$ : $A \oplus B$
 
 </details>
 
@@ -158,13 +160,12 @@ Given the expression $(A \text{ OR } B) \text{ AND } (\text{NOT } A \text{ OR } 
 
 ### Practice Problem 3.2.1: The Two-Switch Light System
 
-Design a Minecraft circuit for a two-switch light system where flipping either switch toggles the light’s state (on to off, or off to on). This requires implementing the logic $A \text{ XOR } B$ ($A \oplus B$) using only NOT and OR gates.
+Design a Minecraft circuit for a two-switch light system where flipping either switch toggles the light’s state. This requires implementing the logic $A \text{ XOR } B : A \oplus B$ using only NOT and OR gates.
 
-**Logic:** The light should be ON when exactly one switch is ON, which is the definition of $A \oplus B$.
+**Logic:** The light should be ON when exactly one switch is ON, which is the definition of $A \text{ XOR } B : A \oplus B$.
 
 **Truth Table:**
-
-| $A$ | $B$ | Light ($A \oplus B$) |
+| $A$ | $B$ | $A \text{ XOR } B$ |
 |:---:|:---:|:----------------:|
 | `0` | `0` | `0` |
 | `0` | `1` | `1` |

@@ -69,7 +69,7 @@ To ensure a complete understanding, every logic gate in this course is introduce
 **Formal Definition & Rules:**
 
 -   **Formal Definition:** The high-level concept and official terminology (e.g., "Conjunction").
--   **Symbols:** Common ways the operator is written in logic ($A \land B$) and programming (`A && B`).
+-   **Symbols:** Common ways the operator is written in logical notation and programming languages.
 -   **The Rule:** A plain-English sentence describing what the gate does.
 -   **Truth Table:** A complete chart defining all possible input/output combinations. This is the ultimate "source of truth."
 -   **Primitive Boolean Expression:** The specific algebraic expression that represents our composite build using only **NOT** and **OR**.
@@ -89,14 +89,19 @@ To ensure a complete understanding, every logic gate in this course is introduce
 <div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/02_NOT-gate_circuitverse.png" alt="NOT Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the NOT gate (left) and its function in a basic circuit (right), taking a single input $A$ and producing an inverted output $Y$.</em></div><br/>
 
 -   **Formal Definition:** The NOT gate, or **Inverter**, performs logical **Negation**. It takes one input and outputs its exact opposite.
--   **Symbols:** $\text{NOT } A$ ($\neg A$), `!A` (programming).
+-   **Symbols:**
+    -   **Logical Notations:**
+        -   *Text-based:* $\text{NOT } A$
+        -   *Symbolic:* $\neg A$
+    -   **Programming Operator:** `!A`
 -   **The Rule:** If the input is True, the output is False. If the input is False, the output is True.
 -   **Truth Table: NOT Gate**
-| $A$ | $\neg A$ |
+
+| $A$ | $\text{NOT } A$ |
 |:---:|:----:|
 | `0` | `1` |
 | `1` | `0` |
--   **The Boolean Expression:** The output $Y$ is simply $Y = \neg A$.
+
 
 ##### Lab & Experiment
 
@@ -124,18 +129,20 @@ NOT logic is everywhere. It's used to create the oscillating signal in a compute
 <div align="center"><img src="https://media.githubusercontent.com/media/fielding/redstone-university/main/assets/images/02_OR-gate_circuitverse.png" alt="OR Gate in CircuitVerse" width="512px"/><br/><em>Figure: The abstract symbol for the OR gate (left) and its function in a circuit (right). The output $Y$ is active if input $A$, $B$, or both are active.</em></div><br/>
 
 -   **Formal Definition:** The OR gate performs logical **Disjunction**. Think of it as the optimistic gate; it checks if *at least one* of its inputs are True.
--   **Symbols:** $A \text{ OR } B$ ($A \lor B$), `A || B` (programming).
+-   **Symbols:**
+    -   **Logical Notations:**
+        -   *Text-based:* $A \text{ OR } B$
+        -   *Symbolic:* $A \lor B$
+    -   **Programming Operator:** `A || B`
 -   **The Rule:** The output is True if $A$ is True, OR $B$ is True, or if both are True.
 -   **Truth Table: OR Gate**
 
-| $A$ | $B$ | $A \lor B$ |
+| $A$ | $B$ | $A \text{ OR } B$ |
 |:---:|:---:|:--------:|
 | `0` | `0` | `0` |
 | `0` | `1` | `1` |
 | `1` | `0` | `1` |
 | `1` | `1` | `1` |
-
--   **The Boolean Expression:** The output $Y$ is $Y = A \lor B$.
 
 ##### Lab & Experiment
 
@@ -163,14 +170,14 @@ OR logic is used for monitoring multiple conditions. A car's dashboard might lig
 
 #### Practice Problem 2.2.1: Boolean Expression Evaluation
 
-Given the Boolean expression $A \text{ OR } (\text{NOT } B)$ ($A \lor (\neg B)$), evaluate the output for all possible input combinations and create a truth table. Then, build a Minecraft circuit to verify your results.
+Given the Boolean expression $A \text{ OR } (\text{NOT } B)$ : $A \lor (\neg B)$, evaluate the output for all possible input combinations and create a truth table. Then, build a Minecraft circuit to verify your results.
 
 <details>
 <summary><strong>Show Solution</strong></summary>
 
-**Truth Table for $A \lor (\neg B)$:**
+**Truth Table for $A \text{ OR } (\text{ NOT } B)$ : $A \lor (\neg B)$:**
 
-| $A$ | $B$ | $\neg B$ | $A \lor (\neg B)$ |
+| $A$ | $B$ | $\text{ NOT } B$ | $A \text{ OR } (\text{ NOT } B)$ |
 |:---:|:---:|:---:|:---:|
 | `0` | `0` | `1` | `1` |
 | `0` | `1` | `0` | `0` |
@@ -197,19 +204,20 @@ To connect the abstract concept of a gate to our physical build, we will use a c
 
 
 -   **Formal Definition:** The AND gate performs logical **Conjunction**. It is the strict gate; its output is True only if *all* inputs are True.
--   **Symbols:** $A \text{ AND } B$ ($A \land B$), `A && B` (programming).
+-   **Symbols:**
+    -   **Logical Notations:**
+        -   *Text-based:* $A \text{ AND } B$
+        -   *Symbolic:* $A \land B$
+    -   **Programming Operator:** `A && B`
 -   **The Rule:** The output is True only if $A$ is True AND $B$ is True.
 -   **Truth Table: AND Gate**
-
-| $A$ | $B$ | $A \land B$ |
+| $A$ | $B$ | $A \text{ AND } B$ |
 |:---:|:---:|:---------:|
 | `0` | `0` | `0` |
 | `0` | `1` | `0` |
 | `1` | `0` | `0` |
 | `1` | `1` | `1` |
-
--   **The Boolean Expression:** The output $Y$ is described by the expression $Y = A \land B$. We will achieve this with the composite expression $\text{NOT}(\text{NOT } A \text{ OR } \text{NOT } B)$ ($\neg(\neg A \lor \neg B)$), a clever trick we'll explore in the next module.
-
+-   **The Boolean Expression:** Our build implements the expression $\text{NOT}(\text{NOT } A \text{ OR } \text{NOT } B)$ : $\neg(\neg A \lor \neg B)$.
 ---
 
 #### Lab & Experiment
@@ -235,21 +243,22 @@ AND logic is essential for safety and precision. A missile might require `TurnKe
 
 #### Practice Problem 2.3.1: Logic Gate Design Challenge
 
-Design a circuit that implements the logic $A \text{ AND } (\text{NOT } B)$ ($A \land (\neg B)$) using only the NOT and OR primitives. Build it in Minecraft and verify with a truth table for all input combinations ($A$, $B$ = `0,0`; `0,1`; `1,0`; `1,1`).
+Design a circuit that implements the logic $A \text{ AND } (\text{NOT } B)$ : $A \land (\neg B)$ using only the NOT and OR primitives. Build it in Minecraft and verify with a truth table for all input combinations ($A$, $B$ = `0,0`; `0,1`; `1,0`; `1,1`).
 
 <details>
 <summary><strong>Show Solution</strong></summary>
 
-**Truth Table for $A \land (\neg B)$:**
+**Truth Table for $A \text{ AND } (\text{NOT } B)$:**
 
-| $A$ | $B$ | $\neg B$ | $A \land (\neg B)$ |
+| $A$ | $B$ | $\text{ NOT } B$ | $A \text{ OR } (\text{ NOT } B)$ |
 |:---:|:---:|:---:|:----------:|
 | `0` | `0` | `1` | `0` |
 | `0` | `1` | `0` | `0` |
 | `1` | `0` | `1` | `1` |
 | `1` | `1` | `0` | `0` |
 
-**Boolean Expression**: The expression $A \land (\neg B)$ is equivalent to $\text{NOT}(\text{NOT } A \text{ OR } B)$ ($\neg(\neg A \lor B)$) by De Morgan’s Law.
+
+**Boolean Expression**: The expression $A \text{ AND } (\text{NOT } B)$ : $A \land (\neg B)$ is equivalent to $\text{NOT}(\text{NOT } A \text{ OR } B)$ : $\neg(\neg A \lor B)$ by De Morgan’s Law.
 
 **Minecraft Circuit**: This requires building a composite AND gate where one of the inputs is inverted first.
 1. Create inputs for $A$ and $B$.
@@ -295,14 +304,14 @@ Write the single Boolean expression for the alarm $Y$. Which gates would you nee
 
 #### Practice Problem 2.4.3: The Build Challenge
 
-Design and build a Minecraft circuit that implements the logic $A \text{ AND } (\text{NOT } B)$ ($A \land (\neg B)$). Use only the primitive NOT and OR gates. Verify its function against a truth table for all four input combinations.
+Design and build a Minecraft circuit that implements the logic $A \text{ AND } (\text{NOT } B)$ : $A \land (\neg B)$. Use only the primitive NOT and OR gates. Verify its function against a truth table for all four input combinations.
 
 <details>
 <summary><strong>Show Solution</strong></summary>
 
 **Truth Table:**
 
-| $A$ | $B$ | $\neg B$| $A \land (\neg B)$ |
+| $A$ | $B$ | $\text{ NOT } B$| $A \text{ AND } (\text{ NOT } B)$ |
 |:---:|:---:|:---:|:----------:|
 | `0` | `0` | `1` | `0` |
 | `0` | `1` | `0` | `0` |

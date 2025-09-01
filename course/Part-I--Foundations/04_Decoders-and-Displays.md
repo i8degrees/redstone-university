@@ -113,10 +113,10 @@ By scaling down the problem, we can focus on the core logic without getting over
 -   **Inputs**: $B1$ (the "`2`s" place), $B0$ (the "`1`s" place)
 -   **Outputs**: $L0$, $L1$, $L2$, $L3$
 -   **Logic Gates**: We need one 2-input AND gate for each output.
-    -   $L0$ (for `00` or `0`) = $\text{NOT } B1 \text{ AND } \text{NOT } B0$ ($\neg B1 \land \neg B0$)
-    -   $L1$ (for `01` or `1`) = $\text{NOT } B1 \text{ AND } B0$ ($\neg B1 \land B0$)
-    -   $L2$ (for `10` or `2`) = $B1 \text{ AND } \text{NOT } B0$ ($B1 \land \neg B0$)
-    -   $L3$ (for `11` or `3`) = $B1 \text{ AND } B0$ ($B1 \land B0$)
+    -   $L0$ (for `00` or `0`) = $\text{NOT } B1 \text{ AND } \text{NOT } B0$ : $\neg B1 \land \neg B0$
+    -   $L1$ (for `01` or `1`) = $\text{NOT } B1 \text{ AND } B0$ : $\neg B1 \land B0$
+    -   $L2$ (for `10` or `2`) = $B1 \text{ AND } \text{NOT } B0$ : $B1 \land \neg B0$
+    -   $L3$ (for `11` or `3`) = $B1 \text{ AND } B0$ : $B1 \land B0$
 
 ---
 
