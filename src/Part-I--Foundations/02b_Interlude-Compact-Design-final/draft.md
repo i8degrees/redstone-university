@@ -67,7 +67,11 @@ The community has created many compact XOR designs. Here is one of the most comm
 
 #### Logical Deconstruction
 
+<<<<<<< HEAD:src/Part-I--Foundations/02b_Interlude-Compact-Design-final/draft.md
 This design is a masterclass in efficiency. It cleverly uses torch burnout and block power states to create the two conditions for an XOR (`A AND !B` or `!A AND B`) and merges their outputs. While tracing the exact path is advanced, the key takeaway is that it perfectly matches the XOR truth table in a minimal amount of space, which is critical when you need to build dozens of them for an arithmetic unit.
+=======
+This design is a masterclass in efficiency. It cleverly uses torch burnout and block power states to create the two conditions for an XOR, $A \text{ AND } (\text{NOT } B)$ or $(\text{NOT } A) \text{ AND } B$ : $ (A \land \neg B) \lor (\neg A \land B) $, and merges their outputs. While tracing the exact path is advanced, the key takeaway is that it perfectly matches the XOR truth table in a minimal amount of space, which is critical when you need to build dozens of them for an arithmetic unit.
+>>>>>>> 9b27476 (Updating part I for new dual notation style):src/Part-I--Foundations/03b_Interlude-Compact-Design-final/draft.md
 
 ---
 
