@@ -37,7 +37,7 @@ Just like $2 + x = x + 2$ in normal algebra, Boolean algebra has laws that let u
 
 #### A Note on Notation
 
-You’ll often see logic written using symbols from regular math. For example, **AND** is sometimes written as multiplication ($A \cdot B$ or $AB$), **OR** as addition ($A + B$), and **NOT** as an overbar ($Ā$).
+You’ll often see logic written using symbols from regular math. For example, **AND** is sometimes written as multiplication ($A \cdot B$ or $AB$), **OR** as addition ($A + B$), and **NOT** as an overbar ($\overline{A}$).
 
 For this course, we will continue using the dual notation system. We lead with a text-based version for clarity, followed by the formal symbol after a colon, like this: $A \text{ AND } B$ : $A \land B$.
 
