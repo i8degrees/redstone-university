@@ -350,7 +350,7 @@ NOR gates are fundamental in electronics. Because they are a universal gate, ent
 | `0` | `1` | `1` |
 | `1` | `0` | `1` |
 | `1` | `1` | `0` |
--   **The Boolean Expression:** Our build implements the expression `$(\text{NOT } A) \text{ OR } (\text{NOT } B) : \neg A \lor \neg B$`, which De Morgan's Law proves is equivalent to $A \text{ NAND } B$.
+-   **The Boolean Expression:** Our build implements the expression $(\text{NOT } A) \text{ OR } (\text{NOT } B)$ : $\neg A \lor \neg B$, which De Morgan's Law proves is equivalent to $A \text{ NAND } B$.
 
 > **A Note on De Morgan's Law in Action**: This is one of the most powerful tricks in digital logic. We know that NAND is $\neg(A \land B)$. We also know from De Morgan's Law that $\neg(A \land B)$ is perfectly equivalent to $\neg A \lor \neg B$. Our composite AND gate was built as $\neg(\neg A \lor \neg B)$. To create a NAND gate, we simply remove the final NOT gate (the last torch), which leaves us with the physical circuit for $\neg A \lor \neg B$. This is a perfect physical proof of a fundamental logic law!
 
