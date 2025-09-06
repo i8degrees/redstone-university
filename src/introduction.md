@@ -78,7 +78,15 @@ This course is for the curious. It's for:
 
 This course is designed to be followed along in **Minecraft**. However, Minecraft is not strictly required!
 
-For each module, I will provide guidance, and I also provide a **World Download** (the "RU Campus") with the completed circuits. You can use this to check your work, explore the final product, or use the pre-built components as "black boxes" if you want to focus more on the high-level concepts.
+#### Supported Editions & Versions
+This course is authored on **Minecraft Bedrock Edition** and designed so that all of **Part I** works on **both Bedrock and Java** as written (we use only dust, torches, repeaters, lamps, and solid blocks).
+
+If any module introduces edition‑specific behavior (e.g., pistons, observers, sub‑tick timing), it will be flagged in a **Bedrock/Java Notes** box with a tested variant.
+
+**Versions tested:**
+Bedrock: **[1.21.101]** • Java: **[pending]**
+
+World downloads are provided for both Java and Bedrock. You can use this to check your work, explore the final product, or use the pre-built components as "black boxes" if you want to focus more on the high-level concepts.
 
 **The "No-Minecraft Track":** If you don't have Minecraft or prefer a more theoretical approach, you can still complete this entire course. Every lesson will include text descriptions, diagrams, and schematics. I will also provide links to free online digital logic simulators (like [CircuitVerse](https://circuitverse.org/simulator)) where you can build and test these circuits without the game. The core learning is in the logic, not just the blocks.
 

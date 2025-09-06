@@ -4,6 +4,9 @@ Welcome to Part I of our journey to build a working computer from scratch! Every
 
 By the end of Part I, our computer won’t be thinking on its own yet, but we will have a complete input and output system. You’ll be able to give it a number in its native language, and it will translate that number back into a format you can instantly understand. This is where the magic begins!
 
+**Edition parity**
+All builds in Part I are cross‑edition (**Bedrock + Java**) as written.
+
 ### Our Mission for Part I
 
 To build this foundation, we'll progress through five modules and two optional interludes. This structured path combines essential theory with practical labs, culminating in a single, fully-functional system:
