@@ -78,7 +78,15 @@ This course is for the curious. It's for:
 
 This course is designed to be followed along in **Minecraft**. However, Minecraft is not strictly required!
 
-For each module, I will provide guidance, and I also provide a **World Download** (the "RU Campus") with the completed circuits. You can use this to check your work, explore the final product, or use the pre-built components as "black boxes" if you want to focus more on the high-level concepts.
+#### Supported Editions & Versions
+This course is authored on **Minecraft Bedrock Edition** and designed so that all of **Part I** works on **both Bedrock and Java** as written (we use only dust, torches, repeaters, lamps, and solid blocks).
+
+If any module introduces edition‑specific behavior (e.g., pistons, observers, sub‑tick timing), it will be flagged in a **Bedrock/Java Notes** box with a tested variant.
+
+**Versions tested:**
+Bedrock: **[1.21.101]** • Java: **[pending]**
+
+World downloads are provided for both Java and Bedrock. You can use this to check your work, explore the final product, or use the pre-built components as "black boxes" if you want to focus more on the high-level concepts.
 
 **The "No-Minecraft Track":** If you don't have Minecraft or prefer a more theoretical approach, you can still complete this entire course. Every lesson will include text descriptions, diagrams, and schematics. I will also provide links to free online digital logic simulators (like [CircuitVerse](https://circuitverse.org/simulator)) where you can build and test these circuits without the game. The core learning is in the logic, not just the blocks.
 
@@ -93,5 +101,17 @@ I am excited for you to join me on this journey. It's time to stop just *using* 
 -   **Use the world download or diagrams:** If you get stuck or want to check your work, explore the provided world or reference the diagrams.
 -   **Read the real-world and software connections:** These sections help you see why each concept matters beyond Minecraft.
 -   **Go at your own pace:** Take your time with each lesson, and revisit earlier modules whenever you need a refresher.
+
+
+### Notation & Conventions
+
+- **Bit names & order:** `B3 B2 B1 B0` (left → right). In math, use subscripts for readability: $B_3, B_2, B_1, B_0$.
+- **Binary/hex literals (concrete values):** `0b0011`, `0x0C` (uppercase A–F). Decimal is plain text unless in code.
+- **Variables & expressions (abstract):** LaTeX, e.g., $A$, $A \land B$, $\neg A$.
+- **Dual notation (first use):** $A \text{ AND } B : A \land B$. Subsequent mentions: $A \land B$.
+- **Active‑low signals:** Diagrams use a **bubble**. In text use an **overbar** (e.g., $\overline{L_3}$); if LaTeX isn’t available in a label, use `L3_n`.
+- **Diagram colors:** RU palette = **neon green** (powered), **gray** (unpowered). Gate families use consistent palette colors in figures.
+
+
 
 Ready? Let’s get building!
