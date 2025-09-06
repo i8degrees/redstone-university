@@ -102,4 +102,16 @@ I am excited for you to join me on this journey. It's time to stop just *using* 
 -   **Read the real-world and software connections:** These sections help you see why each concept matters beyond Minecraft.
 -   **Go at your own pace:** Take your time with each lesson, and revisit earlier modules whenever you need a refresher.
 
+
+### Notation & Conventions
+
+- **Bit names & order:** `B3 B2 B1 B0` (left → right). In math, use subscripts for readability: $B_3, B_2, B_1, B_0$.
+- **Binary/hex literals (concrete values):** `0b0011`, `0x0C` (uppercase A–F). Decimal is plain text unless in code.
+- **Variables & expressions (abstract):** LaTeX, e.g., $A$, $A \land B$, $\neg A$.
+- **Dual notation (first use):** $A \text{ AND } B : A \land B$. Subsequent mentions: $A \land B$.
+- **Active‑low signals:** Diagrams use a **bubble**. In text use an **overbar** (e.g., $\overline{L_3}$); if LaTeX isn’t available in a label, use `L3_n`.
+- **Diagram colors:** RU palette = **neon green** (powered), **gray** (unpowered). Gate families use consistent palette colors in figures.
+
+
+
 Ready? Let’s get building!
