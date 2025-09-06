@@ -118,13 +118,16 @@ This applies to all mathematical and logical ideas, including **variables**, ful
     -   **Good**: We know from the Inverse Law that $B \lor \neg B$ always simplifies to the constant `$1$` (True).
     -   **Bad**: The law is `A AND 1 = A`.
 
-**2. Use Backticks (`` ` ``) for Literal Values and Code**
+**2. Use Backticks (` `) for Literal Values and Code**
 
 This applies to all concrete, physical data values and code snippets. It represents the actual state of a wire, a number being input, or a line of code.
 
--   **Data Values:** `` `1` ``, `` `0` ``
--   **Binary/Decimal/Hex Strings:** `` `1101` ``, `` `13` ``, `` `0xD` ``
--   **Code:** `` `if (is_ready)` ``
+-   **Data Values:** `1`, `0`
+-   **Number bases:** Use prefixes with backticks for concrete values:
+    -   **Binary:** `0b0011`
+    -   **Hexadecimal:** `0x0C` (uppercase A–F). Pad to full nibbles only when clarity demands it (e.g., 8-bit tables: `0x0C`); otherwise `0xC` is fine.
+    -   **Decimal:** `1`, no prefix needed.
+-   **Code:** `if (is_ready)`
     -   **Good**: A Redstone signal can be either `1` (ON) or `0` (OFF).
     -   **Good**: Set the input levers to `1011` to represent the number `13`.
     -   **Bad**: A signal can be either $1$ or $0$.
@@ -141,7 +144,7 @@ If a number is used as part of a descriptive phrase (like an adjective), it shou
 The key is to identify if you are talking about the **abstract universe of math** or the **physical universe of the circuit**.
 
 -   **Abstract (Math):** The expression `$A \lor 0$` is governed by the Annihilator Law. The variable `$A$` and the constant `$0$` are mathematical concepts.
--   **Physical (Circuit):** To test this, we set the lever for input `$A$` to the value `` `1` ``. The signal on the wire is now `` `1` ``.
+-   **Physical (Circuit):** To test this, we set the lever for input `$A$` to the value `1`. The signal on the wire is now `1`.
 
 This clear separation in formatting makes complex sentences easy to parse and understand.
 
@@ -175,6 +178,23 @@ The guideline for repetition remains the same. After the first use of the full d
 **Example of All Rules in Practice:**
 
 > ...as shown in the **Symbols** section above, the text-based form is $A \text{ AND } B$ and the symbolic form is $A \land B$. In this lesson, we will build a circuit for the expression $A \text{ AND } (\text{NOT } B) : A \land (\neg B)$. To build the circuit for $A \land (\neg B)$, we first need to generate the signal for $\neg B$...
+
+### Active‑Low Signals (Diagrams vs Text)
+
+- **Diagrams:** Use the standard **bubble** notation (a small open circle on the pin) to indicate inversion/active‑low.
+- **Prose/Equations (LaTeX):** Write active‑low nets with an **overbar**, e.g., $\overline{L_3}$, $\overline{RESET}$. Use this consistently wherever MathJax/LaTeX is available.
+- **Fallback when LaTeX isn’t available (labels, filenames, tool pin names):** use the suffix **`_n`**, e.g., `L3_n`, `RESET_n`.
+- **Operator vs name:** Use $\neg$ for logical negation in expressions (e.g., $Y=\neg(A\lor B)$). Use the overbar for **net names** (e.g., “the active‑low output $\overline{Y}$”). Avoid `/NAME` and `!NAME`.
+- **Bit indices:** In math, prefer subscripts for readability ($B_3$). In labels or code, use `B3`.
+
+
+### Active‑Low Signals (Diagrams vs Text)
+
+- **Diagrams:** Use the standard **bubble** notation (a small open circle on the pin) to indicate inversion/active‑low, e.g., the outputs of an active‑low decoder line or an active‑low segment driver.
+- **Text (LaTeX):** Prefer an overbar, e.g., $\overline{L3}$. When overbars aren’t practical (labels or non‑LaTeX contexts), allow `L3_n`. In prose, write “`L3` (active‑low)” the first time it appears.
+- **Do not** use slashes (e.g., `/L3`) or exclamation marks (e.g., `!L3`) for net names in this course; reserve `!` for boolean negation in programming examples.
+
+
 
 ### Summary Table
 
