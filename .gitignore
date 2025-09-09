@@ -1,3 +1,7 @@
 .DS_Store
 course/Redstone-University-for-pdf.pdf
 course/Redstone-University-with-key-terms.md
+
+# nodejs package metadata
+node_modules/**
+package-lock.json
