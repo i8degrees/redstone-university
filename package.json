@@ -1,0 +1,13 @@
+{
+  "name": "redstone-university",
+  "scripts": {
+    "start": "echo STUB",
+    "build": "docker compose up -d",
+    "prepare": "python3 scripts/prepare_pdf.py",
+    "prepare-pdf": "npm run prepare",
+    "publish": "python3 scripts/publish.py"
+  },
+  "devDependencies": {
+    "markdown-to-pdf": "github:baileyjm02/markdown-to-pdf"
+  }
+}

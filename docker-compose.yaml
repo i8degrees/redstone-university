@@ -1,0 +1,15 @@
+---
+#version: '3.7'
+
+services:
+
+  markdown-to-pdf:
+    restart: no
+    #image: "ghcr.io/baileyjm02/markdown-to-pdf/markdown-to-pdf:latest"
+    image: "baileyjm02/markdown-to-pdf:latest"
+    container_name: markdown-to-pdf
+    command: ["markdown-to-pdf", "--help"]
+    # command: ["markdown-to-pdf", "course/Redstone-University.md"]
+    #build:
+      #context: .
+      #dockerfile: Dockerfile
