@@ -1,8 +1,11 @@
 name: Build and Publish Course
 on:
   push:
-    branches: [main]
-
+    branches: [
+      "main",
+      "feature/i8degrees",
+      "dev"
+    ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -39,6 +42,7 @@ jobs:
           output_dir: course/
           build_html: false
           theme: assets/css/pdf-style.css
+          #theme: assets/css/pdf-style_v2.css
           extend_default_theme: true
           highlight_theme: assets/css/darcula.css
 
