@@ -1153,12 +1153,15 @@ blockquote p {
     page-break-before: always;
 }
 
-@page {
-  @bottom-right {
-    content: 'Page: ' counter(page) ' of ' counter(pages);
-    font-size: 0.7em;
+@media print {
+  @page {
+    @bottom-right {
+      content: 'Page: ' counter(page) ' of ' counter(pages);
+      font-size: 0.7em;
+    }
   }
 }
+
 /* Dracula Theme v1.2.5
  *
  * https://github.com/dracula/highlightjs
