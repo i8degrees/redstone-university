@@ -2,9 +2,7 @@ name: Build and Publish Course
 on:
   push:
     branches: [
-      "main",
       "feature/i8degrees",
-      "dev"
     ]
 jobs:
   build:
