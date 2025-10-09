@@ -94,6 +94,9 @@ The basic building blocks of our computer are about to take shape. Get ready for
 **Signal Strength**
 : The power level of a Redstone signal, ranging from `15` (full) down to `0` (off). A signal loses `1` strength for every block of dust it travels. [0]
 
+**Simplification**
+: The process of using the laws of Boolean algebra to reduce a complex logic expression to a simpler, equivalent one, resulting in a more efficient circuit. [3]
+
 **Strong Power**
 : A type of power provided by components like Repeaters or Torches directly to a block. It can activate all adjacent Redstone components, including dust. [0]
 
@@ -102,6 +105,9 @@ The basic building blocks of our computer are about to take shape. Get ready for
 
 **Truth Table**
 : A chart showing all possible input/output combinations for a logic gate or circuit. [2]
+
+**Universal Gate**
+: A logic gate, such as NAND or NOR, that is functionally complete by itself. [3]
 
 **Weak Power**
 : A type of power provided by Redstone Dust to a block. It can activate components like lamps and repeaters, but not adjacent Redstone dust. [0]
@@ -121,4 +127,4 @@ The basic building blocks of our computer are about to take shape. Get ready for
 
 [2]: Module 2: The Language of Logic – A Deep Dive into Boolean Algebra
 
-[3]: Module 3: From Binary to Pictures: Building a Digital Display
+[3]: Module 3: The Art of Logic – Simplification and Special Gates

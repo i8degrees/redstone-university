@@ -37,11 +37,11 @@ Let's analyze a few classic compact designs. For each one, we'll compare the **V
 
 First, recall our verbose AND gate. It's a perfect physical representation of De Morgan's Law, `!(!A OR !B)`, but it takes up a lot of room.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02b_AND-gate-composite_minecraft.png" alt="Verbose AND Gate in Minecraft" width="512px"/><br/><em>Figure: Our easy-to-read, but large, educational AND gate.</em></div><br/>
+<div align="center"><img src="https://raw.githubusercontent.com/i8degrees/redstone-university/main/assets/images/02b_AND-gate-composite_minecraft.png" alt="Verbose AND Gate in Minecraft" width="512px"/><br/><em>Figure: Our easy-to-read, but large, educational AND gate.</em></div><br/>
 
 Now, observe a classic compact AND gate. It performs the exact same function in a tiny `3`x`2` footprint.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02b_AND-gate_minecraft.png" alt="Compact AND Gate in Minecraft" width="512px"/><br/><em>Figure: A classic, space-efficient compact AND gate.</em></div><br/>
+<div align="center"><img src="https://raw.githubusercontent.com/i8degrees/redstone-university/main/assets/images/02b_AND-gate_minecraft.png" alt="Compact AND Gate in Minecraft" width="512px"/><br/><em>Figure: A classic, space-efficient compact AND gate.</em></div><br/>
 
 #### Logical Deconstruction
 
@@ -55,15 +55,19 @@ The logic is identical: `!(!A OR !B)`. It's just cleverly folded into a smaller 
 
 Our educational XOR gate is large because the logic is complex. It's designed to be read.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02b_XOR-gate-composite_minecraft.png" alt="Verbose XOR Gate in Minecraft" width="512px"/><br/><em>Figure: Our educational XOR gate, built for clarity.</em></div><br/>
+<div align="center"><img src="https://raw.githubusercontent.com/i8degrees/redstone-university/main/assets/images/02b_XOR-gate-composite_minecraft.png" alt="Verbose XOR Gate in Minecraft" width="512px"/><br/><em>Figure: Our educational XOR gate, built for clarity.</em></div><br/>
 
 The community has created many compact XOR designs. Here is one of the most common "tileable" (meaning you can place them side-by-side) versions.
 
-<div align="center"><img src="https://raw.githubusercontent.com/fielding/redstone-university/main/assets/images/02b_XOR-gate_minecraft.png" alt="Compact XOR Gate in Minecraft" width="512px"/><br/><em>Figure: A very common and tileable compact XOR gate design.</em></div><br/>
+<div align="center"><img src="https://raw.githubusercontent.com/i8degrees/redstone-university/main/assets/images/02b_XOR-gate_minecraft.png" alt="Compact XOR Gate in Minecraft" width="512px"/><br/><em>Figure: A very common and tileable compact XOR gate design.</em></div><br/>
 
 #### Logical Deconstruction
 
+<<<<<<< HEAD:src/Part-I--Foundations/02b_Interlude-Compact-Design-final/draft.md
 This design is a masterclass in efficiency. It cleverly uses torch burnout and block power states to create the two conditions for an XOR (`A AND !B` or `!A AND B`) and merges their outputs. While tracing the exact path is advanced, the key takeaway is that it perfectly matches the XOR truth table in a minimal amount of space, which is critical when you need to build dozens of them for an arithmetic unit.
+=======
+This design is a masterclass in efficiency. It cleverly uses torch burnout and block power states to create the two conditions for an XOR, $A \text{ AND } (\text{NOT } B)$ or $(\text{NOT } A) \text{ AND } B$ : $ (A \land \neg B) \lor (\neg A \land B) $, and merges their outputs. While tracing the exact path is advanced, the key takeaway is that it perfectly matches the XOR truth table in a minimal amount of space, which is critical when you need to build dozens of them for an arithmetic unit.
+>>>>>>> 9b27476 (Updating part I for new dual notation style):src/Part-I--Foundations/03b_Interlude-Compact-Design-final/draft.md
 
 ---
 

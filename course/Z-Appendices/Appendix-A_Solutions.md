@@ -256,6 +256,92 @@ The entire complex circuit simplifies down to a single OR gate!
 ---
 
 
+### Practice Problem 3.1.1: Circuit Simplification Challenge
+
+Given the following expression, simplify it using Boolean laws:
+$$ (A \lor B) \land (\neg A \lor \neg B) $$
+
+**Simplification Steps:**
+1.  **Start with the expression:** $(A \lor B) \land (\neg A \lor \neg B)$
+2.  **Apply De Morgan’s Law to the second term:** $(\neg A \lor \neg B)$ is equivalent to $\neg(A \land B)$.
+3.  **The expression becomes:** $(A \lor B) \land \neg(A \land B)$
+4.  **This is the definition of Exclusive OR (XOR).**
+5.  **Final simplified expression:** $A \text{ XOR } B$ : $A \oplus B$
+
+</details>
+
+
+---
+
+
+### Practice Problem 3.2.1: The Two-Switch Light System
+
+Design a Minecraft circuit for a two-switch light system where flipping either switch toggles the light’s state. This requires implementing the logic $A \text{ XOR } B : A \oplus B$ using only NOT and OR gates.
+
+**Logic:** The light should be ON when exactly one switch is ON, which is the definition of $A \text{ XOR } B : A \oplus B$.
+
+**Truth Table:**
+| $A$ | $B$ | $A \text{ XOR } B$ |
+|:---:|:---:|:----------------:|
+| `0` | `0` | `0` |
+| `0` | `1` | `1` |
+| `1` | `0` | `1` |
+| `1` | `1` | `0` |
+
+**Minecraft Circuit:** Build the XOR circuit from this lesson. Connect levers for inputs $A$ and $B$, and a lamp for the output. Test by flipping each lever individually and verifying that the lamp's state toggles each time.
+
+</details>
+
+
+---
+
+
+### Practice Problem 3.3.1: The Missing Number Challenge
+
+Now that you've seen how the XOR trick works, try applying the same core principle to solve a different, but related, problem.
+
+> **The Challenge:**
+>
+> You are given a list of numbers that contains every number from `0` to `n` exactly once, except for one number which is missing. Your task is to find that missing number.
+>
+> -   **Example List:** `nums = [3, 0, 1]`
+> -   In this example, `n` would be `3`. The full range of numbers should be `[0, 1, 2, 3]`. The missing number is `2`.
+>
+> **Hint:**
+> Think about the two groups of numbers you're dealing with: the list you *have* and the complete list you *should have*. How can you use XOR's self-canceling property to find the single difference between these two groups?
+
+**The Logic:**
+
+The core idea is to XOR all the numbers that *should* be in the list against all the numbers that *are* actually in the list.
+
+1.  First, we calculate the XOR sum of the complete sequence of numbers from 0 to `n`. For our example `[3, 0, 1]`, `n` is 3, so this would be `0 ^ 1 ^ 2 ^ 3`.
+2.  Next, we calculate the XOR sum of the numbers in the list we were given: `3 ^ 0 ^ 1`.
+3.  If we XOR these two results together, all the numbers that are present in both lists will pair up and cancel out, leaving only the number that was missing from the input list.
+
+`(0 ^ 1 ^ 2 ^ 3) ^ (3 ^ 0 ^ 1)` can be rearranged as `(0^0) ^ (1^1) ^ (3^3) ^ 2`, which simplifies to `2`.
+
+**The Python Code:**
+
+```python
+def missingNumber(nums):
+    n = len(nums)
+    expected_xor_sum = 0
+    for i in range(n + 1):
+        expected_xor_sum ^= i
+
+    actual_xor_sum = 0
+    for num in nums:
+        actual_xor_sum ^= num
+
+    return expected_xor_sum ^ actual_xor_sum
+```
+
+</details>
+
+
+---
+
+
 ### Practice Problem 3.4.1: Design on Paper
 
 Before you build, an engineer must be able to plan. For output line **`L6` (Identity: `0110`)**, what taps would you need? List out which type of tap (Repeater or Torch) is required for each of the four bus lines (`B3`, `B2`, `B1`, `B0`).
@@ -265,6 +351,29 @@ Applying our rule:
 -   `B2` is `1`: Requires a **Torch Tap**.
 -   `B1` is `1`: Requires a **Torch Tap**.
 -   `B0` is `0`: Requires a **Repeater Tap**.
+
+</details>
+
+
+---
+
+
+### Practice Problem 3.4.1: Universal Gate Challenge
+
+Build an $A \text{ AND } B$ ($A \land B$) gate using only NOR gates. Verify it with a truth table in Minecraft for all four input combinations.
+
+**Logic:** From our universal gate table, we know the expression is $(A \text{ NOR } A) \text{ NOR } (B \text{ NOR } B)$.
+
+**Truth Table Verification:**
+
+| $A$ | $B$ | $A \text{ NOR } A$ ($\neg A$) | $B \text{ NOR } B$ ($\neg B$) | $(\neg A) \text{ NOR } (\neg B)$ | Final Output ($A \land B$) |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| `0` | `0` | `1` | `1` | `0` | `0` |
+| `0` | `1` | `1` | `0` | `0` | `0` |
+| `1` | `0` | `0` | `1` | `0` | `0` |
+| `1` | `1` | `0` | `0` | `1` | `1` |
+
+**Minecraft Circuit:** Build three NOR gates. The first takes input $A$ on both of its inputs (creating a NOT gate). The second does the same for input $B$. The outputs of these first two gates become the inputs for the third, final NOR gate, which produces the correct AND result.
 
 </details>
 
@@ -308,12 +417,100 @@ The digit `2` uses segments **`a`, `b`, `d`, `e`, and `g`**. Therefore, you woul
 ---
 
 
+### Practice Problem 3.5.1: Knowledge Check
+
+1.  What is the key difference in the output of an OR gate versus an XOR gate when both inputs are `1`?
+2.  Which two gates are considered "universal," and what is the name of this powerful property?
+3.  Using De Morgan's Law, what is the equivalent expression for $\neg(A \land B)$?
+
+1.  When both inputs are `1`, an **OR** gate outputs `1`, while an **XOR** gate outputs `0`.
+2.  The **NAND** gate and the **NOR** gate. The property is called **Functional Completeness**.
+3.  The equivalent expression is $\neg A \lor \neg B$.
+
+</details>
+
+
+---
+
+
 ### Practice Problem 3.5.2: Debug Challenge
 
 When you test your encoder by providing a LOW signal to the `L4` line, you expect to see the digit `4` (segments `b, c, f, g`). Instead, the display shows `b, c, f` but **segment `g` remains dark**. What is the most likely cause of this error?
 
 If a segment that should be ON is OFF, it means it is not receiving power. The most likely cause is simple: you **forgot to place the torch tap** at the intersection of the horizontal `L4` line and the perpendicular segment `g` line. Without that torch, there is nothing to power the line when `L4` goes low.
 
+</details>
+
+
+---
+
+
+### Practice Problem 3.5.2: The Simplification Challenge
+
+An engineer has designed a circuit with the expression: $Y = (A \text{ AND } C) \text{ OR } (A \text{ AND } B \text{ AND } C) \text{ OR } (A \text{ AND } (\text{NOT } B) \text{ AND } C)$ ($Y = (A \land C) \lor (A \land B \land C) \lor (A \land \neg B \land C)$).
+
+Simplify this expression to its most efficient form using Boolean laws. (Hint: Look for a common factor in all three terms first).
+
+1.  **Start with the expression:** $Y = (A \land C) \lor (A \land B \land C) \lor (A \land \neg B \land C)$
+2.  **Factor out the common term $(A \land C)$:** $Y = (A \land C) \land (1 \lor B \lor \neg B)$
+3.  **Apply Inverse Law ($B \lor \neg B = 1$):** $Y = (A \land C) \land (1 \lor 1)$
+4.  **Apply Idempotent/Annihilator Law ($1 \lor 1 = 1$):** $Y = (A \land C) \land 1$
+5.  **Apply Identity Law:** $Y = A \land C$
+
+The entire complex circuit simplifies down to a single AND gate with inputs $A$ and $C$.
+
+</details>
+
+
+---
+
+
+### Practice Problem 3.5.3: The Universal Gate Challenge
+
+Build an $A \text{ OR } B$ ($A \lor B$) gate using only **NAND** gates. Provide the Boolean expression for your build and verify it with a truth table.
+
+**Boolean Expression:** From our universal gate table, the expression is $(A \text{ NAND } A) \text{ NAND } (B \text{ NAND } B)$.
+
+**Truth Table Verification:**
+
+| $A$ | $B$ | $A \text{ NAND } A$ ($\neg A$) | $B \text{ NAND } B$ ($\neg B$) | $(\neg A) \text{ NAND } (\neg B)$ | Final Output ($A \lor B$) |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| `0` | `0` | `1` | `1` | `0` | `0` |
+| `0` | `1` | `1` | `0` | `1` | `1` |
+| `1` | `0` | `0` | `1` | `1` | `1` |
+| `1` | `1` | `0` | `0` | `1` | `1` |
+
+</details>
+
+
+---
+
+
+### Practice Problem 3.5.4: The Software Challenge
+
+You are given a list where every number appears three times, except for one number that appears only once. Write a Python function using bitwise operators that finds the unique number. (Hint: The self-canceling property of XOR won't work directly. How can you count the `1`s in each bit position across all the numbers?)
+
+**The Logic:** If we sum the bits in each position (the 1s place, 2s place, 4s place, etc.) for all the numbers in the list, the sum for each bit of the triplicate numbers will be a multiple of 3. The unique number's bits will be the "remainders." We can use the modulo operator (`%`) to find these remainders.
+
+**The Python Code:**
+```python
+def singleNumber_threes(nums):
+    result = 0
+    # Iterate through each of the 32 bits for a standard integer
+    for i in range(32):
+        bit_sum = 0
+        for num in nums:
+            # Check if the i-th bit is set in the current number
+            if (num >> i) & 1:
+                bit_sum += 1
+
+        # If the sum is not a multiple of 3, the unique number's bit is 1
+        if bit_sum % 3 != 0:
+            # Reconstruct the result by setting the i-th bit
+            result |= (1 << i)
+
+    return result
+```
 </details>
 
 
