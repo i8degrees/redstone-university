@@ -1022,6 +1022,10 @@ body {
     padding: 2cm; /* Standard page margins */
 }
 
+body {
+    counter-reset: page;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -1153,15 +1157,33 @@ blockquote p {
     page-break-before: always;
 }
 
-//@media print {
-  @page {
-    @bottom-right {
-      content: 'Page: ' counter(page) ' of ' counter(pages);
-      font-size: 0.7em;
-    }
-  }
-//}
+.pagebreak::before {
+    counter-increment: page;
+    content: counter(page);
+}
 
+@media print {
+    @page {
+        margin: 1in;
+        @bottom-right {
+            content: counter(page);
+        }
+    }
+
+    .page-footer {
+        position: fixed; /* Or absolute, depending on layout */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        /* Style your footer */
+    }
+
+    .pagebreak::before {
+        counter-increment: page;
+        content: counter(page);
+    }
+}
 /* Dracula Theme v1.2.5
  *
  * https://github.com/dracula/highlightjs
